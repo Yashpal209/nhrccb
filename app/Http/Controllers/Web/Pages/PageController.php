@@ -1,0 +1,135 @@
+<?php
+
+namespace App\Http\Controllers\Web\Pages;
+
+use App\Http\Controllers\Controller;
+use App\Models\Admin\Administration\NationalAdvisor;
+use App\Models\Admin\Administration\NationalPatron;
+use App\Models\Admin\Administration\OfficeStaff;
+use App\Models\Admin\Notification\LatestUpdate;
+use App\Models\Admin\Notification;
+use App\Models\Admin\Notification\WhatsNew;
+// use App\Models\Admin\WhatsNew; 
+use App\Models\Admin\OurAwardee;
+use App\Models\Admin\publication;
+use Illuminate\Http\Request;
+
+class PageController extends Controller
+{
+    public function who_we_are()
+    {
+        return view('web.pages.about_us.who-we-are');
+    }
+    public function what_we_do()
+    {
+        return view('web.pages.about_us.what-we-do');
+    }
+    public function how_we_works()
+    {
+        return view('web.pages.about_us.how_we_works');
+    }
+    public function rules_regulations()
+    {
+        return view('web.pages.about_us.rules_regulations');
+    }
+    public function govt_recognition()
+    {
+        return view('web.pages.about_us.govt_recognition');
+    }
+    public function collaboration()
+    {
+        return view('web.pages.about_us.collaboration');
+    }
+    public function whos_who()
+    {
+        return view('web.pages.about_us.whos_who');
+    }
+    public function functions()
+    {
+        return view('web.pages.about_us.functions');
+    }
+
+
+    public function official_notification()
+    {
+        $notifications = Notification::orderBy('date', 'desc')->paginate(15);
+        return view('web.pages.about_us.official_notification', compact('notifications'));
+    }
+
+
+    public function upcomingEvent()
+    {
+        return view('web.pages.home.upcomingEvent');
+    }
+
+    public function latestUpdate()
+    {
+        $latestUpdates = LatestUpdate::orderBy('date', 'desc')->paginate(10); 
+        return view('web.pages.home.latestUpdate', compact('latestUpdates'));
+    }
+
+    public function whatsNew()
+    {
+        $whatsNew = whatsNew::orderBy('date', 'desc')->get();
+        // dd($whatsNew);
+        $data = compact('whatsNew');
+        return view('web.pages.home.whatsNew')->with($data);
+    }
+    public function funding()
+    {
+        return view('web.pages.about_us.funding');
+    }
+    public function trainingResearch()
+    {
+        return view('web.pages.training-research');
+    }
+    public function verification()
+    {
+        return view('web.pages.verification');
+    }
+    public function publication()
+    {
+        $publications = Publication::orderBy('publication_date', 'desc')->get();
+        return view('web.pages.about_us.publication', compact('publications'));
+    }
+    public function PresidentMessage()
+    {
+        return view('web.pages.administration.PresidentMessage');
+    }
+    public function NationalPatron()
+    {
+        $nationalpatrons = NationalPatron::orderby('order_no', 'asc')->get();
+        $data = compact('nationalpatrons');
+        return view('web.pages.administration.NationalPatron')->with($data);
+    }
+    public function NationalAdvisor()
+    {
+        $nationaladvisor = NationalAdvisor::orderby('order_no', 'asc')->get();
+        $data = compact('nationaladvisor');
+        return view('web.pages.administration.NationalAdvisor')->with($data);
+    }
+    public function OfficeStaff()
+    {
+        $officestaff = OfficeStaff::orderby('order_no', 'asc')->get();
+        $data = compact('officestaff');
+        return view('web.pages.administration.OfficeStaff')->with($data);
+    }
+
+    public function OurAwardee()
+    {
+        $viewAwardee = OurAwardee::OrderBy('created_at', 'desc')->get();
+        $data = compact('viewAwardee');
+        return view('web.pages.ourawardee.ourAwardee')->with($data)->with('no', '1');
+    }
+
+    public function JoinUs()
+    {
+        $viewAwardee = OurAwardee::OrderBy('created_at', 'desc')->get();
+        $data = compact('viewAwardee');
+        return view('web.pages.join_us.join_us_form')->with($data)->with('no', '1');
+    }
+    public function ContactUs()
+    {
+        return view('web.pages.contactUs.contactUs');
+    }
+}

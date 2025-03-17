@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Http\Controllers\Web\Pages;
+
+use App\Http\Controllers\Controller;
+use App\Models\Admin\Publication\MonthlyReport;
+use App\Models\Admin\Publication\AnnualReport;
+use App\Models\Admin\Publication\Souvenier;
+use App\Models\Admin\Publication\Journal;
+use Illuminate\Http\Request;
+
+use function Laravel\Prompts\alert;
+
+class PublicationController extends Controller
+{
+     public function monthly_report()
+     {
+          $monthlyReports = MonthlyReport::paginate(10);
+          return view('web.pages.publication.monthly_report', compact('monthlyReports'));
+     }
+     public function annual_report()
+     {
+          $annualReports = AnnualReport::paginate(10);
+          return view('web.pages.publication.annual_report', compact('annualReports'));
+     }
+     public function souvenier()
+     {
+          $souveniers = Souvenier::paginate(10);
+          return view('web.pages.publication.souvenier', compact('souveniers'));
+     }
+     public function propectus()
+     {
+          return view('web.pages.publication.propectus');
+     }
+     public function journal()
+     {
+          $journals = Journal::paginate(10);
+          return view('web.pages.publication.journal', compact('journals'));
+     }
+     public function rule_book()
+     {
+          return view('web.pages.publication.rule_book');
+     }
+     public function convo_report()
+     {
+          return view('web.pages.publication.convocation_report');
+     }
+}
