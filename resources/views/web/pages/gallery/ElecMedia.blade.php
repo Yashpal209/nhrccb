@@ -4,12 +4,11 @@
     <div class="head-2">
         <div class="container">
             <div class="head-2-inn">
-                <h1>Electronic Media</h1>
+                <h1>Press Release</h1>
             </div>
         </div>
     </div>
 </section>
-<!--SECTION START-->
 
 <!--SECTION START-->
 <section>
@@ -17,21 +16,31 @@
         <div class="container com-sp pad-bot-70 ed-res-bg">
             <div class="row">
                 <div class="cor about-sp h-gal ed-pho-gal">
-                    @foreach($elecmedia as $elecmedia)
-                    <ul>
-                        <li>
-                            <div class="card">
-                                <div class="card-body">
-                                    <img class="materialboxed" data-caption="{{$elecmedia->elec_med_img}}" src="{{url('/').'/'. $elecmedia->elec_med_img}}" alt="">
+                    @if($elecmedia->count() > 0)
+                        <ul>
+                            @foreach($elecmedia as $media)
+                            <li>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img class="materialboxed" data-caption="{{ $media->elec_med_img }}" src="{{ url('/') . '/' . $media->elec_med_img }}" alt="">
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <h5>{{ $media->title }}</h5>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <h5>{{$elecmedia->title}}</h5>
-                                </div>
-                            </div>
+                            </li>
+                            @endforeach
+                        </ul>
 
-                        </li>
-                    </ul>
-                    @endforeach
+                        <!-- Pagination Links -->
+                        <div class="pagination text-center">
+                            {{ $elecmedia->links() }}
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <h4>No Data Available</h4>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

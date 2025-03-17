@@ -7,6 +7,9 @@ use App\Models\Admin\Publication\MonthlyReport;
 use App\Models\Admin\Publication\AnnualReport;
 use App\Models\Admin\Publication\Souvenier;
 use App\Models\Admin\Publication\Journal;
+use App\Models\Admin\Publication\Prospectus;
+use App\Models\Admin\Publication\Rulebook;
+use App\Models\Admin\Publication\Convocation;
 use Illuminate\Http\Request;
 
 use function Laravel\Prompts\alert;
@@ -30,7 +33,8 @@ class PublicationController extends Controller
      }
      public function propectus()
      {
-          return view('web.pages.publication.propectus');
+          $propectus = Prospectus::paginate(10);
+          return view('web.pages.publication.propectus', compact('propectus'));
      }
      public function journal()
      {
@@ -39,10 +43,12 @@ class PublicationController extends Controller
      }
      public function rule_book()
      {
-          return view('web.pages.publication.rule_book');
+          $ruleBooks = Rulebook::paginate(10);
+          return view('web.pages.publication.rule_book', compact('ruleBooks'));
      }
      public function convo_report()
      {
-          return view('web.pages.publication.convocation_report');
+          $Convocation = Convocation::paginate(10);
+          return view('web.pages.publication.convocation_report', compact('Convocation'));
      }
 }

@@ -205,17 +205,12 @@
         </div>
         <!-- LOGO AND MENU SECTION -->
         <div class="top-logo" data-spy="affix" data-offset-top="250">
-            <div class="container-fluid px-3">
+            <div class="container-fluid">
                 <div class="row text-center justify-content-center" style="background-color:#102366">
                     <div class="col-md-12">
-                        <!-- <div class="wed-logo">
-                            <a href="index.html"><img src="{{ asset('public/web/assets/images/logo.jpg') }}" alt="" />
-                            </a>
-                        </div> -->
                         <div class="main-menu d-flex justify-content-center ">
                             <ul>
-                                <li><a href="{{ route('home') }}"><i style="font-size: 22px" class="fa  fa-home"
-                                            aria-hidden="true"></i></a>
+                                <li><a href="{{ route('home') }}"><i style="font-size: 22px" class="fa  fa-home" aria-hidden="true"></i></a>
                                 </li>
                                 <li class="about-menu">
                                     <a href="#" class="mm-arr">About us <span><small
@@ -234,17 +229,16 @@
                                                         </li>
                                                         <li><a href="{{ route('govt_recognition') }}">Recognitions</a>
                                                         </li>
+                                                        <li><a href="{{ route('collaboration') }}">Collaboration</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-
-                                                        <li><a href="{{ route('govt_recognition') }}">Recognitions</a>
-                                                        </li>
-                                                        <li><a href="{{ route('collaboration') }}">Collaboration</a>
-                                                        </li>
-                                                        <li><a href="{{ route('PresidentMessage') }}">National
-                                                                President</a></li>
+                                                        <li><a href="{{ route('PresidentMessage') }}">National President</a></li>
+                                                        <li><a href="national_patron">National Patron</a></li>
+                                                        <li><a href="national_advisor">National Advisor</a></li>
+                                                        <li><a href="office_staff">Office Staff</a></li>
                                                         <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
                                                     </ul>
                                                 </div>
@@ -382,6 +376,10 @@
                                                         </li>
                                                         <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a>
                                                         </li>
+                                                        <li><a href="{{ route('OfficerInteraction') }}">Officer Intercation</a>
+                                                        </li>
+                                                        <li><a href="{{ route('ActionTakRepo') }}">Action Take Report</a>
+                                                        </li>
                                                         <li><a href="{{ route('Photos') }}">Event Gallery</a></li>
                                                         <li><a href="{{ route('PrintMedia') }}">Print Media</a></li>
                                                     </ul>
@@ -391,9 +389,9 @@
                                                         <li><a href="{{ route('WebMedia') }}">Web Media</a></li>
                                                         <li><a href="{{ route('VideoGallery') }}">Video Gallery</a>
                                                         </li>
-                                                        <li><a href="{{ route('PressRelease') }}">Press Release</a>
+                                                        <li><a href="electronic_media">Press Release</a>
                                                         </li>
-                                                        <li><a href="{{ route('interview') }}">Interview</a></li>
+                                                        {{-- <li><a href="{{ route('interview') }}">Interview</a></li> --}}
 
                                                     </ul>
                                                 </div>
@@ -402,7 +400,7 @@
                                     </div>
                                 </li>
                                 <li class="event-menu">
-                                    <a href="#" class="mm-arr">Event <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Activities <small class="text-light">+</small></a>
 
                                     <div class="mm-pos">
                                         <div class="event-mm m-menu">
@@ -435,7 +433,7 @@
                                     </div>
                                 </li>
                                 <li class="gallery-menu">
-                                    <a href="#" class="mm-arr">Awards <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Awardee <small class="text-light">+</small></a>
 
                                     <div class="mm-pos">
                                         <div class="gallery-mm m-menu">
@@ -454,10 +452,8 @@
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
 
-                                                        <li><a href="{{ route('community_level') }}">Community
-                                                                Level</a></li>
-                                                        <li><a href="{{ route('international_level') }}">International
-                                                                Level</a></li>
+                                                        <li><a href="{{ route('community_level') }}">Community Level</a></li>
+                                                        <li><a href="{{ route('international_level') }}">International Level</a></li>
 
                                                     </ul>
                                                 </div>
@@ -645,10 +641,13 @@
                                                         </li>
                                                         <li>
                                                             <div class="btn-group dropleft">
-                                                                <a type="button" class="dropdown-toggle " data-toggle="dropdown">Workshop</a>
+                                                                <a type="button" class="dropdown-toggle "
+                                                                    data-toggle="dropdown">Workshop</a>
                                                                 <div class="dropdown-menu ">
-                                                                    <a class="dropdown-item " href="#"> Workshop Guideline</a>
-                                                                    <a class="dropdown-item " href="#">Workshop Cunduct</a>
+                                                                    <a class="dropdown-item " href="#"> Workshop
+                                                                        Guideline</a>
+                                                                    <a class="dropdown-item " href="#">Workshop
+                                                                        Cunduct</a>
                                                                 </div>
                                                             </div>
                                                         </li>

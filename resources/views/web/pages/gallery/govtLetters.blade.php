@@ -25,7 +25,7 @@
                     @foreach($govtletters as $govtletter)
                     <ul>
                         <li>
-                            <div class="card">
+                            <div class="card m-1">
                                 <div class="card-body">
                                     <img class="materialboxed" data-caption="{{$govtletter->gvt_ltr_img}}" src="{{url('/').'/'. $govtletter->gvt_ltr_img}}" alt="">
                                 </div>

@@ -9,7 +9,6 @@
         </div>
     </div>
 </section>
-<!--SECTION START-->
 
 <!--SECTION START-->
 <section>
@@ -17,19 +16,30 @@
         <div class="container com-sp pad-bot-70 ed-res-bg">
             <div class="row">
                 <div class="cor about-sp h-gal ed-pho-gal">
-                    @foreach($printmedia as $printmedia)
-                    <ul>
-                        <li>
-                            <div class="card">
-                                <div class="card-body">
-                                    <img class="materialboxed" data-caption="{{$printmedia->print_media_img}}" src="{{url('/').'/'. $printmedia->print_media_img}}" alt="">
-                                </div>
-                               
-                            </div>
 
-                        </li>
-                    </ul>
-                    @endforeach
+                    @if($printmedia->count() > 0)
+                        <ul class="d-flex flex-wrap justify-content-start">
+                            @foreach($printmedia as $media)
+                            <li class="px-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img class="materialboxed" data-caption="{{ $media->print_media_img }}" src="{{ url('/') . '/' . $media->print_media_img }}" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+
+                        <!-- Pagination Links -->
+                        <div class="pagination text-center ">
+                            {{ $printmedia->links() }}
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <h4>No Print Media Available</h4>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>

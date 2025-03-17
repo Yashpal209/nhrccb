@@ -18,7 +18,8 @@ use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
-    public function GovtLetter(){
+    public function GovtLetter()
+    {
         $govtletters = GovtLetter::OrderBy('date', 'desc')->get();
         $acntknbydpts = ActionTknByDept::OrderBy('date', 'desc')->get();
         $data = [
@@ -40,61 +41,66 @@ class GalleryController extends Controller
     //     return view('web.pages.gallery.acntknbydpts')->with($data)->with('no', '1');
     // }
 
-    public function PrintMedia(){
-        $printmedia = PrintMedia::OrderBy('date', 'desc')->get();
-        $data = compact('printmedia');
-        return view('web.pages.gallery.printMedia')->with($data)->with('no', '1');
+
+
+    public function Photos()
+    {
+        $viewPhoto = Photo::orderBy('created_at', 'desc')->paginate(12);
+        return view('web.pages.gallery.photos', compact('viewPhoto'));
+    }
+    public function PrintMedia()
+    {
+        $printmedia = PrintMedia::orderBy('date', 'desc')->paginate(12);
+        return view('web.pages.gallery.printMedia', compact('printmedia'));
+    }
+    public function OfficerInteraction()
+    {
+        $officerinteraction = OfficerInteraction::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.gallery.officerInteraction', compact('officerinteraction'));
     }
 
-    public function Photos(){
-        $viewPhoto = Photo::Orderby('created_at', 'desc')->get();
-        $data = compact('viewPhoto');
-        return view('web.pages.gallery.photos')->with($data)->with('no','1');
+    public function ActionTakRepo()
+    {
+        $actntknrprt = ActionTakReport::orderBy('created_at', 'desc')->paginate(12); // 12 items per page
+        return view('web.pages.gallery.actionTakenRepo', compact('actntknrprt'));
     }
 
-    public function OfficerInteraction(){
-        $officerinteraction = OfficerInteraction::orderBy('created_at','desc')->get();
-        $data = compact('officerinteraction');
-        return view('web.pages.gallery.officerInteraction')->with($data)->with('no','1');
+
+    public function ElecMedia()
+    {
+        $elecmedia = ElectronicMedia::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.gallery.ElecMedia', compact('elecmedia'))->with('no', 1);
     }
 
-    public function ActionTakRepo(){
-        $actntknrprt = ActionTakReport::OrderBy('created_at', 'desc')->get();
-        $data = compact('actntknrprt');
-        return view('web.pages.gallery.actionTakenRepo')->with($data)->with('no', '1');
+    public function WebMedia()
+    {
+        $webmedia = WebMedia::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.gallery.WebMedia', compact('webmedia'))->with('no', 1);
     }
 
-    public function ElecMedia(){
-        $elecmedia = ElectronicMedia::OrderBy('created_at', 'desc')->get();
-        $data = compact('elecmedia');
-        return view('web.pages.gallery.ElecMedia')->with($data)->with('no', '1');
-    }
-
-    public function WebMedia(){
-        $webmedia = WebMedia::OrderBy('created_at', 'desc')->get();
-            $data = compact('webmedia');
-        return view('web.pages.gallery.WebMedia')->with($data)->with('no', '1');
-    }
-    public function PressRelease(){  
+    public function PressRelease()
+    {
         return view('web.pages.gallery.pressrelease');
     }
-    public function acknowledgement(){  
+    public function acknowledgement()
+    {
         $Acknowledgement = Acknowledgement::paginate(10);
         return view('web.pages.gallery.acknowledgement', compact('Acknowledgement'));
     }
-    public function interview(){  
+    public function interview()
+    {
         return view('web.pages.gallery.interview');
     }
 
-    public function PoliceLetter(){
+    public function PoliceLetter()
+    {
         $policeletter = PoliceLetter::OrderBy('created_at', 'desc')->get();
         $data = compact('policeletter');
         return view('web.pages.gallery.PoliceLetter')->with($data)->with('no', '1');
     }
-    public function VideoGallery(){
-        $videogallery = VideoGallery::OrderBy('created_at', 'desc')->get();
-        $data = compact('videogallery');
-        return view('web.pages.gallery.videoGallery')->with($data)->with('no', '1');
+    public function VideoGallery()
+    {
+        $videogallery = VideoGallery::orderBy('created_at', 'desc')->paginate(9); // Show 9 videos per page
+        return view('web.pages.gallery.videoGallery', compact('videogallery'));
     }
-
-}
+    }

@@ -1,5 +1,6 @@
 @extends('web.layouts.app')
 @section('main-content')
+
 <section>
     <div class="head-2">
         <div class="container">
@@ -9,7 +10,6 @@
         </div>
     </div>
 </section>
-<!--SECTION START-->
 
 <!--SECTION START-->
 <section>
@@ -17,21 +17,31 @@
         <div class="container com-sp pad-bot-70 ed-res-bg">
             <div class="row">
                 <div class="cor about-sp h-gal ed-pho-gal">
-                    @foreach($webmedia as $webmedia)
-                    <ul>
-                        <li>
-                            <div class="card">
-                                <div class="card-body">
-                                    <img class="materialboxed" data-caption="{{$webmedia->web_med_img}}" src="{{url('/').'/'. $webmedia->web_med_img}}" alt="">
+                    @if($webmedia->count() > 0)
+                        <ul>
+                            @foreach($webmedia as $media)
+                            <li>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img class="materialboxed" data-caption="{{ $media->web_med_img }}" src="{{ url('/') . '/' . $media->web_med_img }}" alt="">
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <h5>{{ $media->title }}</h5>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <h5>{{$webmedia->title}}</h5>
-                                </div>
-                            </div>
+                            </li>
+                            @endforeach
+                        </ul>
 
-                        </li>
-                    </ul>
-                    @endforeach
+                        <!-- Pagination Links -->
+                        <div class="pagination text-center">
+                            {{ $webmedia->links() }}
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <h4>No Data Available</h4>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

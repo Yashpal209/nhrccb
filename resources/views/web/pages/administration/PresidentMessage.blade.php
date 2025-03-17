@@ -25,9 +25,8 @@
                                 <h4>Dr Randhir Kumar</h4>
                             </li>
                             <li>National President</li>
-                            <li><a href="#!"><i class="fa fa-facebook"></i> Facebook: Visit  Profile</a></li>
-                            <li><a href="#!"><i class="fa fa-google-plus"></i> Google: Visit  Profile</a></li>
-                            <li><a href="#!"><i class="fa fa-twitter"></i> Twitter: Visit Profile</a></li>
+                            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i> Visit Profile</a></li>
+                            <li><a href="https://x.com/"><i class="fa fa-twitter"></i>Visit Profile</a></li>
                         </ul>
                     </div>
                 </div>

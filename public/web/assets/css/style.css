@@ -6171,3 +6171,7 @@ official section */
         justify-content: center;
     }
 }
+
+.pagination a{
+    color: black !important;
+}
