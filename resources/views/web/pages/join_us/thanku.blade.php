@@ -1,4 +1,4 @@
-.@extends('web.layouts.app')
+@extends('web.layouts.app')
 @section('main-content')
 <section>
     <div class="head-2">

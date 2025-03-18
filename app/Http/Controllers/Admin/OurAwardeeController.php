@@ -24,6 +24,7 @@ class OurAwardeeController extends Controller
         $ourawardee->awardee_name = $req->awardee_name;
         $ourawardee->award_name = $req->award_name;
         $ourawardee->award_category = $req->award_category;
+        $ourawardee->award_sub_category = $req->award_sub_category;
         $ourawardee->convention_name = $req->convention_name;
         $res = $ourawardee->save();
         if ($res) {

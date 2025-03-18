@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 <style>
-    .letter-img img {
-        height: 50px
+    .letter-img img{
+        height:50px
     }
 </style>
 
@@ -27,12 +27,12 @@
                 <div class="inn-title">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                            <h4>List of Our Awardee</h4>
+                            <h4>List of Awards</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{route('addOurAwardee')}}">
+                            <a href="{{route('addAwards')}}">
                                 <div class="btn">
-                                    Add Our Awardee
+                                    Add Awards
                                 </div>
                             </a>
                         </div>
@@ -44,24 +44,22 @@
                             <thead>
                                 <tr>
                                     <th>Sl. No.</th>
-                                    <th>Name of Awardee</th>
-                                    <th>Award Name</th>
-                                    <th>Award Category</th>
-                                    <th>Award Sub Category</th>
-                                    <th>Convention Name</th>
+                                    <th>Id</th>
+                                    <th>Photo</th>
+                                    <th>Title</th>
+                                    <th> Posted Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            @foreach( $viewAwardee as $list)
+                            @foreach($Awards as $list)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$list->awardee_name}}</td>
-                                <td>{{$list->award_name}}</td>
-                                <td>{{$list->award_category}}</td>
-                                <td>{{$list->award_sub_category}}</td>
-                                <td>{{$list->convention_name}}</td>
-                              
-                                <td><a href="{{route('delete.Award', $list->id)}}" class="ad-st-view">Delete</a></td>
+                            <td>{{$list->id}}</td>
+                                <td><span class="letter-img"><img src="{{url('/').'/'. $list->awards}}" alt=""></span>
+                                </td>
+                                <td>{{$list->title}}</td>
+                                <td>{{$list->date}}</td>
+                                <td><a href="{{route('delete.Awards',$list->id)}}" class="ad-st-view">Delete</a></td>
                             </tr>
                             @endforeach
                         </table>

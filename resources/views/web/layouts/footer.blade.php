@@ -242,12 +242,16 @@
 </section>
 
 <!--Import jQuery before materialize.js-->
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="{{asset('public/web/assets/js/main.min.js')}}"></script>
 <script src="{{asset('public/web/assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('public/web/assets/js/materialize.min.js')}}"></script>
 <script src="{{asset('public/web/assets/js/custom.js')}}"></script>
 <script src="{{asset('public/web/assets/js/particle.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+@yield('page-js')
 </body>
 
 

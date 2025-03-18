@@ -17,21 +17,30 @@
         <div class="container com-sp pad-bot-70 ed-res-bg">
             <div class="row">
                 <div class="cor about-sp h-gal ed-pho-gal">
-                    @foreach($socialwork as $socialwork)
+                    @if($socialwork->count() > 0)
+                    @foreach($socialwork as $items)
                     <ul>
                         <li>
                             <div class="card">
                                 <div class="card-body">
-                                    <img class="materialboxed" data-caption="{{$socialwork->social_wrk_img}}" src="{{url('/').'/'. $socialwork->social_wrk_img	}}" alt="">
+                                    <img class="materialboxed" data-caption="{{$items->social_wrk_img}}" src="{{url('/').'/'. $items->social_wrk_img	}}" alt="">
                                 </div>
-                                <div class="card-footer">
-                                    <h5>{{$socialwork->title}}</h5>
+                                <div class="card-footer text-center">
+                                    <h5>{{$items->title}}</h5>
                                 </div>
                             </div>
 
                         </li>
                     </ul>
                     @endforeach
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $socialwork->links() }}
+                    </div>
+                @else
+                    <div class="text-center">
+                        <h3>No Data Available</h3>
+                    </div>
+                @endif
                 </div>
             </div>
         </div>

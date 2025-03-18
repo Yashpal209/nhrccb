@@ -178,7 +178,6 @@
                 </div>
             </div>
         </div>
-
         <!-- LOGO AND MENU SECTION -->
         <div>
             <div class="container">
@@ -210,7 +209,8 @@
                     <div class="col-md-12">
                         <div class="main-menu d-flex justify-content-center ">
                             <ul>
-                                <li><a href="{{ route('home') }}"><i style="font-size: 22px" class="fa  fa-home" aria-hidden="true"></i></a>
+                                <li><a href="{{ route('home') }}"><i style="font-size: 22px" class="fa  fa-home"
+                                            aria-hidden="true"></i></a>
                                 </li>
                                 <li class="about-menu">
                                     <a href="#" class="mm-arr">About us <span><small
@@ -235,7 +235,8 @@
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="{{ route('PresidentMessage') }}">National President</a></li>
+                                                        <li><a href="{{ route('PresidentMessage') }}">National
+                                                                President</a></li>
                                                         <li><a href="national_patron">National Patron</a></li>
                                                         <li><a href="national_advisor">National Advisor</a></li>
                                                         <li><a href="office_staff">Office Staff</a></li>
@@ -376,9 +377,11 @@
                                                         </li>
                                                         <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a>
                                                         </li>
-                                                        <li><a href="{{ route('OfficerInteraction') }}">Officer Intercation</a>
+                                                        <li><a href="{{ route('OfficerInteraction') }}">Officer
+                                                                Intercation</a>
                                                         </li>
-                                                        <li><a href="{{ route('ActionTakRepo') }}">Action Take Report</a>
+                                                        <li><a href="{{ route('ActionTakRepo') }}">Action Take
+                                                                Report</a>
                                                         </li>
                                                         <li><a href="{{ route('Photos') }}">Event Gallery</a></li>
                                                         <li><a href="{{ route('PrintMedia') }}">Print Media</a></li>
@@ -400,32 +403,30 @@
                                     </div>
                                 </li>
                                 <li class="event-menu">
-                                    <a href="#" class="mm-arr">Activities <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Activities <small
+                                            class="text-light">+</small></a>
 
                                     <div class="mm-pos">
                                         <div class="event-mm m-menu">
                                             <div class="m-menu-inn">
 
-
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a
-                                                                href="{{ route('international_event') }}">International</a>
-                                                        </li>
-                                                        <li><a href="{{ route('national_event') }}">National</a></li>
-                                                        <li><a href="{{ route('state_event') }}">State</a></li>
+                                                        <li><a href="{{ route('Awards') }}">Awards</a></li>
+                                                        <li><a href="{{ route('Seminar') }}">Seminar</a></li>
                                                         <li><a href="{{ route('workshop') }}">Workshop</a></li>
-
+                                                        <li><a href="{{ route('standWithNation') }}">Stand with
+                                                                Nation</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="{{ route('award_ceremony') }}">Award
-                                                                Ceremony</a></li>
-                                                        <li><a href="{{ route('special_event') }}">Special Event</a>
-                                                        </li>
-                                                        <li><a href="{{ route('awareness_programme') }}">Awareness
-                                                                Programme</a></li>
+                                                        <li><a href="{{ route('RuralAwareness') }}">Rural
+                                                                Awareness</a></li>
+                                                        <li><a href="{{ route('EducationalAwareness') }}">Educational
+                                                                Awareness</a></li>
+                                                        <li><a href="{{ route('Covid19') }}">Covid-19</a></li>
+                                                        <li><a href="{{ route('SocialWork') }}">Social Work</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -452,8 +453,10 @@
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
 
-                                                        <li><a href="{{ route('community_level') }}">Community Level</a></li>
-                                                        <li><a href="{{ route('international_level') }}">International Level</a></li>
+                                                        <li><a href="{{ route('community_level') }}">Community
+                                                                Level</a></li>
+                                                        <li><a href="{{ route('international_level') }}">International
+                                                                Level</a></li>
 
                                                     </ul>
                                                 </div>
@@ -710,16 +713,9 @@
                                 </li>
                                 <li><a href="#">Donation</a>
                                 </li> -->
-
-
                             </ul>
                         </div>
-
                     </div>
-                    <div class="all-drop-down-menu">
-
-                    </div>
-
                 </div>
             </div>
         </div>

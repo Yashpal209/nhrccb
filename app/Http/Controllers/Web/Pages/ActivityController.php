@@ -10,53 +10,48 @@ use App\Models\Admin\Activities\Seminar;
 use App\Models\Admin\Activities\SocialWork;
 use App\Models\Admin\Activities\StandwithNation;
 use App\Models\Admin\Activities\Workshop;
+use App\Models\Admin\Activities\Awards;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
     public function Awards(){
-        return view('web.pages.activities.awards');
+        $awards = Awards::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.awards', compact('awards'));
     }
 
     public function Seminar(){
-        $seminar = Seminar::orderBy('created_at', 'desc')->get();
-        $data = compact('seminar');
-        return view('web.pages.activities.seminar')->with($data);
+        $seminar = Seminar::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.seminar', compact('seminar'));
     }
 
     public function workshop(){
-        $workshop = Workshop::OrderBy('created_at', 'desc')->get();
-        $data = compact('workshop');
-        return view('web.pages.activities.workshop')->with($data);
+        $workshop = Workshop::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.workshop', compact('workshop'));
     }
 
     public function standWithNation(){
-        $standwithnation = StandwithNation::OrderBy('created_at', 'desc')->get();
-        $data = compact('standwithnation');
-        return view('web.pages.activities.standWithNation')->with($data);
+        $standwithnation = StandwithNation::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.standWithNation', compact('standwithnation'));
     }
 
     public function RuralAwareness(){
-        $ruralawareness = RuralAwareness::OrderBy('created_at', 'desc')->get();
-        $data = compact('ruralawareness');
-        return view('web.pages.activities.ruralAwareness')->with($data);
+        $ruralawareness = RuralAwareness::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.ruralAwareness', compact('ruralawareness'));
     }
 
     public function EducationalAwareness(){
-        $eduawareness = EducationalAwareness::OrderBy('created_at', 'desc')->get();
-        $data = compact('eduawareness');
-        return view('web.pages.activities.educationalAwareness')->with($data);
+        $eduawareness = EducationalAwareness::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.educationalAwareness', compact('eduawareness'));
     }
 
     public function Covid19(){
-        $covid19 = Covid19::OrderBy('created_at', 'desc')->get();
-        $data = compact('covid19');
-        return view('web.pages.activities.covid19')->with($data);
+        $covid19 = Covid19::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.covid19', compact('covid19'));
     }
 
     public function SocialWork(){
-        $socialwork = SocialWork::OrderBy('created_at', 'desc')->get();
-        $data = compact('socialwork');
-        return view('web.pages.activities.socialwork')->with($data);
+        $socialwork = SocialWork::orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.activities.socialwork', compact('socialwork'));
     }
 }

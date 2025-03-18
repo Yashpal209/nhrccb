@@ -12,10 +12,38 @@
 <!--SECTION START-->
 
 <section>
-    <div class="container  py-4">
-<div class="text">
-    <h3>Under Development...</h3>
-</div>
+    <div class="ed-res-bg">
+        <div class="container com-sp pad-bot-70 ed-res-bg">
+            <div class="row">
+                <div class="cor about-sp h-gal ed-pho-gal">
+                    @if (count($awards) > 0)
+                        @foreach ($awards as $items)
+                            <ul>
+                                <li>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <img class="materialboxed" data-caption="{{ $items->awards }}"
+                                                src="{{ url('/') . '/' . $items->awards }}" alt="">
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <h5>{{ $items->title }}</h5>
+                                        </div>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        @endforeach
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $awards->links() }}
+                        </div>
+                    @else
+                        <div class="text-center ">
+                            <h3>No Data Available</h3>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

@@ -94,6 +94,16 @@ Route::post('post_join_us_form', [JoinUsController::class, 'postJoinUsForm'])->n
 Route::get('thank_you', [JoinUsController::class, 'thankYou'])->name('thankYou');
 Route::get('training-research', [PageController::class, 'trainingResearch'])->name('trainingResearch');
 
+
+
+// Join Us
+Route::get('/state/data', [PageController::class, 'stateData'])->name('state.data');
+Route::get('/division/data', [PageController::class, 'divisionData'])->name('division.data');
+Route::get('/district/data', [PageController::class, 'districtData'])->name('district.data');
+Route::get('/training-research', [PageController::class, 'trainingResearch'])->name('trainingResearch');
+
+
+// Verification
 Route::get('verification', [PageController::class, 'verification'])->name('verification');
 
 // Issue

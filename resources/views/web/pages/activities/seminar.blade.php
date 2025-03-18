@@ -1,5 +1,6 @@
 @extends('web.layouts.app')
 @section('main-content')
+
 <section>
     <div class="head-2">
         <div class="container">
@@ -9,7 +10,6 @@
         </div>
     </div>
 </section>
-<!--SECTION START-->
 
 <!--SECTION START-->
 <section>
@@ -17,19 +17,28 @@
         <div class="container com-sp pad-bot-70 ed-res-bg">
             <div class="row">
                 <div class="cor about-sp h-gal ed-pho-gal">
-                    @foreach($seminar as $seminar)
-                    <ul>
-                        <li>
-                            <div class="card">
-                                <div class="card-body">
-                                    <img class="materialboxed" data-caption="{{$seminar->seminar_img}}" src="{{url('/').'/'. $seminar->seminar_img}}" alt="">
+                    @if($seminar->count() > 0)
+                        @foreach($seminar as $item)
+                        <ul>
+                            <li>
+                                <div class="card mx-1">
+                                    <div class="card-body">
+                                        <img class="materialboxed" data-caption="{{ $item->seminar_img }}" src="{{ url('/').'/'.$item->seminar_img }}" alt="">
+                                    </div>
                                 </div>
-                               
-                            </div>
-
-                        </li>
-                    </ul>
-                    @endforeach
+                            </li>
+                        </ul>
+                        @endforeach
+                        
+                        <!-- Pagination Links -->
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $seminar->links() }}
+                        </div>
+                    @else
+                        <div class="text-center">
+                            <h3>No Data Available</h3>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

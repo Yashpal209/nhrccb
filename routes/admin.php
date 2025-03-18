@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Activities\Covid19controller;
 use App\Http\Controllers\Admin\Activities\EducationalAwarenessController;
 use App\Http\Controllers\Admin\Activities\RuralAwarenessController;
 use App\Http\Controllers\Admin\Activities\SeminarController;
+use App\Http\Controllers\Admin\Activities\AwardsController;
 use App\Http\Controllers\Admin\Activities\SocialWorkController;
 use App\Http\Controllers\Admin\Activities\StandwithNationController;
 use App\Http\Controllers\Admin\Activities\WorkshopController;
@@ -240,6 +241,12 @@ Route::prefix('admin')->group(function () {
         Route::get('our-awardee/delete/{id}', [OurAwardeeController::class, 'deleteAward'])->name('delete.Award');
 
         // Activities //
+        
+        //Awards
+        Route::get('add-Awards', [AwardsController::class, 'addAwards'])->name('addAwards');
+        Route::post('post-Awards', [AwardsController::class, 'postAwards'])->name('postAwards');
+        Route::get('view-Awards', [AwardsController::class, 'viewAwards'])->name('viewAwards');
+        Route::get('Awards/delete/{id}', [AwardsController::class, 'deleteAwards'])->name('delete.Awards');
 
         // seminar
         Route::get('add-seminar', [SeminarController::class, 'addSeminar'])->name('addSeminar');

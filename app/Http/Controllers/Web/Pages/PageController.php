@@ -12,6 +12,9 @@ use App\Models\Admin\Notification\WhatsNew;
 // use App\Models\Admin\WhatsNew; 
 use App\Models\Admin\OurAwardee;
 use App\Models\Admin\publication;
+use App\Models\District;
+use App\Models\Division;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -64,7 +67,7 @@ class PageController extends Controller
 
     public function latestUpdate()
     {
-        $latestUpdates = LatestUpdate::orderBy('date', 'desc')->paginate(10); 
+        $latestUpdates = LatestUpdate::orderBy('date', 'desc')->paginate(10);
         return view('web.pages.home.latestUpdate', compact('latestUpdates'));
     }
 
@@ -131,5 +134,29 @@ class PageController extends Controller
     public function ContactUs()
     {
         return view('web.pages.contactUs.contactUs');
+    }
+
+    public function stateData()
+    {
+        $states = State::all();
+        return response()->json($states);
+    }
+
+    public function divisionData(Request $request)
+    {
+        $request->validate([
+            'state' => 'required|string',
+        ]);
+        $divisions = Division::Where('state_name', $request->state)->get();
+        return response()->json($divisions);
+    }
+
+    public function districtData(Request $request)
+    {
+        $request->validate([
+            'division' => 'required|string',
+        ]);
+        $districts = District::Where('division_name', $request->division)->get();
+        return response()->json($districts);
     }
 }

@@ -400,10 +400,10 @@
                                     aria-hidden="true"></i>Awards</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Add
+                                    <li><a href="{{ route('addAwards')}}"><i class="fa fa-pencil" aria-hidden="true"></i>Add
                                             Awards</a>
                                     </li>
-                                    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>View Awards</a>
+                                    <li><a href="{{route('viewAwards')}}"><i class="fa fa-eye" aria-hidden="true"></i>View Awards</a>
                                     </li>
                                 </ul>
                             </div>
