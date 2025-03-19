@@ -50,7 +50,7 @@ class InternController extends Controller
        return view('admin.pages.ourteam.intern.viewIntern')->with($data)->with('no', '1');
     }
  
-    public function deleteVolunteer($id){
+    public function deleteIntern($id){
       $intern = Intern::find($id)->delete();
        if($intern){
           return redirect()->route('viewIntern')->with('alert', 'Data Deleted Successfully');

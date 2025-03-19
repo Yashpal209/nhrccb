@@ -125,10 +125,7 @@ class PageController extends Controller
         return view('web.pages.ourawardee.ourAwardee')->with($data)->with('no', '1');
     }
 
-    public function JoinUs()
-    {
-        return view('web.pages.join_us.join_us_form');
-    }
+  
     public function ContactUs()
     {
         return view('web.pages.contactUs.contactUs');

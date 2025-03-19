@@ -51,7 +51,7 @@
                                 <td>{{$list->gender}}</td>
                                 <td>{{$list->mobile}}</td>
                                 <td>{{$list->email}}</td>                         
-                                <td><a href="#" class="label label-success">View</a></td>
+                                <td><a href="{{$list->passport_image}}" class="label label-success">View</a></td>
                                 <td><a href="{{route('delete.JoinApplictaion', $list->id)}}" class="ad-st-view">Delete</a></td>
                             </tr>
                             @endforeach

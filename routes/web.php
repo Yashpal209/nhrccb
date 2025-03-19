@@ -89,7 +89,7 @@ Route::get('international-level', [AwardController::class, 'international_level'
 Route::get('our_awardee', [PageController::class, 'OurAwardee'])->name('OurAwardee');
 
 // Join Us
-Route::get('join_us', [PageController::class, 'JoinUs'])->name('JoinUs');
+Route::get('join_us', [JoinUsController::class, 'JoinUs'])->name('JoinUs');
 Route::post('post_join_us_form', [JoinUsController::class, 'postJoinUsForm'])->name('postJoinUsForm');
 Route::get('thank_you', [JoinUsController::class, 'thankYou'])->name('thankYou');
 Route::get('training-research', [PageController::class, 'trainingResearch'])->name('trainingResearch');
@@ -133,13 +133,14 @@ Route::get('block-team', [OurTeamController::class, 'BlockTeam'])->name('BlockTe
 Route::get('zone-team', [OurTeamController::class, 'ZoneTeam'])->name('ZoneTeam');
 Route::get('volunteer', [OurTeamController::class, 'volunteer'])->name('volunteer');
 Route::get('interns', [OurTeamController::class, 'interns'])->name('interns');
+Route::get('activemember', [OurTeamController::class, 'activemember'])->name('activemember');
 
 // Cell Unit
+Route::get('Rti-cell', [CellUnitController::class, 'RtiCell'])->name('RtiCell');
 Route::get('legal-cell', [CellUnitController::class, 'LegalCell'])->name('LegalCell');
 Route::get('educational-cell', [CellUnitController::class, 'EducationalCell'])->name('EducationalCell');
 Route::get('doctor-cell', [CellUnitController::class, 'DoctorCell'])->name('DoctorCell');
 Route::get('child-rights-protection-cell', [CellUnitController::class, 'ChildRightsProCell'])->name('ChildRightsProCell');
-Route::get('Rti-cell', [CellUnitController::class, 'RtiCell'])->name('RtiCell');
 Route::get('media-cell', [CellUnitController::class, 'MediaCell'])->name('MediaCell');
 Route::get('tribal-right-protection-cell', [CellUnitController::class, 'TRProCell'])->name('TRProCell');
 Route::get('crime-control-unit', [CellUnitController::class, 'CrimeControlUnit'])->name('CrimeControlUnit');

@@ -531,21 +531,18 @@
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
                                                         <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li>
+                                                        <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
+                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
+                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
                                                         <li><a href="{{ route('StateTeam') }}">State Team</a></li>
-                                                        <li><a href="{{ route('NationalTeam') }}">National Team</a>
-                                                        </li>
-                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a>
-                                                        </li>
-                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a>
-                                                        </li>
+                                                        <li><a href="{{ route('NationalTeam') }}">National Team</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
                                                         <li><a href="{{ route('interns') }}">Interns</a></li>
                                                         <li><a href="{{ route('volunteer') }}">Volunteer</a></li>
-                                                        <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                                        <li><a href="#">Active Member</a></li>
+                                                        <li><a href="{{route('activemember')}}">Active Member</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -557,7 +554,7 @@
                                 <li><a href="{{ route('verification') }}">Verification</a>
                                 </li>
                                 <li class="complain-menu">
-                                    <a href="about-us" class="mm-arr">Complaint <small
+                                    <a href="" class="mm-arr">Complaint <small
                                             class="text-light">+</small></a>
                                     <!-- MEGA MENU 1 -->
                                     <div class="mm-pos">

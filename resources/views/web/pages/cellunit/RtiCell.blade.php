@@ -10,6 +10,7 @@
         border-radius: 60%;
     }
 </style>
+
 <section>
     <div class="head-2">
         <div class="container">
@@ -19,39 +20,46 @@
         </div>
     </div>
 </section>
+
 <!--SECTION START-->
 <section>
     <div class="container-fluid">
-
-        <div class="container com-sp ">
-
+        <div class="container com-sp">
             <div class="row">
-            @foreach($rticell as $rticell)
-                <div class="col-md-6">
-                    <div>
-                        <!--POPULAR COURSES-->
-                        <div class="home-top-cour">
-                            <div class="row justify-content-center">
-                                <!--POPULAR COURSES IMAGE-->
-                                <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                    <img src="{{$rticell->image}}" alt="" class="img-fluid">
-                                </div>
-                                <!--POPULAR COURSES: CONTENT-->
-                                <div class="col-md-8 home-top-cour-desc d-flex align-items-center">
-                                    <div>
-                                        <h3 class="pb-0">{{$rticell->name}}</h3>
-                                        <h5 class="pb-0">{{$rticell->designation}}</h5>
+                @if($rticell->count() > 0)
+                    @foreach($rticell as $items)
+                        <div class="col-md-6">
+                            <div class="home-top-cour">
+                                <div class="row justify-content-center">
+                                    <!--POPULAR COURSES IMAGE-->
+                                    <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                        <img src="{{$items->image}}" alt="" class="img-fluid">
+                                    </div>
+                                    <!--POPULAR COURSES: CONTENT-->
+                                    <div class="col-md-8 home-top-cour-desc d-flex align-items-center">
+                                        <div>
+                                            <h3 class="pb-0">{{$items->name}}</h3>
+                                            <h5 class="pb-0">{{$items->designation}}</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                    @endforeach
+                @else
+                    <div class="col-12 text-center mt-4">
+                        <h3>No Data Available</h3>
                     </div>
-                </div>
-                @endforeach
+                @endif
             </div>
+
+            <!-- Pagination Links -->
+            @if($rticell->count() > 0)
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $rticell->links() }}
+                </div>
+            @endif
         </div>
     </div>
-
 </section>
 @endsection

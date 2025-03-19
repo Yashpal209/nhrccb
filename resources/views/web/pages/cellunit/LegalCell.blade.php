@@ -1,5 +1,6 @@
 @extends('web.layouts.app')
 @section('main-content')
+
 <style>
     .home-top-cour {
         background-color: #e0e4f3;
@@ -10,6 +11,7 @@
         border-radius: 60%;
     }
 </style>
+
 <section>
     <div class="head-2">
         <div class="container">
@@ -19,39 +21,48 @@
         </div>
     </div>
 </section>
-<!--SECTION START-->
+
+<!-- SECTION START -->
 <section>
     <div class="container-fluid">
-
-        <div class="container com-sp ">
-
+        <div class="container com-sp">
             <div class="row">
-                @foreach($legalcell as $legalcell)
-                <div class="col-md-6">
-                    <div>
-                        <!--POPULAR COURSES-->
-                        <div class="home-top-cour">
-                            <div class="row justify-content-center">
-                                <!--POPULAR COURSES IMAGE-->
-                                <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                    <img src="{{$legalcell->image}}" alt="" class="img-fluid">
-                                </div>
-                                <!--POPULAR COURSES: CONTENT-->
-                                <div class="col-md-8 home-top-cour-desc d-flex align-items-center">
-                                    <div>
-                                        <h3 class="pb-0">{{$legalcell->name}}</h3>
-                                        <h5 class="pb-0">{{$legalcell->designation}}</h5>
+                @if($legalcell->count() > 0)
+                    @foreach($legalcell as $items)
+                        <div class="col-md-6">
+                            <div class="home-top-cour">
+                                <div class="row justify-content-center">
+                                    <!-- IMAGE -->
+                                    <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                        <img src="{{$items->image}}" alt="" class="img-fluid">
+                                    </div>
+                                    <!-- CONTENT -->
+                                    <div class="col-md-8 home-top-cour-desc d-flex align-items-center">
+                                        <div>
+                                            <h3 class="pb-0">{{$items->name}}</h3>
+                                            <h5 class="pb-0">{{$items->designation}}</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                    @endforeach
+                @else
+                    <!-- NO DATA MESSAGE -->
+                    <div class="col-12 text-center mt-4">
+                        <h3>No Data Available</h3>
                     </div>
-                </div>
-                @endforeach
+                @endif
             </div>
+
+            <!-- PAGINATION LINKS -->
+            @if($legalcell->count() > 0)
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $legalcell->links() }}
+                </div>
+            @endif
         </div>
     </div>
-
 </section>
+
 @endsection
