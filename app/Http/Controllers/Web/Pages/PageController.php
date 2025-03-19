@@ -127,9 +127,7 @@ class PageController extends Controller
 
     public function JoinUs()
     {
-        $viewAwardee = OurAwardee::OrderBy('created_at', 'desc')->get();
-        $data = compact('viewAwardee');
-        return view('web.pages.join_us.join_us_form')->with($data)->with('no', '1');
+        return view('web.pages.join_us.join_us_form');
     }
     public function ContactUs()
     {

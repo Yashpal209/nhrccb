@@ -49,11 +49,34 @@ class JoinUsController extends Controller
             'pan_card_img' => 'nullable',
             'other_doc_img' => 'nullable',
         ]);
-
-        
         // Store the form data
         $formData = new JoinUs();
-        dd( $formData);
+        $formData->state = $request->state;
+        $formData->division = $request->division;
+        $formData->districts = $request->districts;
+        $formData->blocks = $request->blocks;
+        $formData->policeStation = $request->policeStation;
+        $formData->wing = $request->wing;
+        $formData->level = $request->level;
+        $formData->designation = $request->designation;
+        $formData->name = $request->name;
+        $formData->fathersName = $request->fathersName;
+        $formData->gender = $request->gender;
+        $formData->dob = $request->dob;
+        $formData->blood_group = $request->blood_group;
+        $formData->address = $request->address;
+        $formData->mobile = $request->mobile;
+        $formData->whatsappNumber = $request->whatsappNumber;
+        $formData->email = $request->email;
+        $formData->qualification = $request->qualification;
+        $formData->current_work = $request->current_work;
+        $formData->adhar_no = $request->adhar_no;
+        $formData->pan_card_no = $request->pan_card_no;
+        $formData->marital_status = $request->marital_status;
+        $formData->member_of_any_pol_party = $request->member_of_any_pol_party;
+        $formData->member_social_org = $request->member_social_org;
+        $formData->court_cases = $request->court_cases;
+        $formData->recommended_by = $request->recommended_by;
         $formData->fill($validatedData);
 
         // File upload helper
