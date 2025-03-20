@@ -611,14 +611,14 @@
                                                                 <div class="dropdown-menu ">
                                                                     <!-- Change to bg-dark for a dark theme -->
                                                                     <a class="dropdown-item "
-                                                                        href="#">Internship Guideline</a>
-                                                                    <a class="dropdown-item " href="#">Short
+                                                                        href="{{ route('internshipGuideline')}}">Internship Guideline</a>
+                                                                    <a class="dropdown-item" href="{{ route('shortTerm')}}">Short
                                                                         Term</a>
                                                                     <a class="dropdown-item "
-                                                                        href="#">Winter</a>
+                                                                        href="{{ route('winter')}}">Winter</a>
                                                                     <a class="dropdown-item "
-                                                                        href="#">Summer</a>
-                                                                    <a class="dropdown-item " href="#">Apply
+                                                                        href="{{ route('summer')}}">Summer</a>
+                                                                    <a class="dropdown-item " href="{{route('apply')}}">Apply
                                                                         Internship</a>
                                                                 </div>
                                                             </div>

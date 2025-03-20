@@ -13,7 +13,11 @@
         max-height: 100px;
     }
     .status-pending {
-        color: orange;
+        color: rgb(221, 173, 14);
+        font-weight: bold;
+    }
+    .status-working {
+        color: rgb(23, 140, 148);
         font-weight: bold;
     }
     .status-resolved {
@@ -57,6 +61,8 @@
                                             <strong>Status:</strong>
                                             @if($item->status == '1')
                                                 <span class="status-pending">Pending</span>
+                                            @elseif($item->status == '2')
+                                                <span class="status-working">Working</span>
                                             @elseif($item->status == '3')
                                                 <span class="status-resolved">Resolved</span>
                                             @elseif($item->status == '0')

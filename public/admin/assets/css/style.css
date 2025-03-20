@@ -3792,9 +3792,11 @@ textarea {
     background: #fff;
     border-radius: 2px;
     margin-bottom: 4px;
-    padding: 0px 15px;
+    padding: 0px 16px;
     box-sizing: border-box;
     font-size: 16px;
+    border: 1px solid #0a4c97;
+    border-radius: 7px;
 }
 .select-dropdown {
     font-size: 14px;

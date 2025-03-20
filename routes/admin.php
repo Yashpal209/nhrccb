@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\admin\webmanage\WebController ;
 use App\Http\Controllers\Admin\Activities\Covid19controller;
 use App\Http\Controllers\Admin\Activities\EducationalAwarenessController;
 use App\Http\Controllers\Admin\Activities\RuralAwarenessController;
@@ -74,7 +74,12 @@ Route::get('/logout', [AuthController::class, 'logOut'])->name('logOut');
 
 // Admin routes
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('admin.auth')->group(function (){
+    // Admin dashboard
+    Route::get('Banner', [WebController::class, 'banner'])->name('banners');
+    Route::post('addBannerPost', [WebController::class,'addBannerPost'])->name('addBannerPost');
+    Route::get('viewBanner', [WebController::class, 'viewBanner'])->name('viewBanner');
+    Route::get('banner/delete/{id}', [WebController::class, 'deleteBanner'])->name('banner.delete');
 
     // Joining Application
     Route::get('/joining-application', [JoiningController::class, 'viewJoinApplictaion'])->name('viewJoinApplictaion');
@@ -82,6 +87,8 @@ Route::prefix('admin')->group(function () {
 
     // Complain Application
     Route::get('/complain-list', [ComplainController::class, 'viewComplainApplictaion'])->name('viewComplainApplictaion');
+    Route::get('/complain-status', [ComplainController::class, 'ComplainApplictaionStatus'])->name('ComplainApplictaionStatus');
+    Route::post('changeStatus', [ComplainController::class, 'changeStatus'])->name('changeStatus');
     Route::get('complain/delete/{id}',[ComplainController::class, 'deleteCompApplictaion'])->name('delete.deleteCompApplictaion');
 
     // Notification //

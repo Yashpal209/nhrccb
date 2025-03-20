@@ -5,6 +5,24 @@
         <ul class="collapsible" data-collapsible="accordion">
             <li><a href="#" class="menu-active"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a>
             </li>
+
+            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image" aria-hidden="true"></i>
+                    Banner</a>
+                <div class="collapsible-body left-sub-menu">
+                    <ul>
+                        <li><a href="{{route('banners')}}"><i class="fa fa-pencil" aria-hidden="true"></i>Add
+                                Banner</a>
+                        </li>
+                        <li><a href="{{ route('viewBanner') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Banner</a>
+                    </li>
+
+
+                    </ul>
+                </div>
+            </li>
+
+
+
             <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
                         aria-hidden="true"></i>Joining</a>
                 <div class="collapsible-body left-sub-menu">
@@ -28,6 +46,9 @@
                     <ul class="collapsible" data-collapsible="accordion">
                         <li><a href="{{ route('viewComplainApplictaion') }}" class="collapsible-header"><i
                                     class="fa fa-eye" aria-hidden="true"></i>New Complain</a>
+                        </li>
+                        <li><a href="{{ route('ComplainApplictaionStatus') }}" class="collapsible-header"><i
+                                    class="fa fa-eye" aria-hidden="true"></i>Change Complain Status</a>
                         </li>
                     </ul>
                 </div>
@@ -91,7 +112,8 @@
                         <li><a href="{{ route('addNationalPatron') }}"><i class="fa fa-pencil"
                                     aria-hidden="true"></i>Add National Patron</a>
                         </li>
-                        <li><a href="{{ route('viewNationalPatron') }}"><i class="fa fa-eye" aria-hidden="true"></i>View
+                        <li><a href="{{ route('viewNationalPatron') }}"><i class="fa fa-eye"
+                                    aria-hidden="true"></i>View
                                 National Patron</a>
                         </li>
                         <li><a href="{{ route('addNationalAdvisor') }}"><i class="fa fa-pencil"
@@ -100,10 +122,12 @@
                         <li><a href="{{ route('viewNationalAdvisor') }}"><i class="fa fa-eye"
                                     aria-hidden="true"></i>View National Advisor</a>
                         </li>
-                        <li><a href="{{ route('addOfficestaff') }}"><i class="fa fa-pencil" aria-hidden="true"></i>Add
+                        <li><a href="{{ route('addOfficestaff') }}"><i class="fa fa-pencil"
+                                    aria-hidden="true"></i>Add
                                 Office Staff</a>
                         </li>
-                        <li><a href="{{ route('viewOfficestaff') }}"><i class="fa fa-eye" aria-hidden="true"></i>View
+                        <li><a href="{{ route('viewOfficestaff') }}"><i class="fa fa-eye"
+                                    aria-hidden="true"></i>View
                                 Office Staff</a>
                         </li>
 
@@ -269,9 +293,11 @@
                                     aria-hidden="true"></i>Officer Interaction</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="{{ route('addOfficerInteraction') }}"><i class="fa fa-pencil" aria-hidden="true"></i>Add Officer Interaction</a>
+                                    <li><a href="{{ route('addOfficerInteraction') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Officer Interaction</a>
                                     </li>
-                                    <li><a href="{{ route('viewOfficerInteraction') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Officer Interaction</a>
+                                    <li><a href="{{ route('viewOfficerInteraction') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Officer Interaction</a>
                                     </li>
                                 </ul>
                             </div>
@@ -280,9 +306,11 @@
                                     aria-hidden="true"></i>Action Taken Report</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="{{ route('addActnTknRprt') }}"><i class="fa fa-pencil" aria-hidden="true"></i>Add Action Taken Report</a>
+                                    <li><a href="{{ route('addActnTknRprt') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Action Taken Report</a>
                                     </li>
-                                    <li><a href="{{ route('viewActnTknRprt') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Action Taken Report</a>
+                                    <li><a href="{{ route('viewActnTknRprt') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Action Taken Report</a>
                                     </li>
                                 </ul>
                             </div>
@@ -400,10 +428,12 @@
                                     aria-hidden="true"></i>Awards</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="{{ route('addAwards')}}"><i class="fa fa-pencil" aria-hidden="true"></i>Add
+                                    <li><a href="{{ route('addAwards') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add
                                             Awards</a>
                                     </li>
-                                    <li><a href="{{route('viewAwards')}}"><i class="fa fa-eye" aria-hidden="true"></i>View Awards</a>
+                                    <li><a href="{{ route('viewAwards') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Awards</a>
                                     </li>
                                 </ul>
                             </div>

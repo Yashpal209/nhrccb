@@ -22,7 +22,7 @@
     
 
     <!-- Begin Page Content -->
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <!-- Display Success Message -->
         @if (session('success'))
             <div class="alert alert-success">
@@ -579,7 +579,7 @@
                                                 <div class="text-center mb-3">
                                                     <h2 class="my-2">Document Section</h2>
                                                 </div>
-                                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 ">
                                                     <div class="form-group">
                                                         <div class="de-left-tit py-1 px-3 mx-3 mb-2">
                                                             <h5 class="text-light text-center py-0">Upload Image</h5>
@@ -604,7 +604,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group ">
                                                         <div class="de-left-tit py-1 px-3 mx-3 mb-3">
                                                             <h5 class="text-light text-center py-0">Adhar Card Front Side
@@ -630,7 +630,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group ">
                                                         <div class="de-left-tit py-1 px-3 mx-3 mb-3">
                                                             <h5 class="text-light text-center py-0">Adhar Card Back Side
@@ -656,7 +656,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group ">
                                                         <div class="de-left-tit py-1 px-3 mx-3 mb-3">
                                                             <h5 class="text-light text-center py-0">PAN Card (Optional)
@@ -681,7 +681,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2 col-sm-12 col-xs-12">
+                                                <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group ">
                                                         <div class="de-left-tit py-1 px-3 mx-3 mb-3">
                                                             <h5 class="text-light text-center py-0">Other Document </h5>

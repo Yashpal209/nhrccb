@@ -2,6 +2,8 @@
 <?php
 
 // use App\Http\Controllers\Web\Home\HomeController as HomeHomeController;
+
+use App\Http\Controllers\InternshipController ;
 use App\Http\Controllers\Web\Home\HomeController;
 use App\Http\Controllers\Web\Pages\ActivityController;
 use App\Http\Controllers\Web\Pages\AwardController;
@@ -156,5 +158,14 @@ Route::get('complain-dashboard', [ComplainController::class, 'ComplainDashboard'
 
 // Contact Us
 Route::get('contact_us', [PageController::class, 'ContactUs'])->name('ContactUs');
+
+
+// internship Services
+Route::get('internship-guideline', [InternshipController::class, 'internshipGuideline'])->name('internshipGuideline');
+Route::get('short-term', [InternshipController::class, 'shortTerm'])->name('shortTerm');
+Route::get('Winter', [InternshipController::class, 'winter'])->name('winter');
+Route::get('Summer', [InternshipController::class, 'summer'])->name('summer');
+Route::get('apply-internship', [InternshipController::class, 'apply'])->name('apply');
+Route::post('applyforinternship', [InternshipController::class, 'applyinternship'])->name('applyinternship');
 
 require base_path('routes/admin.php');

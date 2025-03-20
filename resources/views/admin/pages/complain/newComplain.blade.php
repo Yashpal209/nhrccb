@@ -1,115 +1,113 @@
-@extends('web.layouts.app')
+@extends('admin.layouts.app')
+
 @section('main-content')
-<style>
-    .home-top-cour {
-        background-color: #e0e4f3;
-        padding: 15px;
-        border-radius: 10px;
-    }
-    .home-top-cour img {
-        border: 2px solid #1232a5;
-        border-radius: 10px;
-        max-width: 100px;
-        max-height: 100px;
-    }
-    .status-pending {
-        color: orange;
-        font-weight: bold;
-    }
-    .status-processing {
-        color: blue;
-        font-weight: bold;
-    }
-    .status-resolved {
-        color: green;
-        font-weight: bold;
-    }
-    .status-unknown {
-        color: gray;
-        font-weight: bold;
-    }
-    .table td, .table th {
-        vertical-align: middle;
-        text-align: center;
-    }
-</style>
 
-<section>
-    <div class="head-2">
-        <div class="container">
-            <div class="head-2-inn">
-                <h1 class="fs-1">Complaint Status</h1>
-            </div>
+    @if (session('alert'))
+        <div class="alert alert-success">
+            {{ session('alert') }}
         </div>
-    </div>
-</section>
+    @endif
 
-<section>
-    <div class="container-fluid">
-        <div class="container com-sp">
-            <div class="row justify-content-center">
-                @if($complain->count() > 0)
-                    <div class="col-12">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
-                                <thead class="bg-primary text-white">
-                                    <tr>
-                                        <th>Complaint Type</th>
-                                        <th>Attachment</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($complain as $list)
-                                        <tr>
-                                            <td>{{ $list->complain_type }}</td>
-                                            <td>
-                                                @if (!empty($list->attachment))
-                                                    <a href="{{ $list->attachment }}" class="badge bg-success text-white" target="_blank">View</a>
-                                                @else
-                                                    <span class="badge bg-warning text-dark">No Attachment</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @switch($list->status)
-                                                    @case(1)
-                                                        <span class="badge bg-primary">Submitted</span>
-                                                    @break
-                                                    
-                                                    @case(2)
-                                                        <span class="badge bg-warning text-dark">Processing</span>
-                                                    @break
-                                                    
-                                                    @case(3)
-                                                        <span class="badge bg-success">Solved</span>
-                                                    @break
-                                                    
-                                                    @default
-                                                        <span class="badge bg-secondary">Unknown</span>
-                                                @endswitch
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <div class="row justify-content-between">
+                            <div class="col-md-6">
+                                <h4>New Complaint Details</h4>
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <a href="{{ route('ComplainApplictaionStatus') }}">
+                                    <div class="btn">
+                                        Change Application Status
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                @else
-                    <!-- NO DATA MESSAGE -->
-                    <div class="col-12 text-center mt-4">
-                        <h3>No Data Available</h3>
-                    </div>
-                @endif
-            </div>
+                    <div class="tab-inn">
+                        <div class="table-responsive">
+                            @if ($complainData->count() > 0)
+                                <table class="table table-hover table-bordered">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>Sl. No.</th>
+                                            <th>Name</th>
+                                            <th>Gender</th>
+                                            <th>Mobile</th>
+                                            <th>Email</th>
+                                            <th>Complaint Type</th>
+                                            <th>Complaint Details</th>
+                                            <th>Complaint Status</th>
+                                            <th>Attachment</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($complainData as $index => $list)
+                                            <tr>
+                                                <td>{{ $complainData->firstItem() + $index }}</td>
+                                                <td>{{ $list->name }}</td>
+                                                <td>{{ $list->gender }}</td>
+                                                <td>{{ $list->mobile }}</td>
+                                                <td>{{ $list->email }}</td>
+                                                <td>{{ $list->complain_type }}</td>
+                                                <td>{{ $list->complain_details }}</td>
+                                                <td>
+                                                    @if ($list->status == '1')
+                                                        <span class="label label-warning">Pending</span>
+                                                    @elseif($list->status == '2')
+                                                        <span class="label label-info">Working</span>
+                                                        Resion:{{ $list->resion }}
+                                                    @elseif($list->status == '3')
+                                                        <span class="label label-success">Resolved</span>
+                                                        Resion:{{ $list->resion }}
+                                                    @elseif($list->status == '0')
+                                                        <span class="label label-danger">Rejected</span>
+                                                        Resion:{{ $list->resion }}
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">
+                                                    @if (!empty($list->attachment))
+                                                        <a href="{{ url('/') . '/' . $list->attachment }}"
+                                                            class="label label-success text-white" target="_blank">View</a>
+                                                    @else
+                                                        <span class="badge bg-warning text-dark">No Attachment</span>
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="{{ route('delete.deleteCompApplictaion', $list->id) }}"
+                                                        class="label label-danger text-white">Delete</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
 
-            <!-- PAGINATION LINKS -->
-            @if($complain->count() > 0)
-                <div class="d-flex justify-content-center mt-4">
-                    {{ $complain->links() }}
+                                <!-- PAGINATION LINKS -->
+                                <div class="d-flex justify-content-center mt-4">
+                                    {{ $complainData->links() }}
+                                </div>
+                            @else
+                                <!-- NO DATA MESSAGE -->
+                                <div class="text-center mt-4">
+                                    <h3>No Complaints Found</h3>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
-            @endif
+            </div>
         </div>
     </div>
-</section>
 
 @endsection
