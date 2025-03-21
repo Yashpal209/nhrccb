@@ -14,22 +14,19 @@
     <!-- FAV ICON(BROWSER TAB ICON) -->
     <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
     <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700"  rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- FONTAWESOME ICONS -->
-    <link rel="stylesheet" href="{{ asset('public/web/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- ALL CSS FILES -->
     <link href="{{ asset('public/web/assets/css/materialize.css') }}" rel="stylesheet">
     <link href="{{ asset('public/web/assets/css/bootstrap.css') }}" rel="stylesheet" />
     <link href="{{ asset('public/web/assets/css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('public/web/assets/css/particle.css') }}" rel="stylesheet" />
-
     <link href="{{ asset('public/web/assets/css/style-mob.css') }}" rel="stylesheet" />
 
 </head>
@@ -150,28 +147,26 @@
                     <div class="col-md-12">
                         <div class="ed-com-t1-left">
                             <ul>
-                                <li><a href="#"></a>
-                                </li>
-                                <li><a href="#">Phone: +91 9102224365 , +91 9893151900</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="ed-com-t1-right">
-                            <ul>
-                                <li><a href="#!" data-toggle="modal" data-target="#modal1">Sign In</a>
-                                </li>
-                                <li><a href="#!" data-toggle="modal" data-target="#modal2">Sign Up</a>
-                                </li>
+                                <li><a href="#"></a></li>
+                                <li><a href="tel:">Phone: +91 9102224365</a></li>
                             </ul>
                         </div>
                         <div class="ed-com-t1-social">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <li><a href="https://www.youtube.com/channel/UCJvCufQ4ARy84rZAQC2N0Kw"><i class="fab fa-youtube text-danger"></i></a></li>
+                                <li><a href="https://t.me/nhrccb"><i class="fab fa-telegram text-white"></i></a></li>
+                                <li><a href="https://twitter.com/nhrccb"><i class="fab fa-twitter text-info"></i></a></li>
+                                <li><a href="https://www.facebook.com/nhrccb"><i class="fab fa-facebook text-info"></i></a></li>
+                                <li><a href="https://www.instagram.com/nhrccbindia"><i class="fab fa-instagram text-danger"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="ed-com-t1-right">
+                            <ul>
+                                {{-- <li><a href="#!" data-toggle="modal" data-target="#modal1">Sign In</a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                </li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                </li>
+                                <li><a href="#!" data-toggle="modal" data-target="#modal2">Sign Up</a>
+                                </li> --}}
+                                <li><a href="admin">Admin Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -182,19 +177,24 @@
         <div>
             <div class="container">
                 <div class="row ">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="wed-logo">
                             <a href="{{ route('home') }}">
                                 <img src="{{ asset('public/web/assets/images/logo/logo.png') }}" alt="" />
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6 ">
+                    {{-- <div class="col-md-4">
+                        <div class="w-100">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('public/web/assets/images/logo/Logo-replace-white.png') }}" alt="" />
+                            </a>
+                        </div>
+                    </div> --}}
+                    <div class="col-md-4 ">
                         <div class="wed-logo-2">
                             <a href="index">
-                                <img class="img-fluid"
-                                    src="{{ asset('public/web/assets/images/logo-ministrytrans.webp') }}"
-                                    alt="" />
+                                <img class="img-fluid" src="{{ asset('public/web/assets/images/logo/nhrccb.png') }}"alt="" />
                             </a>
                         </div>
                     </div>
@@ -209,8 +209,7 @@
                     <div class="col-md-12">
                         <div class="main-menu d-flex justify-content-center ">
                             <ul>
-                                <li><a href="{{ route('home') }}"><i style="font-size: 22px" class="fa  fa-home"
-                                            aria-hidden="true"></i></a>
+                                <li><a href="{{ route('home') }}"><i style="font-size: 15px" class="fa fa-home" aria-hidden="true"></i></a>
                                 </li>
                                 <li class="about-menu">
                                     <a href="#" class="mm-arr">About us <span><small
@@ -222,25 +221,19 @@
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
                                                         <li><a href="{{ route('who_we_are') }}">Organisation</a></li>
-                                                        <li><a href="{{ route('what_we_do') }}">Mission/Vision</a>
-                                                        </li>
-                                                        <!-- <li><a href="{{ route('how_we_works') }}">How we Works</a></li> -->
-                                                        <li><a href="{{ route('rules_regulations') }}">Act/Rules</a>
-                                                        </li>
-                                                        <li><a href="{{ route('govt_recognition') }}">Recognitions</a>
-                                                        </li>
-                                                        <li><a href="{{ route('collaboration') }}">Collaboration</a>
-                                                        </li>
+                                                        <li><a href="{{ route('what_we_do') }}">Mission/Vision</a></li>
+                                                        <li><a href="{{ route('rules_regulations') }}">Act/Rules</a></li>
+                                                        <li><a href="{{ route('govt_recognition') }}">Recognitions</a></li>
+                                                        <li><a href="{{ route('collaboration') }}">Collaboration</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="{{ route('PresidentMessage') }}">National
-                                                                President</a></li>
+                                                        <li><a href="{{ route('PresidentMessage') }}">National President</a></li>
                                                         <li><a href="national_patron">National Patron</a></li>
                                                         {{-- <li><a href="national_advisor">National Advisor</a></li>
                                                         <li><a href="office_staff">Office Staff</a></li> --}}
-                                                        <li><a href="{{ route('whos_who') }}">Who's Who</a></li>ha
+                                                        <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -275,114 +268,44 @@
                                     </div>
                                 </li>
                                 <li class="issue-menu">
-                                    <a href="#" class="mm-arr">Publication<small
+                                    <a href="#" class="mm-arr">Publication <small
                                             class="text-light">+</small></a>
-
                                     <div class="mm-pos">
                                         <div class="issue-mm m-menu">
                                             <div class="m-menu-inn">
-
-
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a href="{{ route('monthly_report') }}">Monthly Report</a>
-                                                        </li>
-                                                        <li><a href="{{ route('annual_report') }}">Annual Report</a>
-                                                        </li>
-                                                        <li><a href="{{ route('souvenier') }}">Souvenier</a></li>
-                                                        <li><a href="{{ route('propectus') }}">Prospectus</a></li>
-
-                                                        <!-- <li><a href="#">Disability Rights</a></li>
-                                                        <li><a href="#">Right to Education</a></li> -->
+                                                        <li><a href="{{ route('annual_report') }}">Annual Report</a></li>
+                                                        <li><a href="{{ route('monthly_report') }}">Monthly Report</a></li>
+                                                        <li><a href="{{ route('official_notification') }}">Official/Notification</a></li>
+                                                        <li><a href="">Acts Related Human Rights</a></li>
+                                                        <li><a href="{{ route('convo_report') }}">Convocation Report</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
+                                                        <li><a href="{{ route('propectus') }}">Prospectus</a></li>
+                                                        <li><a href="{{ route('souvenier') }}">Souvenier</a></li>
                                                         <li><a href="{{ route('journal') }}">Journal</a></li>
-                                                        <li><a
-                                                                href="{{ route('official_notification') }}">Official/Notification</a>
-                                                        </li>
                                                         <li><a href="{{ route('rule_book') }}">Rulebook</a></li>
-                                                        <li><a href="{{ route('convo_report') }}">Convocation
-                                                                Report</a></li>
+                                                        <li><a href="">Books</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <!-- <li class="admi-menu">
-                                    <a href="#" class="mm-arr">Administration</a>
-                                 
-                                    <div class="mm-pos">
-                                        <div class="admi-mm m-menu">
-                                            <div class="m-menu-inn">
-                                                <div class="mm2-com mm1-com mm1-s1">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="{{ route('PresidentMessage') }}">
-                                                            <img src="{{ asset('public/web/assets/images/h-about1.jpg') }}" alt="">
-                                                            <span>National President</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <a href="{{ route('PresidentMessage') }}" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s1">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="{{ route('NationalPatron') }}">
-                                                            <img src="{{ asset('public/web/assets/images/h-adm1.jpg') }}" alt="">
-                                                            <span>National Patron</span>
-                                                        </a>
-                                                    </div>
-                                                    <p></p>
-                                                    <a href="{{ route('NationalPatron') }}" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s1">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="{{ route('NationalAdvisor') }}">
-                                                            <img src="{{ asset('public/web/assets/images/h-cam1.jpg') }}" alt="">
-                                                            <span>National Advisor</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <a href="{{ route('NationalAdvisor') }}" class="mm-r-m-btn">Read more</a>
-                                                </div>
-                                                <div class="mm2-com mm1-com mm1-s4">
-                                                    <div class="ed-course-in">
-                                                        <a class="course-overlay" href="{{ route('OfficeStaff') }}">
-                                                            <img src="{{ asset('public/web/assets/images/h-res1.jpg') }}" alt="">
-                                                            <span>Office Staff</span>
-                                                        </a>
-                                                    </div>
-
-                                                    <a href="{{ route('OfficeStaff') }}" class="mm-r-m-btn">Read more</a>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> -->
                                 <li class="media-menu">
                                     <a href="#" class="mm-arr">Media <small class="text-light">+</small></a>
-
                                     <div class="mm-pos">
                                         <div class="media-mm m-menu">
                                             <div class="m-menu-inn">
-
-
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a
-                                                                href="{{ route('acknowledgement') }}">Acknowledgement</a>
-                                                        </li>
-                                                        <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a>
-                                                        </li>
-                                                        <li><a href="{{ route('OfficerInteraction') }}">Officer
-                                                                Intercation</a>
-                                                        </li>
-                                                        <li><a href="{{ route('ActionTakRepo') }}">Action Take
-                                                                Report</a>
-                                                        </li>
+                                                        <li><a href="{{ route('acknowledgement') }}">Acknowledgement</a></li>
+                                                        <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a></li>
+                                                        <li><a href="{{ route('OfficerInteraction') }}">Officer Intercation</a></li>
+                                                        <li><a href="{{ route('ActionTakRepo') }}">Action Take Report</a></li>
                                                         <li><a href="{{ route('Photos') }}">Event Gallery</a></li>
                                                         <li><a href="{{ route('PrintMedia') }}">Print Media</a></li>
                                                     </ul>
@@ -390,12 +313,9 @@
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
                                                         <li><a href="{{ route('WebMedia') }}">Web Media</a></li>
-                                                        <li><a href="{{ route('VideoGallery') }}">Video Gallery</a>
-                                                        </li>
+                                                        <li><a href="{{ route('VideoGallery') }}">Video Gallery</a></li>
                                                         <li><a href="electronic_media">Press Release</a>
                                                         </li>
-                                                        {{-- <li><a href="{{ route('interview') }}">Interview</a></li> --}}
-
                                                     </ul>
                                                 </div>
                                             </div>
@@ -532,17 +452,21 @@
                                                     <ul>
                                                         <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li>
                                                         <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
-                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
+                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a>
+                                                        </li>
+                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a>
+                                                        </li>
                                                         <li><a href="{{ route('StateTeam') }}">State Team</a></li>
-                                                        <li><a href="{{ route('NationalTeam') }}">National Team</a></li>
+                                                        <li><a href="{{ route('NationalTeam') }}">National Team</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
                                                         <li><a href="{{ route('interns') }}">Interns</a></li>
                                                         <li><a href="{{ route('volunteer') }}">Volunteer</a></li>
-                                                        <li><a href="{{route('activemember')}}">Active Member</a></li>
+                                                        <li><a href="{{ route('activemember') }}">Active Member</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -550,8 +474,6 @@
                                     </div>
                                 </li>
                                 <li><a href="{{ route('JoinUs') }}">Join Us</a>
-                                </li>
-                                <li><a href="{{ route('verification') }}">Verification</a>
                                 </li>
                                 <li class="complain-menu">
                                     <a href="" class="mm-arr">Complaint <small
@@ -577,25 +499,6 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="contact-menu">
-                                    <a href="#" class="mm-arr">Contact Us <small
-                                            class="text-light">+</small></a>
-                                    <div class="mm-pos">
-                                        <div class="contact-mm m-menu">
-                                            <div class="m-menu-inn">
-                                                <div class="mm1-com mm1-s1">
-                                                    <ul>
-                                                        <li><a href="{{ route('ContactUs') }}">Office Address</a>
-                                                        </li>
-                                                        <li><a href="#">Officers Directory</a></li>
-                                                        <li><a href="#">Help Line</a></li>
-                                                    </ul>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
                                 <li class="tranning-menu">
                                     <a href="#" class="mm-arr">Tranning & Resarch <small
                                             class="text-light">+</small></a>
@@ -611,14 +514,17 @@
                                                                 <div class="dropdown-menu ">
                                                                     <!-- Change to bg-dark for a dark theme -->
                                                                     <a class="dropdown-item "
-                                                                        href="{{ route('internshipGuideline')}}">Internship Guideline</a>
-                                                                    <a class="dropdown-item" href="{{ route('shortTerm')}}">Short
+                                                                        href="{{ route('internshipGuideline') }}">Internship
+                                                                        Guideline</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('shortTerm') }}">Short
                                                                         Term</a>
                                                                     <a class="dropdown-item "
-                                                                        href="{{ route('winter')}}">Winter</a>
+                                                                        href="{{ route('winter') }}">Winter</a>
                                                                     <a class="dropdown-item "
-                                                                        href="{{ route('summer')}}">Summer</a>
-                                                                    <a class="dropdown-item " href="{{route('apply')}}">Apply
+                                                                        href="{{ route('summer') }}">Summer</a>
+                                                                    <a class="dropdown-item "
+                                                                        href="{{ route('apply') }}">Apply
                                                                         Internship</a>
                                                                 </div>
                                                             </div>
@@ -671,16 +577,17 @@
                                         </div>
                                     </div>
                                 </li>
-                                 <li class="registration-menu">
+                                <li class="registration-menu">
                                     <a href="about-us" class="mm-arr">Registration</a>
-                                  
+
                                     <div class="mm-pos">
                                         <div class="registration-mm m-menu">
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1">
                                                     <div class="ed-course-in">
                                                         <a class="course-overlay menu-about" href="#">
-                                                            <img src="{{ asset('public/web/assets/images/menubar/about.webp') }}" alt="">
+                                                            <img src="{{ asset('public/web/assets/images/menubar/about.webp') }}"
+                                                                alt="">
                                                             <span>Registration</span>
                                                         </a>
                                                     </div>
@@ -706,7 +613,28 @@
                                         </div>
                                     </div>
                                 </li>
+                                <li><a href="{{ route('verification') }}">Verification</a>
+                                </li>
                                 <li><a href="#">Donation</a>
+                                </li>
+                                <li class="contact-menu">
+                                    <a href="#" class="mm-arr">Contact Us <small
+                                            class="text-light">+</small></a>
+                                    <div class="mm-pos">
+                                        <div class="contact-mm m-menu">
+                                            <div class="m-menu-inn">
+                                                <div class="mm1-com mm1-s1">
+                                                    <ul>
+                                                        <li><a href="{{ route('ContactUs') }}">Office Address</a>
+                                                        </li>
+                                                        <li><a href="#">Officers Directory</a></li>
+                                                        <li><a href="#">Help Line</a></li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

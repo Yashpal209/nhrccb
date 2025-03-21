@@ -156,7 +156,7 @@ label {
 .wed-logo a {
 }
 .wed-logo a img {
-    width: 560px;
+    width: 150px;
     padding: 5px 0px;
 }
 .wed-logo-2 {
@@ -165,8 +165,8 @@ label {
 .wed-logo-2 a {
 }
 .wed-logo-2 a img {
-    width: 300px;
-    padding: 7px 0px;
+    width: 323px;
+    padding: 32px 0px;
 }
 .wed-menu {
     float: right;
@@ -953,10 +953,11 @@ label {
     font-size: 12px;
 }
 .ed-com-t1-right ul li:nth-child(1) a {
-    background: #e66030;
+    background:#013673 ;
+    border-radius: 5px;
 }
 .ed-com-t1-right ul li:nth-child(2) a {
-    background: #013673;
+    background:#e66030;
 }
 /*-------------------------------------------------*/
 /* =  2.MAIN MENU
@@ -975,35 +976,43 @@ label {
 }
 .main-menu ul li a {
     color: #fdfbff;
-    padding: 10px 7px;
-    line-height: 45px;
-    font-size: 16px;
-    font-weight: 600;
-    /* text-transform: uppercase;
-     */
+    padding: 10px 4px;
+    line-height: 40px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
     position: relative;
 }
 @media (max-width: 1300px) {
     .main-menu ul li a {
         color: #fdfbff;
-        padding: 12px 6px;
-        line-height: 45px;
-        font-size: 15px;
+        padding: 12px 4px;
+        line-height: 40px;
+        font-size: 13px;
         font-weight: 500;
-        /* text-transform: uppercase;
-     */
+        text-transform: uppercase;
         position: relative;
     }
 }
 @media (max-width: 1200px) {
     .main-menu ul li a {
         color: #fdfbff;
-        padding: 13px 2px;
-        line-height: 45px;
-        font-size: 13px;
-        font-weight: 500;
-        /* text-transform: uppercase;
-     */
+        padding: 13px 1px;
+        line-height: 40px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+    }
+}
+@media (max-width: 1024px) {
+    .main-menu ul li a {
+        color: #fdfbff;
+        padding: 13px 1px;
+        line-height: 40px;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
         position: relative;
     }
 }
@@ -3441,9 +3450,13 @@ left: 12px;
 }
 .yt1 {
     background: #cd201f;
+    border-top-left-radius: 5px;
 }
 .wa1 {
     background: #34af23;
+}
+.in1{
+    background: #c44141;
 }
 .sh {
     background: #fff;
@@ -3454,7 +3467,7 @@ left: 12px;
     border-top-left-radius: 5px;
 }
 .sh1 {
-    background: #333;
+    background: #395183;
     border-bottom-left-radius: 5px;
 }
 /*-------------------------------------------------*/

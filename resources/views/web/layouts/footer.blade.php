@@ -8,15 +8,15 @@
                 <p align="justify">National Human Rights and Crime Control Bureau (NHRCCB) is functioning with commitment to the Noble Cause of Human Rights Protection and Promotion, Justice, Education, Love, Peace, Harmony to all and Friendship, National & International Integration by Exchange of Ideas & Ethos around the Nation .NHRCCB Is working for the Protection and Promotion of Human Rights.</p>
                 <h4>SOCIAL MEDIA</h4>
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
                     </li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
                     </li>
-                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                    <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
                     </li>
-                    <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                    <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                     </li>
-                    <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -80,11 +80,11 @@
                 <p>Don't have an account? Create your account. It's take less then a minutes</p>
                 <h4>Login with social media</h4>
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+                    <li><a href="#"><i class="fab fa-google"></i> Google+</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     </li>
                 </ul>
             </div>
@@ -134,11 +134,11 @@
                 <p>Don't have an account? Create your account. It's take less then a minutes</p>
                 <h4>Login with social media</h4>
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+                    <li><a href="#"><i class="fab fa-google"></i> Google+</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     </li>
                 </ul>
             </div>
@@ -192,11 +192,11 @@
                 <p>Don't have an account? Create your account. It's take less then a minutes</p>
                 <h4>Login with social media</h4>
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+                    <li><a href="#"><i class="fab fa-google"></i> Google+</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a>
                     </li>
                 </ul>
             </div>
@@ -225,18 +225,17 @@
         </div>
     </div>
 </section>
-
 <!-- SOCIAL MEDIA SHARE -->
 <section>
     <div class="icon-float">
         <ul>
-
-            <li><a href="#" class="fb1"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
-
-            <li><a href="#" class="tw1"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
-            <li><a href="#" class="li1"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
-            <li><a href="#" class="wa1"><i class="fa fa-whatsapp" aria-hidden="true"></i></a> </li>
-            <li><a href="#" class="sh1"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> </li>
+            <li><a href="#" class="yt1"><i class="fab fa-youtube " aria-hidden="true"></i></a></li>
+            <li><a href="#" class="fb1"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#" class="tw1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            {{-- <li><a href="#" class="li1"><i class="fab fa-linkedin" aria-hidden="true"></i></a> </li> --}}
+            <li><a href="#" class="wa1"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
+            <li><a href="#" class="in1"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#" class="sh1"><i class="fa-solid fa-envelope"></i></a></li>
         </ul>
     </div>
 </section>
@@ -252,9 +251,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 @yield('page-js')
+
 </body>
-
-
-<!-- Mirrored from rn53themes.net/themes/demo/education-master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2024 05:34:07 GMT -->
-
 </html>

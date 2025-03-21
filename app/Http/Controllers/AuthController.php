@@ -17,7 +17,6 @@ class AuthController extends Controller
 
     public function login(Request $req)
     {
-        
         $user = User::where('email', $req->email)->first();
         if (!$user || ($req->password != $user->password)) {
             return redirect()->back()->with('alert', 'Invalid Email/Password');
