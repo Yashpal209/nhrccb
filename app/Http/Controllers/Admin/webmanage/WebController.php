@@ -10,7 +10,7 @@ class WebController extends Controller
 {
     public function banner()
     {
-        return view('admin.pages.webmanage.banner');
+        return view('admin.pages.webmanage.banner');    
     }
     public function addBannerPost(Request $request)
     {
