@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Gallery\Photo;
 use App\Models\Admin\Notification;
 use App\Models\Admin\Notification\LatestUpdate;
+use App\Models\Admin\Webmanage\Banner;
 use Illuminate\Http\Request;
 
 
@@ -18,12 +19,12 @@ class HomeController extends Controller
     {
         $notifications = Notification::orderBy('date', 'desc')->get();
         $latestUpdate = LatestUpdate::orderBy('date', 'desc')->get();
-        // dd($latestUpdate);
+        $Banner = Banner::orderBy('created_at', 'desc')->get();
         $viewPhotos = Photo::orderBy('created_at', 'desc')->limit(6)->get();
-        $data = compact('notifications', 'viewPhotos', 'latestUpdate');
+        $data = compact('notifications', 'viewPhotos', 'latestUpdate', 'Banner');
         return view('web.index')->with($data);
-      
     }
+
     // public function ind()
     // {
     //     $notifications = Notification::orderBy('date', 'desc')->get();

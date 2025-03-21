@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Title</th>
+                                    <th>Link</th>
                                     <th>Date</th>
                                     <th>View</th>
                                     <th>Delete</th>
@@ -48,6 +49,7 @@
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->title }}</td>
+                                    <td>{{ $item->link }}</td>
                                     <td>{{ $item->created_at->format('Y-m-d') }}</td> 
                                     <td>
                                         <a href="{{ asset($item->image) }}" target="_blank">

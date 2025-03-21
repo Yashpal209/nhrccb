@@ -11,38 +11,30 @@
 
     <!-- SLIDER -->
     <section>
-        <div class="container-fluid ">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 px-0">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            @foreach($Banner as $index => $banner)
+                                <li data-target="#myCarousel" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                            @endforeach
                         </ol>
-
+    
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="item slider1 active">
-                                <img src="{{ asset('public/web/assets/images/slider/IMG_7416.JPG') }}" alt="">
-                                <div class="carousel-caption slider-con">
-                                    <p>Valedictory function of VIP</p>
+                            @foreach($Banner as $index => $banner)
+                                <div class="item {{ $index == 0 ? 'active' : '' }}">
+                                    <img src="{{ asset($banner->image) }}" alt="">
+                                    <div class="carousel-caption slider-con">
+                                        <p>{{ $banner->title }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <img src="{{ asset('public/web/assets/images/slider/IMG_4874.JPG') }}" alt="">
-                                <div class="carousel-caption slider-con">
-                                    <p>Capacity Building Programme on Human Rights for NHRCCB New Delhi</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <img src="{{ asset('public/web/assets/images/slider/IMG_4532.JPG') }}" alt="">
-                                <div class="carousel-caption slider-con">
-                                    <p>Capacity Building Programme on Human Rights for NHRCCB New Delhi</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
+    
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                             <i class="fa fa-chevron-left slider-arr"></i>
@@ -55,6 +47,7 @@
             </div>
         </div>
     </section>
+    
 
     <section>
         <div class="container py-3">
