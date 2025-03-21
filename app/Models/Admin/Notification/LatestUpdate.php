@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class LatestUpdate extends Model
 {
     use HasFactory;
-    protected $table = 'latestUpdate';
+    protected $table = 'latestupdate';
 }
