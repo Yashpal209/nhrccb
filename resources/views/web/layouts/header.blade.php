@@ -238,9 +238,9 @@
                                                         <li><a href="{{ route('PresidentMessage') }}">National
                                                                 President</a></li>
                                                         <li><a href="national_patron">National Patron</a></li>
-                                                        <li><a href="national_advisor">National Advisor</a></li>
-                                                        <li><a href="office_staff">Office Staff</a></li>
-                                                        <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
+                                                        {{-- <li><a href="national_advisor">National Advisor</a></li>
+                                                        <li><a href="office_staff">Office Staff</a></li> --}}
+                                                        <li><a href="{{ route('whos_who') }}">Who's Who</a></li>ha
                                                     </ul>
                                                 </div>
                                             </div>
@@ -671,7 +671,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <!-- <li class="registration-menu">
+                                 <li class="registration-menu">
                                     <a href="about-us" class="mm-arr">Registration</a>
                                   
                                     <div class="mm-pos">
@@ -705,11 +705,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li> -->
-                                <!-- <li><a href="{{ route('trainingResearch') }}">Training and Research</a>
                                 </li>
                                 <li><a href="#">Donation</a>
-                                </li> -->
+                                </li>
                             </ul>
                         </div>
                     </div>
