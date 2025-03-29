@@ -50,6 +50,7 @@ Route::get('propectus', [PublicationController::class, 'propectus'])->name('prop
 Route::get('journal', [PublicationController::class, 'journal'])->name('journal');
 Route::get('rule-book', [PublicationController::class, 'rule_book'])->name('rule_book');
 Route::get('convocation-report', [PublicationController::class, 'convo_report'])->name('convo_report');
+Route::get('book', [PublicationController::class, 'book'])->name('book');
 
 // Administration
 Route::get('president_message', [PageController::class, 'PresidentMessage'])->name('PresidentMessage');

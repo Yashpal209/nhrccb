@@ -51,4 +51,9 @@ class PublicationController extends Controller
           $Convocation = Convocation::paginate(10);
           return view('web.pages.publication.convocation_report', compact('Convocation'));
      }
+     public function book()
+     {
+          // $Convocation = Convocation::paginate(10);
+          return view('web.pages.publication.book', );
+     }
 }

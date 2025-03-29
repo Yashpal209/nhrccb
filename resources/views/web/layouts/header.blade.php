@@ -328,7 +328,7 @@
                                                         <li><a href="{{ route('souvenier') }}">Souvenier</a></li>
                                                         <li><a href="{{ route('journal') }}">Journal</a></li>
                                                         <li><a href="{{ route('rule_book') }}">Rulebook</a></li>
-                                                        <li><a href="">Books</a></li>
+                                                        <li><a href="{{ route('book') }}">Books</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
