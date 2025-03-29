@@ -138,7 +138,7 @@
 
 
                                                 </div>
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                {{-- <div class="col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Select Wing:</label>
                                                         <div class="col-sm-12">
@@ -155,48 +155,53 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
-                                                    <div class="form-group">
-                                                        <label class="control-label col-sm-12">Select Level:</label>
-                                                        <div class="col-sm-12">
-                                                            <select class="form-control" name="level" id="level"
-                                                                require>
-                                                                <option value="">-- Select Level --</option>
-                                                                <option value="active-membership"
-                                                                    {{ old('wing') == 'active-membership' ? 'selected' : '' }}>
-                                                                    Active Membership</option>
-                                                            </select>
-                                                            @error('level')
-                                                                <span class="text-danger">
-                                                                    {{ $message }}
-                                                                </span>
-                                                            @enderror
+                                                
+                                                
+                                                
+                                                   
+                                                        <!-- Select Level -->
+                                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-12">Select Level:</label>
+                                                                <div class="col-sm-12">
+                                                                    <select class="form-control" name="level" id="level" onchange="updateDesignations()" required>
+                                                                        <option value="">-- Select Level --</option>
+                                                                        <option value="national-team" {{ old('level') == 'national-team' ? 'selected' : '' }}> NATIONAL TEAM</option>
+                                                                        <option value="state-team" {{ old('level') == 'state-team' ? 'selected' : '' }}> STATE TEAM</option>
+                                                                        <option value="district-team" {{ old('level') == 'district-team' ? 'selected' : '' }}> DISTRICT TEAM</option>
+                                                                        <option value="block-team" {{ old('level') == 'block-team' ? 'selected' : '' }}> BLOCK TEAM</option>
+                                                                        <option value="active-membership" {{ old('level') == 'active-membership' ? 'selected' : '' }}> ACTIVE MEMBERSHIP </option>
+                                                                        <option value="volunteer" {{ old('level') == 'volunteer' ? 'selected' : '' }}>VOLUNTEER</option>
+                                                                    </select>
+                                                                    @error('level')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Select Designation -->
-                                                <div class="col-md-4 col-sm-12 col-xs-12">
-                                                    <div class="form-group">
-                                                        <label class="control-label col-sm-12">Select Designation:</label>
-                                                        <div class="col-sm-12">
-                                                            <select class="form-control" name="designation" id="designation"
-                                                                require>
-                                                                <option value="">-- Select Designation --</option>
-                                                                <option value="active-membership"
-                                                                    {{ old('wing') == 'active-membership' ? 'selected' : '' }}>
-                                                                    Active Membership</option>
-                                                            </select>
-                                                            @error('designation')
-                                                                <span class="text-danger">
-                                                                    {{ $message }}
-                                                                </span>
-                                                            @enderror
+                                                
+                                                        <!-- Select Designation -->
+                                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-sm-12">Select Designation:</label>
+                                                                <div class="col-sm-12">
+                                                                    <select class="form-control" name="designation" id="designation" required>
+                                                                        <option value="">-- Select Designation --</option>
+                                                                        @if(old('designation'))
+                                                                            <option value="{{ old('designation') }}" selected>{{ old('designation') }}</option>
+                                                                        @endif
+                                                                    </select>
+                                                                    @error('designation')
+                                                                        <span class="text-danger">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    
+                                                
+                                                
 
                                                 <!-- Name (As Per Aadhaar) -->
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
@@ -856,4 +861,54 @@
             $("#other_doc_img_view").attr('src', URL.createObjectURL(e.target.files[0]));
         });
     </script>
+
+<script>
+    const designations = {
+        "national-team": [
+            "National Vice President", "National General Secretary", "National Secretary", 
+            "National Joint Secretary", "National Legal Advisor", "National Media Officer", 
+            "National Parton", "National Advisor"
+        ],
+        "state-team": [
+            "State President", "State Vice President", "State General Secretary", "State Secretary", 
+            "State Joint Secretary", "State Media Officer", "State Parton", "State Advisor"
+        ],
+        "district-team": [
+            "District President", "District Vice President", "District General Secretary", "District Secretary", 
+            "District Joint Secretary", "District Legal Advisor", "District Media Officer", "District Parton", "District Advisor"
+        ],
+        "block-team": [
+            "Block President", "Block Vice President", "Block General Secretary", "Block Secretary", 
+            "Block Joint Secretary", "Block Legal Advisor", "Block Media Officer", "Block Parton", "Block Advisor"
+        ],
+        "active-membership": [
+            "active-membership"
+        ],
+        "volunteer": [
+            "volunteer"
+        ]
+    };
+
+    function updateDesignations() {
+        const teamSelect = document.getElementById("level");
+        const designationSelect = document.getElementById("designation");
+        
+        const selectedTeam = teamSelect.value;
+        designationSelect.innerHTML = "<option value=''>-- Select Designation --</option>";
+        
+        if (selectedTeam && designations[selectedTeam]) {
+            designations[selectedTeam].forEach(designation => {
+                let option = document.createElement("option");
+                option.value = designation;
+                option.textContent = designation;
+                designationSelect.appendChild(option);
+            });
+        }
+    }
+
+    // Call updateDesignations on page load if an old value exists
+    window.onload = function() {
+        updateDesignations();
+    };
+</script>
 @endsection

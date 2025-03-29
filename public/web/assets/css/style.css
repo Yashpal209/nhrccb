@@ -102,10 +102,10 @@ label {
 }
 .con-title {
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .con-title h2 {
-    font-size: 36px;
+    font-size: 30px;
     margin-top: 0px;
     margin-bottom: 15px;
     line-height: 40px;
@@ -115,7 +115,7 @@ label {
     /* justify-content: center; */
 }
 .con-title h2 span {
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
     color: #102366;
     line-height: 40px;

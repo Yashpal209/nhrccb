@@ -60,7 +60,7 @@
                     @endforeach
                 </marquee>
             </div>
-            <div class="col-md-3 col-12 ">
+            <div class="col-md-3 col-12 text-center ">
                 <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').stop()">⏸
                     Stop</button>
                 <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').start()">▶
@@ -154,6 +154,11 @@
 
     <section>
         <div class="container py-3">
+            <div class="row">
+                <div class="con-title">
+                    <h2 class="mb-0"> <span>Social Media</span></h2>
+                </div>
+            </div>
             <div class="row d-flex justify-content-center align-items-center">
                 <!-- Instagram Embed -->
                 <div class="col-md-6 d-flex justify-content-center">

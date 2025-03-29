@@ -158,7 +158,7 @@ Route::get('complain-dashboard', [ComplainController::class, 'ComplainDashboard'
 
 // Contact Us
 Route::get('contact_us', [PageController::class, 'ContactUs'])->name('ContactUs');
-
+Route::get('donation', [PageController::class, 'donation'])->name('donation');
 
 // internship Services
 Route::get('internship-guideline', [InternshipController::class, 'internshipGuideline'])->name('internshipGuideline');

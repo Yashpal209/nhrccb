@@ -130,6 +130,10 @@ class PageController extends Controller
     {
         return view('web.pages.contactUs.contactUs');
     }
+    public function donation()
+    {
+        return view('web.pages.donation.donation');
+    }
 
     public function stateData()
     {

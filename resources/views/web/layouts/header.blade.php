@@ -593,7 +593,7 @@
 
                                 <li><a href="{{ route('verification') }}">Verification</a>
                                 </li>
-                                <li><a href="#">Donation</a>
+                                <li><a href="{{ route('donation') }}">Donation</a>
                                 </li>
 
                             </ul>
