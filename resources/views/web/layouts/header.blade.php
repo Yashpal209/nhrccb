@@ -276,8 +276,7 @@
                                     </div>
                                 </li>
                                 <li class="work-menu">
-                                    <a href="#" class="mm-arr">Our Works <small
-                                            class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Our Works <small class="text-light">+</small></a>
 
                                     <div class="mm-pos">
                                         <div class="work-mm m-menu ">
@@ -288,14 +287,21 @@
                                                         <li><a href="{{ route('HumanRights') }}">Human Rights</a></li>
                                                         <li><a href="{{ route('WomenRights') }}">Women Rights</a></li>
                                                         <li><a href="{{ route('ChildRights') }}">Child Rights</a></li>
+                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer Rights</a></li>
+                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a></li>
+                                                        <li><a href="#">Disability Rights</a></li>
+                                                        <li><a href="#">Right to Education</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer
-                                                                Rights</a></li>
-                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a>
-                                                        </li>
+                                                        <li><a href="#">Advocate Rights</a></li>
+                                                        <li><a href="#">LGBT Rights</a></li>
+                                                        <li><a href="#">Doctor Rights</a></li>
+                                                        <li><a href="#">Tribal Rights</a></li>
+                                                        <li><a href="#">Press Rights</a></li>
+                                                        <li><a href="#">Crime Control Act</a></li>
+                                                        
                                                     </ul>
                                                 </div>
                                             </div>
