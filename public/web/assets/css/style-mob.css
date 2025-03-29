@@ -305,7 +305,7 @@
          display:none;
     }
      .wed-logo a img {
-         width: 200px;
+         width: 130px;
          margin-top: 5px;
     }
      .wed-search-1 {
@@ -434,7 +434,9 @@
 	float:left;
 	width:50%;
 }
-
+.wed-logo-2{
+    margin-top: 120px;
+}
 }
 
 /*-------------------------------------------------------*/

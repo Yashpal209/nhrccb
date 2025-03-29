@@ -17,12 +17,13 @@ class HomeController extends Controller
 
     public function index()
     {
+        $title ='Home';
         $notifications = Notification::orderBy('date', 'desc')->get();
         $latestUpdate = LatestUpdate::orderBy('date', 'desc')->get();
         $Banner = Banner::orderBy('created_at', 'desc')->get();
         // return $Banner;
         $viewPhotos = Photo::orderBy('created_at', 'desc')->limit(6)->get();
-        $data = compact('notifications', 'viewPhotos', 'latestUpdate','Banner');
+        $data = compact('notifications', 'viewPhotos', 'latestUpdate','Banner','title');
         return view('web.index')->with($data);
       
     }

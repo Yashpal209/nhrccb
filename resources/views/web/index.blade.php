@@ -15,17 +15,16 @@
             <div class="row">
                 <div class="col-md-12 px-0">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            @foreach($Banner as $index => $banner)
-                                <li data-target="#myCarousel" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                            @foreach ($Banner as $index => $banner)
+                                <li data-target="#myCarousel" data-slide-to="{{ $index }}"
+                                    class="{{ $index == 0 ? 'active' : '' }}"></li>
                             @endforeach
                         </ol>
-    
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            @foreach($Banner as $index => $banner)
+                            @foreach ($Banner as $index => $banner)
                                 <div class="item {{ $index == 0 ? 'active' : '' }}">
                                     <img src="{{ asset($banner->image) }}" alt="">
                                     <div class="carousel-caption slider-con">
@@ -34,7 +33,6 @@
                                 </div>
                             @endforeach
                         </div>
-    
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                             <i class="fa fa-chevron-left slider-arr"></i>
@@ -47,87 +45,81 @@
             </div>
         </div>
     </section>
-    
 
-    <section>
+    <div class="container-fluid p-2 bg-dark text-white ">
+        <div class="row justify-content-center align-items-center w-100">
+            <div class="col-md-9 col-12">
+                <marquee id="notificationMarquee" behavior="scroll" direction="left" scrollamount="5" class="d-block">
+                    @foreach ($notifications as $notification)
+                        <p class="d-inline m-0 mx-3">
+                            <i class="fas fa-bell text-danger"></i>
+                            <a href="{{ $notification->noticefile }}" class="text-white text-decoration-none">
+                                {{ $notification->title }} ({{ $notification->date }})
+                            </a>
+                        </p>
+                    @endforeach
+                </marquee>
+            </div>
+            <div class="col-md-3 col-12 ">
+                <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').stop()">⏸
+                    Stop</button>
+                <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').start()">▶
+                    Start</button>
+                <button class="btn btn-light btn-sm" onclick="window.location.href='{{ route('official_notification') }}'">
+                    View All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us -->
+    <section class="bg-container">
         <div class="container py-3">
-            <div class="row">
-
-                <div class="col-md-4 border">
-                    <div class="row text-center align-items-center d-flex justify-content-center ">
-                        <div class="col-md-3 col-6 hhh d-flex justify-content-center">
-                            <img src="{{ asset('public/web/assets/images/icon/icons8-status.gif') }}" alt="">
-                        </div>
-                        <div class="col-md-9 col-6  hhh-1 d-flex justify-content-center align-items-center">
-                            <a href="new-complain" class="fw-bold mb-0">Lodge Complaint / Track Status Online</a>
-                        </div>
-                    </div>
-
-                    <div class="row text-center  align-items-center d-flex justify-content-center ">
-                        <div class="col-md-3 col-6 hhh d-flex justify-content-center">
-                            <img src="{{ asset('public/web/assets/images/icon/icons8-box.gif') }}" alt="">
-                        </div>
-                        <div class="col-md-9 col-6  hhh-1 bg-light d-flex justify-content-center align-items-center">
-                            <a href="human-rights" class="fw-bold mb-0">Human Rights Defenders Cases</a>
-                        </div>
-                    </div>
-
-                    <div class="row text-center  align-items-center d-flex justify-content-center ">
-                        <div class="col-md-3 col-6 hhh d-flex justify-content-center">
-                            <img src="{{ asset('public/web/assets/images/icon/icons8-file.gif') }}" alt="">
-                        </div>
-                        <div class="col-md-9 hhh-1  col-6 d-flex justify-content-center align-items-center">
-                            <a href="complain-dashboard" class="fw-bold mb-0">Suo-Motu Cases</a>
-                        </div>
-                    </div>
-
-                    <div class="row text-center align-items-center d-flex justify-content-center">
-                        <div class="col-md-3 col-6 hhh d-flex justify-content-center">
-                            <img src="{{ asset('public/web/assets/images/icon/icons8-schedule.gif') }}" alt="">
-                        </div>
-                        <div class="col-md-9  hhh-1 bg-light col-6 d-flex justify-content-center align-items-center">
-                            <a href="monthly-report" class="fw-bold mb-0">Monthly Statistics</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="bot-gal ">
-                        <h4>Official News</h4>
-                        <div class="card ">
-                            <div class="card-body">
-                                <marquee behavior="scroll" direction="up" scrollamount="3" height="250">
-                                    <div class="ho-event">
-                                        <ul>
-                                            @foreach ($notifications as $notification)
-                                                <li class="mt-2">
-                                                    <div class="ho-ev-date py-2"><span>{{ $notification->date }}</span>
-                                                    </div>
-                                                    <div class="ho-ev-link">
-                                                        <a class="ho-ev-link" href="{{ $notification->noticefile }}">
-                                                            <p class="ho-ev-link">{{ $notification->title }}</p>
-                                                        </a>
-
-                                                    </div>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </marquee>
+            <div class="row justify-content-center g-3">
+                <div class="col-md-6 text-center about-section" id="about-section">
+                    <div class="pg-eve-main mb-0">
+                        <div class="row">
+                            <div class="con-title">
+                                <h2 class="mb-0"> <span>About NHRCCB</span></h2>
                             </div>
-                            <div class="card-footer">
-                                <div class="ed-ad-dec">
-                                    <a href="{{ route('official_notification') }}">Read more</a>
-                                </div>
+                        </div>
+                        <div class="pg-eve-desc pg-blog-desc">
+                            <div class="mt-0">
+                                <p align="justify"><b>National Human Rights and Crime Control Bureau (NHRCCB)</b> is
+                                    functioning with commitment to the Noble Cause of Human Rights Protection and Promotion,
+                                    Justice, Education, Love, Peace, Harmony to all and Friendship, National & International
+                                    Integration by Exchange of Ideas & Ethos around the Nation. NHRCCB Is working for the
+                                    Protection and Promotion of Human Rights.</p>
+                                <p align="justify"><b>National Human Rights and Crime Control Bureau (NHRCCB)</b> is a Non
+                                    Profit Organization or Voluntary Organization Incorporated under the Legislation
+                                    Government of India. Registered in 2017 under Indian Trust Act- 1882 Government Of India
+                                    with Regn. No 483/2017. Registered with NITI AAYOG, Government of India, United Nation
+                                    Department Of Economics and Social Affairs, United Nation, 12A & 80G Under Department
+                                    of Income Tax, Ministry of Finance Government of India and CSR1 Under Ministry Of
+                                    Corporate Affairs, Government of India.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="bot-gal ">
+                <div class="col-md-6 minBox text-center profile-section" id="profile-section" style="display: none;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="img img-circle pt-4">
+                                <img width="50" src="{{ asset('public/web/assets/images/official/randhir.JPG') }}" alt="">
+                            </div>
+                            <div class="info py-3">
+                                <h4>DR RANDHIR KUMAR</h4>
+                                <h5>PRESIDENT</h5>
+                                <h5>GENERAL WING</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Notification Section (Remains Static) -->
+                <div class="col-md-6">
+                    <div class="bot-gal">
                         <h4>Latest Update</h4>
-                        <div class="card ">
+                        <div class="card">
                             <div class="card-body">
                                 <marquee behavior="scroll" direction="up" scrollamount="3" height="250">
                                     <div class="ho-event">
@@ -140,7 +132,6 @@
                                                         <a class="ho-ev-link" href="{{ $notification->file }}">
                                                             <p class="ho-ev-link">{{ $notification->title }}</p>
                                                         </a>
-
                                                     </div>
                                                 </li>
                                             @endforeach
@@ -156,60 +147,49 @@
                         </div>
                     </div>
                 </div>
+    
             </div>
         </div>
     </section>
 
-    <section class=" bg-container">
-        <div class="container  py-3">
-            <div class="row justify-content-center  g-3">
-                <div class="col-md-5 minBox text-center  ">
-                    <dic class="row justify-content-center">
-                        <div class="col-md-7">
-                            <div class="img img-circle pt-4"><img width="50"
-                                    src="{{ asset('public/web/assets/images/official/randhir.JPG') }}" alt="">
-                            </div>
-                            <div class="info py-3">
-                                <h4>DR RANDHIR KUMAR</h4>
-                                <h5>PRESIDENT</h5>
-                                <h5>GENERAL WING</h5>
-                            </div>
-                        </div>
-                    </dic>
+    <section>
+        <div class="container py-3">
+            <div class="row d-flex justify-content-center align-items-center">
+                <!-- Instagram Embed -->
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="social-box" style="width: 100%; max-width: 500px; height: 600px;">
+                        <blockquote class="instagram-media" 
+                            data-instgrm-permalink="https://www.instagram.com/nhrccbindia" 
+                            data-instgrm-version="14" 
+                            style="width: 100%; height: 100%;">
+                        </blockquote>
+                        <script async src="https://www.instagram.com/embed.js"></script>
+                    </div>
                 </div>
-                <div class="col-md-7  text-center ">
-                    <div class=" pg-eve-main mb-0">
-                        <div class="row ">
-                            <div class="con-title">
-                                <h2 class="mb-0"> <span>About NHRCCB</span></h2>
-                            </div>
-                        </div>
-                        <div class="pg-eve-desc pg-blog-desc">
-                            <div class="mt-0">
-                                <p align="justify"> <b>National Human Rights and Crime Control Bureau (NHRCCB)</b> is
-                                    functioning with commitment to the Noble Cause of Human Rights Protection and Promotion,
-                                    Justice, Education, Love, Peace, Harmony to all and Friendship, National & International
-                                    Integration by Exchange of Ideas & Ethos around the Nation. NHRCCB Is working for the
-                                    Protection and Promotion of Human Rights. </p>
-                                <p align="justify"> <b>National Human Rights and Crime Control Bureau (NHRCCB) </b> is a
-                                    Non
-                                    Profit Organization or Voluntary Organization Incorporated under the Legislation
-                                    Government of India. Registered in 2017 under Indian Trust Act- 1882 Government Of India
-                                    with Regn. No 483/2017. Registered with NITI AAYOG, Government of India, United Nation
-                                    Department Of Economics and Social Affairs, United Nation, 12A & 80G Under Department
-                                    of Income Tax, Ministry of Finance Government of India and CSR1 Under Ministry Of
-                                    Corporate Affairs, Government of India.</p>
-                            </div>
+    
+                <!-- Facebook Embed -->
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="social-box" style="width: 100%; max-width: 500px; height: 600px;">
+                        <div id="fb-root"></div>
+                        <script async defer crossorigin="anonymous"
+                            src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0">
+                        </script>
+                        <div class="fb-page" 
+                            data-href="https://www.facebook.com/nhrccb" 
+                            data-tabs="timeline"
+                            data-width="500" 
+                            data-height="600" 
+                            data-small-header="false"
+                            data-adapt-container-width="true" 
+                            data-hide-cover="false" 
+                            data-show-facepile="true">
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
-
-
+    
     <!-- NEWS AND EVENTS -->
     <section class="">
         <div class="container py-3">
@@ -302,11 +282,30 @@
         </div>
     </section>
 
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+@endsection
+@section('page-js')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let aboutSection = document.getElementById("about-section");
+        let profileSection = document.getElementById("profile-section");
+
+        function equalizeHeight() {
+            let maxHeight = Math.max(aboutSection.offsetHeight, profileSection.offsetHeight);
+            aboutSection.style.height = maxHeight + "px";
+            profileSection.style.height = maxHeight + "px";
+        }
+        equalizeHeight();
+        setInterval(() => {
+            if (aboutSection.style.display === "none") {
+                aboutSection.style.display = "block";
+                profileSection.style.display = "none";
+            } else {
+                aboutSection.style.display = "none";
+                profileSection.style.display = "block";
+            }
+            equalizeHeight();
+        }, 6000);
+    });
+</script>
 @endsection

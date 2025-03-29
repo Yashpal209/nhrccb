@@ -5,7 +5,7 @@
         <div class="row  wed-foot-link-1">
         <div class="col-md-3">
                 <h4 class=" fs-3">About Us</h4>
-                <p align="justify">National Human Rights and Crime Control Bureau (NHRCCB) is functioning with commitment to the Noble Cause of Human Rights Protection and Promotion, Justice, Education, Love, Peace, Harmony to all and Friendship, National & International Integration by Exchange of Ideas & Ethos around the Nation .NHRCCB Is working for the Protection and Promotion of Human Rights.</p>
+                <p align="justify">NHRCCB is a Non Profit Organization incorporated under the Legislation of Government of India. Registered with NITI AAYOG (Government of India), UNDESA (United Nation), 12A & 80G Under Department of Income Tax, Ministry of Finance and CSR1 Under Ministry of Corporate Affairs (Govt of India).</p>
                 <h4>SOCIAL MEDIA</h4>
                 <ul>
                     <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>

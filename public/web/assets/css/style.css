@@ -71,9 +71,8 @@ h3,
 h4,
 h5,
 h6 {
-    padding-top: 2px;
     font-weight: 600;
-    line-height: 25px;
+    line-height: 22px;
 }
 p,
 li,
@@ -110,6 +109,10 @@ label {
     margin-top: 0px;
     margin-bottom: 15px;
     line-height: 40px;
+    display: unset;
+    border-left: 8px solid red;
+    padding: 0 10px;
+    /* justify-content: center; */
 }
 .con-title h2 span {
     font-size: 36px;
@@ -149,14 +152,14 @@ label {
     /* background: linear-gradient(to bottom, #ffffff, #c8ced2);
      */
 }
-.wed-logo {
+/* .wed-logo {
     float: left;
     width: 20%;
-}
+} */
 .wed-logo a {
 }
 .wed-logo a img {
-    width: 150px;
+    width: 130px;
     padding: 5px 0px;
 }
 .wed-logo-2 {
@@ -166,7 +169,6 @@ label {
 }
 .wed-logo-2 a img {
     width: 323px;
-    padding: 32px 0px;
 }
 .wed-menu {
     float: right;
@@ -988,8 +990,8 @@ label {
         color: #fdfbff;
         padding: 12px 4px;
         line-height: 40px;
-        font-size: 13px;
-        font-weight: 500;
+        font-size: 11px;
+        font-weight: 600;
         text-transform: uppercase;
         position: relative;
     }
@@ -1010,7 +1012,7 @@ label {
         color: #fdfbff;
         padding: 13px 1px;
         line-height: 40px;
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 600;
         text-transform: uppercase;
         position: relative;
@@ -1788,11 +1790,11 @@ label {
     color: #e66030;
 }
 .slider-con p {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 31px;
-    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     /* line-height: 30px; */
     /* font-weight: 300; */
 }
@@ -3279,7 +3281,7 @@ select {
     font-size: 14px;
     color: #ffffff;
     line-height: 31px;
-    padding: 5px;
+    padding: 3px;
     text-transform: capitalize;
 }
 .mm1-com ul li a:hover {
@@ -6187,4 +6189,11 @@ official section */
 
 .pagination a{
     color: black !important;
+}
+
+.about-section, .profile-section {
+    min-height: 400px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
 }
