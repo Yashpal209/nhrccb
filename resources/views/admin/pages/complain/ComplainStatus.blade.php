@@ -19,7 +19,19 @@
             <div class="col-md-12">
                 <div class="box-inn-sp">
                     <div class="inn-title">
-                        <h4>Update Complaint Status</h4>
+                        <div class="row justify-content-between">
+                            <div class="col-md-6">
+                                <h4>Update Complaint Status</h4>
+                            </div>
+
+                            <div class="col-md-6 text-right">
+                                <a href="{{ route('viewComplainApplictaion') }}">
+                                    <div class="btn">
+                                        View Application Status
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="tab-inn">
                         <form action="{{ route('changeStatus') }}" method="POST">

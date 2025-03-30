@@ -46,7 +46,8 @@
 /* =  1.All Pages Common CSS Styles
 /*-------------------------------------------------*/
 body {
-    font-family: "Open Sans", sans-serif;
+    /* font-family: "Open Sans", sans-serif; */
+    font-family: "Source Sans 3", sans-serif;
     padding-right: 0px !important;
 }
 a {
@@ -159,7 +160,7 @@ label {
 .wed-logo a {
 }
 .wed-logo a img {
-    width: 130px;
+    width: 525px;
     padding: 5px 0px;
 }
 .wed-logo-2 {
@@ -978,9 +979,9 @@ label {
 }
 .main-menu ul li a {
     color: #fdfbff;
-    padding: 10px 4px;
+    padding: 10px 2px;
     line-height: 40px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     position: relative;
@@ -990,7 +991,7 @@ label {
         color: #fdfbff;
         padding: 12px 4px;
         line-height: 40px;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 600;
         text-transform: uppercase;
         position: relative;
@@ -999,7 +1000,7 @@ label {
 @media (max-width: 1200px) {
     .main-menu ul li a {
         color: #fdfbff;
-        padding: 13px 1px;
+        padding: 13px 0px;
         line-height: 40px;
         font-size: 11px;
         font-weight: 600;
@@ -1012,7 +1013,7 @@ label {
         color: #fdfbff;
         padding: 13px 1px;
         line-height: 40px;
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 600;
         text-transform: uppercase;
         position: relative;
@@ -2626,13 +2627,14 @@ select {
 .bot-gal h4 {
     background-color: #102366;
     margin-top: 0px;
-    border-bottom: 1px solid #e0e0e0;
+    /* border-bottom: 1px solid #e0e0e0; */
     padding: 6px;
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 3px;
     color: #ffffff;
+    border-radius:8px 0px;
 }
 .bot-gal h5 {
     font-size: 16px;

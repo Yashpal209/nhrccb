@@ -6,16 +6,21 @@
             <li><a href="#" class="menu-active"><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a>
             </li>
 
-            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image" aria-hidden="true"></i>
-                    Banner</a>
-                <div class="collapsible-body left-sub-menu">
-                    <ul>
-                        <li><a href="{{route('banners')}}"><i class="fa fa-pencil" aria-hidden="true"></i>Add
-                                Banner</a>
-                        </li>
-                        <li><a href="{{ route('viewBanner') }}"><i class="fa fa-eye" aria-hidden="true"></i>View Banner</a>
-                    </li>
 
+            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book" aria-hidden="true"></i>Website</a>
+                <div class="collapsible-body left-sub-menu">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image"></i>Banner</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('banners') }}"><i class="fa fa-pencil"></i>Add Banner</a>
+                                    </li>
+                                    <li><a href="{{ route('viewBanner') }}"><i
+                                                class="fa fa-eye"aria-hidden="true"></i>View Banner</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
                     </ul>
                 </div>
@@ -31,12 +36,25 @@
                                     aria-hidden="true"></i>Joining Application</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="{{ route('viewJoinApplictaion') }}"><i class="fa fa-eye"
+                                    <li><a href="{{ route('viewJoinApplication') }}"><i class="fa fa-eye"
                                                 aria-hidden="true"></i>View Joining Application</a>
+                                    </li>
+                                    <li><a href="{{ route('Application') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>Aprove Application</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
+                        {{-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                                    aria-hidden="true"></i></a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+
+                                    <li><a href=""><i class="fa fa-eye" aria-hidden="true"></i>View Approve Application</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> --}}
                     </ul>
                 </div>
             </li>
@@ -105,7 +123,8 @@
                 </div>
             </li>
 
-            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user" aria-hidden="true"></i>
+            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user"
+                        aria-hidden="true"></i>
                     Administration</a>
                 <div class="collapsible-body left-sub-menu">
                     <ul>

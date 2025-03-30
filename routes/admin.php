@@ -82,8 +82,24 @@ Route::prefix('admin')->middleware('admin.auth')->group(function (){
     Route::get('banner/delete/{id}', [WebController::class, 'deleteBanner'])->name('banner.delete');
 
     // Joining Application
-    Route::get('/joining-application', [JoiningController::class, 'viewJoinApplictaion'])->name('viewJoinApplictaion');
-    Route::get('joining-application/delete/{id}',[JoiningController::class, 'deleteJoinApplictaion'])->name('delete.JoinApplictaion');
+    // Route::get('/joining-application', [JoiningController::class, 'viewJoinApplictaion'])->name('viewJoinApplictaion');
+    // Route::get('Applictaion', [JoiningController::class, 'Applictaion'])->name('Applictaion');
+    // Route::post('/change-status-application', [JoiningController::class, 'ChangeStatusApplictaion'])->name('ChangeStatusApplictaion');
+    // Route::get('joining-application/delete/{id}',[JoiningController::class, 'deleteJoinApplictaion'])->name('delete.JoinApplictaion');
+
+
+
+// Viewing Applications
+Route::get('/joining-application', [JoiningController::class, 'viewJoinApplication'])->name('viewJoinApplication');
+
+// Viewing Approved Applications
+Route::get('/application', [JoiningController::class, 'Application'])->name('Application');
+
+// Updating Application Status
+Route::post('/change-status-application', [JoiningController::class, 'ChangeStatusApplication'])->name('ChangeStatusApplication');
+
+// Deleting an Application
+Route::get('/joining-application/delete/{id}', [JoiningController::class, 'deleteJoinApplication'])->name('delete.JoinApplication');
 
     // Complain Application
     Route::get('/complain-list', [ComplainController::class, 'viewComplainApplictaion'])->name('viewComplainApplictaion');

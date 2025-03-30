@@ -19,7 +19,7 @@
         </div>
     </section>
     <!--SECTION START-->
-    
+
 
     <!-- Begin Page Content -->
     <div class="container-fluid p-0">
@@ -50,16 +50,15 @@
                                             @csrf
                                             <div class="row border-bottom mb-3 mb-sm-0 px-4 px-sm-0">
                                                 <div class="text-center mb-3">
-                                                    <h2 class="my-3 my-sm-0 fs-1 fs-sm-4">Active Membership Form</h2>
+                                                    <h2 class="my-3 my-sm-0 fs-1 fs-sm-4">NHRCCB JOINING FORM</h2>
                                                 </div>
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Select Your State:</label>
                                                         <div class="col-sm-12">
-                                                            <select class="form-control" name="state" id="state"
-                                                                require>
+                                                            <select class="form-control" name="state"
+                                                                id="state"requiredd>
                                                                 <option value="">-- Select state --</option>
-
                                                             </select>
                                                             @error('state')
                                                                 <span class="text-danger">
@@ -74,10 +73,9 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Select Division:</label>
                                                         <div class="col-sm-12">
-                                                            <select class="form-control" name="division" id="division"
-                                                                require>
+                                                            <select class="form-control" name="division"
+                                                                id="division"required>
                                                                 <option value="">-- Select Division --</option>
-
                                                             </select>
                                                             @error('division')
                                                                 <span class="text-danger">
@@ -93,9 +91,8 @@
                                                         <div class="col-sm-12">
                                                             <div class="col-sm-12">
                                                                 <select class="form-control" name="district" id="district"
-                                                                    require>
+                                                                    required>
                                                                     <option value="">-- Select District --</option>
-    
                                                                 </select>
                                                                 @error('district')
                                                                     <span class="text-danger">
@@ -112,9 +109,10 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Blocks:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" name="blocks" id="blocks"
-                                                                class="form-control" placeholder="Enter Your Blocks"
-                                                                value="{{ old('blocks') }}">
+                                                            <input type="text" name="blocks"
+                                                                id="blocks"class="form-control"
+                                                                placeholder="Enter Your Blocks" value="{{ old('blocks') }}"
+                                                                oninput="this.value = this.value.toUpperCase()">
                                                             @error('blocks')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
@@ -128,8 +126,9 @@
                                                         <label class="control-label col-sm-12">Police Station:</label>
                                                         <div class="col-sm-12">
                                                             <input type="text" name="policeStation" id="policeStation"
-                                                                class="form-control" placeholder="Enter Your Police Station"
-                                                                value="{{ old('policeStation') }}">
+                                                                class="form-control"
+                                                                placeholder="Enter Your Police Station"value="{{ old('policeStation') }}"
+                                                                oninput="this.value = this.value.toUpperCase()">
                                                             @error('policeStation')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
@@ -144,8 +143,8 @@
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="wing" id="wing">
                                                                 <option value="">-- Select Wing --</option>
-                                                                <option value="active-membership"
-                                                                    {{ old('wing') == 'active-membership' ? 'selected' : '' }}>
+                                                                <option value="ACTIVE MEMBERSHIP"
+                                                                    {{ old('wing') == 'ACTIVE MEMBERSHIP' ? 'selected' : '' }}>
                                                                     Active Membership</option>
                                                                 <!-- Add wings here -->
                                                                 <!-- Add wings here -->
@@ -157,51 +156,67 @@
                                                     </div>
                                                 </div> --}}
 
-                                                
-                                                
-                                                
-                                                   
-                                                        <!-- Select Level -->
-                                                        <div class="col-md-4 col-sm-12 col-xs-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label col-sm-12">Select Level:</label>
-                                                                <div class="col-sm-12">
-                                                                    <select class="form-control" name="level" id="level" onchange="updateDesignations()" required>
-                                                                        <option value="">-- Select Level --</option>
-                                                                        <option value="national-team" {{ old('level') == 'national-team' ? 'selected' : '' }}> NATIONAL TEAM</option>
-                                                                        <option value="state-team" {{ old('level') == 'state-team' ? 'selected' : '' }}> STATE TEAM</option>
-                                                                        <option value="district-team" {{ old('level') == 'district-team' ? 'selected' : '' }}> DISTRICT TEAM</option>
-                                                                        <option value="block-team" {{ old('level') == 'block-team' ? 'selected' : '' }}> BLOCK TEAM</option>
-                                                                        <option value="active-membership" {{ old('level') == 'active-membership' ? 'selected' : '' }}> ACTIVE MEMBERSHIP </option>
-                                                                        <option value="volunteer" {{ old('level') == 'volunteer' ? 'selected' : '' }}>VOLUNTEER</option>
-                                                                    </select>
-                                                                    @error('level')
-                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
+
+                                                <!-- Select Level -->
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-12">Select Level:</label>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control" name="level" id="level"
+                                                                onchange="updateDesignations()" requiredd>
+                                                                <option value="">-- Select Level --</option>
+                                                                <option value="NATIONAL TEAM"
+                                                                    {{ old('level') == 'NATIONAL TEAM' ? 'selected' : '' }}>
+                                                                    NATIONAL TEAM</option>
+                                                                <option value="STATE TEAM"
+                                                                    {{ old('level') == 'STATE TEAM' ? 'selected' : '' }}>
+                                                                    STATE TEAM</option>
+                                                                <option value="DISTRICT TEAM"
+                                                                    {{ old('level') == 'DISTRICT TEAM' ? 'selected' : '' }}>
+                                                                    DISTRICT TEAM</option>
+                                                                <option value="DIVISION TEAM"
+                                                                    {{ old('level') == 'DIVISION TEAM' ? 'selected' : '' }}>
+                                                                    DIVISION TEAM
+                                                                </option>
+                                                                <option value="BLOCK TEAM"
+                                                                    {{ old('level') == 'BLOCK TEAM' ? 'selected' : '' }}>
+                                                                    BLOCK TEAM</option>
+                                                                <option value="ACTIVE MEMBERSHIP"
+                                                                    {{ old('level') == 'ACTIVE MEMBERSHIP' ? 'selected' : '' }}>
+                                                                    ACTIVE MEMBERSHIP </option>
+                                                                <option value="VOLUNTEER"
+                                                                    {{ old('level') == 'VOLUNTEER' ? 'selected' : '' }}>
+                                                                    VOLUNTEER</option>
+                                                            </select>
+                                                            @error('level')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
-                                                
-                                                        <!-- Select Designation -->
-                                                        <div class="col-md-4 col-sm-12 col-xs-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label col-sm-12">Select Designation:</label>
-                                                                <div class="col-sm-12">
-                                                                    <select class="form-control" name="designation" id="designation" required>
-                                                                        <option value="">-- Select Designation --</option>
-                                                                        @if(old('designation'))
-                                                                            <option value="{{ old('designation') }}" selected>{{ old('designation') }}</option>
-                                                                        @endif
-                                                                    </select>
-                                                                    @error('designation')
-                                                                        <span class="text-danger">{{ $message }}</span>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Select Designation -->
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-12">Select Designation:</label>
+                                                        <div class="col-sm-12">
+                                                            <select class="form-control" name="designation" id="designation"
+                                                                requiredd>
+                                                                <option value="">-- Select Designation --</option>
+                                                                @if (old('designation'))
+                                                                    <option value="{{ old('designation') }}" selected>
+                                                                        {{ old('designation') }}</option>
+                                                                @endif
+                                                            </select>
+                                                            @error('designation')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
-                                                    
-                                                
-                                                
+                                                    </div>
+                                                </div>
+
+
+
 
                                                 <!-- Name (As Per Aadhaar) -->
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
@@ -212,7 +227,8 @@
                                                             <input type="text" name="name" id="name"
                                                                 class="form-control"
                                                                 placeholder="Enter name as per Aadhaar"
-                                                                value="{{ old('name') }}" require>
+                                                                value="{{ old('name') }}"
+                                                                oninput="this.value = this.value.toUpperCase()" required>
                                                             @error('name')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -230,7 +246,8 @@
                                                         <div class="col-sm-12">
                                                             <input type="text" name="fathersName" id="fathersName"
                                                                 class="form-control" value="{{ old('fathersName') }}"
-                                                                placeholder="Enter father's or husband's name" require>
+                                                                placeholder="Enter father's or husband's name"
+                                                                oninput="this.value = this.value.toUpperCase()" required>
                                                             @error('fathersName')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -246,7 +263,7 @@
                                                         <label class="control-label col-sm-12">Select Gender:</label>
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="gender" id="gender"
-                                                                require>
+                                                                required>
                                                                 <option value="">-- Select Gender --</option>
 
                                                                 <option value="male"
@@ -271,7 +288,8 @@
                                                         <label class="control-label col-sm-12">Date of Birth:</label>
                                                         <div class="col-sm-12">
                                                             <input type="date" name="dob" id="dob"
-                                                                value="{{ old('dob') }}" class="form-control" require>
+                                                                value="{{ old('dob') }}" class="form-control"
+                                                                required>
                                                             @error('dob')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -287,7 +305,7 @@
                                                         <label class="control-label col-sm-12">Blood Group:</label>
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="blood_group"
-                                                                id="blood_group" require>
+                                                                id="blood_group" required>
                                                                 <option value="">-- Select Blood Group --</option>
                                                                 <option value="a-positive"
                                                                     {{ old('blood_group') == 'a-positive' ? 'selected' : '' }}>
@@ -329,7 +347,7 @@
                                                         <div class="col-sm-12">
                                                             <input type="tel" name="mobile" id="mobile"
                                                                 class="form-control" placeholder="Enter Mobile Number"
-                                                                value="{{ old('mobile') }}" require>
+                                                                value="{{ old('mobile') }}" required>
                                                             @error('mobile')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -347,7 +365,7 @@
                                                             <input type="tel" name="whatsappNumber"
                                                                 id="whatsappNumber" class="form-control"
                                                                 placeholder="Enter WhatsApp Number"
-                                                                value="{{ old('whatsappNumber') }}" require>
+                                                                value="{{ old('whatsappNumber') }}" required>
                                                             @error('whatsappNumber')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -364,7 +382,7 @@
                                                         <div class="col-sm-12">
                                                             <input type="email" name="email" id="email"
                                                                 value="{{ old('email') }}" class="form-control"
-                                                                placeholder="Enter Email" require>
+                                                                placeholder="Enter Email" required>
                                                             @error('email')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -379,7 +397,7 @@
                                                             Qualification:</label>
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="qualification"
-                                                                id="qualification" require>
+                                                                id="qualification" required>
                                                                 <option value="">-- Select Qualification --</option>
                                                                 <option value="literate"
                                                                     {{ old('qualification') == 'literate' ? 'selected' : '' }}>
@@ -413,7 +431,8 @@
                                                             <input type="text" class="form-control"
                                                                 name="current_work" id="current_work"
                                                                 placeholder="Current Work"
-                                                                value="{{ old('current_work') }}" require>
+                                                                value="{{ old('current_work') }}"
+                                                                oninput="this.value = this.value.toUpperCase()" required>
                                                             @error('current_work')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -427,9 +446,9 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Aadhar Number:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" name="adhar_no"
+                                                            <input type="number" class="form-control" name="adhar_no"
                                                                 id="adhar_no" placeholder="Aadhar Number"
-                                                                value="{{ old('adhar_no') }}" require>
+                                                                value="{{ old('adhar_no') }}" required>
                                                             @error('adhar_no')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -445,7 +464,8 @@
                                                         <div class="col-sm-12">
                                                             <input type="text" class="form-control" name="pan_card_no"
                                                                 id="pan_card_no" placeholder="PAN Card Number"
-                                                                value="{{ old('pan_card_no') }}" require>
+                                                                value="{{ old('pan_card_no') }}"
+                                                                oninput="this.value = this.value.toUpperCase()" required>
                                                             @error('pan_card_no')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -460,7 +480,7 @@
                                                         <label class="control-label col-sm-12">Marital Status:</label>
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="maritial_status"
-                                                                id="maritial_status" require>
+                                                                id="maritial_status" required>
                                                                 <option value="">-- Marital Status --</option>
                                                                 <option value="married"
                                                                     {{ old('maritial_status') == 'married' ? 'selected' : '' }}>
@@ -484,7 +504,7 @@
                                                             Party:</label>
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="member_of_any_pol_party"
-                                                                id="member_of_any_pol_party" require>
+                                                                id="member_of_any_pol_party" required>
                                                                 <option value="">-- Member of Any Political Party --
                                                                 </option>
                                                                 <option value="Yes"
@@ -509,7 +529,7 @@
                                                             Organisation:</label>
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="member_social_org"
-                                                                id="member_social_org" require>
+                                                                id="member_social_org" required>
                                                                 <option value="">-- Member of Social Organisation --
                                                                 </option>
                                                                 <option value="yes"
@@ -533,7 +553,7 @@
                                                         <label class="control-label col-sm-12">Any Court Case:</label>
                                                         <div class="col-sm-12">
                                                             <select class="form-control" name="court_cases"
-                                                                id="court_cases" require>
+                                                                id="court_cases" required>
                                                                 <option value="">-- Any Court Cases --</option>
                                                                 <option value="yes"
                                                                     {{ old('court_cases') == 'yes' ? 'selected' : '' }}>Yes
@@ -559,7 +579,7 @@
                                                             <input type="text" class="form-control"
                                                                 name="recommended_by" id="recommended_by"
                                                                 placeholder="(NHRCCB/0000)"
-                                                                value="{{ old('recommended_by') }}" require>
+                                                                value="{{ old('recommended_by') }}" oninput="this.value = this.value.toUpperCase()" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -569,7 +589,7 @@
                                                         <label class="control-label col-sm-12">Address:</label>
                                                         <div class="col-sm-12">
                                                             <textarea type="text" rows="2" name="address" id="address" class="form-control"
-                                                                placeholder="Enter Address" value="{{ old('address') }}" require>{{ old('address') }}</textarea>
+                                                                placeholder="Enter Address" value="{{ old('address') }}" oninput="this.value = this.value.toUpperCase()" required>{{ old('address') }}</textarea>
                                                             @error('address')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -759,7 +779,7 @@
 
         function getDivisions(stateName) {
             $.ajax({
-                url: '{{ route('division.data') }}', 
+                url: '{{ route('division.data') }}',
                 type: 'GET',
                 data: {
                     state: stateName
@@ -767,7 +787,7 @@
                 success: function(data) {
                     $("#division").empty();
                     $("#division").append(
-                    '<option value="">--Select Division--</option>'); 
+                        '<option value="">--Select Division--</option>');
 
                     data.forEach(function(division) {
                         $("#division").append(
@@ -783,7 +803,7 @@
 
         function getDistrict(divisionName) {
             $.ajax({
-                url: '{{ route('district.data') }}', 
+                url: '{{ route('district.data') }}',
                 type: 'GET',
                 data: {
                     division: divisionName
@@ -791,7 +811,7 @@
                 success: function(data) {
                     $("#district").empty();
                     $("#district").append(
-                    '<option value="">--Select District--</option>'); 
+                        '<option value="">--Select District--</option>');
 
                     data.forEach(function(district) {
                         $("#district").append(
@@ -862,53 +882,61 @@
         });
     </script>
 
-<script>
-    const designations = {
-        "national-team": [
-            "National Vice President", "National General Secretary", "National Secretary", 
-            "National Joint Secretary", "National Legal Advisor", "National Media Officer", 
-            "National Parton", "National Advisor"
-        ],
-        "state-team": [
-            "State President", "State Vice President", "State General Secretary", "State Secretary", 
-            "State Joint Secretary", "State Media Officer", "State Parton", "State Advisor"
-        ],
-        "district-team": [
-            "District President", "District Vice President", "District General Secretary", "District Secretary", 
-            "District Joint Secretary", "District Legal Advisor", "District Media Officer", "District Parton", "District Advisor"
-        ],
-        "block-team": [
-            "Block President", "Block Vice President", "Block General Secretary", "Block Secretary", 
-            "Block Joint Secretary", "Block Legal Advisor", "Block Media Officer", "Block Parton", "Block Advisor"
-        ],
-        "active-membership": [
-            "active-membership"
-        ],
-        "volunteer": [
-            "volunteer"
-        ]
-    };
+    <script>
+        const designations = {
+            "NATIONAL TEAM": [
+                "NATIONAL VICE PRESIDENT", "NATIONAL GENERAL SECRETARY", "NATIONAL SECRETARY",
+                "NATIONAL JOINT SECRETARY", "NATIONAL LEGAL ADVISOR", "NATIONAL MEDIA OFFICER",
+                "NATIONAL PARTON", "NATIONAL ADVISOR"
+            ],
+            "STATE TEAM": [
+                "STATE PRESIDENT", "STATE VICE PRESIDENT", "STATE GENERAL SECRETARY", "STATE SECRETARY",
+                "STATE JOINT SECRETARY", "STATE MEDIA OFFICER", "STATE PARTON", "STATE ADVISOR"
+            ],
+            "DISTRICT TEAM": [
+                "DISTRICT PRESIDENT", "DISTRICT VICE PRESIDENT", "DISTRICT GENERAL SECRETARY", "DISTRICT SECRETARY",
+                "DISTRICT JOINT SECRETARY", "DISTRICT LEGAL ADVISOR", "DISTRICT MEDIA OFFICER", "DISTRICT PARTON",
+                "DISTRICT ADVISOR"
+            ],
+            "DIVISION TEAM": [
+                "DIVISION PRESIDENT", "DIVISION VICE PRESIDENT", "DIVISION GENERAL SECRETARY", "DIVISION SECRETARY",
+                "DIVISION JOINT SECRETARY", "DIVISION LEGAL ADVISOR", "DIVISION MEDIA OFFICER", "DIVISION PARTON",
+                "DIVISION ADVISOR"
+            ],
+            "BLOCK TEAM": [
+                "BLOCK PRESIDENT", "BLOCK VICE PRESIDENT", "BLOCK GENERAL SECRETARY", "BLOCK SECRETARY",
+                "BLOCK JOINT SECRETARY", "BLOCK LEGAL ADVISOR", "BLOCK MEDIA OFFICER", "BLOCK PARTON",
+                "BLOCK ADVISOR"
+            ],
+            "ACTIVE MEMBERSHIP": [
+                "ACTIVE MEMBERSHIP"
+            ],
+            "VOLUNTEER": [
+                "VOLUNTEER"
+            ]
+        };
 
-    function updateDesignations() {
-        const teamSelect = document.getElementById("level");
-        const designationSelect = document.getElementById("designation");
-        
-        const selectedTeam = teamSelect.value;
-        designationSelect.innerHTML = "<option value=''>-- Select Designation --</option>";
-        
-        if (selectedTeam && designations[selectedTeam]) {
-            designations[selectedTeam].forEach(designation => {
-                let option = document.createElement("option");
-                option.value = designation;
-                option.textContent = designation;
-                designationSelect.appendChild(option);
-            });
+
+        function updateDesignations() {
+            const teamSelect = document.getElementById("level");
+            const designationSelect = document.getElementById("designation");
+
+            const selectedTeam = teamSelect.value;
+            designationSelect.innerHTML = "<option value=''>-- Select Designation --</option>";
+
+            if (selectedTeam && designations[selectedTeam]) {
+                designations[selectedTeam].forEach(designation => {
+                    let option = document.createElement("option");
+                    option.value = designation;
+                    option.textContent = designation;
+                    designationSelect.appendChild(option);
+                });
+            }
         }
-    }
 
-    // Call updateDesignations on page load if an old value exists
-    window.onload = function() {
-        updateDesignations();
-    };
-</script>
+        // Call updateDesignations on page load if an old value exists
+        window.onload = function() {
+            updateDesignations();
+        };
+    </script>
 @endsection

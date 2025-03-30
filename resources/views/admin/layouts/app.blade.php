@@ -10,7 +10,7 @@
     <meta name="description" content="NHRCCB Admin">
     <meta name="keyword" content="NHRCCB Admin">
     <!-- FAV ICON(BROWSER TAB ICON) -->
-    <link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('public/admin/assets/images/logo.png') }}" type="image/x-icon">
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700" rel="stylesheet">
 
@@ -59,6 +59,7 @@
     <script src="{{asset('public/admin/assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/admin/assets/js/materialize.min.js')}}"></script>
     <script src="{{asset('public/admin/assets/js/custom.js')}}"></script>
+    @yield('page.js')
 </body>
 
 </html>

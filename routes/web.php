@@ -31,7 +31,7 @@ Route::get('/whatsNew', [PageController::class, 'whatsNew'])->name('whatsNew');
 
 // About Us
 Route::get('/who-we-are', [PageController::class,'who_we_are'])->name('who_we_are');
-Route::get('/what-we-do', [PageController::class,'what_we_do'])->name('what_we_do');
+Route::get('/Mission-Vision', [PageController::class,'what_we_do'])->name('what_we_do');
 Route::get('/how-we-works', [PageController::class,'how_we_works'])->name('how_we_works');
 Route::get('/rules-and-regulations', [PageController::class,'rules_regulations'])->name('rules_regulations');
 Route::get('/govt-recognition', [PageController::class,'govt_recognition'])->name('govt_recognition');

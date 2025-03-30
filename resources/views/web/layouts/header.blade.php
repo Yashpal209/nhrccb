@@ -15,6 +15,8 @@
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700%7CJosefin+Sans:600,700"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -183,10 +185,11 @@
         <div>
             <div class="container">
                 <div class="row ">
-                    <div class="col-md-2 p-0">
-                        <div class="wed-logo mob-hide text-end">
+                    <div class="col-md-8 p-0">
+                        <div class="wed-logo mob-hide text-start">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('public/web/assets/images/logo/logo.png') }}" alt="" />
+                                <img src="{{ asset('public/web/assets/images/logo/Logofull.png') }}"
+                                    alt="" />
                             </a>
                         </div>
                     </div>
@@ -198,25 +201,27 @@
                         <h5>REGD. UNITED NATION (UNDESA), NITI AAYOG (GOVT. OF INDIA)</h5>
                         <h4 style="font-size: 13px;font-weight:700; color: red;">A Non-Govt. Organisation Working for the Protection and Promotion of Human Rights</h4>
                     </div> --}}
-                    <div class="col-md-7 p-0 mob-hide">
+                    {{-- <div class="col-md-7 p-0 mob-hide">
                         <div class="wed-logo-1">
                             <a href="{{ route('home') }}">
                                 <img class="img-fluid" src="{{ asset('public/web/assets/images/logo/Logo-replace-white.png') }}" alt="" />
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="col-md-3" style="align-content: center">
-                        <div class="wed-logo-2">
-                            <a href="{{ route('home') }}">
-                                <img class="img-fluid"src="{{ asset('public/web/assets/images/logo/nhrccb.png') }}"alt="" />
-                            </a>
+                    <div class="col-md-4" style="align-content: center">
+                        <div class="wed-logo-2 d-flex">
+                            <center>
+                                <a href="{{ route('home') }}" class="d-flex mt-4">
+                                    <img class="img-fluid"src="{{ asset('public/web/assets/images/logo/nhrccb.png') }}"alt="" />
+                                </a>
+                            </center>
+                            <img class="img-fluid" style="width: 30%"src="{{ asset('public/web/assets/images/logo/iso.webp') }}"alt="" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-
                     </div>
                 </div>
 
@@ -261,11 +266,12 @@
                                                                     data-toggle="dropdown">National President</a>
                                                                 <div class="dropdown-menu ">
                                                                     <a class="dropdown-item "href="#"> Profile</a>
-                                                                    <a class="dropdown-item "href="{{ route('PresidentMessage') }}">Message </a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('PresidentMessage') }}">Message</a>
                                                                 </div>
                                                             </div>
                                                         </li>
-                                                        <li><a href="national_patron">National Patron</a></li>
+                                                        {{-- <li><a href="national_patron">National Patron</a></li> --}}
                                                         {{-- <li><a href="national_advisor">National Advisor</a></li>
                                                         <li><a href="office_staff">Office Staff</a></li> --}}
                                                         <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
@@ -276,7 +282,8 @@
                                     </div>
                                 </li>
                                 <li class="work-menu">
-                                    <a href="#" class="mm-arr">Our Works <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Our Works <small
+                                            class="text-light">+</small></a>
 
                                     <div class="mm-pos">
                                         <div class="work-mm m-menu ">
@@ -287,8 +294,10 @@
                                                         <li><a href="{{ route('HumanRights') }}">Human Rights</a></li>
                                                         <li><a href="{{ route('WomenRights') }}">Women Rights</a></li>
                                                         <li><a href="{{ route('ChildRights') }}">Child Rights</a></li>
-                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer Rights</a></li>
-                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a></li>
+                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer
+                                                                Rights</a></li>
+                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a>
+                                                        </li>
                                                         <li><a href="#">Disability Rights</a></li>
                                                         <li><a href="#">Right to Education</a></li>
                                                     </ul>
@@ -301,7 +310,7 @@
                                                         <li><a href="#">Tribal Rights</a></li>
                                                         <li><a href="#">Press Rights</a></li>
                                                         <li><a href="#">Crime Control Act</a></li>
-                                                        
+
                                                     </ul>
                                                 </div>
                                             </div>
@@ -348,10 +357,14 @@
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a href="{{ route('acknowledgement') }}">Acknowledgement</a></li>
+                                                        <li><a
+                                                                href="{{ route('acknowledgement') }}">Acknowledgement</a>
+                                                        </li>
                                                         <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a></li>
-                                                        <li><a href="{{ route('OfficerInteraction') }}">Officer Intercation</a></li>
-                                                        <li><a href="{{ route('ActionTakRepo') }}">Action Take Report</a></li>
+                                                        <li><a href="{{ route('OfficerInteraction') }}">Officer
+                                                                Intercation</a></li>
+                                                        <li><a href="{{ route('ActionTakRepo') }}">Action Take
+                                                                Report</a></li>
                                                         <li><a href="">Action Take Letter</a></li>
                                                         <li><a href="">Articles</a></li>
                                                     </ul>
@@ -361,7 +374,8 @@
                                                         <li><a href="{{ route('PrintMedia') }}">Print Media</a></li>
                                                         <li><a href="{{ route('WebMedia') }}">Web Media</a></li>
                                                         <li><a href="{{ route('Photos') }}">Event Gallery</a></li>
-                                                        <li><a href="{{ route('VideoGallery') }}">Video Gallery</a></li>
+                                                        <li><a href="{{ route('VideoGallery') }}">Video Gallery</a>
+                                                        </li>
                                                         <li><a href="electronic_media">Press Release</a></li>
                                                     </ul>
                                                 </div>
@@ -370,7 +384,8 @@
                                     </div>
                                 </li>
                                 <li class="event-menu">
-                                    <a href="#" class="mm-arr">Activities <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Activities <small
+                                            class="text-light">+</small></a>
                                     <div class="mm-pos">
                                         <div class="event-mm m-menu">
                                             <div class="m-menu-inn">
@@ -379,8 +394,10 @@
                                                         <li><a href="{{ route('Awards') }}">Awards</a></li>
                                                         <li><a href="{{ route('Seminar') }}">Seminar</a></li>
                                                         <li><a href="{{ route('workshop') }}">Workshop</a></li>
-                                                        <li><a href="{{ route('EducationalAwareness') }}">Social Works</a></li>
-                                                        <li><a href="{{ route('standWithNation') }}">Stand with Nation</a></li>
+                                                        <li><a href="{{ route('EducationalAwareness') }}">Social
+                                                                Works</a></li>
+                                                        <li><a href="{{ route('standWithNation') }}">Stand with
+                                                                Nation</a></li>
                                                         <li><a href="{{ route('SocialWork') }}">Social Work</a></li>
                                                     </ul>
                                                 </div>
@@ -389,7 +406,8 @@
                                                         <li><a href="#">Health Camps</a></li>
                                                         <li><a href="#">Blood Donation Camps</a></li>
                                                         <li><a href="#">Special Days Camps</a></li>
-                                                        <li><a href="{{ route('RuralAwareness') }}">Rural Awareness</a></li>
+                                                        <li><a href="{{ route('RuralAwareness') }}">Rural
+                                                                Awareness</a></li>
                                                         <li><a href="{{ route('Covid19') }}">Covid-19</a></li>
                                                     </ul>
                                                 </div>
@@ -404,26 +422,65 @@
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a href="{{ route('national_level') }}">National Level</a></li>
-                                                        <li><a href="{{ route('state_level') }}">State Level </a></li>
-                                                        <li><a href="{{ route('district_level') }}">District Level</a></li>
+                                                        <li>
+                                                            <div class="btn-group dropleft">
+                                                                <a type="button" class="dropdown-toggle"
+                                                                    data-toggle="dropdown">International Level</a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Nelson
+                                                                        Mandela Human Rights Award</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="btn-group dropleft">
+                                                                <a type="button" class="dropdown-toggle"
+                                                                    data-toggle="dropdown">National Level</a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Nhrccb
+                                                                        Human Rights Award</a>
+                                                                    <a class="dropdown-item" href="#">Nhrccb
+                                                                        Leadership Award</a>
+                                                                    <a class="dropdown-item" href="#">Nhrccb
+                                                                        Special Award</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="btn-group dropleft">
+                                                                <a type="button" class="dropdown-toggle"
+                                                                    data-toggle="dropdown">State Level</a>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">State
+                                                                        Human Rights Award</a>
+                                                                    <a class="dropdown-item" href="#">State
+                                                                        Leadership Award</a>
+                                                                    <a class="dropdown-item" href="#">State
+                                                                        Special Award</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="{{ route('community_level') }}">Community Level</a></li>
-                                                        <li><a href="{{ route('international_level') }}">International Level</a></li>
+                                                        <li><a href="{{ route('community_level') }}">Competition
+                                                                Level</a></li>
+                                                        <li><a href="{{ route('district_level') }}">District
+                                                                Level</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
+
                                 <li class="ourcellunit-menu">
-                                    <a href="#" class="mm-arr">Our Cell/Unit <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Our Cell/Unit <small
+                                            class="text-light">+</small></a>
                                     <!-- MEGA MENU 1 -->
                                     <div class="mm-pos">
-                                        <div class="ourcellunit-mm m-menu"  >
+                                        <div class="ourcellunit-mm m-menu">
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
@@ -437,11 +494,16 @@
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="{{ route('CrimeControlUnit') }}">Crime Control Cell</a></li>
-                                                        <li><a href="{{ route('AntiCorruptionCell') }}">Anti Corruption Cell</a></li>
-                                                        <li><a href="{{ route('ChildRightsProCell') }}">Child Rights Protection Cell</a></li>
-                                                        <li><a href="{{ route('TRProCell') }}">Tribal Rights Protection Cell</a></li>
-                                                        <li><a href="{{ route('AntiHumanTrfCell') }}">Anti Human Trafficking Cell</a></li>
+                                                        <li><a href="{{ route('CrimeControlUnit') }}">Crime Control
+                                                                Cell</a></li>
+                                                        <li><a href="{{ route('AntiCorruptionCell') }}">Anti
+                                                                Corruption Cell</a></li>
+                                                        <li><a href="{{ route('ChildRightsProCell') }}">Child Rights
+                                                                Protection Cell</a></li>
+                                                        <li><a href="{{ route('TRProCell') }}">Tribal Rights
+                                                                Protection Cell</a></li>
+                                                        <li><a href="{{ route('AntiHumanTrfCell') }}">Anti Human
+                                                                Trafficking Cell</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -458,8 +520,10 @@
                                                     <ul>
                                                         {{-- <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li> --}}
                                                         <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
-                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
+                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a>
+                                                        </li>
+                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a>
+                                                        </li>
                                                         <li><a href="{{ route('StateTeam') }}">State Team</a></li>
                                                         <li><a href="{{ route('NationalTeam') }}">National Team</a>
                                                         </li>
@@ -479,7 +543,8 @@
                                 </li>
 
                                 <li class="tranning-menu">
-                                    <a href="#" class="mm-arr">Training & Research <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Training & Research <small
+                                            class="text-light">+</small></a>
                                     <div class="mm-pos">
                                         <div class="tranning-mm m-menu">
                                             <div class="m-menu-inn">
@@ -487,45 +552,65 @@
                                                     <ul>
                                                         <li>
                                                             <div class="btn-group dropleft">
-                                                                <a type="button" class="dropdown-toggle" data-toggle="dropdown">Internship</a>
+                                                                <a type="button" class="dropdown-toggle"
+                                                                    data-toggle="dropdown">Internship</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="{{ route('internshipGuideline') }}">Internship Guideline</a>
-                                                                    <a class="dropdown-item" href="{{ route('shortTerm') }}">Short Term</a>
-                                                                    <a class="dropdown-item" href="{{ route('winter') }}">Winter</a>
-                                                                    <a class="dropdown-item" href="{{ route('summer') }}">Summer</a>
-                                                                    <a class="dropdown-item" href="{{ route('apply') }}">Apply for Internship</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('internshipGuideline') }}">Internship
+                                                                        Guideline</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('shortTerm') }}">Short
+                                                                        Term</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('winter') }}">Winter</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('summer') }}">Summer</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('apply') }}">Apply for
+                                                                        Internship</a>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="btn-group dropleft">
-                                                                <a type="button" class="dropdown-toggle" data-toggle="dropdown">Short Term Course</a>
+                                                                <a type="button" class="dropdown-toggle"
+                                                                    data-toggle="dropdown">Short Term Course</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Course Guideline</a>
-                                                                    <a class="dropdown-item" href="#">Offered Courses</a>
-                                                                    <a class="dropdown-item" href="#">Admission</a>
-                                                                    <a class="dropdown-item" href="#">Our Alumni</a>
+                                                                    <a class="dropdown-item" href="#">Course
+                                                                        Guideline</a>
+                                                                    <a class="dropdown-item" href="#">Offered
+                                                                        Courses</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="#">Admission</a>
+                                                                    <a class="dropdown-item" href="#">Our
+                                                                        Alumni</a>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="btn-group dropleft">
-                                                                <a type="button" class="dropdown-toggle" data-toggle="dropdown">Workshop</a>
+                                                                <a type="button" class="dropdown-toggle"
+                                                                    data-toggle="dropdown">Workshop</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Workshop Guideline</a>
-                                                                    <a class="dropdown-item" href="#">Workshop Conduct</a>
+                                                                    <a class="dropdown-item" href="#">Workshop
+                                                                        Guideline</a>
+                                                                    <a class="dropdown-item" href="#">Workshop
+                                                                        Conduct</a>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="btn-group dropleft">
-                                                                <a type="button" class="dropdown-toggle" data-toggle="dropdown">Competition</a>
+                                                                <a type="button" class="dropdown-toggle"
+                                                                    data-toggle="dropdown">Competition</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Guideline</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="#">Guideline</a>
                                                                     <a class="dropdown-item" href="#">Essay</a>
                                                                     <a class="dropdown-item" href="#">Debate</a>
                                                                     <a class="dropdown-item" href="#">Speech</a>
-                                                                    <a class="dropdown-item" href="#">Our Winners</a>
+                                                                    <a class="dropdown-item" href="#">Our
+                                                                        Winners</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -541,7 +626,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                
+
                                 <li class="registration-menu">
                                     <a href="#" class="mm-arr">Registration <small
                                             class="text-light">+</small></a></a>
@@ -553,7 +638,7 @@
                                                         <li><a href="#">International Programme</a></li>
                                                         <li><a href="#">National Programme</a></li>
                                                         <li><a href="#">State Programme</a></li>
-                                                        <li><a href="#">District Programme</a></li>
+                                                        <li><a href="#">Competition Registration</a></li>
                                                         <li><a href="#">Kit Registration</a></li>
                                                     </ul>
                                                 </div>
@@ -563,16 +648,20 @@
                                 </li>
                                 <li><a href="{{ route('JoinUs') }}">Join Us</a></li>
                                 <li class="complain-menu">
-                                    <a href="#" class="mm-arr">Complaint <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Complaint <small
+                                            class="text-light">+</small></a>
                                     <!-- MEGA MENU 1 -->
                                     <div class="mm-pos">
                                         <div class="complain-mm m-menu" style="width: 200px">
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1" style="width:100%">
                                                     <ul>
-                                                        <li><a href="{{ route('newComplain') }}">New Complain</a></li>
-                                                        <li><a href="{{ route('ComplainStatus') }}">Complain Status</a></li>
-                                                        <li><a href="{{ route('ComplainDashboard') }}">Complain Dashboard</a></li>
+                                                        <li><a href="{{ route('newComplain') }}">New Complain</a>
+                                                        </li>
+                                                        <li><a href="{{ route('ComplainStatus') }}">Complain
+                                                                Status</a></li>
+                                                        <li><a href="{{ route('ComplainDashboard') }}">Complain
+                                                                Dashboard</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -580,15 +669,18 @@
                                     </div>
                                 </li>
                                 <li class="contact-menu">
-                                    <a href="#" class="mm-arr">Contact Us <small class="text-light">+</small></a>
+                                    <a href="#" class="mm-arr">Contact Us <small
+                                            class="text-light">+</small></a>
                                     <div class="mm-pos">
                                         <div class="contact-mm m-menu" style="width:200px">
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1" style="width:100%">
                                                     <ul>
-                                                        <li><a href="{{ route('ContactUs') }}">Office Address</a></li>
+                                                        <li><a href="{{ route('ContactUs') }}">Office Address</a>
+                                                        </li>
                                                         <li><a href="#">Officers Directory</a></li>
                                                         <li><a href="#">Help Line</a></li>
+                                                        <li><a href="#">Download</a></li>
                                                     </ul>
                                                 </div>
 
