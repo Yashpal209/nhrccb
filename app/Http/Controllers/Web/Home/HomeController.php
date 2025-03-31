@@ -7,6 +7,9 @@ use App\Models\Admin\Gallery\Photo;
 use App\Models\Admin\Notification;
 use App\Models\Admin\Notification\LatestUpdate;
 use App\Models\Admin\Webmanage\Banner;
+use App\Models\Admin\Gallery\Acknowledgement;
+use App\Models\Admin\Gallery\GovtLetter;
+use App\Models\Admin\Publication\MonthlyReport;
 use Illuminate\Http\Request;
 
 
@@ -21,9 +24,12 @@ class HomeController extends Controller
         $notifications = Notification::orderBy('date', 'desc')->get();
         $latestUpdate = LatestUpdate::orderBy('date', 'desc')->get();
         $Banner = Banner::orderBy('created_at', 'desc')->get();
-        // return $Banner;
+        $acknowledgement = Acknowledgement::orderBy('created_at', 'desc')->limit(6)->get();
+        $govtLetter = GovtLetter::orderBy('created_at', 'desc')->limit(6)->get();
+        $monthlyReport = MonthlyReport::orderBy('created_at', 'desc')->limit(6)->get();
+        // return $GovtLetter;
         $viewPhotos = Photo::orderBy('created_at', 'desc')->limit(6)->get();
-        $data = compact('notifications', 'viewPhotos', 'latestUpdate','Banner','title');
+        $data = compact('notifications', 'viewPhotos', 'latestUpdate','Banner','title','govtLetter','acknowledgement','monthlyReport');
         return view('web.index')->with($data);
       
     }

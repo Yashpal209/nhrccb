@@ -75,6 +75,16 @@
                                                 <span class="badge bg-warning text-dark">No Attachment</span>
                                             @endif
                                         </td>
+                                        <td>
+                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" class="btn btn-primary">View Certificate</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank" class="btn btn-primary">View letter</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('generate.idcard', $list->id) }}" target="_blank" class="btn btn-primary">View ID Card</a>
+                                        </td>
+                                        
                                     </tr>
                                 @endforeach
 

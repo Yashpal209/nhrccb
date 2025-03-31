@@ -7,6 +7,20 @@
             padding: 2px;
             height: 126px;
         }
+        .swiper-container {
+            width: 80%;
+            height: 300px;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
     </style>
     <div class="ed-res-bg">
         <!-- SLIDER -->
@@ -85,25 +99,19 @@
                             </div>
                             <div class="pg-eve-desc pg-blog-desc">
                                 <div class="mt-0">
-                                    <p align="justify"><b>National Human Rights and Crime Control Bureau (NHRCCB)</b> is
-                                        functioning with commitment to the Noble Cause of Human Rights Protection and
-                                        Promotion,
-                                        Justice, Education, Love, Peace, Harmony to all and Friendship, National &
-                                        International
-                                        Integration by Exchange of Ideas & Ethos around the Nation. NHRCCB Is working for
-                                        the
-                                        Protection and Promotion of Human Rights.</p>
-                                    <p align="justify"><b>National Human Rights and Crime Control Bureau (NHRCCB)</b> is a
-                                        Non
-                                        Profit Organization or Voluntary Organization Incorporated under the Legislation
-                                        Government of India. Registered in 2017 under Indian Trust Act- 1882 Government Of
-                                        India
-                                        with Regn. No 483/2017. Registered with NITI AAYOG, Government of India, United
-                                        Nation
-                                        Department Of Economics and Social Affairs, United Nation, 12A & 80G Under
-                                        Department
-                                        of Income Tax, Ministry of Finance Government of India and CSR1 Under Ministry Of
-                                        Corporate Affairs, Government of India.</p>
+                                    <p align="justify">The<b> National Human Rights and Crime Control Bureau (NHRCCB)</b> is
+                                        functioning with a commitment to the noble cause of human rights protection and
+                                        promotion, justice, education, love, peace, harmony for all, friendship, and
+                                        national and international integration through the exchange of ideas and ethos
+                                        around the nation.</p>
+                                    <p align="justify">The <b>National Human Rights and Crime Control Bureau (NHRCCB)</b> is
+                                        a non-profit organization or voluntary organization incorporated under the
+                                        legislation of the Government of India. Registered in 2017 under the Indian Trust
+                                        Act—1882, Government of India, with Regn. No. 483/2017. Registered with NITI AAYOG,
+                                        Government of India; the United Nation Department of Economics and Social Affairs,
+                                        United Nation, 12A & 80G under the Department of Income Tax, Ministry of Finance,
+                                        Government of India; and CSR1 under the Ministry of Corporate Affairs, Government of
+                                        India.</p>
                                 </div>
                             </div>
                         </div>
@@ -147,14 +155,9 @@
             </div>
         </section>
 
-        {{-- Acknowledgement --}}
+        {{-- message --}}
         <section>
             <div class="container py-3">
-                {{-- <div class="row">
-                    <div class="con-title">
-                        <h2 class="mb-0">Messages <span>Social Media</span></h2>
-                    </div>
-                </div> --}}
                 <div class="row justify-content-center align-items-center g-3 ">
                     <div class="col-md-6 text-center about-section" id="about-section">
                         <div class="pg-eve-main mb-0">
@@ -165,8 +168,23 @@
                             </div>
                             <div class="pg-eve-desc pg-blog-desc">
                                 <div class="mt-0">
-                                    <p align="justify">All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.” These opening words of the Universal Declaration of Human Rights express a concept of man which underpins the framework of human rights embodied in the Universal Declaration and the two international covenants of Human Rights. It is a concept which, it derives most directly from Western political traditions, is in harmony with moral and social teachings to be found in many other traditions and patterns of belief. </p>
-                                    <p align="justify">I am delighted to introduce National Human Rights and Crime Control Bureau a leading social organization, working for the protection of Human rights, liberties and social justice for all people at National & International Level and providing legal assistance to the needy and under-privileged of the Indian Union, centers operating for the cause of spreading human rights awareness in order to break the barriers of class, caste, creed, color and religion. National Human Rights and Crime Control Bureau (NHRCCB) promotes art, culture, peace, harmony and brotherhood.</p>
+                                    <p align="justify">The Preamble of our Constitution emphasizes on justice, liberty,
+                                        equality and fraternity. These four words cover the entire range of human rights.
+                                        Human rights are standards that recognize and protect the dignity of all human
+                                        beings.</p>
+                                    <p align="justify">Human rights recognize our freedom to choose, develop and live
+                                        without fear or discrimination. The purpose of human rights is to provide freedom to
+                                        live a life free from fear, oppression or discrimination. Human rights include the
+                                        right to life, the right to a fair trial, freedom from torture, freedom of speech,
+                                        freedom of religion, and the rights to health, education and an adequate standard of
+                                        living.</p>
+                                    <p align="justify">The concept of human rights is very important in our lives,
+                                        especially in today's time when human exploitation is increasing day by day. To
+                                        understand the basic rights of human beings, it is very important to propagate them,
+                                        it is very important to reach the human rights to the person standing at the last
+                                        rung of the society. From time to time, many seminars, conferences, workshops and
+                                        trainings are very inspiring for the colleagues and people of the society working in
+                                        the field of human rights.</p>
                                 </div>
                             </div>
                         </div>
@@ -175,12 +193,11 @@
                         <div class="row justify-content-center">
                             <div class="col-md-12">
                                 <div class="img img-circle pt-4">
-                                    <img width="50"
-                                        src="{{ asset('public/web/assets/images/official/randhir.jpg') }}"
+                                    <img width="50" src="{{ asset('public/web/assets/images/official/randhir.jpg') }}"
                                         alt="">
                                 </div>
                                 <div class="info py-3">
-                                    <h4>DR RANDHIR KUMAR</h4>
+                                    <h4>DR. RANDHIR KUMAR</h4>
                                     <h5>PRESIDENT</h5>
                                     <h5>GENERAL WING</h5>
                                 </div>
@@ -205,7 +222,8 @@
             </div>
         </section>
 
-        <section  class="bg-container">
+        {{-- Acknowledgement --}}
+        <section class="bg-container">
             <div class="container py-3">
                 <div class="row">
                     <div class="col-md-4">
@@ -214,36 +232,12 @@
                                 <div class="bot-gal h-gal ph-gal ho-event-mob-bot-sp">
                                     <h4>Acknowledgement</h4>
                                     <ul>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
+                                        @foreach ($acknowledgement as $list)
+                                            <li>
+                                                <img class="materialboxed" data-caption="{{ $list->title }}"
+                                                    src="{{ asset($list->acknowledgement_img) }}" alt="">
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="card-footer text-center">
@@ -258,40 +252,16 @@
                                 <div class="bot-gal h-gal ph-gal ho-event-mob-bot-sp">
                                     <h4>Govt. Letter</h4>
                                     <ul>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
+                                        @foreach ($govtLetter as $list)
+                                            <li>
+                                                <img class="materialboxed" data-caption="{{ $list->title }}"
+                                                    src="{{ asset($list->gvt_ltr_img) }}" alt="">
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <a class="btn btn-light" href="{{ route('acknowledgement') }}">View All</a>
+                                    <a class="btn btn-light" href="{{ route('GovtLetter') }}">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -302,36 +272,19 @@
                                 <div class="bot-gal h-gal ph-gal ho-event-mob-bot-sp">
                                     <h4>Monthly Report</h4>
                                     <ul>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
-                                        <li>
-                                            <img class="materialboxed"src="{{ asset('public/web/assets/images/CM Delhi-page0001.jpg') }}"
-                                                data-caption="CM DELHI" alt="Title" />
-
-                                        </li>
+                                        @foreach ($monthlyReport as $list)
+                                            <li class="row" style="padding: 25px 0px">
+                                                <div class="col-12   ">
+                                                    <span>{{ $list->date }}</span>
+                                                </div>
+                                                <div class="col-12 ">
+                                                    <p class="truncate">{{ $list->title }}</p>
+                                                </div>
+                                                <div class=" col-12 pg-eve-reg mt-1">
+                                                    <a href="{{ $list->report }}" target="_blank">Download</a>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="card-footer text-center">
@@ -360,8 +313,9 @@
                                 <ul>
                                     @foreach ($viewPhotos as $viewPhoto)
                                         <li>
-                                            <img class="materialboxed" data-caption="Education master image captions"
-                                                src="{{ asset($viewPhoto->img) }}" alt="">
+                                            <img class="materialboxed"
+                                                data-caption="{{ $list->title }}"src="{{ asset($viewPhoto->img) }}"
+                                                alt="">
                                         </li>
                                     @endforeach
                                 </ul>
@@ -436,6 +390,34 @@
             </div>
         </section>
 
+        <section>
+            <div class="container">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{{ asset('public/web/assets/images/logo/icons/1.jpg') }}" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('public/web/assets/images/logo/icons/2.jpg') }}" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('public/web/assets/images/logo/icons/3.jpg') }}" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('public/web/assets/images/logo/icons/4.jpg') }}" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('public/web/assets/images/logo/icons/5.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+
+
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 @endsection
@@ -461,6 +443,24 @@
                 }
                 equalizeHeight();
             }, 6000);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
         });
     </script>
 @endsection

@@ -5,7 +5,7 @@
         <div class="row  wed-foot-link-1">
         <div class="col-md-3">
                 <h4 class=" fs-3">About Us</h4>
-                <p align="justify">NHRCCB is a Non Profit Organization incorporated under the Legislation of Government of India. Registered with NITI AAYOG (Government of India), UNDESA (United Nation), 12A & 80G Under Department of Income Tax, Ministry of Finance and CSR1 Under Ministry of Corporate Affairs (Govt of India).</p>
+                <p align="justify">The National Human Rights and Crime Control Bureau (NHRCCB) is functioning with a commitment to the noble cause of human rights protection and promotion, justice, education, love, peace, harmony for all, friendship, and national and international integration through the exchange of ideas and ethos around the nation.</p>
                 <h4>SOCIAL MEDIA</h4>
                 <ul>
                     <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
@@ -25,7 +25,7 @@
                 <h4 class="fs-3">Quick Links</h4>           
                     <p ><a href="{{route('monthly_report')}}">Monthly Report</a></p>
                     <p><a href="{{route('annual_report')}}">Annual Report</a></p>
-                    <p><a href="{{route('souvenier')}}">Souvenier</a></p>
+                    <p><a href="{{route('souvenier')}}">Souvenir</a></p>
                     <p><a href="{{route('journal')}}">Journal</a></p>
                     <p><a href="join_us">Join Us</a></p>
                     <p><a href="#">Privacy Policy</a></p>
@@ -36,13 +36,13 @@
             <h4 class="pb-0 fs-3 mb-3">Contact Us</h4>
                 <p><b>Head Office</b></p>
                 <p><b>NATIONAL HUMAN RIGHTS AND CRIME CONTROL BUREAU</b></p>
-                <p>Head Office : SHOP NO.F-10-A, PLT NO.-4, SEC-12,PKT-7,MALHAN FALCON PLAZA, DWARKA, NEW DELHI 110075</p>
+                <p>Head Office: SHOP NO.F-10-A, PLT NO.-4, SEC-12, PKT-7, MALHAN FALCON PLAZA, DWARKA, NEW DELHI 110075</p>
                 <p>Phone: <a href="#!">+91 9893151900, +91 9102224365</a></p>
 
                 <p><b>National Administration Office</b></p>
                 <p><b>NATIONAL HUMAN RIGHTS AND CRIME CONTROL BUREAU</b></p>
-                <p>Quater No : LS/48, First Floor, Harmu Housing Colony Near Kartik Oraon Chowk Harmu Ranchi, Jharkhand -834002</p>
-                <p>Phone: <a href="#!">+91 9102224365 , +91 9893151900</a></p>
+                <p>Quarter No: LS/48, First Floor, Harmu Housing Colony Near Kartik Oraon Chowk, Harmu, Ranchi, Jharkhand-834002</p>
+                <p>Phone: <a href="#!">+91 9102224365, +91 9893151900</a></p>
             </div>
 
             <div class="col-md-3">
