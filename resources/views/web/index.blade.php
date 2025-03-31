@@ -7,19 +7,27 @@
             padding: 2px;
             height: 126px;
         }
-        .swiper-container {
-            width: 80%;
-            height: 300px;
+
+        .swiper {
+            width: 100%;
+            padding: 20px 0;
         }
+
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .swiper-slide img {
-            max-width: 100%;
-            max-height: 100%;
+            max-width: 100px;
+            height: auto;
             border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .swiper-slide img:hover {
+            transform: scale(1.1);
         }
     </style>
     <div class="ed-res-bg">
@@ -392,27 +400,24 @@
 
         <section>
             <div class="container">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="{{ asset('public/web/assets/images/logo/icons/1.jpg') }}" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="{{ asset('public/web/assets/images/logo/icons/2.jpg') }}" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="{{ asset('public/web/assets/images/logo/icons/3.jpg') }}" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="{{ asset('public/web/assets/images/logo/icons/4.jpg') }}" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="{{ asset('public/web/assets/images/logo/icons/5.jpg') }}" alt="">
+                <div class="row">
+                    <div class="con-title">
+                        <h2 class="mb-0"> <span></span></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/1.jpg') }}" alt="Logo 1" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/2.jpg') }}" alt="Logo 2" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/3.jpg') }}" alt="Logo 3" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/4.jpg') }}" alt="Logo 4" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/5.jpg') }}" alt="Logo 5" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/6.jpg') }}" alt="Logo 6" /></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </section>
@@ -445,22 +450,30 @@
             }, 6000);
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 4, // Adjust based on your layout
+            spaceBetween: 20,
             loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
             },
+            breakpoints: {
+                320: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+            }
         });
     </script>
 @endsection
