@@ -20,7 +20,7 @@
         }
 
         .swiper-slide img {
-            max-width: 100px;
+            max-width: 150px;
             height: auto;
             border-radius: 10px;
             transition: transform 0.3s ease-in-out;
@@ -306,7 +306,7 @@
         </section>
 
         <!-- NEWS AND EVENTS -->
-        <section class="">
+        <section >
             <div class="container py-3">
                 <div class="row">
                     <div class="con-title">
@@ -398,11 +398,11 @@
             </div>
         </section>
 
-        <section>
+        <section class="bg-container" >
             <div class="container">
                 <div class="row">
                     <div class="con-title">
-                        <h2 class="mb-0"> <span></span></h2>
+                        <h2 class="mb-0">OUR RECOGNITION <span> AND AFFILIATION</span></h2>
                     </div>
                 </div>
                 <div class="row">
