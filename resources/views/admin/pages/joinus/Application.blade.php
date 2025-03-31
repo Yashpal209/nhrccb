@@ -45,7 +45,7 @@
                                         <th>Email</th>
                                         <th>Date</th>
                                         <th>status</th>
-                                        <th colspan="2" class="text-center">Action</th>
+                                        <th colspan="3" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 @foreach ($joinApp as $list)
@@ -76,14 +76,11 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" class="btn btn-primary">View Certificate</a>
+                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" class="btn btn-primary "style="padding:10px">View Certificate</a>
+                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank" class="btn btn-primary "style="padding:10px">View letter</a>
+                                            <a href="{{ route('generate.idcard', $list->id) }}" target="_blank" class="btn btn-primary "style="padding:10px">View ID Card</a>
                                         </td>
-                                        <td>
-                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank" class="btn btn-primary">View letter</a>
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('generate.idcard', $list->id) }}" target="_blank" class="btn btn-primary">View ID Card</a>
-                                        </td>
+                                        
                                         
                                     </tr>
                                 @endforeach
