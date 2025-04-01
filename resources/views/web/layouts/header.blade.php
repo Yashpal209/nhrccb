@@ -22,7 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 
     <!-- FONTAWESOME ICONS -->
@@ -155,7 +155,8 @@
                         <div class="ed-com-t1-left">
                             <ul>
                                 <li><a href="#"></a></li>
-                                <li><a href="tel:">Phone: +91 9102224365</a></li>
+                                <li><a href="tel:9102224365">Phone: +91 91022 24365</a></li>
+                                <li><a href="tel:9111730311">HELPLINE NO : +91 91117 30311</a></li>
                             </ul>
                         </div>
                         <div class="ed-com-t1-social">
@@ -216,10 +217,13 @@
                         <div class="wed-logo-2 d-flex">
                             <center>
                                 <a href="{{ route('home') }}" class="d-flex mt-4">
-                                    <img class="img-fluid"src="{{ asset('public/web/assets/images/logo/nhrccb.png') }}"alt="" />
+                                    <img class="img-fluid"src="{{ asset('public/web/assets/images/logo/nhrccb.png') }}"
+                                        alt="" />
                                 </a>
                             </center>
-                            <img class="img-fluid" style="width: 30%"src="{{ asset('public/web/assets/images/logo/iso.webp') }}"alt="" />
+                            <img class="img-fluid"
+                                style="width: 30%"src="{{ asset('public/web/assets/images/logo/iso.webp') }}"
+                                alt="" />
                         </div>
                     </div>
                 </div>
@@ -268,7 +272,9 @@
                                                                 <a type="button" class="dropdown-toggle "
                                                                     data-toggle="dropdown">National President</a>
                                                                 <div class="dropdown-menu ">
-                                                                    <a class="dropdown-item "href="#"> Profile</a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('NationalProfile') }}">
+                                                                        Profile</a>
                                                                     <a
                                                                         class="dropdown-item "href="{{ route('PresidentMessage') }}">Message</a>
                                                                 </div>
@@ -297,23 +303,20 @@
                                                         <li><a href="{{ route('HumanRights') }}">Human Rights</a></li>
                                                         <li><a href="{{ route('WomenRights') }}">Women Rights</a></li>
                                                         <li><a href="{{ route('ChildRights') }}">Child Rights</a></li>
-                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer
-                                                                Rights</a></li>
-                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a>
-                                                        </li>
-                                                        <li><a href="#">Disability Rights</a></li>
-                                                        <li><a href="#">Right to Education</a></li>
+                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer Rights</a></li>
+                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a></li>
+                                                        <li><a href="{{ route('DisabilityRights') }}">Disability Rights</a></li>
+                                                        <li><a href="{{ route('RightToEducation') }}">Right to Education</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="#">Advocate Rights</a></li>
-                                                        <li><a href="#">LGBT Rights</a></li>
-                                                        <li><a href="#">Doctor Rights</a></li>
-                                                        <li><a href="#">Tribal Rights</a></li>
-                                                        <li><a href="#">Press Rights</a></li>
-                                                        <li><a href="#">Crime Control Act</a></li>
-
+                                                        <li><a href="{{ route('AdvocateRights') }}">Advocate Rights</a></li>
+                                                        <li><a href="{{ route('LGBTRights') }}">LGBT Rights</a></li>
+                                                        <li><a href="{{ route('DoctorRights') }}">Doctor Rights</a></li>
+                                                        <li><a href="{{ route('TribalRights') }}">Tribal Rights</a></li>
+                                                        <li><a href="{{ route('PressRights') }}">Press Rights</a></li>
+                                                        <li><a href="{{ route('CrimeControlAct') }}">Crime Control Act</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -523,10 +526,8 @@
                                                     <ul>
                                                         {{-- <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li> --}}
                                                         <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a>
-                                                        </li>
-                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a>
-                                                        </li>
+                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
+                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
                                                         <li><a href="{{ route('StateTeam') }}">State Team</a></li>
                                                         <li><a href="{{ route('NationalTeam') }}">National Team</a>
                                                         </li>

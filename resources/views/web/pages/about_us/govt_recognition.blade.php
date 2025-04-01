@@ -11,7 +11,7 @@
     </section>
     <!--SECTION START-->
 
-    <section>
+    <section class="ed-res-bg">
         <div class="container com-sp pad-bot-70">
             <div class="row">
                 <div class="con-title">

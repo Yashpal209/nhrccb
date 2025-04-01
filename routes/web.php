@@ -55,6 +55,7 @@ Route::get('book', [PublicationController::class, 'book'])->name('book');
 // Administration
 Route::get('president_message', [PageController::class, 'PresidentMessage'])->name('PresidentMessage');
 Route::get('national_patron', [PageController::class, 'NationalPatron'])->name('NationalPatron');
+Route::get('national_Profile', [PageController::class, 'NationalProfile'])->name('NationalProfile');
 Route::get('national_advisor', [PageController::class, 'NationalAdvisor'])->name('NationalAdvisor');
 Route::get('office_staff', [PageController::class, 'OfficeStaff'])->name('OfficeStaff');
 
@@ -114,7 +115,15 @@ Route::get('human-rights',[IssueController::class, 'HumanRights'])->name('HumanR
 Route::get('women-rights',[IssueController::class, 'WomenRights'])->name('WomenRights');
 Route::get('child-rights',[IssueController::class, 'ChildRights'])->name('ChildRights');
 Route::get('consumer-rights',[IssueController::class, 'ConsumerRights'])->name('ConsumerRights');
-Route::get('right-to-information',[IssueController::class, 'RTI'])->name('RTI');
+Route::get('right-to-information', [IssueController::class, 'RTI'])->name('RTI');
+Route::get('disability-rights', [IssueController::class, 'DisabilityRights'])->name('DisabilityRights');
+Route::get('right-to-education', [IssueController::class, 'RightToEducation'])->name('RightToEducation');
+Route::get('advocate-rights', [IssueController::class, 'AdvocateRights'])->name('AdvocateRights');
+Route::get('lgbt-rights', [IssueController::class, 'LGBTRights'])->name('LGBTRights');
+Route::get('doctor-rights', [IssueController::class, 'DoctorRights'])->name('DoctorRights');
+Route::get('tribal-rights', [IssueController::class, 'TribalRights'])->name('TribalRights');
+Route::get('press-rights', [IssueController::class, 'PressRights'])->name('PressRights');
+Route::get('crime-control-act', [IssueController::class, 'CrimeControlAct'])->name('CrimeControlAct');
 
 // Activities
 Route::get('awards', [ActivityController::class, 'Awards'])->name('Awards');

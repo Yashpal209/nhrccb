@@ -72,11 +72,11 @@
             <div class="row justify-content-center align-items-center w-100">
                 <div class="col-md-9 col-12">
                     <marquee id="notificationMarquee" behavior="scroll" direction="left" scrollamount="5" class="d-block">
-                        @foreach ($notifications as $notification)
+                        @foreach ($ElectronicMedia as $list)
                             <p class="d-inline m-0 mx-3">
                                 <i class="fas fa-bell text-danger"></i>
-                                <a href="{{ $notification->noticefile }}" class="text-white text-decoration-none">
-                                    {{ $notification->title }} ({{ $notification->date }})
+                                <a href="{{ $list->elec_med_img }}" target="_blank" class="text-white text-decoration-none">
+                                    {{ $list->title }} ({{ $list->date }})
                                 </a>
                             </p>
                         @endforeach
@@ -87,8 +87,7 @@
                         Stop</button>
                     <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').start()">▶
                         Start</button>
-                    <button class="btn btn-light btn-sm"
-                        onclick="window.location.href='{{ route('official_notification') }}'">
+                    <button class="btn btn-light btn-sm" onclick="window.location.href='{{ route('ElecMedia') }}'">
                         View All</button>
                 </div>
             </div>
@@ -107,19 +106,20 @@
                             </div>
                             <div class="pg-eve-desc pg-blog-desc">
                                 <div class="mt-0">
-                                    <p align="justify">The<b> National Human Rights and Crime Control Bureau (NHRCCB)</b> is
-                                        functioning with a commitment to the noble cause of human rights protection and
-                                        promotion, justice, education, love, peace, harmony for all, friendship, and
-                                        national and international integration through the exchange of ideas and ethos
-                                        around the nation.</p>
-                                    <p align="justify">The <b>National Human Rights and Crime Control Bureau (NHRCCB)</b> is
-                                        a non-profit organization or voluntary organization incorporated under the
-                                        legislation of the Government of India. Registered in 2017 under the Indian Trust
-                                        Act—1882, Government of India, with Regn. No. 483/2017. Registered with NITI AAYOG,
-                                        Government of India; the United Nation Department of Economics and Social Affairs,
-                                        United Nation, 12A & 80G under the Department of Income Tax, Ministry of Finance,
-                                        Government of India; and CSR1 under the Ministry of Corporate Affairs, Government of
-                                        India.</p>
+                                    <p align="justify"><b> National Human Rights and Crime Control Bureau (NHRCCB)</b>
+                                        National Human Rights and Crime Control Bureau (NHRCCB) is functioning with
+                                        commitment to the Noble Cause of Human Rights Protection and Promotion, Justice,
+                                        Education, Love, Peace, Harmony to all and Friendship, National & International
+                                        Integration by Exchange of Ideas & Ethos around the Nation .NHRCCB is working for
+                                        the Protection and Promotion of Human Rights and crime prevention across the nation.
+                                    </p>
+                                    <p align="justify"><b>National Human Rights and Crime Control Bureau (NHRCCB)</b>is a
+                                        Non-Govt./Non-Profit Organization Incorporated under the Legislation of the
+                                        Government of India. Registered in 2017 under Indian Trust Act- 1882 Government Of
+                                        India with Regn. No 483/2017. Registered with NITI AAYOG, Government of India,
+                                        United Nation Department Of Economics and Social Affairs, United Nation , 12A & 80G
+                                        Under Department of Income Tax , Ministry of Finance Government of India and CSR1
+                                        Under Ministry Of Corporate Affairs ,Government of India.</p>
                                 </div>
                             </div>
                         </div>
@@ -135,12 +135,12 @@
                                     <marquee behavior="scroll" direction="up" scrollamount="3" height="250">
                                         <div class="ho-event">
                                             <ul>
-                                                @foreach ($latestUpdate as $notification)
+                                                @foreach ($notifications as $notification)
                                                     <li class="mt-2">
                                                         <div class="ho-ev-date py-2"><span>{{ $notification->date }}</span>
                                                         </div>
                                                         <div class="ho-ev-link">
-                                                            <a class="ho-ev-link" href="{{ $notification->file }}">
+                                                            <a class="ho-ev-link" href="{{ $notification->noticefile }}">
                                                                 <p class="ho-ev-link">{{ $notification->title }}</p>
                                                             </a>
                                                         </div>
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="ed-ad-dec">
-                                        <a href="{{ route('latestUpdate') }}">Read more</a>
+                                        <a href="{{ route('official_notification') }}">Read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -194,14 +194,18 @@
                                         trainings are very inspiring for the colleagues and people of the society working in
                                         the field of human rights.</p>
                                 </div>
+                                <div class="text-center">
+                                    <a href="{{ route('PresidentMessage') }}" class="btn btn-primary">Read More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 minBox text-center profile-section" id="profile-section" style="display: none;">
                         <div class="row justify-content-center">
                             <div class="col-md-12">
                                 <div class="img img-circle pt-4">
-                                    <img width="50" src="{{ asset('public/web/assets/images/official/randhir.jpg') }}"
+                                    <img width="50" src="{{ asset('public/web/assets/images/presedent.jpg') }}"
                                         alt="">
                                 </div>
                                 <div class="info py-3">
@@ -249,7 +253,7 @@
                                     </ul>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <a class="btn btn-light" href="{{ route('acknowledgement') }}">View All</a>
+                                    <a class="btn btn-primary" href="{{ route('acknowledgement') }}">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -269,7 +273,7 @@
                                     </ul>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <a class="btn btn-light" href="{{ route('GovtLetter') }}">View All</a>
+                                    <a class="btn btn-primary" href="{{ route('GovtLetter') }}">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -281,22 +285,16 @@
                                     <h4>Monthly Report</h4>
                                     <ul>
                                         @foreach ($monthlyReport as $list)
-                                            <li class="row" style="padding: 25px 0px">
-                                                <div class="col-12   ">
-                                                    <span>{{ $list->date }}</span>
-                                                </div>
-                                                <div class="col-12 ">
-                                                    <p class="truncate">{{ $list->title }}</p>
-                                                </div>
-                                                <div class=" col-12 pg-eve-reg mt-1">
-                                                    <a href="{{ $list->report }}" target="_blank">Download</a>
-                                                </div>
-                                            </li>
+                                        <li class="border" style="height: 245px; overflow: hidden;">
+                                            <iframe src="{{ $list->report }}" width="100%" height="200px"></iframe>
+                                            <a href="{{ $list->report }}" class="btn btn-outline-danger" target="_blank">View PDF</a>
+                                        </li>
+                                        
                                         @endforeach
                                     </ul>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <a class="btn btn-light" href="{{ route('acknowledgement') }}">View All</a>
+                                    <a class="btn btn-primary" href="{{ route('acknowledgement') }}">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -306,7 +304,7 @@
         </section>
 
         <!-- NEWS AND EVENTS -->
-        <section >
+        <section>
             <div class="container py-3">
                 <div class="row">
                     <div class="con-title">
@@ -319,10 +317,10 @@
                             <div class="bot-gal h-gal ph-gal ho-event-mob-bot-sp">
                                 <h4>Photo Gallery</h4>
                                 <ul>
-                                    @foreach ($viewPhotos as $viewPhoto)
+                                    @foreach ($viewPhotos as $list)
                                         <li>
                                             <img class="materialboxed"
-                                                data-caption="{{ $list->title }}"src="{{ asset($viewPhoto->img) }}"
+                                                data-caption="{{ $list->title }}"src="{{ asset($list->img) }}"
                                                 alt="">
                                         </li>
                                     @endforeach
@@ -340,11 +338,28 @@
                         <div class="card">
                             <div class="bot-gal h-vid ho-event-mob-bot-sp">
                                 <h4>Video Gallery</h4>
-                                <iframe src="https://www.youtube.com/embed/MPw1S4DIzaQ" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" mute=""
-                                    style="width: 100%; max-width: 500px; height: 280px;"></iframe>
+                                <ul>
+                                    @foreach ($VideoGallery as $list)
+                                        @php
+                                            // Extract the video ID from the YouTube link
+                                            $videoId = explode('youtu.be/', $list->video)[1];
+                                            $videoId = explode('?', $videoId)[0]; // Remove query parameters if any
+                                        @endphp
+                                        <li>
+                                            <iframe src="https://www.youtube.com/embed/{{ $videoId }}"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                                                style="width: 100%; max-width: 500px; height: 245px;">
+                                            </iframe>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="card-footer">
+                                <div class="ed-ad-dec">
+                                    <a class="px-3" href="{{ route('VideoGallery') }}">View All</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -353,36 +368,14 @@
                             <div class="bot-gal h-gal ph-gal ho-event-mob-bot-sp">
                                 <h4>Print Media</h4>
                                 <ul>
-                                    <li><img height="122" class="materialboxed"
-                                            data-caption="Education master image captions"
-                                            src="{{ asset('uploads/gallery/printmedia/6753e6aeb3ec7.webp') }}"
-                                            alt="">
-                                    </li>
-                                    <li><img height="122" class="materialboxed"
-                                            data-caption="Education master image captions"
-                                            src="{{ asset('uploads/gallery/printmedia/6752f1848562b.webp') }}"
-                                            alt="">
-                                    </li>
-                                    <li><img height="122" class="materialboxed"
-                                            data-caption="Education master image captions"
-                                            src="{{ asset('uploads/gallery/printmedia/6753e6d1eedb1.webp') }}"
-                                            alt="">
-                                    </li>
-                                    <li><img height="122" class="materialboxed"
-                                            data-caption="Education master image captions"
-                                            src="{{ asset('uploads/gallery/printmedia/6753e9d250e57.webp') }}"
-                                            alt="">
-                                    </li>
-                                    <li><img height="122" class="materialboxed"
-                                            data-caption="Education master image captions"
-                                            src="{{ asset('uploads/gallery/printmedia/6753ea839238d.webp') }}"
-                                            alt="">
-                                    </li>
-                                    <li><img height="122" class="materialboxed"
-                                            data-caption="Education master image captions"
-                                            src="{{ asset('uploads/gallery/printmedia/6753ec649a7e7.webp') }}"
-                                            alt="">
-                                    </li>
+
+                                    @foreach ($PrintMedia as $list)
+                                        <li>
+                                            <img class="materialboxed"
+                                                data-caption="Media"src="{{ asset($list->print_media_img) }}"
+                                                alt="">
+                                        </li>
+                                    @endforeach
                                 </ul>
 
                             </div>
@@ -398,7 +391,7 @@
             </div>
         </section>
 
-        <section class="bg-container" >
+        <section class="bg-container">
             <div class="container">
                 <div class="row">
                     <div class="con-title">
@@ -409,12 +402,18 @@
                     <div class="col-md-12">
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/1.jpg') }}" alt="Logo 1" /></div>
-                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/2.jpg') }}" alt="Logo 2" /></div>
-                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/3.jpg') }}" alt="Logo 3" /></div>
-                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/4.jpg') }}" alt="Logo 4" /></div>
-                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/5.jpg') }}" alt="Logo 5" /></div>
-                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/6.jpg') }}" alt="Logo 6" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/1.jpg') }}"
+                                        alt="Logo 1" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/2.jpg') }}"
+                                        alt="Logo 2" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/3.jpg') }}"
+                                        alt="Logo 3" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/4.jpg') }}"
+                                        alt="Logo 4" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/5.jpg') }}"
+                                        alt="Logo 5" /></div>
+                                <div class="swiper-slide"><img src="{{ asset('public/web/assets/images/icons/6.jpg') }}"
+                                        alt="Logo 6" /></div>
                             </div>
                         </div>
                     </div>

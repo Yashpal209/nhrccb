@@ -1,17 +1,44 @@
 @extends('web.layouts.app')
 @section('main-content')
-    <!--SECTION START-->
+    <style>
+        .profile-container {
+            background-color: #f9faff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-img {
+            border: 3px solid #1232a5;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .profile-details h2 {
+            color: #1232a5;
+            margin-top: 10px;
+        }
+
+        .profile-details p {
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
     <section>
-        <div class="pro-cover">
-        </div>
-        <div class="pro-menu">
+        <div class="head-2">
             <div class="container">
-                <div class="col-md-9 col-md-offset-3">
-                    <ul>
-                        <li></li>
-                    </ul>
+                <div class="head-2-inn">
+                    <h1 class="fs-1">National President Profile </h1>
                 </div>
             </div>
+        </div>
+    </section>
+    <!-- PROFILE DETAILS SECTION -->
+    <section>
+        <div class="pro-cover">
         </div>
         <div class="stu-db ed-res-bg">
             <div class="container ">
@@ -42,31 +69,20 @@
                     <div class="udb">
 
                         <div class="udb-sec udb-prof">
-                            <h4>President Message</h4>
-                            <p align="justify">The Preamble of our Constitution emphasizes on justice, liberty, equality and
-                                fraternity. These four words cover the entire range of human rights. Human rights are
-                                standards that recognize and protect the dignity of all human beings.</p>
-                            <p align="justify">Human rights recognize our freedom to choose, develop and live without fear
-                                or discrimination. The purpose of human rights is to provide freedom to live a life free
-                                from fear, oppression or discrimination. Human rights include the right to life, the right
-                                to a fair trial, freedom from torture, freedom of speech, freedom of religion, and the
-                                rights to health, education and an adequate standard of living.</p>
-                            <p align="justify">The concept of human rights is very important in our lives, especially in
-                                today's time when human exploitation is increasing day by day. To understand the basic
-                                rights of human beings, it is very important to propagate them, it is very important to
-                                reach the human rights to the person standing at the last rung of the society. From time to
-                                time, many seminars, conferences, workshops and trainings are very inspiring for the
-                                colleagues and people of the society working in the field of human rights.</p>
-                            <p align="justify">National Human Rights and Crime Control Bureau (NHRCCB) is a social
-                                organization for the neglected, oppressed, depressed, tortured people of the society and it
-                                creates awareness among them regarding their rights. NHRCCB is a highly informative secure
-                                human rights institution at the service of humanity with full legal status.</p>
-                            <p align="justify">National Human Rights and Crime Control Bureau (NHRCCB), as an NGO, is
-                                committed since 2017 to promote, protect and create awareness in the field of human rights
-                                across India. About 25,000 officers, members and volunteers of the organization are
-                                determined to protect the rights of the people at the lowest rung of the society.</p>
-                            <p align="justify">I heartily congratulate and thank all the colleagues of NHRCCB for their work
-                                and selfless dedication.</p>
+                            <h4>President Profile</h4>
+                            @if ($profile)
+                                <div class="profile-container">
+                                    <img src="{{ $profile->image }}" alt="Profile Image" class="profile-img">
+                                    <div class="profile-details">
+                                        <h2>{{ $profile->name }}</h2>
+                                        <h4>{{ $profile->title }}</h4>
+                                        <p>{{ $profile->message }}</p>
+                                        <p><strong>Created at:</strong> {{ $profile->created_at->format('d M, Y') }}</p>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="alert alert-warning text-center">No Profile Available</div>
+                            @endif
                         </div>
                         <div class="pro-user-bio">
                             <ul>
@@ -95,5 +111,4 @@
             </div>
         </div>
     </section>
-    <!--SECTION END-->
 @endsection

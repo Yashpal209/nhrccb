@@ -11,7 +11,7 @@
     </section>
     <!--SECTION START-->
 
-    <section>
+    <section class="ed-res-bg">
         <div class="container py-4">
             <div class="row justify-content-center text-center">
                 <div class="con-title">
@@ -20,12 +20,12 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col-md-6">
-                    <img src="{{ asset('public/web/assets/images/logo/Picture1.jpg') }}" alt="" class="img-fluid">
-                    <h4>Department of Tribal Studies</h4>
+                    <img src="{{ asset('public/web/assets/images/logo/Picture1.jpg') }}" alt="" style="border-radius: 70%;" class="img-fluid">
+                    <h4 class="fw-bold">Department of Tribal Studies</h4>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('public/web/assets/images/logo/Picture2.png') }}" alt="" class="img-fluid">
-                    <h4>State Commissions for Protection of Child Rights, Jharkhand</h4>
+                    <img src="{{ asset('public/web/assets/images/logo/Picture2.png') }}" alt="" style="border-radius: 50%;" class="img-fluid">
+                    <h4 class="fw-bold">State Commissions for Protection of Child Rights, Jharkhand</h4>
                 </div>
             </div>
             <div class="row justify-content-center text-center mt-4">
@@ -35,8 +35,8 @@
             </div>
             <div class="row justify-content-center text-center">
                 <div class="col-md-6">
-                    <img src="{{ asset('public/web/assets/images/logo/Picture4.png') }}" alt="" class="img-fluid">
-                    <h4>Naman International Foundation for Education and Social Research</h4>
+                    <img src="{{ asset('public/web/assets/images/logo/Picture4.png') }}" alt="" style="border-radius: 50%;" class="img-fluid">
+                    <h4 class="fw-bold">Naman International Foundation for Education and Social Research</h4>
                 </div>
             </div>
         </div>

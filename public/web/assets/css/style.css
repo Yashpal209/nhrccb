@@ -84,7 +84,7 @@ tr,
 td,
 th,
 label {
-    font-size: 15px;
+    font-size: 17px;
     color: #000000;
     font-weight: 400;
     line-height: 24px;
@@ -610,17 +610,17 @@ label {
         url(../images/footer-bg.html);
 }
 .wed-hom-footer h4 {
-    font-size: 14px;
+    font-size: 21px !important;
     color: #d6d6d6;
     padding-bottom: 15px;
     text-transform: uppercase;
 }
 .wed-hom-footer p {
-    font-size: 13px;
+    font-size: 17px;
     color: #fdfbff;
 }
 .wed-hom-footer p a {
-    font-size: 13px;
+    font-size: 17px;
     color: #fdfbff;
 }
 .wed-foot-link {
@@ -1012,7 +1012,7 @@ label {
 @media (max-width: 1024px) {
     .main-menu ul li a {
         color: #fdfbff;
-        padding: 13px 1px;
+        padding: 13px 2px;
         line-height: 40px;
         font-size: 10px;
         font-weight: 600;
@@ -2383,7 +2383,7 @@ li {
 /* =  14.USER DASHBOARD 
 /*-------------------------------------------------*/
 .pro-cover {
-    background: url("../images/pro-bg.jpg") no-repeat center center;
+    background: url("../images/mm-col-bg.png") no-repeat center center;
     width: 100%;
     height: 250px;
     display: block;
@@ -3602,16 +3602,16 @@ left: 12px;
 .s18-age-event ul li h4 {
     margin-top: 0px;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
 }
 .s18-age-event ul li h5 {
     margin-top: 0px;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 17px;
 }
 .s18-age-event ul li p {
     padding-top: 0px;
-    font-size: 13px;
+    font-size: 16px;
 }
 .s18-age-event::after {
     content: "";
@@ -6138,15 +6138,15 @@ official section */
 }
 .minBox img {
     border: 3px solid #f1bf02;
-    width: 55%;
-    border-radius: 50%;
+    width: 85%;
+    border-radius: 7%;
 }
 .minBox .info h4 {
-    font-size: 16px;
+    font-size: 20px;
     color: #102366;
 }
 .minBox .info h5 {
-    font-size: 14px;
+    font-size: 15px;
     color: #102366;
 }
 .bg-container {

@@ -43,6 +43,7 @@
                                         <th>Designation</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Date</th>
                                         <th>status</th>
                                         <th colspan="3" class="text-center">Action</th>
@@ -55,6 +56,7 @@
                                         <td>{{ $list->designation }}</td>
                                         <td>{{ $list->name }}</td>
                                         <td>{{ $list->email }}</td>
+                                        <td>{{ $list->mobile }}</td>
                                         <td>{{ $list->updated_at }}</td>
                                         <td>
                                             @if ($list->status == 1)
@@ -68,17 +70,9 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if (!empty($list->passport_image))
-                                                <a href="{{ url('/') . '/' . $list->passport_image }}"
-                                                    class="label label-success text-white" target="_blank">View</a>
-                                            @else
-                                                <span class="badge bg-warning text-dark">No Attachment</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" class="btn btn-primary "style="padding:10px">View Certificate</a>
-                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank" class="btn btn-primary "style="padding:10px">View letter</a>
-                                            <a href="{{ route('generate.idcard', $list->id) }}" target="_blank" class="btn btn-primary "style="padding:10px">View ID Card</a>
+                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" class="btn btn-primary "style="margin:5px 0px;padding:10px">View Certificate</a>
+                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank" class="btn btn-primary "style="margin:5px 0px;padding:10px">View letter</a>
+                                            <a href="{{ route('generate.idcard', $list->id) }}" target="_blank" class="btn btn-primary "style="margin:5px 0px;padding:10px">View ID Card</a>
                                         </td>
                                         
                                         

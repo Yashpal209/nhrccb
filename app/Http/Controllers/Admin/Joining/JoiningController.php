@@ -35,8 +35,6 @@ class JoiningController extends Controller
         if (!$joinApp) {
             return redirect()->route('viewJoinApplication')->with('error', 'Application not found!');
         }
-
-        // Define level-based prefixes
         $prefixes = [
             'NATIONAL TEAM' => 'NHRCCB/NT/',
             'STATE TEAM' => 'NHRCCB/ST/',
@@ -47,14 +45,14 @@ class JoiningController extends Controller
             'VOLUNTEER' => 'NHRCCB/VL/',
             'DEFAULT' => 'NHRCCB/OT/', // Default for any other level
         ];
-
-        // Determine the prefix based on the level
         $prefix = $prefixes[$joinApp->level] ?? $prefixes['DEFAULT'];
-
-        // Generate registration number dynamically
-        $reg_no = $prefix . (60000 + $joinApp->id);
-
-        // Update application status and reg_no
+        $start_numbers = [
+            'ACTIVE MEMBERSHIP' => 1000,
+            'VOLUNTEER' => 1500,
+        ];
+        $default_start = 5200;
+        $start_number = $start_numbers[$joinApp->level] ?? $default_start;
+        $reg_no = $prefix . ($start_number + $joinApp->id);
         $joinApp->reg_no = $reg_no;
         $joinApp->status = $request->status;
         $joinApp->updated_at = now();

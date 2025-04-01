@@ -44,6 +44,7 @@
                                     <th>Designation</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Phone</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                     <th colspan="2" class="text-center">Action</th>
@@ -54,6 +55,7 @@
                                     <td>{{ $list->id }}</td>
                                     <td>{{ $list->level }}</td>
                                     <td>{{ $list->designation }}</td>
+                                    <td>{{ $list->mobile }}</td>
                                     <td>{{ $list->name }}</td>
                                     <td>{{ $list->email }}</td>
                                     <td>{{ $list->created_at }}</td>

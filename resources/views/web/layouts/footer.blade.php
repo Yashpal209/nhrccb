@@ -37,12 +37,12 @@
                 <p><b>Head Office</b></p>
                 <p><b>NATIONAL HUMAN RIGHTS AND CRIME CONTROL BUREAU</b></p>
                 <p>Head Office: SHOP NO.F-10-A, PLT NO.-4, SEC-12, PKT-7, MALHAN FALCON PLAZA, DWARKA, NEW DELHI 110075</p>
-                <p>Phone: <a href="#!">+91 9893151900, +91 9102224365</a></p>
+                <p>Phone: <a href="#!">+91 9111730311, +91 9102224365</a></p>
 
                 <p><b>National Administration Office</b></p>
                 <p><b>NATIONAL HUMAN RIGHTS AND CRIME CONTROL BUREAU</b></p>
                 <p>Quarter No: LS/48, First Floor, Harmu Housing Colony Near Kartik Oraon Chowk, Harmu, Ranchi, Jharkhand-834002</p>
-                <p>Phone: <a href="#!">+91 9102224365, +91 9893151900</a></p>
+                <p>Phone: <a href="#!">+91 9102224365, +91 9111730311</a></p>
             </div>
 
             <div class="col-md-3">

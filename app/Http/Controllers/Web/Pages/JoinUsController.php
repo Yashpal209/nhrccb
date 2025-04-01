@@ -49,7 +49,12 @@ class JoinUsController extends Controller
             'pan_card_img' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
             'other_doc_img' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
-
+        if (JoinUs::where('mobile', $request->mobile)->exists()) {
+            return redirect()->back()
+                ->withErrors(['mobile' => 'This mobile number is already registered.'])
+                ->with('alert', 'There was an error in your submission. Please check the form.');
+        }
+        
         // Handle File Uploads
         $validatedData['passport_image'] = $this->uploadFile($request, 'passport_image', 'uploads/join_us/passportImage/');
         $validatedData['adhar_front_img'] = $this->uploadFile($request, 'adhar_front_img', 'uploads/join_us/adharFrontImage/');

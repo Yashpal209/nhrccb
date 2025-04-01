@@ -23,19 +23,29 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid p-0">
-        <!-- Display Success Message -->
-        @if (session('success'))
+        <div class="container">
+            @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
         @endif
 
-        <!-- Display Error Message -->
         @if (session('error'))
             <div class="alert alert-danger">
                 {{ session('error') }}
             </div>
         @endif
+
+        @if ($errors->any())
+            <div class="alert alert-warning">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        </div>
 
         <section class="c-all h-quote">
             <div class="container-fluid py-3">
@@ -171,13 +181,13 @@
                                                                 <option value="STATE TEAM"
                                                                     {{ old('level') == 'STATE TEAM' ? 'selected' : '' }}>
                                                                     STATE TEAM</option>
-                                                                <option value="DISTRICT TEAM"
-                                                                    {{ old('level') == 'DISTRICT TEAM' ? 'selected' : '' }}>
-                                                                    DISTRICT TEAM</option>
                                                                 <option value="DIVISION TEAM"
                                                                     {{ old('level') == 'DIVISION TEAM' ? 'selected' : '' }}>
                                                                     DIVISION TEAM
                                                                 </option>
+                                                                <option value="DISTRICT TEAM"
+                                                                    {{ old('level') == 'DISTRICT TEAM' ? 'selected' : '' }}>
+                                                                    DISTRICT TEAM</option>
                                                                 <option value="BLOCK TEAM"
                                                                     {{ old('level') == 'BLOCK TEAM' ? 'selected' : '' }}>
                                                                     BLOCK TEAM</option>
@@ -579,7 +589,8 @@
                                                             <input type="text" class="form-control"
                                                                 name="recommended_by" id="recommended_by"
                                                                 placeholder="(NHRCCB/0000)"
-                                                                value="{{ old('recommended_by') }}" oninput="this.value = this.value.toUpperCase()" required>
+                                                                value="{{ old('recommended_by') }}"
+                                                                oninput="this.value = this.value.toUpperCase()" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -589,7 +600,8 @@
                                                         <label class="control-label col-sm-12">Address:</label>
                                                         <div class="col-sm-12">
                                                             <textarea type="text" rows="2" name="address" id="address" class="form-control"
-                                                                placeholder="Enter Address" value="{{ old('address') }}" oninput="this.value = this.value.toUpperCase()" required>{{ old('address') }}</textarea>
+                                                                placeholder="Enter Address" value="{{ old('address') }}" oninput="this.value = this.value.toUpperCase()"
+                                                                required>{{ old('address') }}</textarea>
                                                             @error('address')
                                                                 <span class="text-danger">
                                                                     {{ $message }}

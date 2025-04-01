@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Administration\NationalAdvisor;
 use App\Models\Admin\Administration\NationalPatron;
+use App\Models\Admin\Administration\NationalProfile;
 use App\Models\Admin\Administration\OfficeStaff;
 use App\Models\Admin\Notification\LatestUpdate;
 use App\Models\Admin\Notification;
@@ -105,6 +106,13 @@ class PageController extends Controller
         $data = compact('nationalpatrons');
         return view('web.pages.administration.NationalPatron')->with($data);
     }
+    public function NationalProfile()
+    {
+        $profile = NationalProfile::orderby('id', 'asc')->first(); 
+        return view('web.pages.about_us.NationalProfile', compact('profile'));
+    }
+
+
     public function NationalAdvisor()
     {
         $nationaladvisor = NationalAdvisor::orderby('order_no', 'asc')->get();
@@ -125,7 +133,7 @@ class PageController extends Controller
         return view('web.pages.ourawardee.ourAwardee')->with($data)->with('no', '1');
     }
 
-  
+
     public function ContactUs()
     {
         return view('web.pages.contactUs.contactUs');
