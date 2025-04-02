@@ -25,13 +25,14 @@ class JoiningController extends Controller
     // Change application status
     public function ChangeStatusApplication(Request $request)
     {
+        // return $request;
         $request->validate([
             'id' => 'required|exists:join_us_form,id',
             'status' => 'required|integer|min:1|max:3',
         ]);
 
         $joinApp = JoinUs::find($request->id);
-
+        
         if (!$joinApp) {
             return redirect()->route('viewJoinApplication')->with('error', 'Application not found!');
         }
@@ -56,7 +57,7 @@ class JoiningController extends Controller
         $joinApp->reg_no = $reg_no;
         $joinApp->status = $request->status;
         $joinApp->updated_at = now();
-        // return $joinApp;
+        
         $joinApp->save();
 
         return redirect()->back()->with('alert', 'Application status updated successfully!');

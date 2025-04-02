@@ -10,7 +10,7 @@ use App\Models\Admin\Administration\OfficeStaff;
 use App\Models\Admin\Notification\LatestUpdate;
 use App\Models\Admin\Notification;
 use App\Models\Admin\Notification\WhatsNew;
-// use App\Models\Admin\WhatsNew; 
+use App\Models\Web\Pages\JoinUs;
 use App\Models\Admin\OurAwardee;
 use App\Models\Admin\publication;
 use App\Models\District;
@@ -91,6 +91,27 @@ class PageController extends Controller
     {
         return view('web.pages.verification');
     }
+    public function verify(Request $request)
+    {
+        // return $request;
+        $request->validate([
+            'identifier' => 'required', 
+        ]);
+
+        $identifier = $request->input('identifier');
+
+        // Search by either membership number or mobile number
+        $user = JoinUs::where('reg_no', $identifier)
+                      ->orWhere('mobile', $identifier)
+                      ->first();
+        // return $user;
+        if ($user) {
+            return back()->with('success', 'User found')->with('user', $user);
+        } else {
+            return back()->with('error', 'User not found');
+        }
+    }
+
     public function publication()
     {
         $publications = Publication::orderBy('publication_date', 'desc')->get();

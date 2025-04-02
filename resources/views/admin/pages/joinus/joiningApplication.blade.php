@@ -63,15 +63,6 @@
                                         <form action="{{ route('ChangeStatusApplication') }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $list->id }}">
-                                            <input name="reg_no" id="reg_no_{{ $list->id }}" value="{{ 
-                                                'NHRCCB/' . 
-                                                ($list->level == 'NATIONAL TEAM' ? 'NT' : 
-                                                ($list->level == 'STATE TEAM' ? 'ST' : 
-                                                ($list->level == 'DISTRICT TEAM' ? 'DT' : 
-                                                ($list->level == 'DIVISION TEAM' ? 'VT' : 
-                                                ($list->level == 'BLOCK TEAM' ? 'BT' : 
-                                                ($list->level == 'ACTIVE MEMBERSHIP' ? 'AM' : 
-                                                ($list->level == 'VOLUNTEER' ? 'VL' : 'OT'))))))) . '/' . (60000 + $list->id) }}" hidden>
                                             <div class="form-group">
                                                 <label for="status">Select Status:</label>
                                                 <select name="status" required>

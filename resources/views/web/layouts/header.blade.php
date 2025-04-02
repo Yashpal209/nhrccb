@@ -433,7 +433,7 @@
                                                                 <a type="button" class="dropdown-toggle"
                                                                     data-toggle="dropdown">International Level</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Nelson
+                                                                    <a class="dropdown-item" href="{{route('nelsonmandelahumanrights')}}">Nelson
                                                                         Mandela Human Rights Award</a>
                                                                 </div>
                                                             </div>
@@ -443,7 +443,7 @@
                                                                 <a type="button" class="dropdown-toggle"
                                                                     data-toggle="dropdown">National Level</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">Nhrccb
+                                                                    <a class="dropdown-item" href="{{route('nhra')}}">Nhrccb
                                                                         Human Rights Award</a>
                                                                     <a class="dropdown-item" href="#">Nhrccb
                                                                         Leadership Award</a>

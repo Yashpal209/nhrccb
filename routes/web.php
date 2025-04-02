@@ -17,6 +17,10 @@ use App\Http\Controllers\Web\Pages\OurTeamController;
 use App\Http\Controllers\Web\Pages\PageController;
 use App\Http\Controllers\Web\Pages\PublicationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController ;
+
+Route::post('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
+Route::post('/payment/failure', [PaymentController::class, 'paymentFailure'])->name('payment.failure');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -83,11 +87,12 @@ Route::get('special_event', [EventController::class, 'special_event'])->name('sp
 Route::get('awareness_programme', [EventController::class, 'awareness_programme'])->name('awareness_programme');
 
 // Awards
-Route::get('national-level', [AwardController::class, 'national_level'])->name('national_level');
-Route::get('state-level', [AwardController::class, 'state_level'])->name('state_level');
 Route::get('district-level', [AwardController::class, 'district_level'])->name('district_level');
 Route::get('community-level', [AwardController::class, 'community_level'])->name('community_level');
-Route::get('international-level', [AwardController::class, 'international_level'])->name('international_level');
+
+Route::get('nelson-mandela-human-rights', [AwardController::class, 'nelsonmandelahumanrights'])->name('nelsonmandelahumanrights');
+Route::get('nhra', [AwardController::class, 'nhra'])->name('nhra');
+Route::get('nhra', [AwardController::class, 'nhra'])->name('nhra');
 
 // awardee
 Route::get('our_awardee', [PageController::class, 'OurAwardee'])->name('OurAwardee');
@@ -109,6 +114,8 @@ Route::get('/training-research', [PageController::class, 'trainingResearch'])->n
 
 // Verification
 Route::get('verification', [PageController::class, 'verification'])->name('verification');
+
+Route::post('/verify', [PageController::class, 'verify'])->name('verify');
 
 // Issue
 Route::get('human-rights',[IssueController::class, 'HumanRights'])->name('HumanRights');

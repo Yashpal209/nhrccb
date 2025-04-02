@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class AwardController extends Controller
 {
-    public function national_level(){
-        $awards = OurAwardee::where('award_sub_category', 'National')->orderBy('created_at', 'desc')->paginate(10);
-        return view('web.pages.awards.nationalAwards', compact('awards'));
+    public function nelsonmandelahumanrights(){
+        $awards = OurAwardee::where('award_sub_category', 'NELSON MANDELA HUMAN RIGHTS AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.awards.nelson', compact('awards'));
     }
 
-    public function state_level(){
-        $awards = OurAwardee::where('award_sub_category', 'State')->orderBy('created_at', 'desc')->paginate(10);
-        return view('web.pages.awards.stateAwards', compact('awards'));
+    public function nhra(){
+        $awards = OurAwardee::where('award_sub_category', 'NHRCCB HUMAN RIGHTS AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.awards.nhra', compact('awards'));
     }
 
     public function district_level(){
@@ -23,7 +23,7 @@ class AwardController extends Controller
         return view('web.pages.awards.districtAwards', compact('awards'));
     }
     public function community_level(){
-        $awards = OurAwardee::where('award_sub_category', 'Community')->orderBy('created_at', 'desc')->paginate(10);
+        $awards = OurAwardee::where('award_sub_category', 'COMMUNITY AWARD')->orderBy('created_at', 'desc')->paginate(10);
         return view('web.pages.awards.communityAwards', compact('awards'));
     }
     public function international_level(){

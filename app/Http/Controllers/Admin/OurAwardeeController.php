@@ -20,12 +20,13 @@ class OurAwardeeController extends Controller
     }
 
     public function postOurAwardee(Request $req){
+        // return $req ;
         $ourawardee = new OurAwardee();
-        $ourawardee->awardee_name = $req->awardee_name;
-        $ourawardee->award_name = $req->award_name;
         $ourawardee->award_category = $req->award_category;
         $ourawardee->award_sub_category = $req->award_sub_category;
+        $ourawardee->awardee_name = $req->awardee_name;
         $ourawardee->convention_name = $req->convention_name;
+        $ourawardee->convention_date = $req->convention_date;
         $res = $ourawardee->save();
         if ($res) {
             return redirect()->route('addOurAwardee')->with('alert', 'Data Saved Successfully');

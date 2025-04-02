@@ -1,7 +1,6 @@
 @extends('admin.layouts.app')
 
 @section('main-content')
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -23,22 +22,18 @@
             {{ session('error') }}
         </div>
     @endif
-    <!--== User Details ==-->
+
     <div class="sb2-2-3">
         <div class="row">
             <div class="col-md-12">
-                <div class="box-inn-sp admin-form">
+                <div class="box-inn-sp admin-form ">
                     <div class="inn-title">
                         <div class="row justify-content-between">
                             <div class="col-md-6">
                                 <h4>Add Our Awardee</h4>
                             </div>
                             <div class="col-md-6 text-right">
-                                <a href="{{ route('viewOurAwardee') }}">
-                                    <div class="btn">
-                                        View Our Awardee
-                                    </div>
-                                </a>
+                                <a href="{{ route('viewOurAwardee') }}" class="btn btn-primary">View Our Awardee</a>
                             </div>
                         </div>
                     </div>
@@ -47,41 +42,47 @@
                             @csrf
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input type="text" name="awardee_name" class="validate" required>
-                                    <label class="">Name of Awardee</label>
+                                    <select name="award_category" class="validate" id="award_category" >
+                                        <option selected disabled>---Select Category---</option>
+                                        <option value="INTERNATIONAL">INTERNATIONAL</option>
+                                        <option value="NATIONAL">NATIONAL</option>
+                                        <option value="STATE">STATE</option>
+                                        <option value="DISTRICT">DISTRICT</option>
+                                        <option value="COMMUNITY">COMMUNITY</option>
+                                    </select>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input type="text" name="award_name" class="validate" required>
-                                    <label class=""> Award Name</label>
+                                    <select name="award_sub_category" class="validate" id="award_sub_category">
+                                        <option selected disabled>---Select Sub Category---</option>
+                                        <option value="NELSON MANDELA HUMAN RIGHTS AWARD">NELSON MANDELA HUMAN RIGHTS AWARD</option>
+                                        <option value="NHRCCB HUMAN RIGHTS AWARD">NHRCCB HUMAN RIGHTS AWARD</option>
+                                        <option value="NHRCCB LEADERSHIP AWARD">NHRCCB LEADERSHIP AWARD</option>
+                                        <option value="NHRCCB SPECIAL AWARD">NHRCCB SPECIAL AWARD</option>
+                                        <option value="STATE HUMAN RIGHTS AWARD">STATE HUMAN RIGHTS AWARD</option>
+                                        <option value="STATE LEADERSHIP AWARD">STATE LEADERSHIP AWARD</option>
+                                        <option value="STATE SPECIAL AWARD">STATE SPECIAL AWARD</option>
+                                        <option value="DISTRICT AWARD">DISTRICT AWARD</option>
+                                        <option value="COMMUNITY AWARD">COMMUNITY AWARD</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input type="text" name="award_category" class="validate" required>
-                                    <label class="">Award Category</label>
+                                    <input type="text" name="awardee_name" class="validate" required>
+                                    <label>NAME OF AWARDEE</label>
                                 </div>
                                 <div class="input-field col s6">
                                     <input type="text" name="convention_name" class="validate" required>
-                                    <label class=""> Convention Name</label>
+                                    <label>AWARD CAUSE</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input type="text" name="award_sub_category" class="validate" required>
-                                    <select name="award_sub_category" class="validate" id="">
-                                        <option selected disabled >---Select---</option>
-                                        <option value="International">International</option>
-                                        <option value="National">National</option>
-                                        <option value="State">State</option>
-                                        <option value="District">District</option>
-                                        <option value="Community">Community</option>
-                                    </select>
-                                    <label class="">Award Sub Category</label>
+                                    <input type="text" name="convention_date" class="validate" required>
+                                    <label>AWARD DATE</label>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="input-field col s12">
-                                    <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input  type="submit" class="waves-button-input"></i>
+                                    <button type="submit" class="btn btn-large waves-effect waves-light">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -90,5 +91,4 @@
             </div>
         </div>
     </div>
-
 @endsection

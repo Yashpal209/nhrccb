@@ -6,6 +6,7 @@
         <div class="container">
             <div class="head-2-inn">
                 <h1>National Level Awards</h1>
+                <h4 class="text-light">NHRCCB HUMAN RIGHTS AWARD</h4>
             </div>
         </div>
     </div>
@@ -24,9 +25,8 @@
                                 <tr>
                                     <th>Sl. No.</th>
                                     <th>Name of Awardee</th>
-                                    <th>Award Name</th>
-                                    <th>Award Category</th>
-                                    <th>Convention Name</th>
+                                    <th>Award Cause</th>
+                                    <th>Award Date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -35,9 +35,8 @@
                                     <tr>
                                         <td>{{ $no++ }}</td>
                                         <td>{{ $list->awardee_name }}</td>
-                                        <td>{{ $list->award_name }}</td>
-                                        <td>{{ $list->award_category }}</td>
                                         <td>{{ $list->convention_name }}</td>
+                                        <td>{{ $list->convention_date }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
