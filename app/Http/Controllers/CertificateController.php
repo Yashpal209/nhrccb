@@ -303,7 +303,7 @@ class CertificateController extends Controller
 
         // Add Rounded Profile Photo
         if (file_exists($user->passport_image)) {
-            $pdf->Image($user->passport_image, 21, 33, 13, 13, '', '', '', false, 300, '', false, false, 0, 'C', false, false, 1);
+            $pdf->Image($user->passport_image, 20, 33, 16, 16, '', '', '', false, 300, '', false, false, 0, 'C', false, false, 1);
         }
 
         // Set Text Color
@@ -312,37 +312,39 @@ class CertificateController extends Controller
         // Name
         $textStartX = 9;
         $pdf->SetFont('helvetica', 'B', 7);
-        $pdf->SetXY(5, 48);
+        $pdf->SetXY(5, 50);
         $pdf->Cell(44, 5, strtoupper($user->name), 0, 1, 'C');
 
         // ID No
         $pdf->SetFont('helvetica', 'B', 5);
-        $pdf->SetXY($textStartX, 51);
+        $pdf->SetXY($textStartX, 53);
         $pdf->Cell(44, 5, "Unique ID No ", 0, 1, 'L');
         
         $pdf->SetFont('helvetica', 'B', 5);
-        $pdf->SetXY(21, 51);
+        $pdf->SetXY(21, 53);
         $pdf->Cell(44, 5, ": " . $refNo, 0, 1, 'L');
         
         // Designation
         $pdf->SetFont('helvetica', 'B', 5);
-        $pdf->SetXY($textStartX, 53);
+        $pdf->SetXY($textStartX, 55);
         $pdf->Cell(44, 5, "Designation ", 0, 1, 'L');
-        $pdf->SetXY(21, 53);
-        $pdf->Cell(44, 5,": " . strtoupper($user->designation), 0, 1, 'L');
+
+        $pdf->SetFont('helvetica', 'B', 4);
+        $pdf->SetXY(21, 55);
+        $pdf->Cell(44, 5,": " . strtoupper($user->designation)."/". strtoupper($user->division), 0, 1, 'L');
         
         // Issue Date
         $pdf->SetFont('helvetica', 'B', 5);
-        $pdf->SetXY($textStartX, 55);
+        $pdf->SetXY($textStartX, 57);
         $pdf->Cell(44, 5, "Issue Date: ", 0, 1, 'L');
 
-        $pdf->SetXY(21, 55);
+        $pdf->SetXY(21, 57);
         $pdf->Cell(44, 5,": " .$issueDate, 0, 1, 'L');
 
         // Address
-        $pdf->SetXY($textStartX, 58.5);
+        $pdf->SetXY($textStartX, 60.5);
         $pdf->MultiCell(44, 5, "Address " , 0, 'L');
-        $pdf->SetXY(21, 58.5);
+        $pdf->SetXY(21, 60.5);
         $pdf->MultiCell(44, 5, ": " . $user->address, 0, 'L');
 
         // Signature & Stamp
