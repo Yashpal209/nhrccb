@@ -8,7 +8,7 @@
                 <h1>National Level Awards</h1>
                 <h4 class="text-light">{{$title}}</h4>
             </div>
-        </div>
+        </div>  
     </div>
 </section>
 
