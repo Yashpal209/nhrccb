@@ -94,6 +94,7 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     Route::get('/generate-certificate/{id}', [CertificateController::class, 'generateCertificate'])->name('generate.certificate');
     Route::get('/generate-letter/{id}', [CertificateController::class, 'generateletter'])->name('generate.letter');
     Route::get('/generate-idcard/{id}', [CertificateController::class, 'generateidcard'])->name('generate.idcard');
+    Route::get('/generate-officerIdcard/{id}', [CertificateController::class, 'officerIdcard'])->name('generate.officerIdcard');
     
 
     // Complain Application

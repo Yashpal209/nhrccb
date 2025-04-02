@@ -69,7 +69,8 @@
                                 <li><a href="{{ route('rules_regulations') }}">Act/Rules</a></li>
                                 <li><a href="{{ route('govt_recognition') }}">Recognitions</a></li>
                                 <li><a href="{{ route('collaboration') }}">Collaboration</a></li>
-                                <li><a href="{{ route('PresidentMessage') }}">National President</a></li>
+                                <li><a href="{{ route('NationalProfile') }}">National President Profile</a></li>
+                                <li><a href="{{ route('PresidentMessage') }}">National President Message</a></li>
                                 <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
                             </ul>
                             <h4>Our Works</h4>
@@ -79,7 +80,14 @@
                                 <li><a href="{{ route('ChildRights') }}">Child Rights</a></li>
                                 <li><a href="{{ route('ConsumerRights') }}">Consumer Rights</a></li>
                                 <li><a href="{{ route('RTI') }}">Rights to Information</a></li>
-
+                                <li><a href="{{ route('DisabilityRights') }}">Disability Rights</a></li>
+                                <li><a href="{{ route('RightToEducation') }}">Right to Education</a></li>
+                                <li><a href="{{ route('AdvocateRights') }}">Advocate Rights</a></li>
+                                <li><a href="{{ route('LGBTRights') }}">LGBT Rights</a></li>
+                                <li><a href="{{ route('DoctorRights') }}">Doctor Rights</a></li>
+                                <li><a href="{{ route('TribalRights') }}">Tribal Rights</a></li>
+                                <li><a href="{{ route('PressRights') }}">Press Rights</a></li>
+                                <li><a href="{{ route('CrimeControlAct') }}">Crime Control Act</a></li>
                             </ul>
 
                             <h4>Publication</h4>
@@ -266,24 +274,28 @@
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        {{-- <li><a href="{{ route('PresidentMessage') }}">National President</a></li> --}}
                                                         <li>
                                                             <div class="btn-group dropleft">
                                                                 <a type="button" class="dropdown-toggle "
                                                                     data-toggle="dropdown">National President</a>
                                                                 <div class="dropdown-menu ">
-                                                                    <a
-                                                                        class="dropdown-item "href="{{ route('NationalProfile') }}">
-                                                                        Profile</a>
-                                                                    <a
-                                                                        class="dropdown-item "href="{{ route('PresidentMessage') }}">Message</a>
+                                                                    <a class="dropdown-item "href="{{ route('NationalProfile') }}"> Profile</a>
+                                                                    <a class="dropdown-item "href="{{ route('PresidentMessage') }}">Message</a>
                                                                 </div>
                                                             </div>
                                                         </li>
-                                                        {{-- <li><a href="national_patron">National Patron</a></li> --}}
-                                                        {{-- <li><a href="national_advisor">National Advisor</a></li>
-                                                        <li><a href="office_staff">Office Staff</a></li> --}}
-                                                        <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
+                                                        <li>
+                                                            <div class="btn-group dropleft">
+                                                                <a type="button" class="dropdown-toggle "
+                                                                    data-toggle="dropdown">Who's Who</a>
+                                                                <div class="dropdown-menu ">
+                                                                    <a class="dropdown-item "href=""> National Patron / Advisor </a>
+                                                                    <a class="dropdown-item "href="">National Executive</a>
+                                                                    <a class="dropdown-item "href="">State President</a>
+                                                                    <a class="dropdown-item "href="">Oficials</a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -331,16 +343,11 @@
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a href="{{ route('annual_report') }}">Annual Report</a>
-                                                        </li>
-                                                        <li><a href="{{ route('monthly_report') }}">Monthly Report</a>
-                                                        </li>
-                                                        <li><a
-                                                                href="{{ route('official_notification') }}">Official/Notification</a>
-                                                        </li>
+                                                        <li><a href="{{ route('annual_report') }}">Annual Report</a></li>
+                                                        <li><a href="{{ route('monthly_report') }}">Monthly Report</a></li>
+                                                        <li><a href="{{ route('official_notification') }}">Official/Notification</a></li>
                                                         <li><a href="">Acts Related Human Rights</a></li>
-                                                        <li><a href="{{ route('convo_report') }}">Convocation
-                                                                Report</a></li>
+                                                        <li><a href="{{ route('convo_report') }}">Convocation Report</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
@@ -433,7 +440,8 @@
                                                                 <a type="button" class="dropdown-toggle"
                                                                     data-toggle="dropdown">International Level</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="{{route('nelsonmandelahumanrights')}}">Nelson
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('nelsonmandelahumanrights') }}">Nelson
                                                                         Mandela Human Rights Award</a>
                                                                 </div>
                                                             </div>
@@ -443,11 +451,17 @@
                                                                 <a type="button" class="dropdown-toggle"
                                                                     data-toggle="dropdown">National Level</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="{{route('nhra')}}">Nhrccb
+                                                                    <a class="dropdown-item"href="{{ route('mghra') }}">Mahatma Gandhi Human Rights Award</a>
+                                                                    <a class="dropdown-item" href="{{ route('braa') }}">Bhim Rao Ambedkar Award</a>
+                                                                    <a class="dropdown-item" href="{{ route('nirpd') }}">NHRCCB India Pride Award</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('nhra') }}">Nhrccb
                                                                         Human Rights Award</a>
-                                                                    <a class="dropdown-item" href="{{route('nla')}}">Nhrccb
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('nla') }}">Nhrccb
                                                                         Leadership Award</a>
-                                                                    <a class="dropdown-item" href="{{route('nsa')}}">Nhrccb
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('nsa') }}">Nhrccb
                                                                         Special Award</a>
                                                                 </div>
                                                             </div>
@@ -457,11 +471,14 @@
                                                                 <a type="button" class="dropdown-toggle"
                                                                     data-toggle="dropdown">State Level</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="{{route('shra')}}">State
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('shra') }}">State
                                                                         Human Rights Award</a>
-                                                                    <a class="dropdown-item" href="{{route('sla')}}">State
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('sla') }}">State
                                                                         Leadership Award</a>
-                                                                    <a class="dropdown-item" href="{{route('ssa')}}">State
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('ssa') }}">State
                                                                         Special Award</a>
                                                                 </div>
                                                             </div>
@@ -526,8 +543,10 @@
                                                     <ul>
                                                         {{-- <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li> --}}
                                                         <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
-                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
+                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a>
+                                                        </li>
+                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a>
+                                                        </li>
                                                         <li><a href="{{ route('StateTeam') }}">State Team</a></li>
                                                         <li><a href="{{ route('NationalTeam') }}">National Team</a>
                                                         </li>

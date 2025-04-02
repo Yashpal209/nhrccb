@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Web\Pages\JoinUs;
 use Illuminate\Http\Request;
-
+    
 class JoinUsController extends Controller
 {
     public function JoinUs()

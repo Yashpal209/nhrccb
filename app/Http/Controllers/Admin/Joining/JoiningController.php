@@ -48,12 +48,14 @@ class JoiningController extends Controller
         ];
         $prefix = $prefixes[$joinApp->level] ?? $prefixes['DEFAULT'];
         $start_numbers = [
-            'ACTIVE MEMBERSHIP' => 1000,
-            'VOLUNTEER' => 1500,
+            'ACTIVE MEMBERSHIP' => 6000,
+            'VOLUNTEER' => 15000,
         ];
+        
         $default_start = 5200;
         $start_number = $start_numbers[$joinApp->level] ?? $default_start;
         $reg_no = $prefix . ($start_number + $joinApp->id);
+        // return $reg_no;
         $joinApp->reg_no = $reg_no;
         $joinApp->status = $request->status;
         $joinApp->updated_at = now();

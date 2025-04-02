@@ -90,6 +90,9 @@ Route::get('awareness_programme', [EventController::class, 'awareness_programme'
 
 Route::get('nelson-mandela-human-rights', [AwardController::class, 'nelsonmandelahumanrights'])->name('nelsonmandelahumanrights');
 Route::get('national-human-rights-award', [AwardController::class, 'nhra'])->name('nhra');
+Route::get('mghra', [AwardController::class, 'mghra'])->name('mghra');
+Route::get('braa', [AwardController::class, 'braa'])->name('braa');
+Route::get('nirpd', [AwardController::class, 'nirpd'])->name('nirpd');
 Route::get('national-leadership-award', [AwardController::class, 'nla'])->name('nla');
 Route::get('national-special-award', [AwardController::class, 'nsa'])->name('nsa');
 Route::get('state-human-right-award', [AwardController::class, 'shra'])->name('shra');

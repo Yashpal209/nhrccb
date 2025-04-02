@@ -33,11 +33,19 @@ class OurTeamController extends Controller
         return view('web.pages.ourteam.NationalTeam', compact('nationalteam'))->with('no', 1);
     }
 
+    // public function DivisionTeam()
+    // {
+    //     $divisionteam = DivisionTeam::orderby('created_at', 'desc')->paginate(10); // Added pagination
+    //     return view('web.pages.ourteam.DivisionTeam', compact('divisionteam'))->with('no', 1);
+    // }
     public function DivisionTeam()
     {
-        $divisionteam = DivisionTeam::orderby('created_at', 'desc')->paginate(10); // Added pagination
-        return view('web.pages.ourteam.DivisionTeam', compact('divisionteam'))->with('no', 1);
+        $divisionteam = DivisionTeam::orderBy('created_at', 'desc')->paginate(10);
+        $joinUs = JoinUs::where('level', 'DIVISION TEAM')->get();
+
+        return view('web.pages.ourteam.DivisionTeam', compact('divisionteam', 'joinUs'))->with('no', 1);
     }
+
 
     public function DistrictTeam()
     {
@@ -64,7 +72,7 @@ class OurTeamController extends Controller
     }
     public function activemember()
     {
-        $team = Joinus::orderby('created_at', 'desc')->paginate(10);
+        $team = Joinus::where('level', 'DIVISION TEAM')->orderby('created_at', 'desc')->paginate(10);
         // dd($team);
         return view('web.pages.ourteam.activemember', compact('team'))->with('no', 1);
     }

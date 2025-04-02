@@ -55,6 +55,9 @@
                                     <select name="award_sub_category" class="validate" id="award_sub_category" required>
                                         <option selected disabled>---Select Sub Category---</option>
                                         <option value="NELSON MANDELA HUMAN RIGHTS AWARD">NELSON MANDELA HUMAN RIGHTS AWARD</option>
+                                        <option value="MAHATAMA GANDHI HUMAN RIGHTS AWARD">MAHATAMA GANDHI HUMAN RIGHTS AWARD</option>
+                                        <option value="BHIM RAO AMBEDKAR HUMAN RIGHTS AWARDS">BHIM RAO AMBEDKAR HUMAN RIGHTS AWARDS</option>
+                                        <option value="NHRCCB INDIA PRIDE AWARD">NHRCCB INDIA PRIDE AWARD</option>
                                         <option value="NHRCCB HUMAN RIGHTS AWARD">NHRCCB HUMAN RIGHTS AWARD</option>
                                         <option value="NHRCCB LEADERSHIP AWARD">NHRCCB LEADERSHIP AWARD</option>
                                         <option value="NHRCCB SPECIAL AWARD">NHRCCB SPECIAL AWARD</option>

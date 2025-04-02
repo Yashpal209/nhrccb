@@ -597,7 +597,7 @@
                                                 <!-- Address -->
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
-                                                        <label class="control-label col-sm-12">Address:</label>
+                                                        <label class="control-label col-sm-12">Address: <small>(Add pin code also)</small></label>
                                                         <div class="col-sm-12">
                                                             <textarea type="text" rows="2" name="address" id="address" class="form-control"
                                                                 placeholder="Enter Address" value="{{ old('address') }}" oninput="this.value = this.value.toUpperCase()"

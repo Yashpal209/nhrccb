@@ -70,12 +70,26 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" class="btn btn-primary "style="margin:5px 0px;padding:10px">View Certificate</a>
-                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank" class="btn btn-primary "style="margin:5px 0px;padding:10px">View letter</a>
-                                            <a href="{{ route('generate.idcard', $list->id) }}" target="_blank" class="btn btn-primary "style="margin:5px 0px;padding:10px">View ID Card</a>
+                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" 
+                                               class="btn btn-primary" style="margin:5px 0px; padding:10px 15px;">
+                                                View Certificate
+                                            </a>
+                                        
+                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank" 
+                                               class="btn btn-primary" style="margin:5px 0px; padding:10px 15px;">
+                                                View Letter
+                                            </a>
+                                        
+                                            @php 
+                                                  $idRoute = ($list->level == 'ACTIVE MEMBERSHIP' || $list->level == 'VOLUNTEER') ? 'generate.idcard' : 'generate.officerIdcard'; 
+                                            @endphp
+                                        
+                                            <a href="{{ route($idRoute, $list->id) }}" target="_blank" 
+                                               class="btn btn-primary" style="margin:5px 0px; padding:10px 15px;">
+                                                View ID Card
+                                            </a>
                                         </td>
-                                        
-                                        
+
                                     </tr>
                                 @endforeach
 

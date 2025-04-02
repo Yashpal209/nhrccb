@@ -106,8 +106,7 @@
                             </div>
                             <div class="pg-eve-desc pg-blog-desc">
                                 <div class="mt-0">
-                                    <p align="justify"><b> National Human Rights and Crime Control Bureau (NHRCCB)</b>
-                                        National Human Rights and Crime Control Bureau (NHRCCB) is functioning with
+                                    <p align="justify"><b> National Human Rights and Crime Control Bureau (NHRCCB)</b> is functioning with
                                         commitment to the Noble Cause of Human Rights Protection and Promotion, Justice,
                                         Education, Love, Peace, Harmony to all and Friendship, National & International
                                         Integration by Exchange of Ideas & Ethos around the Nation .NHRCCB is working for
@@ -171,7 +170,7 @@
                         <div class="pg-eve-main mb-0">
                             <div class="row">
                                 <div class="con-title">
-                                    <h2 class="mb-0">President <span>Message</span></h2>
+                                    <h2 class="mb-0">National  <span>President</span></h2>
                                 </div>
                             </div>
                             <div class="pg-eve-desc pg-blog-desc">

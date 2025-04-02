@@ -30,6 +30,21 @@ class AwardController extends Controller
         $title = 'STATE HUMAN RIGHTS AWARD';
         return view('web.pages.awards.state', compact('awards','title'));
     }
+    public function mghra(){
+        $awards = OurAwardee::where('award_sub_category', 'MAHATAMA GANDHI HUMAN RIGHTS AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        $title = 'MAHATAMA GANDHI HUMAN RIGHTS AWARD';
+        return view('web.pages.awards.national', compact('awards','title'));
+    }
+    public function braa(){
+        $awards = OurAwardee::where('award_sub_category', 'BHIM RAO AMBEDKAR HUMAN RIGHTS AWARDS')->orderBy('created_at', 'desc')->paginate(10);
+        $title = 'BHIM RAO AMBEDKAR HUMAN RIGHTS AWARDS';
+        return view('web.pages.awards.national', compact('awards','title'));
+    }
+    public function nirpd(){
+        $awards = OurAwardee::where('award_sub_category', 'NHRCCB INDIA PRIDE AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        $title = 'NHRCCB INDIA PRIDE AWARD';
+        return view('web.pages.awards.national', compact('awards','title'));
+    }
     public function sla(){
         $awards = OurAwardee::where('award_sub_category', 'STATE LEADERSHIP AWARD')->orderBy('created_at', 'desc')->paginate(10);
         $title = 'STATE LEADERSHIP AWARD';
