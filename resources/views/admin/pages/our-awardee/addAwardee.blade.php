@@ -42,7 +42,7 @@
                             @csrf
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <select name="award_category" class="validate" id="award_category" >
+                                    <select name="award_category" class="validate" id="award_category" required >
                                         <option selected disabled>---Select Category---</option>
                                         <option value="INTERNATIONAL">INTERNATIONAL</option>
                                         <option value="NATIONAL">NATIONAL</option>
@@ -52,7 +52,7 @@
                                     </select>
                                 </div>
                                 <div class="input-field col s6">
-                                    <select name="award_sub_category" class="validate" id="award_sub_category">
+                                    <select name="award_sub_category" class="validate" id="award_sub_category" required>
                                         <option selected disabled>---Select Sub Category---</option>
                                         <option value="NELSON MANDELA HUMAN RIGHTS AWARD">NELSON MANDELA HUMAN RIGHTS AWARD</option>
                                         <option value="NHRCCB HUMAN RIGHTS AWARD">NHRCCB HUMAN RIGHTS AWARD</option>

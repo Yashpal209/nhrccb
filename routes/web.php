@@ -87,12 +87,16 @@ Route::get('special_event', [EventController::class, 'special_event'])->name('sp
 Route::get('awareness_programme', [EventController::class, 'awareness_programme'])->name('awareness_programme');
 
 // Awards
-Route::get('district-level', [AwardController::class, 'district_level'])->name('district_level');
-Route::get('community-level', [AwardController::class, 'community_level'])->name('community_level');
 
 Route::get('nelson-mandela-human-rights', [AwardController::class, 'nelsonmandelahumanrights'])->name('nelsonmandelahumanrights');
-Route::get('nhra', [AwardController::class, 'nhra'])->name('nhra');
-Route::get('nhra', [AwardController::class, 'nhra'])->name('nhra');
+Route::get('national-human-rights-award', [AwardController::class, 'nhra'])->name('nhra');
+Route::get('national-leadership-award', [AwardController::class, 'nla'])->name('nla');
+Route::get('national-special-award', [AwardController::class, 'nsa'])->name('nsa');
+Route::get('state-human-right-award', [AwardController::class, 'shra'])->name('shra');
+Route::get('state-leadership-award', [AwardController::class, 'sla'])->name('sla');
+Route::get('state-special-award', [AwardController::class, 'ssa'])->name('ssa');
+Route::get('district-level', [AwardController::class, 'district_level'])->name('district_level');
+Route::get('community-level', [AwardController::class, 'community_level'])->name('community_level');
 
 // awardee
 Route::get('our_awardee', [PageController::class, 'OurAwardee'])->name('OurAwardee');

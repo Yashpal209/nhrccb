@@ -36,7 +36,7 @@
                         @csrf
                         <div class="row">
                             <div class="input-field col s6">
-                                <input type="text" name="title" class="validate" required>
+                                <input type="text" value="NHRCCB" name="title" class="validate" required>
                                 <label class="">Banner Caption</label>
                             </div>
                             <div class="input-field col s6">

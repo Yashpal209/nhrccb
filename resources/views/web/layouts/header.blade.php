@@ -445,9 +445,9 @@
                                                                 <div class="dropdown-menu">
                                                                     <a class="dropdown-item" href="{{route('nhra')}}">Nhrccb
                                                                         Human Rights Award</a>
-                                                                    <a class="dropdown-item" href="#">Nhrccb
+                                                                    <a class="dropdown-item" href="{{route('nla')}}">Nhrccb
                                                                         Leadership Award</a>
-                                                                    <a class="dropdown-item" href="#">Nhrccb
+                                                                    <a class="dropdown-item" href="{{route('nsa')}}">Nhrccb
                                                                         Special Award</a>
                                                                 </div>
                                                             </div>
@@ -457,11 +457,11 @@
                                                                 <a type="button" class="dropdown-toggle"
                                                                     data-toggle="dropdown">State Level</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item" href="#">State
+                                                                    <a class="dropdown-item" href="{{route('shra')}}">State
                                                                         Human Rights Award</a>
-                                                                    <a class="dropdown-item" href="#">State
+                                                                    <a class="dropdown-item" href="{{route('sla')}}">State
                                                                         Leadership Award</a>
-                                                                    <a class="dropdown-item" href="#">State
+                                                                    <a class="dropdown-item" href="{{route('ssa')}}">State
                                                                         Special Award</a>
                                                                 </div>
                                                             </div>

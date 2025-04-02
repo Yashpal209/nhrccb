@@ -17,17 +17,38 @@ class AwardController extends Controller
         $awards = OurAwardee::where('award_sub_category', 'NHRCCB HUMAN RIGHTS AWARD')->orderBy('created_at', 'desc')->paginate(10);
         return view('web.pages.awards.nhra', compact('awards'));
     }
+    public function nla(){
+        $awards = OurAwardee::where('award_sub_category', 'NHRCCB LEADERSHIP AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.awards.nla', compact('awards'));
+    }
+    public function nsa(){
+        $awards = OurAwardee::where('award_sub_category', 'NHRCCB SPECIAL AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        return view('web.pages.awards.nsa', compact('awards'));
+    }
+    public function shra(){
+        $awards = OurAwardee::where('award_sub_category', 'STATE HUMAN RIGHTS AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        $title = 'STATE HUMAN RIGHTS AWARD';
+        return view('web.pages.awards.state', compact('awards','title'));
+    }
+    public function sla(){
+        $awards = OurAwardee::where('award_sub_category', 'STATE LEADERSHIP AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        $title = 'STATE LEADERSHIP AWARD';
+        return view('web.pages.awards.state', compact('awards','title'));
+    }
+    public function ssa(){
+        $awards = OurAwardee::where('award_sub_category', 'STATE SPECIAL AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        $title = 'STATE SPECIAL AWARD';
+        return view('web.pages.awards.state', compact('awards','title'));
+    }
 
     public function district_level(){
-        $awards = OurAwardee::where('award_sub_category', 'District')->orderBy('created_at', 'desc')->paginate(10);
-        return view('web.pages.awards.districtAwards', compact('awards'));
+        $awards = OurAwardee::where('award_sub_category', 'DISTRICT AWARD')->orderBy('created_at', 'desc')->paginate(10);
+        $title = 'DISTRICT AWARD';
+        return view('web.pages.awards.districtAwards', compact('awards','title'));
     }
     public function community_level(){
         $awards = OurAwardee::where('award_sub_category', 'COMMUNITY AWARD')->orderBy('created_at', 'desc')->paginate(10);
         return view('web.pages.awards.communityAwards', compact('awards'));
     }
-    public function international_level(){
-        $awards = OurAwardee::where('award_sub_category', 'International')->orderBy('created_at', 'desc')->paginate(10);
-        return view('web.pages.awards.internationalAwards', compact('awards'));
-    }
+  
 }
