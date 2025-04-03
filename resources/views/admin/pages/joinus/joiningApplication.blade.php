@@ -28,7 +28,7 @@
                         <div class="col-md-6 text-right">
                             <a href="{{ route('Application') }}">
                                 <div class="btn">
-                                    Aproove Application List
+                                    Approve Application List
                                 </div>
                             </a>
                         </div>
@@ -50,9 +50,9 @@
                                     <th colspan="2" class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            @foreach ($joinApp as $list)
+                            @foreach ($joinApp as $index => $list)
                                 <tr>
-                                    <td>{{ $list->id }}</td>
+                                    <td>{{ ($joinApp->currentPage() - 1) * $joinApp->perPage() + $index + 1 }}</td>
                                     <td>{{ $list->level }}</td>
                                     <td>{{ $list->designation }}</td>
                                     <td>{{ $list->mobile }}</td>
@@ -71,7 +71,6 @@
                                                     <option value="3" {{ $list->status == 3 ? 'selected' : '' }}>Rejected</option>
                                                 </select>
                                             </div>
-
                                             <button type="submit" class="btn btn-success">Update Status</button>
                                         </form>
                                     </td>
@@ -88,6 +87,10 @@
                                 </tr>
                             @endforeach
                         </table>
+                        <!-- Pagination Links -->
+                        <div class="d-flex justify-content-center">
+                            {{ $joinApp->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

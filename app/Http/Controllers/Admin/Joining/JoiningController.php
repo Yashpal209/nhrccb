@@ -11,14 +11,14 @@ class JoiningController extends Controller
     // Display all applications
     public function viewJoinApplication()
     {
-        $joinApp = JoinUs::where('status', 1)->orderBy('created_at', 'desc')->get();
+        $joinApp = JoinUs::where('status', 1)->orderBy('created_at', 'desc')->paginate(10); 
         return view('admin.pages.joinus.joiningApplication', compact('joinApp'))->with('no', 1);
     }
 
     // Display only approved applications
     public function Application()
     {
-        $joinApp = JoinUs::where('status', 2)->orderBy('created_at', 'desc')->get();
+        $joinApp = JoinUs::where('status', 2)->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.pages.joinus.Application', compact('joinApp'));
     }
 

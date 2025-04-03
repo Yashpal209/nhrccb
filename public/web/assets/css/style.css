@@ -84,7 +84,7 @@ tr,
 td,
 th,
 label {
-    font-size: 17px;
+    font-size: 14px;
     color: #000000;
     font-weight: 400;
     line-height: 24px;
@@ -2107,7 +2107,7 @@ label {
 .cor-con-mid p,
 li {
     color: #000000;
-    line-height: 24px;
+    line-height: 22px;
 }
 .cor-p1 {
     border-bottom: 1px solid #d2d2d2;

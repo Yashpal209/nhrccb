@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin\webmanage;
+namespace App\Http\Controllers\Admin\Webmanage;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Webmanage\Banner;

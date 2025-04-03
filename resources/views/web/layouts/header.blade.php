@@ -164,7 +164,12 @@
                             <ul>
                                 <li><a href="#"></a></li>
                                 <li><a href="tel:9102224365">Phone: +91 91022 24365</a></li>
-                                <li><a href="tel:9111730311">HELPLINE NO : +91 91117 30311</a></li>
+                                <li>
+                                    <marquee behavior="scroll" direction="left" scrollamount="5" >
+                                        <a href="tel:9111730311"style="line-height:0px;border:none">HELPLINE NO : +91 91117 30311</a> |
+                                        <a href="tel:9111730311"style="line-height:0px;border:none">CONTECT FOR MEMBERSHIP</a>
+                                    </marquee>
+                                </li>
                             </ul>
                         </div>
                         <div class="ed-com-t1-social">
