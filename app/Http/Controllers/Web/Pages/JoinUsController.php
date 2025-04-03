@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Web\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Web\Pages\JoinUs;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
+     
     
 class JoinUsController extends Controller
 {
@@ -77,14 +80,35 @@ class JoinUsController extends Controller
     /**
      * Handle File Uploads
      */
-    private function uploadFile(Request $request, $fieldName, $destinationPath)
-    {
-        if ($request->hasFile($fieldName)) {
-            $file = $request->file($fieldName);
-            $name = uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $name);
-            return $destinationPath . $name;
-        }
-        return null;
-    }
+    
+
+     
+     private function uploadFile(Request $request, $fieldName, $destinationPath)
+     {
+         if ($request->hasFile($fieldName)) {
+             $file = $request->file($fieldName);
+             $name = uniqid() . '.' . $file->getClientOriginalExtension();
+             $path = $destinationPath . $name;
+     
+             // Ensure the directory exists
+             if (!file_exists($destinationPath)) {
+                 mkdir($destinationPath, 0777, true);
+             }
+     
+             // Create ImageManager instance with GD driver
+             $manager = new ImageManager(new Driver());
+     
+             // Load image and resize to 350x350
+             $image = $manager->read($file->getRealPath())
+                 ->scale(width: 350, height: 350); // Resize to 350x350
+     
+             // Save the resized image
+             $image->save($path);
+     
+             return $path; // Return the saved image path
+         }
+         return null;
+     }
+     
+    
 }
