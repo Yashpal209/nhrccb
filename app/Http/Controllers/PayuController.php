@@ -135,7 +135,7 @@ class PayuController extends Controller
 
         $action = $PAYU_BASE_URL . '/_payment';
 
-        return view('payu', compact('action', 'hash', 'MERCHANT_KEY', 'txnid', 'successURL', 'failURL', 'posted'));
+        return view('Payu', compact('action', 'hash', 'MERCHANT_KEY', 'txnid', 'successURL', 'failURL', 'posted'));
     }
 
 
