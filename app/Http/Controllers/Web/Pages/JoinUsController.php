@@ -20,7 +20,7 @@ class JoinUsController extends Controller
     public function postJoinUsForm(Request $request)
     {
         // Validation Rules
-        $validatatedata = $request->all();
+        // $validatatedata = $request->all();
         $validatedData = $request->validate([
             'state' => 'required|string|max:255',
             'division' => 'required|string|max:255',
