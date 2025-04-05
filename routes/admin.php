@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\WebManage\WebController;
 use App\Http\Controllers\Admin\Activities\Covid19controller;
 use App\Http\Controllers\Admin\Activities\EducationalAwarenessController;
 use App\Http\Controllers\Admin\Activities\RuralAwarenessController;
@@ -53,6 +52,7 @@ use App\Http\Controllers\Admin\Publication\MonthlyReport;
 use App\Http\Controllers\Admin\Publication\ProspectusController;
 use App\Http\Controllers\Admin\Publication\RulebookController;
 use App\Http\Controllers\Admin\Publication\SouvenierController;
+use App\Http\Controllers\Admin\WebManage\WebManageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PublicationController;
@@ -79,25 +79,25 @@ Route::get('/logout', [AuthController::class, 'logOut'])->name('logOut');
 Route::prefix('admin')->middleware('admin.auth')->group(function () {
     // Admin dashboard
     // banner 
-    Route::get('Banner', [WebController::class, 'banner'])->name('banners');
-    Route::post('addBannerPost', [WebController::class, 'addBannerPost'])->name('addBannerPost');
-    Route::get('editBanner/{id}', [WebController::class, 'editBanner'])->name('banner.edit');
-    Route::post('/updateBannerPost', [WebController::class, 'updateBannerPost'])->name('updateBannerPost');
-    Route::get('viewBanner', [WebController::class, 'viewBanner'])->name('viewBanner');
-    Route::get('banner/delete/{id}', [WebController::class, 'deleteBanner'])->name('banner.delete');
+    Route::get('Banner', [WebManageController::class, 'banner'])->name('banners');
+    Route::post('addBannerPost', [WebManageController::class, 'addBannerPost'])->name('addBannerPost');
+    Route::get('editBanner/{id}', [WebManageController::class, 'editBanner'])->name('banner.edit');
+    Route::post('/updateBannerPost', [WebManageController::class, 'updateBannerPost'])->name('updateBannerPost');
+    Route::get('viewBanner', [WebManageController::class, 'viewBanner'])->name('viewBanner');
+    Route::get('banner/delete/{id}', [WebManageController::class, 'deleteBanner'])->name('banner.delete');
     
     // about us 
     // president mesage profile 
-    Route::get('AddPresident', [WebController::class, 'president'])->name('president');
-    Route::post('addpresidentPost', [WebController::class, 'addpresidentPost'])->name('addpresidentPost');
-    Route::get('viewPresident', [WebController::class, 'viewPresident'])->name('viewPresident');
-    Route::get('president/delete/{id}', [WebController::class, 'deletepresident'])->name('president.delete');
+    Route::get('AddPresident', [WebManageController::class, 'president'])->name('president');
+    Route::post('addpresidentPost', [WebManageController::class, 'addpresidentPost'])->name('addpresidentPost');
+    Route::get('viewPresident', [WebManageController::class, 'viewPresident'])->name('viewPresident');
+    Route::get('president/delete/{id}', [WebManageController::class, 'deletepresident'])->name('president.delete');
 
     // whos who 
-    Route::get('addWhosWho', [WebController::class, 'addWhosWho'])->name('addWhosWho');
-    Route::post('postWhosWho', [WebController::class, 'postWhosWho'])->name('postWhosWho');
-    Route::get('viewWhosWho', [WebController::class, 'viewWhosWho'])->name('viewWhosWho');
-    Route::get('WhosWho/delete/{id}', [WebController::class, 'deleteWhosWho'])->name('delete.WhosWho');
+    Route::get('addWhosWho', [WebManageController::class, 'addWhosWho'])->name('addWhosWho');
+    Route::post('postWhosWho', [WebManageController::class, 'postWhosWho'])->name('postWhosWho');
+    Route::get('viewWhosWho', [WebManageController::class, 'viewWhosWho'])->name('viewWhosWho');
+    Route::get('WhosWho/delete/{id}', [WebManageController::class, 'deleteWhosWho'])->name('delete.WhosWho');
 
 
     // Joining Application

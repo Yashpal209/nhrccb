@@ -8,7 +8,7 @@ use App\Models\Admin\WebManage\President;
 use App\Models\Admin\WebManage\Whoswho;
 use Illuminate\Http\Request;
 
-class WebController extends Controller
+class WebManageController extends Controller
 {
     public function banner()
     {
