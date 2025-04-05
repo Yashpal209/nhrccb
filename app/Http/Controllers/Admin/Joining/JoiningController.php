@@ -18,7 +18,10 @@ class JoiningController extends Controller
     // Display only approved applications
     public function Application()
     {
-        $joinApp = JoinUs::where('status', 2)->orderBy('created_at', 'desc')->paginate(10);
+        $joinApp = JoinUs::where('status', 2)
+        ->where('payment', 'success')
+        ->orderBy('created_at', 'desc')
+        ->paginate(10);
         return view('admin.pages.joinus.Application', compact('joinApp'));
     }
 
