@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,7 +46,7 @@
     <div class="payment-container">
         <h2>Secure Payment</h2>
         <p>Click the button below to proceed with your payment.</p>
-        <form action="https://test.payu.in/_payment" method="POST">
+        <form action="https://secure.payu.in/" method="POST">
             <input type="hidden" name="key" value="{{ $MERCHANT_KEY }}">
             <input type="hidden" name="txnid" value="{{ $txnid }}">
             <input type="hidden" name="amount" value="{{ $amount }}">
@@ -62,4 +62,4 @@
         </form>
     </div>
 </body>
-</html>
+</html> --}}

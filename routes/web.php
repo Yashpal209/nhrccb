@@ -17,10 +17,12 @@ use App\Http\Controllers\Web\Pages\OurTeamController;
 use App\Http\Controllers\Web\Pages\PageController;
 use App\Http\Controllers\Web\Pages\PublicationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PaymentController ;
 
-Route::post('/payment/success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
-Route::post('/payment/failure', [PaymentController::class, 'paymentFailure'])->name('payment.failure');
+use App\Http\Controllers\PayuController;
+
+Route::get('payu/payment', [PayuController::class, 'payUMoneyView'])->name('payu.view');
+Route::match(['get', 'post'], 'payu/response', [PayuController::class, 'payUResponse'])->name('payu.success');
+Route::match(['get', 'post'], 'payu/cancel', [PayuController::class, 'payUCancel'])->name('payu.cancel');
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

@@ -67,6 +67,7 @@
                 </div>
             </div>
         </section>
+        
         {{-- marquee  --}}
         <div class="container-fluid p-2 bg-dark text-white ">
             <div class="row justify-content-center align-items-center w-100">
@@ -208,9 +209,9 @@
                                         alt="">
                                 </div>
                                 <div class="info py-3">
-                                    <h4>DR. RANDHIR KUMAR</h4>
-                                    <h5>PRESIDENT</h5>
-                                    <h5>GENERAL WING</h5>
+                                    <h4>Dr.Randhir Kumar</h4>
+                                    <h5>National President</h5>
+                                    <h5>NHRCCB</h5>
                                 </div>
                             </div>
                         </div>

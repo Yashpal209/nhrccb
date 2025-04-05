@@ -21,6 +21,35 @@
                                 </ul>
                             </div>
                         </li>
+                        
+
+                    </ul>
+                </div>
+            </li>
+            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book" aria-hidden="true"></i>About Us</a>
+                <div class="collapsible-body left-sub-menu">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image"></i>National President</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{route('president')}}"><i class="fa fa-pencil"></i>Add Profile/Message</a>
+                                    </li>
+                                    <li><a href=""><i
+                                                class="fa fa-eye"aria-hidden="true"></i>Message</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image"></i>Who's Who</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{route('addWhosWho')}}"><i class="fa fa-pencil"></i>Add Who's Who</a>
+                                    </li>
+                                    <li><a href="{{route('viewWhosWho')}}"><i class="fa fa-eye"aria-hidden="true"></i>View Who's Who</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
 
                     </ul>
                 </div>
@@ -45,16 +74,6 @@
                                 </ul>
                             </div>
                         </li>
-                        {{-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i></a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-
-                                    <li><a href=""><i class="fa fa-eye" aria-hidden="true"></i>View Approve Application</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> --}}
                     </ul>
                 </div>
             </li>

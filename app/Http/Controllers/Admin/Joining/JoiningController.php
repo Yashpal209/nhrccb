@@ -25,17 +25,17 @@ class JoiningController extends Controller
     // Change application status
     public function ChangeStatusApplication(Request $request)
     {
-        // return $request;
         $request->validate([
             'id' => 'required|exists:join_us_form,id',
             'status' => 'required|integer|min:1|max:3',
         ]);
-
+    
         $joinApp = JoinUs::find($request->id);
         
         if (!$joinApp) {
             return redirect()->route('viewJoinApplication')->with('error', 'Application not found!');
         }
+    
         $prefixes = [
             'NATIONAL TEAM' => 'NHRCCB/NT/',
             'STATE TEAM' => 'NHRCCB/ST/',
@@ -44,26 +44,41 @@ class JoiningController extends Controller
             'BLOCK TEAM' => 'NHRCCB/BT/',
             'ACTIVE MEMBERSHIP' => 'NHRCCB/AM/',
             'VOLUNTEER' => 'NHRCCB/VL/',
-            'DEFAULT' => 'NHRCCB/OT/', // Default for any other level
+            'DEFAULT' => 'NHRCCB/OT/', 
         ];
         $prefix = $prefixes[$joinApp->level] ?? $prefixes['DEFAULT'];
-        $start_numbers = [
-            'ACTIVE MEMBERSHIP' => 6000,
-            'VOLUNTEER' => 15000,
-        ];
-        
-        $default_start = 5200;
-        $start_number = $start_numbers[$joinApp->level] ?? $default_start;
-        $reg_no = $prefix . ($start_number + $joinApp->id);
-        // return $reg_no;
+    
+        // Last generated reg_no fetch karega
+        $lastRegNo = JoinUs::where('reg_no', 'LIKE', "$prefix%")
+            ->orderBy('id', 'desc')
+            ->value('reg_no');
+    
+        if ($lastRegNo) {
+            // Reg_no se last numeric part nikalne ka logic
+            preg_match('/(\d+)$/', $lastRegNo, $matches);
+            $lastNumber = isset($matches[1]) ? (int) $matches[1] : 0;
+            $newNumber = $lastNumber + 1;
+        } else {
+            // Default start numbers
+            $start_numbers = [
+                'ACTIVE MEMBERSHIP' => 6000,
+                'VOLUNTEER' => 15000,
+            ];
+            $default_start = 5200;
+            $newNumber = $start_numbers[$joinApp->level] ?? $default_start;
+        }
+    
+        $reg_no = $prefix . $newNumber;
+    
         $joinApp->reg_no = $reg_no;
         $joinApp->status = $request->status;
         $joinApp->updated_at = now();
         
         $joinApp->save();
-
+    
         return redirect()->back()->with('alert', 'Application status updated successfully!');
     }
+    
 
 
     // Delete an application

@@ -78,10 +78,27 @@ Route::get('/logout', [AuthController::class, 'logOut'])->name('logOut');
 
 Route::prefix('admin')->middleware('admin.auth')->group(function () {
     // Admin dashboard
+    // banner 
     Route::get('Banner', [WebController::class, 'banner'])->name('banners');
     Route::post('addBannerPost', [WebController::class, 'addBannerPost'])->name('addBannerPost');
+    Route::get('editBanner/{id}', [WebController::class, 'editBanner'])->name('banner.edit');
+    Route::post('/updateBannerPost', [WebController::class, 'updateBannerPost'])->name('updateBannerPost');
     Route::get('viewBanner', [WebController::class, 'viewBanner'])->name('viewBanner');
     Route::get('banner/delete/{id}', [WebController::class, 'deleteBanner'])->name('banner.delete');
+    
+    // about us 
+    // president mesage profile 
+    Route::get('AddPresident', [WebController::class, 'president'])->name('president');
+    Route::post('addpresidentPost', [WebController::class, 'addpresidentPost'])->name('addpresidentPost');
+    Route::get('viewPresident', [WebController::class, 'viewPresident'])->name('viewPresident');
+    Route::get('president/delete/{id}', [WebController::class, 'deletepresident'])->name('president.delete');
+
+    // whos who 
+    Route::get('addWhosWho', [WebController::class, 'addWhosWho'])->name('addWhosWho');
+    Route::post('postWhosWho', [WebController::class, 'postWhosWho'])->name('postWhosWho');
+    Route::get('viewWhosWho', [WebController::class, 'viewWhosWho'])->name('viewWhosWho');
+    Route::get('WhosWho/delete/{id}', [WebController::class, 'deleteWhosWho'])->name('delete.WhosWho');
+
 
     // Joining Application
     Route::get('/joining-application', [JoiningController::class, 'viewJoinApplication'])->name('viewJoinApplication');

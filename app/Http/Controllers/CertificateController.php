@@ -70,8 +70,8 @@ class CertificateController extends Controller
 
         $signaturePath2 = public_path('admin/assets/images/signature/stump2.png');
         $pdf->Image($signaturePath2, 100, 230, 34, 35, '', '', '', false, 300, '', false, false, 0);
-       
-        
+
+
         $pdf->SetFont('helvetica', '', 15);
         $pdf->SetXY(15, 230);
         $pdf->Cell(180, 10, "(National President)", 0, 1, 'R');
@@ -302,8 +302,8 @@ class CertificateController extends Controller
         $pdf->AddPage();
         $pdf->Image($background, 0, 0, 54, 86, '', '', '', false, 300, '', false, false, 0);
 
-        
-         $signaturePath2 = $user->passport_image;
+
+        $signaturePath2 = $user->passport_image;
         $pdf->Image($signaturePath2, 20, 33, 14, 15, '', '', '', false, 300, '', false, false, 0);
 
 
@@ -332,7 +332,13 @@ class CertificateController extends Controller
 
         $pdf->SetFont('helvetica', 'B', 4);
         $pdf->SetXY(17.5, 55);
-        $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . strtoupper($user->division), 0, 1, 'L');
+
+        if ($user->level == "NATIONAL TEAM") {
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation), 0, 1, 'L');
+        } else {
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . strtoupper($user->division), 0, 1, 'L');
+        }
+
 
         // Issue Date
         $pdf->SetFont('helvetica', 'B', 5);
@@ -439,27 +445,41 @@ class CertificateController extends Controller
 
         // Define text positions
         $textStartX = 14;
-        $pdf->SetFont('helvetica', 'B', 7);
+        $pdf->SetFont('helvetica', 'B', 5);
 
         // Name
         $pdf->SetXY($textStartX, 26);
-        $pdf->Cell(40, 5, strtoupper($user->name), 0, 1, 'L');
+        $pdf->Cell(40, 5, "Name ", 0, 1, 'L');
 
-        // // Designation
-        // $pdf->SetXY($textStartX, 28);
-        // $pdf->Cell(40, 5, strtoupper($user->designation), 0, 1, 'L');
+        $pdf->SetXY(26, 26);
+        $pdf->Cell(40, 5, ": " . strtoupper($user->name), 0, 1, 'L');
 
         // ID No
+
+        $pdf->SetFont('helvetica', 'B', 5);
         $pdf->SetXY($textStartX, 29);
-        $pdf->Cell(40, 5, $refNo, 0, 1, 'L');
+        $pdf->Cell(40, 5, "Unique ID No ", 0, 1, 'L');
+
+
+        $pdf->SetXY(26, 29);
+        $pdf->Cell(40, 5, ": " . $refNo, 0, 1, 'L');
 
         // Issue Date
+        $pdf->SetFont('helvetica', 'B', 5);
         $pdf->SetXY($textStartX, 32);
-        $pdf->Cell(40, 5, $issueDate, 0, 'L');
+        $pdf->Cell(40, 5, "Issue Date ", 0, 1, 'L');
+        $pdf->SetXY(26, 32);
+        $pdf->Cell(40, 5, ": " . $issueDate, 0, 'L');
 
         // Address
-        $pdf->SetXY($textStartX, 36);
-        $pdf->MultiCell(40, 5, $user->address, 0, 'L');
+        $pdf->SetFont('helvetica', 'B', 5);
+        $pdf->SetXY($textStartX, 35);
+        $pdf->Cell(40, 5, "Address ", 0, 0, 'L');
+
+        $pdf->SetFont('helvetica', 'B', 5);
+        $pdf->SetXY($textStartX + 12, 36.5);
+        $pdf->MultiCell(50, 5, ": " . $user->address, 0, 'L'); // Increase width to fit long addresses
+
 
         $signaturePath2 = $user->passport_image;
         $pdf->Image($signaturePath2, 60, 23, 15, 15, '', '', '', false, 300, '', false, false, 0);
@@ -489,17 +509,17 @@ class CertificateController extends Controller
         $user->id_card = '/uploads/idcard/' . $fileName;
         $user->save();
 
-        Mail::send([], [], function ($message) use ($user, $filePath) {
-            $message->to($user->email)
-                ->subject('Your ID card ')
-                ->attach($filePath, [
-                    'as' => 'idCard.pdf',
-                    'mime' => 'application/pdf',
-                ])
-                ->html('<p>Dear ' . $user->name . ',</p>
-                        <p>Congratulations! Please find attached your ID card.</p>
-                        <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
-        });
+        // Mail::send([], [], function ($message) use ($user, $filePath) {
+        //     $message->to($user->email)
+        //         ->subject('Your ID card ')
+        //         ->attach($filePath, [
+        //             'as' => 'idCard.pdf',
+        //             'mime' => 'application/pdf',
+        //         ])
+        //         ->html('<p>Dear ' . $user->name . ',</p>
+        //                 <p>Congratulations! Please find attached your ID card.</p>
+        //                 <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
+        // });
         // Output PDF
         return response($pdf->Output('id_card.pdf', 'I'))->header('Content-Type', 'application/pdf');
     }

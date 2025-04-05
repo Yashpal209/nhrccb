@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Web\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Web\Pages\JoinUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
-     
-    
+use Illuminate\Support\Facades\Session;
+
 class JoinUsController extends Controller
 {
     public function JoinUs()
@@ -45,19 +46,22 @@ class JoinUsController extends Controller
             'member_social_org' => 'required|string|in:yes,no',
             'court_cases' => 'required|string',
             'recommended_by' => 'required|string',
-
+    
             'passport_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'adhar_front_img' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'adhar_back_img' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'pan_card_img' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
             'other_doc_img' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
+
         if (JoinUs::where('mobile', $request->mobile)->exists()) {
             return redirect()->back()
                 ->withErrors(['mobile' => 'This mobile number is already registered.'])
                 ->with('alert', 'There was an error in your submission. Please check the form.');
         }
-        
+        $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
+
+        // return $txnid;
         // Handle File Uploads
         $validatedData['passport_image'] = $this->uploadFile($request, 'passport_image', 'uploads/join_us/passportImage/');
         $validatedData['adhar_front_img'] = $this->uploadFile($request, 'adhar_front_img', 'uploads/join_us/adharFrontImage/');
@@ -65,50 +69,45 @@ class JoinUsController extends Controller
         $validatedData['pan_card_img'] = $this->uploadFile($request, 'pan_card_img', 'uploads/join_us/panCardImage/');
         $validatedData['other_doc_img'] = $this->uploadFile($request, 'other_doc_img', 'uploads/join_us/otherDocsImage/');
 
-        // Save Data
+        $validatedData['txnid'] = $txnid;
+        $validatedData['payment'] = 'pending';
         JoinUs::create($validatedData);
 
-        // Redirect with Success Message
-        return redirect()->route('thankYou')->with('alert', 'Form submitted successfully.');
+
+        // Redirect to PayU Payment Page
+        return redirect()->route('payu.view', ['txnid' => $txnid]);
     }
+
 
     public function thankYou()
     {
         return view('web.pages.join_us.thanku');
     }
 
-    /**
-     * Handle File Uploads
-     */
-    
+    private function uploadFile(Request $request, $fieldName, $destinationPath)
+    {
+        if ($request->hasFile($fieldName)) {
+            $file = $request->file($fieldName);
+            $name = uniqid() . '.' . $file->getClientOriginalExtension();
+            $path = $destinationPath . $name;
 
-     
-     private function uploadFile(Request $request, $fieldName, $destinationPath)
-     {
-         if ($request->hasFile($fieldName)) {
-             $file = $request->file($fieldName);
-             $name = uniqid() . '.' . $file->getClientOriginalExtension();
-             $path = $destinationPath . $name;
-     
-             // Ensure the directory exists
-             if (!file_exists($destinationPath)) {
-                 mkdir($destinationPath, 0777, true);
-             }
-     
-             // Create ImageManager instance with GD driver
-             $manager = new ImageManager(new Driver());
-     
-             // Load image and resize to 350x350
-             $image = $manager->read($file->getRealPath())
-                 ->scale(width: 350, height: 350); // Resize to 350x350
-     
-             // Save the resized image
-             $image->save($path);
-     
-             return $path; // Return the saved image path
-         }
-         return null;
-     }
-     
-    
+            // Ensure the directory exists
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+
+            // Create ImageManager instance with GD driver
+            $manager = new ImageManager(new Driver());
+
+            // Load image and resize to 350x350
+            $image = $manager->read($file->getRealPath())
+                ->scale(width: 350, height: 350); // Resize to 350x350
+
+            // Save the resized image
+            $image->save($path);
+
+            return $path; // Return the saved image path
+        }
+        return null;
+    }
 }

@@ -15,6 +15,7 @@
 @endif
 
 <!--== User Details ==-->
+
 <div class="sb2-2-3">
     <div class="row">
         <div class="col-md-12">
@@ -37,19 +38,23 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Title</th>
-                                    <th>Link</th>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Post</th>
+                                    <th>Position</th>
                                     <th>Date</th>
                                     <th>View</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($banners as $item)
+                                @foreach($whoswho as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td>{{ $item->title }}</td>
-                                    <td>{{ $item->link }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->post }}</td>
+                                    <td>{{ $item->position }}</td>
                                     <td>{{ $item->created_at->format('Y-m-d') }}</td> 
                                     <td>
                                         <a href="{{ asset($item->image) }}" target="_blank">
@@ -58,14 +63,14 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('banner.delete', $item->id) }}" class="ad-st-view" onclick="return confirm('Are you sure?')">Delete</a>
-                                        <a href="{{ route('banner.edit', $item->id) }}" onclick="return confirm('Are you sure?')"><span class="label label-success">Edit</span></a>
+                                       
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         <div class="container">
-                            {{ $banners->links() }}
+                            {{ $whoswho->links() }}
                         </div>
                     </div>
                 </div>
@@ -73,4 +78,5 @@
         </div>
     </div>
 </div>
+
 @endsection
