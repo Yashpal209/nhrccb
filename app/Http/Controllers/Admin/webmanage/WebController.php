@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Webmanage;
+namespace App\Http\Controllers\Admin\WebManage;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Webmanage\Banner;
-use App\Models\Admin\Webmanage\President;
-use App\Models\Admin\Webmanage\Whoswho;
+use App\Models\Admin\WebManage\Banner;
+use App\Models\Admin\WebManage\President;
+use App\Models\Admin\WebManage\Whoswho;
 use Illuminate\Http\Request;
 
 class WebController extends Controller

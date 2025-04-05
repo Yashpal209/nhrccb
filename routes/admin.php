@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\Webmanage\WebController;
+use App\Http\Controllers\Admin\WebManage\WebController;
 use App\Http\Controllers\Admin\Activities\Covid19controller;
 use App\Http\Controllers\Admin\Activities\EducationalAwarenessController;
 use App\Http\Controllers\Admin\Activities\RuralAwarenessController;
