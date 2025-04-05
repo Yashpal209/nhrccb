@@ -93,7 +93,7 @@ class PayuController extends Controller
                     $query->whereNull('expires_at')
                         ->orWhere('expires_at', '>=', now());
                 })->first();
-                // return   $promo;
+                return   $promo;
 
             if ($promo) {
                 if ($promo->type === 'flat') {

@@ -43,11 +43,13 @@
                                     <th>Level</th>
                                     <th>Designation</th>
                                     <th>Name</th>
-                                    <th>Email</th>
                                     <th>Phone</th>
+                                    <th>Email</th>
                                     <th>Date</th>
+                                    <th>Payment status</th>
                                     <th>Status</th>
-                                    <th colspan="2" class="text-center">Action</th>
+                                    <th>Photo</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             @foreach ($joinApp as $index => $list)
@@ -55,10 +57,21 @@
                                     <td>{{ ($joinApp->currentPage() - 1) * $joinApp->perPage() + $index + 1 }}</td>
                                     <td>{{ $list->level }}</td>
                                     <td>{{ $list->designation }}</td>
-                                    <td>{{ $list->mobile }}</td>
                                     <td>{{ $list->name }}</td>
+                                    <td>{{ $list->mobile }}</td>
                                     <td>{{ $list->email }}</td>
                                     <td>{{ $list->created_at }}</td>
+                                    <td>
+                                        @if ($list->payment == 'pending')
+                                        <span class="label label-warning">Pending</span>
+                                    @elseif($list->payment =='sucess')
+                                        <span class="label label-success">Sucess</span>
+                                    @elseif($list->payment == 'failed')
+                                        <span class="label label-danger">Failed</span>
+                                    @else
+                                        Unknown
+                                    @endif
+                                    </td>
                                     <td>
                                         <form action="{{ route('ChangeStatusApplication') }}" method="POST">
                                             @csrf
@@ -74,13 +87,15 @@
                                             <button type="submit" class="btn btn-success">Update Status</button>
                                         </form>
                                     </td>
+                                   
                                     <td>
                                         @if (!empty($list->passport_image))
                                             <a href="{{ url('/') . '/' . $list->passport_image }}" class="label label-success text-white" target="_blank">View</a>
                                         @else
-                                            <span class="badge bg-warning text-dark">No Attachment</span>
+                                            <span class="label label-danger">No Attachment</span>
                                         @endif
                                     </td>
+                                   
                                     <td>
                                         <a href="{{ route('delete.JoinApplication', $list->id) }}" class="ad-st-view">Delete</a>
                                     </td>

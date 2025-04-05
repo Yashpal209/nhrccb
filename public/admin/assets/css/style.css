@@ -4438,7 +4438,7 @@ textarea {
 .sb2-2 {
     float: left;
     width: 80%;
-    padding: 18px 30px;
+    padding: 18px 15px;
     margin-left: 20%;
     background: #e3e8ea;
 }
@@ -4996,7 +4996,7 @@ textarea {
 /*-------------------------------------------------------*/
 
 .tab-inn {
-    padding: 15px;
+    padding: 7px;
 }
 .tab-posi {
     position: relative;
