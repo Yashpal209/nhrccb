@@ -61,6 +61,11 @@
                         aria-hidden="true"></i>Joining</a>
                 <div class="collapsible-body left-sub-menu">
                     <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                             <a href="{{route('viewPromocode')}}"><i class="fa fa-eye" aria-hidden="true"></i>Promo Code</a>
+                        </li>
+                    </ul>
+                    <ul class="collapsible" data-collapsible="accordion">
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
                                     aria-hidden="true"></i>Joining Application</a>
                             <div class="collapsible-body left-sub-menu">

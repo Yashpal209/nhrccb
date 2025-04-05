@@ -147,24 +147,7 @@
 
 
                                                 </div>
-                                                {{-- <div class="col-md-4 col-sm-12 col-xs-12">
-                                                    <div class="form-group">
-                                                        <label class="control-label col-sm-12">Select Wing:</label>
-                                                        <div class="col-sm-12">
-                                                            <select class="form-control" name="wing" id="wing">
-                                                                <option value="">-- Select Wing --</option>
-                                                                <option value="ACTIVE MEMBERSHIP"
-                                                                    {{ old('wing') == 'ACTIVE MEMBERSHIP' ? 'selected' : '' }}>
-                                                                    Active Membership</option>
-                                                                <!-- Add wings here -->
-                                                                <!-- Add wings here -->
-                                                            </select>
-                                                            @error('wing')
-                                                                <span class="text-danger">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
+                                                
 
 
                                                 <!-- Select Level -->
@@ -610,8 +593,21 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-12">Promo Code:</label>
+                                                        <div class="col-sm-12">
+                                                            <input type="text" class="form-control" name="promo_code" id="promo_code" value="{{ old('promo_code') }}" placeholder="Enter Promo Code"  oninput="this.value = this.value.toUpperCase()">
+                                                            @error('promo_code')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
+                                            
+                                            
                                             <div class="row justify-content-center form_image ">
                                                 <div class="text-center mb-3">
                                                     <h2 class="my-2">Document Section</h2>

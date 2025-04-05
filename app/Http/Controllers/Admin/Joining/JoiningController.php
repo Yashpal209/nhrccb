@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Joining;
 
 use App\Http\Controllers\Controller;
 use App\Models\Web\Pages\JoinUs;
+use App\Models\PromoCode;
 use Illuminate\Http\Request;
 
 class JoiningController extends Controller
@@ -93,5 +94,33 @@ class JoiningController extends Controller
             return redirect()->route('viewJoinApplication')->with('alert', 'Application deleted successfully!');
         }
         return redirect()->back()->with('error', 'Application not found!');
+    }
+
+
+
+    public function viewPromocode(Request $request)
+    {
+        $promoCodes = PromoCode::orderByDesc('created_at')->get();
+        return view('admin.pages.joinus.promocode', compact('promoCodes'));;
+    }
+
+    public function addPromocode(Request $request)
+    {
+        $request->validate([
+            'code' => 'required|string|unique:promo_codes,code',
+            'type' => 'required|in:flat,percent',
+            'discount' => 'required|numeric|min:0.01',
+            'expires_at' => 'nullable|date',
+        ]);
+
+        PromoCode::create([
+            'code' => strtoupper($request->code),
+            'type' => $request->type,
+            'discount' => $request->discount,
+            'expires_at' => $request->expires_at,
+            'is_active' => '1',
+        ]);
+
+        return redirect()->back()->with('alert', 'Promo code created successfully.');
     }
 }

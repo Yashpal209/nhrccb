@@ -11,8 +11,8 @@ class PayuController extends Controller
     public function payUMoneyView(Request $request)
     {
         $txnid = $request->txnid;
-
         $joinUsData = JoinUs::where('txnid', $txnid)->first();
+        // return  $joinUsData;
 
         if (!$joinUsData) {
             return redirect()->route('JoinUs')->with('error', 'Invalid transaction ID.');
@@ -24,6 +24,7 @@ class PayuController extends Controller
 
         $successURL = route('payu.success');
         $failURL = route('payu.cancel');
+
         $designationAmounts = [
             // National
             'NATIONAL JOINT SECRETARY' => 51000,
@@ -40,6 +41,15 @@ class PayuController extends Controller
             'STATE MEDIA OFFICER' => 5100,
             'STATE PARTON' => 5100,
             'STATE ADVISOR' => 5100,
+            // Division 
+            'DIVISION PRESIDENT' => 9100,
+            'DIVISION VICE PRESIDENT' => 7100,
+            'DIVISION GENERAL SECRETARY' => 6100,
+            'DIVISION SECRETARY' => 5100,
+            'DIVISION JOINT SECRETARY' => 5100,
+            'DIVISION MEDIA OFFICER' => 4100,
+            'DIVISION PARTON' => 4100,
+            'DIVISION ADVISOR' => 4100,
             // District
             'DISTRICT PRESIDENT' => 7100,
             'DISTRICT VICE PRESIDENT' => 6100,
@@ -63,24 +73,50 @@ class PayuController extends Controller
             // Others
             'ACTIVE MEMBER' => 1100,
             'VOLUNTEER' => 500,
+
         ];
 
-        // Get designation from session and convert to uppercase to match mapping
-        $designation = strtoupper($joinUsData['designation'] ?? '');
+        $designation = strtoupper(preg_replace('/\s+/', ' ', trim($joinUsData['designation'] ?? '')));
 
-        // Check if designation exists in the predefined list
         if (!array_key_exists($designation, $designationAmounts)) {
-            return redirect()->route('JoinUs')->with('error', 'Invalid designation/ or the designation is not available for payment.');
+            return redirect()->route('JoinUs')->with('error', 'Invalid designation or the designation is not available for payment.');
         }
 
-        // Get amount
         $amount = $designationAmounts[$designation];
+        $discountAmount = 0;
+        $promoCodeInput = $joinUsData['promo_code']; 
+        
+        if (!empty($promoCodeInput)) {
+            $promo = \App\Models\PromoCode::where('code', $promoCodeInput)
+                ->where('is_active', true)
+                ->where(function ($query) {
+                    $query->whereNull('expires_at')
+                        ->orWhere('expires_at', '>=', now());
+                })->first();
+                // return   $promo;
 
+            if ($promo) {
+                if ($promo->type === 'flat') {
+                    $discountAmount = $promo->discount;
+                } elseif ($promo->type === 'percent') {
+                    $discountAmount = ($promo->discount / 100) * $amount;
+                }
+
+                // Save promo info to record (optional)
+                $joinUsData->promo_code = $promoCodeInput;
+                $joinUsData->save();
+            } else {
+                // Don't return error, just ignore invalid promo and proceed
+                // return redirect()->route('JoinUs')->with('error', 'Invalid or expired promo code.');
+            }
+        }
+
+        $amountAfterDiscount = max(1, $amount - $discountAmount);
 
         $posted = [
             'key' => $MERCHANT_KEY,
             'txnid' => $txnid,
-            'amount' => $amount,
+            'amount' => $amountAfterDiscount,
             'firstname' => $joinUsData->name,
             'email' => $joinUsData->email,
             'productinfo' => 'Join Us Membership',
@@ -98,8 +134,10 @@ class PayuController extends Controller
         $hash = strtolower(hash('sha512', $hash_string));
 
         $action = $PAYU_BASE_URL . '/_payment';
+
         return view('payu', compact('action', 'hash', 'MERCHANT_KEY', 'txnid', 'successURL', 'failURL', 'posted'));
     }
+
 
 
     public function payUResponse(Request $request)
@@ -160,11 +198,12 @@ class PayuController extends Controller
     public function payUCancel(Request $request)
     {
         $txnid = $request->txnid;
-
+    
         if ($txnid) {
-            JoinUs::where('txnid', $txnid)->update(['payment' => 'failed']);
+            JoinUs::where('txnid', $txnid)->delete();
         }
-
+    
         return redirect()->route('JoinUs')->with('error', 'Payment cancelled. Please try again.');
     }
+    
 }

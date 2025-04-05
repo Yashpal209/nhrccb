@@ -101,6 +101,10 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
 
 
     // Joining Application
+    Route::get('/Promo-code', [JoiningController::class, 'viewPromocode'])->name('viewPromocode');
+    Route::post('/promo-codes', [JoiningController::class, 'addPromocode'])->name('addPromocode');
+    
+
     Route::get('/joining-application', [JoiningController::class, 'viewJoinApplication'])->name('viewJoinApplication');
     Route::get('/application', [JoiningController::class, 'Application'])->name('Application');
     Route::post('/change-status-application', [JoiningController::class, 'ChangeStatusApplication'])->name('ChangeStatusApplication');
