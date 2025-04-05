@@ -93,15 +93,15 @@ class CertificateController extends Controller
         $user->certificate = $fileName;
         $user->save();
 
-        Mail::send([], [], function ($message) use ($user, $filePath) {
-            $message->to($user->email)
-                ->subject('Your Membership Certificate')
-                ->attach($filePath, [
-                    'as' => 'Membership_Certificate.pdf',
-                    'mime' => 'application/pdf',
-                ])
-                ->html('<p>Dear ' . $user->name . ',</p><p>Attached is your membership certificate.</p><p>Best regards,<br>Your Organization</p>');
-        });
+        // Mail::send([], [], function ($message) use ($user, $filePath) {
+        //     $message->to($user->email)
+        //         ->subject('Your Membership Certificate')
+        //         ->attach($filePath, [
+        //             'as' => 'Membership_Certificate.pdf',
+        //             'mime' => 'application/pdf',
+        //         ])
+        //         ->html('<p>Dear ' . $user->name . ',</p><p>Attached is your membership certificate.</p><p>Best regards,<br>Your Organization</p>');
+        // });
 
         // return response()->json(['message' => 'Certificate generated and sent successfully!', 'file' => asset('storage/' . $fileName)]);
         return response($pdf->Output('Certificate.pdf', 'I'))
@@ -240,17 +240,17 @@ class CertificateController extends Controller
         $user->letter = '/uploads/letters/' . $fileName;
         $user->save();
 
-        Mail::send([], [], function ($message) use ($user, $filePath) {
-            $message->to($user->email)
-                ->subject('Your Appointment Letter')
-                ->attach($filePath, [
-                    'as' => 'Appointment_Letter.pdf',
-                    'mime' => 'application/pdf',
-                ])
-                ->html('<p>Dear ' . $user->name . ',</p>
-                        <p>Congratulations! Please find attached your appointment letter.</p>
-                        <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
-        });
+        // Mail::send([], [], function ($message) use ($user, $filePath) {
+        //     $message->to($user->email)
+        //         ->subject('Your Appointment Letter')
+        //         ->attach($filePath, [
+        //             'as' => 'Appointment_Letter.pdf',
+        //             'mime' => 'application/pdf',
+        //         ])
+        //         ->html('<p>Dear ' . $user->name . ',</p>
+        //                 <p>Congratulations! Please find attached your appointment letter.</p>
+        //                 <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
+        // });
         // Output PDF to browser
         return response($pdf->Output('appointment_letter.pdf', 'I'))
             ->header('Content-Type', 'application/pdf');
@@ -382,17 +382,17 @@ class CertificateController extends Controller
         $user->id_card = '/uploads/idcard/' . $fileName;
         $user->save();
 
-        Mail::send([], [], function ($message) use ($user, $filePath) {
-            $message->to($user->email)
-                ->subject('Your ID card ')
-                ->attach($filePath, [
-                    'as' => 'idCard.pdf',
-                    'mime' => 'application/pdf',
-                ])
-                ->html('<p>Dear ' . $user->name . ',</p>
-                        <p>Congratulations! Please find attached your ID card.</p>
-                        <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
-        });
+        // Mail::send([], [], function ($message) use ($user, $filePath) {
+        //     $message->to($user->email)
+        //         ->subject('Your ID card ')
+        //         ->attach($filePath, [
+        //             'as' => 'idCard.pdf',
+        //             'mime' => 'application/pdf',
+        //         ])
+        //         ->html('<p>Dear ' . $user->name . ',</p>
+        //                 <p>Congratulations! Please find attached your ID card.</p>
+        //                 <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
+        // });
         // Output PDF
         return response($pdf->Output('id_card.pdf', 'I'))->header('Content-Type', 'application/pdf');
     }
@@ -509,17 +509,17 @@ class CertificateController extends Controller
         $user->id_card = '/uploads/idcard/' . $fileName;
         $user->save();
 
-        Mail::send([], [], function ($message) use ($user, $filePath) {
-            $message->to($user->email)
-                ->subject('Your ID card ')
-                ->attach($filePath, [
-                    'as' => 'idCard.pdf',
-                    'mime' => 'application/pdf',
-                ])
-                ->html('<p>Dear ' . $user->name . ',</p>
-                        <p>Congratulations! Please find attached your ID card.</p>
-                        <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
-        });
+        // Mail::send([], [], function ($message) use ($user, $filePath) {
+        //     $message->to($user->email)
+        //         ->subject('Your ID card ')
+        //         ->attach($filePath, [
+        //             'as' => 'idCard.pdf',
+        //             'mime' => 'application/pdf',
+        //         ])
+        //         ->html('<p>Dear ' . $user->name . ',</p>
+        //                 <p>Congratulations! Please find attached your ID card.</p>
+        //                 <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
+        // });
         // Output PDF
         return response($pdf->Output('id_card.pdf', 'I'))->header('Content-Type', 'application/pdf');
     }
