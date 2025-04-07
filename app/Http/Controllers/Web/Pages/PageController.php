@@ -121,17 +121,18 @@ class PageController extends Controller
 
     // about us 
 
-    public function PresidentMessage()
-    {
-        $presidentMessages = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
-        $title = "Message";
-        return view('web.pages.administration.PresidentMessage', compact('presidentMessages', 'title'));
-    }
+    
     public function PresidentProfile()
     {
-        $presidentMessages = President::where('type', 'profile')->orderBy('created_at', 'asc')->get();
+        $president = President::where('type', 'profile')->orderBy('created_at', 'asc')->get();
         $title = "Profile";
-        return view('web.pages.administration.PresidentMessage', compact('presidentMessages', 'title'));
+        return view('web.pages.administration.PresidentMessage', compact('president', 'title'));
+    }
+    public function PresidentMessage()
+    {
+        $president = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
+        $title = "Message";
+        return view('web.pages.administration.PresidentMessage', compact('president', 'title'));
     }
     public function NationalPatronAdvisor()
     {
@@ -145,8 +146,6 @@ class PageController extends Controller
         $data = compact('nationalpatrons');
         return view('web.pages.administration.NationalPatron')->with($data);
     }
-
-
 
     public function NationalExecutive()
     {

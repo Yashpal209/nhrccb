@@ -43,8 +43,8 @@
 
                         <div class="udb-sec udb-prof">
                             <h4>President {{ $title }}</h4>
-                            @if ($presidentMessages->isNotEmpty())
-                                @foreach ($presidentMessages as $msg)
+                            @if ($president->isNotEmpty())
+                                @foreach ($president as $msg)
                                     <p align="justify">{!! nl2br(e($msg->text)) !!}</p>
                                 @endforeach
                             @else
