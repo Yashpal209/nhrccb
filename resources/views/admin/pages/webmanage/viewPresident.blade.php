@@ -44,12 +44,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($President as $item)
+                                @foreach($presidents as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->text }}</td>
-                                    <td>{{ $item->created_at->format('Y-m-d') }}</td> 
+                                    <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
                                     <td>
                                         <a href="{{ route('president.delete', $item->id) }}" class="ad-st-view" onclick="return confirm('Are you sure?')">Delete</a>
                                     </td>
@@ -58,7 +58,7 @@
                             </tbody>
                         </table>
                         <div class="container">
-                            {{ $President->links() }}
+                            {{ $presidents->links() }}
                         </div>
                     </div>
                 </div>

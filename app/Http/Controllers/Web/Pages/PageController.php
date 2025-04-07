@@ -9,7 +9,7 @@ use App\Models\Admin\Administration\OfficeStaff;
 use App\Models\Admin\Notification\LatestUpdate;
 use App\Models\Admin\Notification;
 use App\Models\Admin\Notification\WhatsNew;
-use App\Models\Admin\WebManage\President;
+use Illuminate\Support\Facades\DB;
 use App\Models\Web\Pages\JoinUs;
 use App\Models\Admin\OurAwardee;
 use App\Models\Admin\publication;
@@ -120,19 +120,30 @@ class PageController extends Controller
 
 
     // about us 
-    public function PresidentProfile()
-    {
-        
-        $President = President::where('type', 'profile')->orderBy('created_at', 'asc')->get();
-        $title = "Profile";
-        return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
-    }
-    public function PresidentMessage()
-    {
-        $President = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
-        $title = "Message";
-        return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
-    }
+    
+
+public function PresidentProfile()
+{
+    $President = DB::table('presidents')
+        ->where('type', 'profile')
+        ->orderBy('created_at', 'asc')
+        ->get();
+
+    $title = "Profile";
+    return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
+}
+
+public function PresidentMessage()
+{
+    $President = DB::table('presidents')
+        ->where('type', 'message')
+        ->orderBy('created_at', 'asc')
+        ->get();
+
+    $title = "Message";
+    return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
+}
+
     public function NationalPatronAdvisor()
     {
         $nationalpatrons = NationalPatron::orderby('order_no', 'asc')->get();

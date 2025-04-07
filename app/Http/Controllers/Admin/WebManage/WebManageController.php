@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\WebManage;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\WebManage\Banner;
 use App\Models\Admin\WebManage\President;
 use App\Models\Admin\WebManage\Whoswho;
 use Illuminate\Http\Request;
@@ -102,50 +101,50 @@ class WebManageController extends Controller
         $banners = DB::table('banners')->where('id', $id)->first();
         return view('admin.pages.webmanage.editBanner', compact('banners'));
     }
+
+
+
+    // president 
     public function president()
     {
         return view('admin.pages.webmanage.president');
     }
-    public function addpresidentPost(Request $request)
+    
+    public function addPresidentPost(Request $request)
     {
-        $President = new President();
-        $President->type = $request->input('type');
-        $President->text = $request->input('text');
-
-
-        // if ($request->hasFile('image')) {
-        //     $file = $request->file('image');
-        //     $ext = $file->getClientOriginalExtension();
-        //     $name = uniqid() . "." . $ext;
-        //     $destinationPath = 'uploads/president/';
-        //     $file->move($destinationPath, $name);
-        //     $President->image = $destinationPath . $name;
-        //     $President->save();
-        // }
-        $request = $President->save();
-        if ($request) {
-            return redirect()->route('viewPresident')->with('alert', 'President Added successfully!');
+        $data = [
+            'type' => $request->input('type'),
+            'text' => $request->input('text'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
+    
+        $inserted = DB::table('presidents')->insert($data);
+    
+        if ($inserted) {
+            return redirect()->route('viewPresident')->with('alert', 'President added successfully!');
         } else {
             return redirect()->back()->with('error', 'Permission denied.');
         }
     }
-
+    
     public function viewPresident()
     {
-        $President = President::paginate(10);
-        return view('admin.pages.webmanage.viewPresident', compact('President'));
+        $presidents = DB::table('presidents')->orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.pages.webmanage.viewPresident', compact('presidents'));
     }
+    
     public function deletePresident($id)
     {
-        $Presidents = President::find($id);
-        $Presidents->delete();
-        if ($Presidents) {
-            return redirect()->route('viewPresident')->with('alert', ' message Deleted successfully!');
+        $president = DB::table('presidents')->where('id', $id)->first();
+    
+        if ($president) {
+            DB::table('presidents')->where('id', $id)->delete();
+            return redirect()->route('viewPresident')->with('alert', 'Message deleted successfully!');
         } else {
             return redirect()->back()->with('error', 'Permission denied.');
         }
     }
-
     public function addWhosWho()
     {
         return view('admin.pages.webmanage.whoswho');
