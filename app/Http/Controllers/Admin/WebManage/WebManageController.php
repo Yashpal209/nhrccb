@@ -16,85 +16,90 @@ class WebManageController extends Controller
     {
         return view('admin.pages.webmanage.banner');
     }
-    public function addBannerPost(Request $request)
-    {
-        $Banner = new Banner();
-        $Banner->title = $request->input('title');
-        $Banner->link = $request->input('link');
-
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $name = uniqid() . "." . $ext;
-            $destinationPath = 'uploads/banner/';
-            $file->move($destinationPath, $name);
-            $Banner->image = $destinationPath . $name;
-            $Banner->save();
-        }
-        $request = $Banner->save();
-        if ($request) {
-            return redirect()->route('viewBanner')->with('alert', 'Banner Added successfully!');
-        } else {
-            return redirect()->back()->with('error', 'Permission denied.');
-        }
-    }
-
-
-
-
     public function viewBanner()
     {
         $banners = DB::table('banners')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.pages.webmanage.viewBanner', compact('banners'));
     }
-
-    public function updateBannerPost(Request $request)
+    public function addBannerPost(Request $request)
     {
-        $banner = Banner::find($request->id);
-        if (!$banner) {
-            return redirect()->back()->with('error', 'Banner not found!');
-        }
-
-        $banner->title = $request->title;
-        $banner->link = $request->link;
+        $data = [
+            'title' => $request->input('title'),
+            'link' => $request->input('link'),
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $name = uniqid() . "." . $ext;
             $destinationPath = 'uploads/banner/';
-            if (file_exists($banner->image)) {
-                unlink($banner->image);
-            }
             $file->move($destinationPath, $name);
-            $banner->image = $destinationPath . $name;
+            $data['image'] = $destinationPath . $name;
         }
 
-        $banner->save();
+        $inserted = DB::table('banners')->insert($data);
+
+        if ($inserted) {
+            return redirect()->route('viewBanner')->with('alert', 'Banner added successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Permission denied.');
+        }
+    }
+
+    public function updateBannerPost(Request $request)
+    {
+        $banner = DB::table('banners')->where('id', $request->id)->first();
+
+        if (!$banner) {
+            return redirect()->back()->with('error', 'Banner not found!');
+        }
+
+        $data = [
+            'title' => $request->input('title'),
+            'link' => $request->input('link'),
+            'updated_at' => now()
+        ];
+
+        if ($request->hasFile('image')) {
+            if (File::exists($banner->image)) {
+                File::delete($banner->image);
+            }
+
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $name = uniqid() . "." . $ext;
+            $destinationPath = 'uploads/banner/';
+            $file->move($destinationPath, $name);
+            $data['image'] = $destinationPath . $name;
+        }
+
+        DB::table('banners')->where('id', $request->id)->update($data);
 
         return redirect()->route('viewBanner')->with('alert', 'Banner updated successfully!');
     }
 
     public function deleteBanner($id)
     {
-        $banner = Banner::find($id);
+        $banner = DB::table('banners')->where('id', $id)->first();
+
         if ($banner) {
-            $imagePath = $banner->image;
-            if (File::exists($imagePath)) {
-                File::delete($imagePath);
+            if (File::exists($banner->image)) {
+                File::delete($banner->image);
             }
-            $banner->delete();
+
+            DB::table('banners')->where('id', $id)->delete();
+
             return redirect()->route('viewBanner')->with('alert', 'Banner deleted successfully!');
         } else {
             return redirect()->back()->with('error', 'Banner not found or permission denied.');
         }
     }
 
-
     public function editBanner($id)
     {
-        $banners = Banner::find($id);
+        $banners = DB::table('banners')->where('id', $id)->first();
         return view('admin.pages.webmanage.editBanner', compact('banners'));
     }
     public function president()
