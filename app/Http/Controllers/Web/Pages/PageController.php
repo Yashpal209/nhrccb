@@ -122,17 +122,16 @@ class PageController extends Controller
     // about us 
     public function PresidentProfile()
     {
-        $president = President::where('type', 'profile')->orderBy('created_at', 'asc')->get();
-        dd($president);
+        
+        $President = President::where('type', 'profile')->orderBy('created_at', 'asc')->get();
         $title = "Profile";
-        return view('web.pages.administration.PresidentMessage', compact('president', 'title'));
+        return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
     }
     public function PresidentMessage()
     {
-        $president = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
-        dd($president);
+        $President = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
         $title = "Message";
-        return view('web.pages.administration.PresidentMessage', compact('president', 'title'));
+        return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
     }
     public function NationalPatronAdvisor()
     {
