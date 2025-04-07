@@ -120,17 +120,17 @@ class PageController extends Controller
 
 
     // about us 
-
-    
     public function PresidentProfile()
     {
         $president = President::where('type', 'profile')->orderBy('created_at', 'asc')->get();
+        dd($president);
         $title = "Profile";
         return view('web.pages.administration.PresidentMessage', compact('president', 'title'));
     }
     public function PresidentMessage()
     {
         $president = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
+        dd($president);
         $title = "Message";
         return view('web.pages.administration.PresidentMessage', compact('president', 'title'));
     }
