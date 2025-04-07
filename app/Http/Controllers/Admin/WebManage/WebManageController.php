@@ -8,6 +8,7 @@ use App\Models\Admin\WebManage\President;
 use App\Models\Admin\WebManage\Whoswho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 class WebManageController extends Controller
 {
@@ -40,9 +41,11 @@ class WebManageController extends Controller
     }
 
 
+
+
     public function viewBanner()
     {
-        $banners = Banner::orderby('created_at', 'desc')->paginate(10);
+        $banners = DB::table('banners')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.pages.webmanage.viewBanner', compact('banners'));
     }
 

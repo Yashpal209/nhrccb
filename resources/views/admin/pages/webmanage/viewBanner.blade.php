@@ -51,7 +51,7 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>{{ $item->link }}</td>
-                                    <td>{{ $item->created_at->format('Y-m-d') }}</td> 
+                                    <td>{{ $item->created_at }}</td> 
                                     <td>
                                        <img src="{{ asset($item->image) }}" alt="Banner Image" width="400">
                                     </td>
