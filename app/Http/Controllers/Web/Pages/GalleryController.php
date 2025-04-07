@@ -18,10 +18,16 @@ use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
+
+    public function acknowledgement()
+    {
+        $Acknowledgement = Acknowledgement::paginate(13);
+        return view('web.pages.gallery.acknowledgement', compact('Acknowledgement'));
+    }
     public function GovtLetter()
     {
-        $govtletters = GovtLetter::OrderBy('date', 'desc')->get();
-        $acntknbydpts = ActionTknByDept::OrderBy('date', 'desc')->get();
+        $govtletters = GovtLetter::OrderBy('created_at', 'desc')->paginate(12);
+        $acntknbydpts = ActionTknByDept::OrderBy('created_at', 'desc')->get();
         $data = [
             'govtletters' => $govtletters,
             'acntknbydpts' => $acntknbydpts,
@@ -82,11 +88,7 @@ class GalleryController extends Controller
     {
         return view('web.pages.gallery.pressrelease');
     }
-    public function acknowledgement()
-    {
-        $Acknowledgement = Acknowledgement::paginate(10);
-        return view('web.pages.gallery.acknowledgement', compact('Acknowledgement'));
-    }
+    
     public function interview()
     {
         return view('web.pages.gallery.interview');

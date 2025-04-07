@@ -46,7 +46,7 @@
                                     <th>Sl. No.</th>
                                     <th>Photo</th>
                                     <th>Title</th>
-                                    <th> Posted Date</th>
+                                    <th>Posted Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -57,7 +57,7 @@
                                 </td>
                                 </td>
                                 <td>{{$list->title}}</td>
-                                <td>{{$list->date}}</td>
+                                <td>{{$list->created_at}}</td>
                                 <td><a href="{{route('delete.Acknowledgement',$list->id)}}" class="ad-st-view">Delete</a></td>
                             </tr>
                             @endforeach

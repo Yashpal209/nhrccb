@@ -20,8 +20,6 @@ class GovtlettersController extends Controller
 
         $govtLetter = new GovtLetter();
         $govtLetter->title = $req->title;
-        $govtLetter->date = $req->date;
-        // $govtLetter->gvt_ltr_img = $req->gvt_ltr_img;
         $res = $govtLetter->save();
         if ($req->hasFile('gvt_ltr_img')) {
             $file = $req->file('gvt_ltr_img');
@@ -41,7 +39,7 @@ class GovtlettersController extends Controller
 
     public function viewGovtLetter()
     {
-        $govtletter = GovtLetter::OrderBy('date', 'desc')->get();
+        $govtletter = GovtLetter::OrderBy('created_at', 'desc')->get();
         $data = compact('govtletter');
         return view('admin.pages.gallery.govtletters.viewgovtletters')->with($data)->with('no', '1');
     }

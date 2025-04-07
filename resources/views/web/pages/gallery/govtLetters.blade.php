@@ -22,26 +22,37 @@
         <div class="container com-sp pad-bot-70 ed-res-bg">
             <div class="row">
                 <div class="cor about-sp h-gal ed-pho-gal">
-                    @foreach($govtletters as $govtletter)
-                    <ul>
-                        <li>
-                            <div class="card m-1">
-                                <div class="card-body">
-                                    <img class="materialboxed" data-caption="{{$govtletter->gvt_ltr_img}}" src="{{url('/').'/'. $govtletter->gvt_ltr_img}}" alt="">
-                                </div>
-                                <div class="card-footer">
-                                    <h5>{{$govtletter->title}}</h5>
-                                </div>
-                            </div>
+                    @if($govtletters->count() > 0)
+                        <ul>
+                            @foreach($govtletters as $govtletter)
+                                <li>
+                                    <div class="card m-1">
+                                        <div class="card-body">
+                                            <img class="materialboxed" data-caption="{{ $govtletter->gvt_ltr_img }}" src="{{ url('/') . '/' . $govtletter->gvt_ltr_img }}" alt="">
+                                        </div>
+                                        <div class="card-footer">
+                                            <h5>{{ $govtletter->title }}</h5>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
 
-                        </li>
-                    </ul>
-                    @endforeach
+                        <!-- Pagination -->
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $govtletters->links() }}
+                        </div>
+                    @else
+                        <div class="text-center w-100 py-5">
+                            <h4>No data available for Government Letters.</h4>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!--SECTION END-->
 <section>
     <div class="head-2">

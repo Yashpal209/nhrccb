@@ -90,7 +90,7 @@ class CertificateController extends Controller
         $pdf->Output($filePath, 'F');
 
 
-        $user->certificate = $fileName;
+        $user->certificate = '/uploads/certificate/' .$fileName;
         $user->save();
 
         // Mail::send([], [], function ($message) use ($user, $filePath) {
@@ -104,8 +104,9 @@ class CertificateController extends Controller
         // });
 
         // return response()->json(['message' => 'Certificate generated and sent successfully!', 'file' => asset('storage/' . $fileName)]);
-        return response($pdf->Output('Certificate.pdf', 'I'))
-            ->header('Content-Type', 'application/pdf');
+        // return response($pdf->Output('Certificate.pdf', 'I'))
+        //     ->header('Content-Type', 'application/pdf');
+        return redirect()->back()->with('alert', 'Certificate generated successfully.');
     }
 
 
@@ -252,8 +253,9 @@ class CertificateController extends Controller
         //                 <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
         // });
         // Output PDF to browser
-        return response($pdf->Output('appointment_letter.pdf', 'I'))
-            ->header('Content-Type', 'application/pdf');
+        // return response($pdf->Output('appointment_letter.pdf', 'I'))
+        //     ->header('Content-Type', 'application/pdf');
+        return redirect()->back()->with('alert', 'Letter generated successfully.');
     }
 
 
@@ -394,7 +396,8 @@ class CertificateController extends Controller
         //                 <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
         // });
         // Output PDF
-        return response($pdf->Output('id_card.pdf', 'I'))->header('Content-Type', 'application/pdf');
+        // return response($pdf->Output('id_card.pdf', 'I'))->header('Content-Type', 'application/pdf');
+        return redirect()->back()->with('alert', 'ID Card generated successfully.');
     }
     public function generateidcard($id)
     {
@@ -521,6 +524,7 @@ class CertificateController extends Controller
         //                 <p>Best regards,<br>National Human Rights and Crime Control Bureau</p>');
         // });
         // Output PDF
-        return response($pdf->Output('id_card.pdf', 'I'))->header('Content-Type', 'application/pdf');
+        // return response($pdf->Output('id_card.pdf', 'I'))->header('Content-Type', 'application/pdf');
+        return redirect()->back()->with('alert', 'Id Card generated successfully.');
     }
 }

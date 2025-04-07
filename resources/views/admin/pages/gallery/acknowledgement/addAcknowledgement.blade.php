@@ -48,11 +48,6 @@
                                 <input type="text" name="title" class="validate">
                                 <label class="">Title</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input type="date" name="date" class="validate" required>
-                               
-                            </div>
-
                         </div>
 
                         <div class="row">

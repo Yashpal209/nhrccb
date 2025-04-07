@@ -17,7 +17,6 @@ class AcknowledgementController extends Controller
     {
         $acknowledgement = new Acknowledgement();
         $acknowledgement->title = $req->title;
-        $acknowledgement->date = $req->date;
         $res = $acknowledgement->save();
         if ($req->hasFile('acknowledgement_img')) {
             $file = $req->file('acknowledgement_img');
@@ -37,7 +36,7 @@ class AcknowledgementController extends Controller
 
     public function viewAcknowledgement()
     {
-        $acknowledgement = Acknowledgement::OrderBy('date', 'desc')->get();
+        $acknowledgement = Acknowledgement::OrderBy('created_at', 'desc')->get();
         $data = compact('acknowledgement');
         return view('admin.pages.gallery.acknowledgement.viewAcknowledgement')->with($data)->with('no', '1');
     }

@@ -72,7 +72,7 @@ class PayuController extends Controller
             'BLOCK PARTON' => 2100,
             'BLOCK ADVISOR' => 2100,
             // Others
-            'ACTIVE MEMBER' => 1100,
+            'ACTIVE MEMBERSHIP' => 1100,
             'VOLUNTEER' => 500,
 
         ];

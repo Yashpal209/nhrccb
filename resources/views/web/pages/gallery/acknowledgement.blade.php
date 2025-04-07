@@ -12,44 +12,41 @@
 <!--SECTION START-->
 
 <section>
-    <div class="container py-4">
-        @if($Acknowledgement->count() > 0)
+    <div class="ed-res-bg">
+        <div class="container com-sp pad-bot-70 ed-res-bg">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="cor about-sp">
-                        <div class="ed-about-tit">
-                            <div class="ho-event pg-eve-main">
-                                <ul>
-                                    @foreach($Acknowledgement as $data)
-                                        <li class="py-2">
-                                            <div class="ho-ev-date pg-eve-date py-3">
-                                                <span>{{ $data->date }}</span>
-                                            </div>
-                                            <div class="ho-ev-link pg-eve-desc">
-                                                <p>{{ $data->title }}</p>
-                                            </div>
-                                            <div class="pg-eve-reg mt-1">
-                                                <a href="{{ $data->acknowledgement_img }}" target="_blank">Download</a>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
+                <div class="cor about-sp h-gal ed-pho-gal">
+                    @if($Acknowledgement->count() > 0)
+                        <ul>
+                            @foreach($Acknowledgement as $govtletter)
+                                <li>
+                                    <div class="card m-1">
+                                        <div class="card-body">
+                                            <img class="materialboxed" data-caption="{{ $govtletter->title }}" src="{{ url('/') . '/' . $govtletter->acknowledgement_img }}" alt="">
+                                        </div>
+                                        <div class="card-footer truncate">
+                                            <h5>{{ $govtletter->title }}</h5>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
 
-                                <!-- Pagination Links -->
-                                <div class="d-flex justify-content-center mt-4">
-                                    {{ $Acknowledgement->links() }}
-                                </div>
-                            </div>
+                        <!-- Pagination -->
+                        <div class="d-flex justify-content-center mt-4">
+                            {{ $Acknowledgement->links() }}
                         </div>
-                    </div>
+                    @else
+                        <div class="text-center w-100 py-5">
+                            <h4>No data available for Acknowledgements.</h4>
+                        </div>
+                    @endif
                 </div>
             </div>
-        @else
-            <div class="text-center">
-                <h3>NO Data ON Acknowledgement </h3>
-            </div>
-        @endif
+        </div>
     </div>
 </section>
+
+
 
 @endsection

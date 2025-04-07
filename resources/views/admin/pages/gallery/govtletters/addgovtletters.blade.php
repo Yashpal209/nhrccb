@@ -48,15 +48,7 @@
                                 <input type="text" name="title" class="validate">
                                 <label class="">Title</label>
                             </div>
-                            <div class="input-field col s6">
-                                <input type="date" name="date" class="validate" required>
-                               
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="file-field input-field col s12">
+                            <div class="file-field input-field col s6">
                                 <div class="btn admin-upload-btn">
                                     <span>File</span>
                                     <!-- Add the name="noticefile" to the input type="file" -->
@@ -65,9 +57,10 @@
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Upload Govt. Letters Image" accept="image/png, image/jpeg, image/jpg, image/webp">
                                 </div>
-                                <!-- <p class="text-danger">(Note : Image Dimension must be 150*150)</p> -->
-                                
                             </div>
+                        </div>
+                        <div class="row">
+                            
                         </div>
                         <div class="row">
                             <div class="input-field col s12">

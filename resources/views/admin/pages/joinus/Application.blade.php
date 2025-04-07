@@ -70,15 +70,31 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{ route('generate.certificate', $list->id) }}" target="_blank"
-                                                class="btn btn-primary" >
-                                                Certificate
-                                            </a>
+                                            {{-- certificate --}}
+                                            @if ($list->certificate)
+                                                <a href="{{ asset('public/' . $list->certificate) }}" target="_blank"
+                                                    class="btn btn-primary">
+                                                    View ID Card
+                                                </a>
+                                            @else
+                                                <a href="{{ route('generate.certificate', $list->id) }}" target="_blank"
+                                                    class="btn btn-primary">
+                                                    Generate_Certificate
+                                                </a>
+                                            @endif
 
-                                            <a href="{{ route('generate.letter', $list->id) }}" target="_blank"
-                                                class="btn btn-primary" >
-                                                Letter
-                                            </a>
+                                            @if ($list->letter)
+                                                <a href="{{ asset('public/' .$list->letter) }}" target="_blank"
+                                                    class="btn btn-primary">
+                                                    View ID Card
+                                                </a>
+                                            @else
+                                                <a href="{{ route('generate.letter', $list->id) }}" target="_blank"
+                                                    class="btn btn-primary">
+                                                    Generate_Letter
+                                                </a>
+                                            @endif
+
 
                                             @php
                                                 $idRoute =
@@ -87,10 +103,18 @@
                                                         : 'generate.officerIdcard';
                                             @endphp
 
-                                            <a href="{{ route($idRoute, $list->id) }}" target="_blank"
-                                                class="btn btn-primary" >
-                                                ID Card
-                                            </a>
+
+                                            @if ($list->id_card)
+                                                <a href="{{ asset('public/' . $list->id_card) }}" target="_blank"
+                                                    class="btn btn-primary">
+                                                    View ID Card
+                                                </a>
+                                            @else
+                                                <a href="{{ route($idRoute, $list->id) }}" target="_blank"
+                                                    class="btn btn-primary">
+                                                    Generate_ID_Card
+                                                </a>
+                                            @endif
                                         </td>
 
                                     </tr>
@@ -107,4 +131,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('page.js')
+<script>
+    setTimeout(function() {
+        location.reload();
+    }, 10000); // 10000 milliseconds = 10 seconds
+</script>
 @endsection
