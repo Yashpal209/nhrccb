@@ -117,6 +117,10 @@ class PageController extends Controller
         $publications = Publication::orderBy('publication_date', 'desc')->get();
         return view('web.pages.about_us.publication', compact('publications'));
     }
+
+
+    // about us 
+
     public function PresidentMessage()
     {
         $presidentMessages = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
