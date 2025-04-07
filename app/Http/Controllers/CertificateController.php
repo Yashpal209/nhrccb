@@ -336,9 +336,9 @@ class CertificateController extends Controller
         if ($user->level == "NATIONAL TEAM") {
             $pdf->Cell(44, 5, ": " . strtoupper($user->designation), 0, 1, 'L');
         } else {
-            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . strtoupper($user->division), 0, 1, 'L');
+            $extra = ($user->level == "STATE TEAM") ? strtoupper($user->state) : strtoupper($user->division);
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . $extra, 0, 1, 'L');
         }
-
 
         // Issue Date
         $pdf->SetFont('helvetica', 'B', 5);

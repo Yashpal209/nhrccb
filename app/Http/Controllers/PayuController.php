@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Web\Pages\JoinUs;
 use Illuminate\Support\Facades\DB;
+use \App\Models\PromoCode;
 
 class PayuController extends Controller
 {
@@ -76,6 +77,7 @@ class PayuController extends Controller
 
         ];
 
+
         $designation = strtoupper(preg_replace('/\s+/', ' ', trim($joinUsData['designation'] ?? '')));
 
         if (!array_key_exists($designation, $designationAmounts)) {
@@ -84,35 +86,29 @@ class PayuController extends Controller
 
         $amount = $designationAmounts[$designation];
         $discountAmount = 0;
-        $promoCodeInput = $joinUsData['promo_code']; 
-        
+
+        $promoCodeInput = $joinUsData['promo_code'] ?? null;
+
         if (!empty($promoCodeInput)) {
-            $promo = \App\Models\PromoCode::where('code', $promoCodeInput)
+            $promo = PromoCode::where('code', $promoCodeInput)
                 ->where('is_active', true)
-                ->where(function ($query) {
-                    $query->whereNull('expires_at')
-                        ->orWhere('expires_at', '>=', now());
-                })->first();
-                // return   $promo;
+                ->first();
 
             if ($promo) {
-                if ($promo->type === 'flat') {
-                    $discountAmount = $promo->discount;
-                } elseif ($promo->type === 'percent') {
-                    $discountAmount = ($promo->discount / 100) * $amount;
+                $isExpired = $promo->expires_at && $promo->expires_at < now();
+
+                if ($isExpired) {
+                    return redirect()->route('JoinUs')->with('error', 'Promo code is expired.');
                 }
 
-                // Save promo info to record (optional)
-                $joinUsData->promo_code = $promoCodeInput;
-                $joinUsData->save();
-            } else {
-                // Don't return error, just ignore invalid promo and proceed
-                // return redirect()->route('JoinUs')->with('error', 'Invalid or expired promo code.');
+                if ($promo->type && $promo->discount) {
+                    $discountAmount = $promo->type === 'flat'
+                        ? $promo->discount
+                        : ($promo->type === 'percent' ? ($promo->discount / 100) * $amount : 0);
+                }
             }
         }
-
         $amountAfterDiscount = max(1, $amount - $discountAmount);
-
         $posted = [
             'key' => $MERCHANT_KEY,
             'txnid' => $txnid,
@@ -123,6 +119,7 @@ class PayuController extends Controller
             'surl' => $successURL,
             'furl' => $failURL,
         ];
+
 
         $hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
         $hash_string = '';
@@ -198,12 +195,11 @@ class PayuController extends Controller
     public function payUCancel(Request $request)
     {
         $txnid = $request->txnid;
-    
+
         if ($txnid) {
             JoinUs::where('txnid', $txnid)->delete();
         }
-    
+
         return redirect()->route('JoinUs')->with('error', 'Payment cancelled. Please try again.');
     }
-    
 }

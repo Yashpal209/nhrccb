@@ -69,7 +69,7 @@
                                 <li><a href="{{ route('rules_regulations') }}">Act/Rules</a></li>
                                 <li><a href="{{ route('govt_recognition') }}">Recognitions</a></li>
                                 <li><a href="{{ route('collaboration') }}">Collaboration</a></li>
-                                <li><a href="{{ route('NationalProfile') }}">National President Profile</a></li>
+                                <li><a href="{{ route('PresidentProfile') }}">National President Profile</a></li>
                                 <li><a href="{{ route('PresidentMessage') }}">National President Message</a></li>
                                 <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
                             </ul>
@@ -284,7 +284,7 @@
                                                                 <a type="button" class="dropdown-toggle "
                                                                     data-toggle="dropdown">National President</a>
                                                                 <div class="dropdown-menu ">
-                                                                    <a class="dropdown-item "href="{{ route('NationalProfile') }}"> Profile</a>
+                                                                    <a class="dropdown-item "href="{{ route('PresidentProfile') }}"> Profile</a>
                                                                     <a class="dropdown-item "href="{{ route('PresidentMessage') }}">Message</a>
                                                                 </div>
                                                             </div>
@@ -294,10 +294,10 @@
                                                                 <a type="button" class="dropdown-toggle "
                                                                     data-toggle="dropdown">Who's Who</a>
                                                                 <div class="dropdown-menu ">
-                                                                    <a class="dropdown-item "href=""> National Patron / Advisor </a>
-                                                                    <a class="dropdown-item "href="">National Executive</a>
-                                                                    <a class="dropdown-item "href="">State President</a>
-                                                                    <a class="dropdown-item "href="">Oficials</a>
+                                                                    <a class="dropdown-item "href="{{route('NationalPatronAdvisor')}}"> National Patron / Advisor </a>
+                                                                    <a class="dropdown-item "href="{{route('NationalExecutive')}}">National Executive</a>
+                                                                    <a class="dropdown-item "href="{{route('StatePresident')}}">State President</a>
+                                                                    <a class="dropdown-item "href="{{route('Officials')}}">Officials</a>
                                                                 </div>
                                                             </div>
                                                         </li>

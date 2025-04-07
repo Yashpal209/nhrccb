@@ -64,7 +64,7 @@
                                     <td>
                                         @if ($list->payment == 'pending')
                                         <span class="label label-warning">Pending</span>
-                                    @elseif($list->payment =='sucess')
+                                    @elseif($list->payment =='success')
                                         <span class="label label-success">Sucess</span>
                                     @elseif($list->payment == 'failed')
                                         <span class="label label-danger">Failed</span>

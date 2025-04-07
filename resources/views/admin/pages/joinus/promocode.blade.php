@@ -64,8 +64,8 @@
                         <h4>Promo Code List</h4>
                     </div>
 
-                    <div class="tab-inn">
-                        <table class="table table-striped">
+                    <div style="padding:7px">
+                        <table class="table  table-desi">
                             <thead>
                                 <tr>
                                     <th>Code</th>
@@ -73,6 +73,7 @@
                                     <th>Discount</th>
                                     <th>Expiry</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,6 +102,13 @@
                                             @else
                                                 <span class="label label-danger">Inactive</span>
                                             @endif
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('promo-codes.destroy', $promo->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this promo code?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty

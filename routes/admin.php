@@ -103,6 +103,8 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     // Joining Application
     Route::get('/Promo-code', [JoiningController::class, 'viewPromocode'])->name('viewPromocode');
     Route::post('/promo-codes', [JoiningController::class, 'addPromocode'])->name('addPromocode');
+    Route::delete('/promo-codes/{id}', [JoiningController::class, 'destroy'])->name('promo-codes.destroy');
+
     
 
     Route::get('/joining-application', [JoiningController::class, 'viewJoinApplication'])->name('viewJoinApplication');

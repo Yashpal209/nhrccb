@@ -7,6 +7,7 @@ use App\Models\Admin\WebManage\Banner;
 use App\Models\Admin\WebManage\President;
 use App\Models\Admin\WebManage\Whoswho;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class WebManageController extends Controller
 {
@@ -41,7 +42,7 @@ class WebManageController extends Controller
 
     public function viewBanner()
     {
-        $banners = Banner::paginate(10);
+        $banners = Banner::orderby('created_at', 'desc')->paginate(10);
         return view('admin.pages.webmanage.viewBanner', compact('banners'));
     }
 
@@ -60,8 +61,8 @@ class WebManageController extends Controller
             $ext = $file->getClientOriginalExtension();
             $name = uniqid() . "." . $ext;
             $destinationPath = 'uploads/banner/';
-            if (file_exists(public_path($banner->image))) {
-                unlink(public_path($banner->image));
+            if (file_exists($banner->image)) {
+                unlink($banner->image);
             }
             $file->move($destinationPath, $name);
             $banner->image = $destinationPath . $name;
@@ -74,12 +75,16 @@ class WebManageController extends Controller
 
     public function deleteBanner($id)
     {
-        $banners = Banner::find($id);
-        $banners->delete();
-        if ($banners) {
-            return redirect()->route('viewBanner')->with('alert', 'Application Deleted successfully!');
+        $banner = Banner::find($id);
+        if ($banner) {
+            $imagePath = $banner->image;
+            if (File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+            $banner->delete();
+            return redirect()->route('viewBanner')->with('alert', 'Banner deleted successfully!');
         } else {
-            return redirect()->back()->with('error', 'Permission denied.');
+            return redirect()->back()->with('error', 'Banner not found or permission denied.');
         }
     }
 
@@ -100,15 +105,15 @@ class WebManageController extends Controller
         $President->text = $request->input('text');
 
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $name = uniqid() . "." . $ext;
-            $destinationPath = 'uploads/president/';
-            $file->move($destinationPath, $name);
-            $President->image = $destinationPath . $name;
-            $President->save();
-        }
+        // if ($request->hasFile('image')) {
+        //     $file = $request->file('image');
+        //     $ext = $file->getClientOriginalExtension();
+        //     $name = uniqid() . "." . $ext;
+        //     $destinationPath = 'uploads/president/';
+        //     $file->move($destinationPath, $name);
+        //     $President->image = $destinationPath . $name;
+        //     $President->save();
+        // }
         $request = $President->save();
         if ($request) {
             return redirect()->route('viewPresident')->with('alert', 'President Added successfully!');
@@ -133,7 +138,8 @@ class WebManageController extends Controller
         }
     }
 
-    public function addWhosWho(){
+    public function addWhosWho()
+    {
         return view('admin.pages.webmanage.whoswho');
     }
 
@@ -170,5 +176,4 @@ class WebManageController extends Controller
         $whoswho = Whoswho::paginate(10);
         return view('admin.pages.webmanage.viewWhoswho', compact('whoswho'));
     }
-
 }

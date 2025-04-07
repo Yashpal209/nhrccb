@@ -11,6 +11,5 @@ class President extends Model
     protected $fillable = [
         'type',
         'text',
-        'image',
     ];
 }

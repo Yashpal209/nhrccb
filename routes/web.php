@@ -59,11 +59,12 @@ Route::get('convocation-report', [PublicationController::class, 'convo_report'])
 Route::get('book', [PublicationController::class, 'book'])->name('book');
 
 // Administration
-Route::get('president_message', [PageController::class, 'PresidentMessage'])->name('PresidentMessage');
-Route::get('national_patron', [PageController::class, 'NationalPatron'])->name('NationalPatron');
-Route::get('national_Profile', [PageController::class, 'NationalProfile'])->name('NationalProfile');
-Route::get('national_advisor', [PageController::class, 'NationalAdvisor'])->name('NationalAdvisor');
-Route::get('office_staff', [PageController::class, 'OfficeStaff'])->name('OfficeStaff');
+Route::get('president-message', [PageController::class, 'PresidentMessage'])->name('PresidentMessage');
+Route::get('president-Profile', [PageController::class, 'PresidentProfile'])->name('PresidentProfile');
+Route::get('national-patron-advisor', [PageController::class, 'NationalPatronAdvisor'])->name('NationalPatronAdvisor');
+Route::get('national-executive', [PageController::class, 'NationalExecutive'])->name('NationalExecutive');
+Route::get('state-president', [PageController::class, 'StatePresident'])->name('StatePresident');
+Route::get('officials', [PageController::class, 'Officials'])->name('Officials');
 
 // Gallery
 Route::get('govt-letters', [GalleryController::class, 'GovtLetter'])->name('GovtLetter');

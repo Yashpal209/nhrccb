@@ -13,5 +13,4 @@ class PromoCode extends Model
         'code', 'type', 'discount', 'is_active', 'expires_at',
     ];
 
-    protected $dates = ['expires_at'];
 }

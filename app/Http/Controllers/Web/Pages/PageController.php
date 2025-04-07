@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Web\Pages;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Administration\NationalAdvisor;
 use App\Models\Admin\Administration\NationalPatron;
-use App\Models\Admin\Administration\NationalProfile;
 use App\Models\Admin\Administration\OfficeStaff;
 use App\Models\Admin\Notification\LatestUpdate;
 use App\Models\Admin\Notification;
 use App\Models\Admin\Notification\WhatsNew;
+use App\Models\Admin\WebManage\President;
 use App\Models\Web\Pages\JoinUs;
 use App\Models\Admin\OurAwardee;
 use App\Models\Admin\publication;
@@ -95,15 +95,15 @@ class PageController extends Controller
     {
         // return $request;
         $request->validate([
-            'identifier' => 'required', 
+            'identifier' => 'required',
         ]);
 
         $identifier = $request->input('identifier');
 
         // Search by either membership number or mobile number
         $user = JoinUs::where('reg_no', $identifier)
-                      ->orWhere('mobile', $identifier)
-                      ->first();
+            ->orWhere('mobile', $identifier)
+            ->first();
         // return $user;
         if ($user) {
             return back()->with('success', 'User found')->with('user', $user);
@@ -119,28 +119,38 @@ class PageController extends Controller
     }
     public function PresidentMessage()
     {
-        return view('web.pages.administration.PresidentMessage');
+        $presidentMessages = President::where('type', 'message')->orderBy('created_at', 'asc')->get();
+        $title = "Message";
+        return view('web.pages.administration.PresidentMessage', compact('presidentMessages', 'title'));
     }
-    public function NationalPatron()
+    public function PresidentProfile()
+    {
+        $presidentMessages = President::where('type', 'profile')->orderBy('created_at', 'asc')->get();
+        $title = "Profile";
+        return view('web.pages.administration.PresidentMessage', compact('presidentMessages', 'title'));
+    }
+    public function NationalPatronAdvisor()
     {
         $nationalpatrons = NationalPatron::orderby('order_no', 'asc')->get();
         $data = compact('nationalpatrons');
         return view('web.pages.administration.NationalPatron')->with($data);
     }
-    public function NationalProfile()
+    public function StatePresident()
     {
-        $profile = NationalProfile::orderby('id', 'asc')->first(); 
-        return view('web.pages.about_us.NationalProfile', compact('profile'));
+        $nationalpatrons = NationalPatron::orderby('order_no', 'asc')->get();
+        $data = compact('nationalpatrons');
+        return view('web.pages.administration.NationalPatron')->with($data);
     }
 
 
-    public function NationalAdvisor()
+
+    public function NationalExecutive()
     {
         $nationaladvisor = NationalAdvisor::orderby('order_no', 'asc')->get();
         $data = compact('nationaladvisor');
         return view('web.pages.administration.NationalAdvisor')->with($data);
     }
-    public function OfficeStaff()
+    public function Officials()
     {
         $officestaff = OfficeStaff::orderby('order_no', 'asc')->get();
         $data = compact('officestaff');

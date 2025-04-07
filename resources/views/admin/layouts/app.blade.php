@@ -59,6 +59,7 @@
     <script src="{{asset('public/admin/assets/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/admin/assets/js/materialize.min.js')}}"></script>
     <script src="{{asset('public/admin/assets/js/custom.js')}}"></script>
+    
     @yield('page.js')
 </body>
 

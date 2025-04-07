@@ -36,7 +36,7 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>SL NO</th>
                                     <th>Title</th>
                                     <th>Link</th>
                                     <th>Date</th>
@@ -45,16 +45,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $no = 1; @endphp
                                 @foreach($banners as $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $no++ }}</td>
                                     <td>{{ $item->title }}</td>
                                     <td>{{ $item->link }}</td>
                                     <td>{{ $item->created_at->format('Y-m-d') }}</td> 
                                     <td>
-                                        <a href="{{ asset($item->image) }}" target="_blank">
-                                            <span class="label label-success">View</span>
-                                        </a> 
+                                       <img src="{{ asset($item->image) }}" alt="Banner Image" width="400">
                                     </td>
                                     <td>
                                         <a href="{{ route('banner.delete', $item->id) }}" class="ad-st-view" onclick="return confirm('Are you sure?')">Delete</a>
@@ -65,7 +64,10 @@
                             </tbody>
                         </table>
                         <div class="container">
-                            {{ $banners->links() }}
+                            <div class="pagination">
+                                {{ $banners->links() }}
+
+                            </div>
                         </div>
                     </div>
                 </div>

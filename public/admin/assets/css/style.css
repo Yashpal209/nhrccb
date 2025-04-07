@@ -84,7 +84,7 @@ td,
 th,
 label {
     font-size: 15px;
-    color: #636363;
+    color: #1c2020;
     font-weight: 400;
     line-height: 24px;
 }
@@ -4996,7 +4996,7 @@ textarea {
 /*-------------------------------------------------------*/
 
 .tab-inn {
-    padding: 7px;
+    padding: 20px;
 }
 .tab-posi {
     position: relative;
@@ -5297,9 +5297,9 @@ textarea {
     margin-bottom: 8px;
 }
 .admin-form form textarea {
-    border: 1px solid #e2e2e2;
+    border:1px solid #0a4c97;
     height: 100px;
-    border-radius: 2px;
+    border-radius: 10px;
     font-size: 14px;
     padding-left: 16px;
     box-sizing: border-box;

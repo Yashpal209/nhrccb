@@ -40,7 +40,6 @@
                                     <th>Type</th>
                                     <th>Text</th>
                                     <th>Date</th>
-                                    <th>View</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -51,11 +50,6 @@
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->text }}</td>
                                     <td>{{ $item->created_at->format('Y-m-d') }}</td> 
-                                    <td>
-                                        <a href="{{ asset($item->image) }}" target="_blank">
-                                            <span class="label label-success">View</span>
-                                        </a> 
-                                    </td>
                                     <td>
                                         <a href="{{ route('president.delete', $item->id) }}" class="ad-st-view" onclick="return confirm('Are you sure?')">Delete</a>
                                     </td>

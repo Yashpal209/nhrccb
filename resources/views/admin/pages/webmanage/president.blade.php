@@ -43,12 +43,12 @@
                                </select>
                             </div>
                             <div class="input-field col s6">
-                                <input type="text" name="text" class="validate" >
-                                <label class="">Mesasge</label>
+                                <textarea name="text" class="materialize-textarea validate"></textarea>
+                                <label>Message</label>
                             </div>
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="file-field input-field col s6">
                                 <div class="btn admin-upload-btn">
                                     <span>Upload Image</span>
@@ -58,7 +58,7 @@
                                     <input class="file-path validate" type="text" placeholder="Upload president Image">
                                 </div> 
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row">
                             <div class="input-field col s12">

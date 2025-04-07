@@ -20,7 +20,7 @@ class JoinUsController extends Controller
     public function postJoinUsForm(Request $request)
     {
         // Validation Rules
-        // $validatatedata = $request->all();
+        // return  $request;
         $validatedData = $request->validate([
             'state' => 'required|string|max:255',
             'division' => 'required|string|max:255',
@@ -47,7 +47,7 @@ class JoinUsController extends Controller
             'member_social_org' => 'required|string|in:yes,no',
             'court_cases' => 'required|string',
             'recommended_by' => 'required|string',
-    
+            'promo_code' => 'nullable|string|max:255',
             'passport_image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'adhar_front_img' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             'adhar_back_img' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
@@ -72,10 +72,9 @@ class JoinUsController extends Controller
 
         $validatedData['txnid'] = $txnid;
         $validatedData['payment'] = 'pending';
+        // return $validatedData;
         JoinUs::create($validatedData);
 
-
-        // Redirect to PayU Payment Page
         return redirect()->route('payu.view', ['txnid' => $txnid]);
     }
 

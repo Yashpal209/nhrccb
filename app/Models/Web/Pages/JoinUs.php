@@ -19,7 +19,7 @@ class JoinUs extends Model
         'member_of_any_pol_party', 'member_social_org', 'court_cases', 
         'recommended_by', 'address', 'passport_image', 'adhar_front_img', 
         'adhar_back_img', 'pan_card_img', 'other_doc_img', 'status',
-        'txnid','payment'
+        'txnid','payment','promo_code'
 
     ];
 }
