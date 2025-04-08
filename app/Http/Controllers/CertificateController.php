@@ -14,6 +14,7 @@ class CertificateController extends Controller
     {
         $user = JoinUs::findOrFail($id);
         $specialLevels = ['NATIONAL TEAM', 'STATE TEAM', 'DISTRICT TEAM', 'DIVISION TEAM', 'BLOCK TEAM'];
+        
         if ($user->level === 'ACTIVE MEMBER') {
             $background = public_path('admin/assets/images/print/Certificate1.jpg');
             $designation = 'Active Member';
@@ -27,18 +28,34 @@ class CertificateController extends Controller
             $background = public_path('admin/assets/images/print/Certificate2.jpg');
             $designation = strtoupper($user->designation);
             $division = strtoupper($user->division);
-
+            $state = strtoupper($user->state);
+            $district = strtoupper($user->district);
+            $block = strtoupper($user->block);
+        
             $validity = '1 year';
-
-            // HTML content for Special Team Levels
+        
+            if ($user->level === 'STATE TEAM') {
+                $designationText = "$designation / $state";
+            } elseif ($user->level === 'BLOCK TEAM') {
+                $designationText = "$designation / $block";
+            } else if ($user->level === 'DIVISION TEAM') {
+                $designationText = "$designation / $division";
+            } elseif ($user->level === 'DISTRICT TEAM') {
+                $designationText = "$designation / $district";
+            } else {
+                $designationText = "$designation ";
+            }
+        
             $html = "
-                <div style='text-align: justify; font-size: 15pt;'>has been approved as <strong style='font-size:16pt'>$designation / $division</strong> of the National Human Rights and Crime Control Bureau, Who will be working with the team for the protection and promotion of Human Rights,
+                <div style='text-align: justify; font-size: 15pt;'>has been approved as <strong style='font-size:16pt'>$designationText</strong> of the National Human Rights and Crime Control Bureau, Who will be working with the team for the protection and promotion of Human Rights,
                     Crime Prevention activities with the support of government administration.
                 </div>
             ";
         } else {
-            return redirect()->back()->with('error', 'This  Letter Not For This User Level.');
+            return redirect()->back()->with('error', 'This Letter Not For This User Level.');
         }
+        
+        
         ob_end_clean();
         $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
         $pdf->SetTitle($user->name);
@@ -162,7 +179,7 @@ class CertificateController extends Controller
         $pdf->SetFont('helvetica', 'B', 12);
         $pdf->SetXY(15, 90);
         $pdf->MultiCell(190, 0, strtoupper($user->name) . ",\n", 0, 'L', false);
-
+        
         // HTML Content for the Body (Justified)
         $html = '<div style="text-align: justify; font-size: 11px;">
             <p>Appraising your dedicated efforts for social welfare and human rights,

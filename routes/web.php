@@ -185,6 +185,7 @@ Route::get('complain-dashboard', [ComplainController::class, 'ComplainDashboard'
 
 // Contact Us
 Route::get('contact_us', [PageController::class, 'ContactUs'])->name('ContactUs');
+Route::get('office_directory', [PageController::class, 'officeDirectory'])->name('officeDirectory');
 Route::get('donation', [PageController::class, 'donation'])->name('donation');
 
 // internship Services

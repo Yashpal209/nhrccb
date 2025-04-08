@@ -31,7 +31,7 @@
                         <div class="cor-side-com">
                             <div class="ho-ev-latest ho-ev-latest-bg-3">
                                 <div class="ho-lat-ev">
-                                    <h4 class="text-center">Active Membership</h4>
+                                    <h4 class="text-center">Active Member</h4>
                                 </div>
                             </div>
                             <div class="ho-st-login">

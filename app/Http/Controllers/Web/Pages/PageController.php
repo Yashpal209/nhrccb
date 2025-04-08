@@ -180,7 +180,13 @@ class PageController extends Controller
 
     public function ContactUs()
     {
-        return view('web.pages.contactUs.contactUs');
+        $statepresident =  DB::table('state_president')->OrderBy('order_no', 'desc')->get();
+        $data = compact('statepresident');
+        return view('web.pages.contactUs.contactUs')->with($data)->with('no', '1');
+    }
+    public function officeDirectory()
+    {
+        return view('web.pages.contactUs.directory');
     }
     public function donation()
     {

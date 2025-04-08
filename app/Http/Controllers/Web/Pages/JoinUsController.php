@@ -32,7 +32,7 @@ class JoinUsController extends Controller
             'name' => 'required|string|max:255',
             'fathersName' => 'required|string|max:255',
             'gender' => 'required|string|max:50',
-            'dob' => 'required|date',
+            'dob' => 'required|date|date_format:d/m/Y',
             'blood_group' => 'required|string|max:11',
             'address' => 'required|string|max:500',
             'mobile' => 'required|digits:10',
@@ -54,12 +54,12 @@ class JoinUsController extends Controller
             'pan_card_img' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
             'other_doc_img' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
-
-        if (JoinUs::where('mobile', $request->mobile)->exists()) {
+        if (JoinUs::where('mobile', $request->mobile)->where('level', $request->level)->exists()) {
             return redirect()->back()
-                ->withErrors(['mobile' => 'This mobile number is already registered.'])
+                ->withErrors(['mobile' => 'This mobile number is already registered for this role.'])
                 ->with('alert', 'There was an error in your submission. Please check the form.');
         }
+        
         $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
 
         // return $txnid;

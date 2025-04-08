@@ -280,7 +280,7 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Date of Birth:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="date" name="dob" id="dob"
+                                                            <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY"
                                                                 value="{{ old('dob') }}" class="form-control"
                                                                 required>
                                                             @error('dob')

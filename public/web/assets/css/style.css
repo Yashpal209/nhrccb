@@ -616,8 +616,9 @@ label {
     text-transform: uppercase;
 }
 .wed-hom-footer p {
-    font-size: 17px;
+    font-size: 14px;
     color: #fdfbff;
+    line-height: 20px;
 }
 .wed-hom-footer p a {
     font-size: 17px;
