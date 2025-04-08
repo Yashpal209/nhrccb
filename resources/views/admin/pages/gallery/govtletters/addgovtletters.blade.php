@@ -45,14 +45,13 @@
                         @csrf
                         <div class="row">
                             <div class="input-field col s6">
-                                <input type="text" name="title" class="validate">
+                                <input type="text" name="title" class="validate" required>
                                 <label class="">Title</label>
                             </div>
                             <div class="file-field input-field col s6">
                                 <div class="btn admin-upload-btn">
                                     <span>File</span>
-                                    <!-- Add the name="noticefile" to the input type="file" -->
-                                    <input type="file" name="gvt_ltr_img">
+                                    <input type="file" name="gvt_ltr_img" required>
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Upload Govt. Letters Image" accept="image/png, image/jpeg, image/jpg, image/webp">

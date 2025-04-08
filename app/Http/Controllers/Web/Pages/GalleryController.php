@@ -26,7 +26,7 @@ class GalleryController extends Controller
     }
     public function GovtLetter()
     {
-        $govtletters = GovtLetter::OrderBy('created_at', 'desc')->paginate(12);
+        $govtletters = GovtLetter::OrderBy('created_at', 'desc')->get();
         $acntknbydpts = ActionTknByDept::OrderBy('created_at', 'desc')->get();
         $data = [
             'govtletters' => $govtletters,

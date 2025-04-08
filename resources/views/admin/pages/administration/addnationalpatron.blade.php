@@ -2,89 +2,90 @@
 
 @section('main-content')
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-@if (session('alert'))
-<div class="alert alert-success">
-    {{ session('alert') }}
-</div>
-@endif
+    @if (session('alert'))
+        <div class="alert alert-success">
+            {{ session('alert') }}
+        </div>
+    @endif
 
-@if (session('error'))
-<div class="alert alert-danger">
-    {{ session('error') }}
-</div>
-@endif
-<!--== User Details ==-->
-<div class="sb2-2-3">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box-inn-sp admin-form">
-                <div class="inn-title">
-                    <div class="row justify-content-between">
-                        <div class="col-md-6">
-                            <h4>Add National Patron</h4>
-                        </div>
-                        <div class="col-md-6 text-right">
-                           <a href="{{route('viewNationalPatron')}}"><div class="btn">
-                                View National Patron
-                            </div></a> 
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <div class="row justify-content-between">
+                            <div class="col-md-6">
+                                <h4>Add National Patron / Advisor</h4>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a href="{{ route('viewNationalPatron') }}">
+                                    <div class="btn">
+                                        View National Patron
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab-inn">
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input type="text" name="name" class="validate" required>
-                                <label class="">Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input type="text" name="designation" class="validate" required>
-                                <label class="">Designation</label>
+                    <div class="tab-inn">
+                        <form action="{{ route('addNationalPatronPost') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input type="text" name="name" class="validate" required>
+                                    <label class="">Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input type="text" name="designation" class="validate" required>
+                                    <label class="">Designation</label>
+                                </div>
                             </div>
 
-                        </div>
-
-                        <div class="row">
-                        
-                        <div class="input-field col s6">
-                                <input type="number" name="order_no" class="validate" required>
-                                <label class="">Order No</label>
-                            </div>
-                           
-                            <div class="file-field col s6">
-                                <div class="btn admin-upload-btn">
-                                    <span>File</span>
-                                    <!-- Add the name="noticefile" to the input type="file" -->
-                                    <input type="file" name="patron_image">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <select name="type" id="">
+                                        <option value="" disabled selected>--Select--</option>
+                                        <option value="National Patron">National Patron</option>
+                                        <option value="National Legal Advisor">National Legal Advisor</option>
+                                    </select>
                                 </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Upload National Patron Image" accept=".jpg, .png, .jpeg|image/*">
+                                <div class="file-field col s6">
+                                    <div class="btn admin-upload-btn">
+                                        <span>File</span>
+                                        <input type="file" name="image">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text"
+                                            placeholder="Upload National Patron Image" accept=".jpg, .png, .jpeg|image/*">
+                                    </div>
+                                    <p class="text-danger">(Note : Image Dimension must be 350*350)</p>
                                 </div>
-                                <p class="text-danger">(Note : Image Dimension must be 350*350)</p>
-                                
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input"></i>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 @endsection

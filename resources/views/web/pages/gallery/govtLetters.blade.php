@@ -39,9 +39,9 @@
                         </ul>
 
                         <!-- Pagination -->
-                        <div class="d-flex justify-content-center mt-4">
+                        {{-- <div class="d-flex justify-content-center mt-4">
                             {{ $govtletters->links() }}
-                        </div>
+                        </div> --}}
                     @else
                         <div class="text-center w-100 py-5">
                             <h4>No data available for Government Letters.</h4>

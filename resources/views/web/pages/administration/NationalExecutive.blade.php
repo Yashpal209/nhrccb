@@ -14,7 +14,7 @@
     <div class="head-2">
         <div class="container">
             <div class="head-2-inn">
-                <h1 class="fs-1">National Advisor</h1>
+                <h1 class="fs-1">National Executive</h1>
             </div>
         </div>
     </div>
@@ -22,21 +22,16 @@
 <!--SECTION START-->
 <section>
     <div class="container-fluid">
-
         <div class="container com-sp ">
-
             <div class="row">
-            @foreach($nationaladvisor as $nationaladvisor)
+            @foreach($nationalexecutive as $list)
                 <div class="col-md-6">
                     <div>
-                        <!--POPULAR COURSES-->
                         <div class="home-top-cour">
-                            <!--POPULAR COURSES IMAGE-->
-                            <div class="col-md-3"> <img src="{{$nationaladvisor->advisor_image}}" alt=""> </div>
-                            <!--POPULAR COURSES: CONTENT-->
+                            <div class="col-md-3"> <img src="{{$list->image}}" alt=""> </div>
                             <div class="col-md-9 home-top-cour-desc">
-                                <h3>{{$nationaladvisor->name}}</h3>
-                                <h4>{{$nationaladvisor->designation}}</h4>
+                                <h3>{{$list->name}}</h3>
+                                <h4>{{$list->designation}}</h4>
                             </div>
                         </div>
 

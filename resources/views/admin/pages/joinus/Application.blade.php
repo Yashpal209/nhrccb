@@ -72,46 +72,36 @@
                                         <td>
                                             {{-- certificate --}}
                                             @if ($list->certificate)
-                                                <a href="{{ asset('public/' . $list->certificate) }}" target="_blank"
-                                                    class="btn btn-primary">
-                                                    View ID Card
+                                                <a href="{{ asset('public/' . $list->certificate) }}" target="_blank" class="btn btn-primary">
+                                                    View Certificate
                                                 </a>
                                             @else
-                                                <a href="{{ route('generate.certificate', $list->id) }}" target="_blank"
-                                                    class="btn btn-primary">
+                                                <a href="{{ route('generate.certificate', $list->id) }}" target="_blank" class="btn btn-primary">
                                                     Generate_Certificate
                                                 </a>
                                             @endif
 
                                             @if ($list->letter)
-                                                <a href="{{ asset('public/' .$list->letter) }}" target="_blank"
-                                                    class="btn btn-primary">
-                                                    View ID Card
+                                                <a href="{{ asset('public/' .$list->letter) }}" target="_blank" class="btn btn-primary">
+                                                    View Letter
                                                 </a>
                                             @else
-                                                <a href="{{ route('generate.letter', $list->id) }}" target="_blank"
-                                                    class="btn btn-primary">
+                                                <a href="{{ route('generate.letter', $list->id) }}" target="_blank" class="btn btn-primary">
                                                     Generate_Letter
                                                 </a>
                                             @endif
-
-
                                             @php
                                                 $idRoute =
-                                                    $list->level == 'ACTIVE MEMBERSHIP' || $list->level == 'VOLUNTEER'
+                                                    $list->level == 'ACTIVE MEMBER' || $list->level == 'VOLUNTEER'
                                                         ? 'generate.idcard'
                                                         : 'generate.officerIdcard';
                                             @endphp
-
-
                                             @if ($list->id_card)
-                                                <a href="{{ asset('public/' . $list->id_card) }}" target="_blank"
-                                                    class="btn btn-primary">
+                                                <a href="{{ asset('public/' . $list->id_card) }}" target="_blank" class="btn btn-primary">
                                                     View ID Card
                                                 </a>
                                             @else
-                                                <a href="{{ route($idRoute, $list->id) }}" target="_blank"
-                                                    class="btn btn-primary">
+                                                <a href="{{ route($idRoute, $list->id) }}" target="_blank" class="btn btn-primary">
                                                     Generate_ID_Card
                                                 </a>
                                             @endif
@@ -136,6 +126,6 @@
 <script>
     setTimeout(function() {
         location.reload();
-    }, 10000); // 10000 milliseconds = 10 seconds
+    }, 10000);
 </script>
 @endsection

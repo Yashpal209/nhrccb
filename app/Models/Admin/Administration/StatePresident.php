@@ -5,8 +5,7 @@ namespace App\Models\Admin\Administration;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NationalAdvisor extends Model
+class StatePresident extends Model
 {
-    protected $table = 'national_advisors';
-
+    protected $table = 'state_president';
 }

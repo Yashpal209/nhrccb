@@ -1,9 +1,4 @@
 @extends('admin.layouts.app')
-<style>
-    .letter-img img{
-        height:50px
-    }
-</style>
 
 @section('main-content')
 
@@ -27,12 +22,12 @@
                 <div class="inn-title">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                            <h4>List of Govt. Letter</h4>
+                            <h4>List of State President</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{route('addGovtLetter')}}">
+                            <a href="{{route('addStatePresident')}}">
                                 <div class="btn">
-                                    Add Govt. Letter
+                                    Add State President
                                 </div>
                             </a>
                         </div>
@@ -43,22 +38,33 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Sl. No.</th>
+                                    <th>Id</th>
                                     <th>Photo</th>
-                                    <th>Title</th>
-                                    <th>Posted Date</th>
+                                    <th>State</th>
+                                    <th>Name</th>
+                                    <th>Phone No</th>
+                                    <th>Position</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            @foreach($govtletter as $list)
+                            @if($statepresidents->isEmpty())
+                            <tr>
+                                <td colspan="5" class="text-center">No data found</td>
+                            </tr>
+                            @else
+                            @foreach($statepresidents as $list)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td><span class="letter-img"><img src="{{url('/').'/'. $list->gvt_ltr_img}}" alt=""></span></td>
-                                <td>{{$list->title}}</td>
-                                <td>{{$list->created_at}}</td>
-                                <td><a href="{{route('delete.GovtLetter',$list->id)}}" class="ad-st-view">Delete</a></td>
+                                <td><span class="list-img"><img src="{{url('/').'/'. $list->image}}" alt=""></span></td>
+                                <td>{{$list->state}}</td>
+                                <td>{{$list->name}}</td>
+                                <td>{{$list->mobile}}</td>
+                                <td>{{$list->designation}}</td>
+                                <td><a href="{{route('delete.StatePresident', $list->id)}}" class="ad-st-view">Delete</a></td>
                             </tr>
                             @endforeach
+                            @endif
+                            
                         </table>
                     </div>
                 </div>

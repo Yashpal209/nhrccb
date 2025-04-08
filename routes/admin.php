@@ -8,8 +8,9 @@ use App\Http\Controllers\Admin\Activities\AwardsController;
 use App\Http\Controllers\Admin\Activities\SocialWorkController;
 use App\Http\Controllers\Admin\Activities\StandwithNationController;
 use App\Http\Controllers\Admin\Activities\WorkshopController;
-use App\Http\Controllers\Admin\Administration\NationalAdvisorController;
+use App\Http\Controllers\Admin\Administration\StatePresidentController;
 use App\Http\Controllers\Admin\Administration\NationalPatronController;
+use App\Http\Controllers\Admin\Administration\NationalExecutiveController;
 use App\Http\Controllers\Admin\Administration\OfficestaffController;
 use App\Http\Controllers\Admin\CellUnit\AntHumanTrfController;
 use App\Http\Controllers\Admin\CellUnit\AntiCorruptionController;
@@ -92,12 +93,6 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     Route::post('addpresidentPost', [WebManageController::class, 'addpresidentPost'])->name('addpresidentPost');
     Route::get('viewPresident', [WebManageController::class, 'viewPresident'])->name('viewPresident');
     Route::get('president/delete/{id}', [WebManageController::class, 'deletepresident'])->name('president.delete');
-
-    // whos who 
-    Route::get('addWhosWho', [WebManageController::class, 'addWhosWho'])->name('addWhosWho');
-    Route::post('postWhosWho', [WebManageController::class, 'postWhosWho'])->name('postWhosWho');
-    Route::get('viewWhosWho', [WebManageController::class, 'viewWhosWho'])->name('viewWhosWho');
-    Route::get('WhosWho/delete/{id}', [WebManageController::class, 'deleteWhosWho'])->name('delete.WhosWho');
 
 
     // Joining Application
@@ -192,16 +187,22 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     //Administration //
 
     //    National Patron
-    Route::get('add-national-patron', [NationalPatronController::class, 'addNationalPatron'])->name('addNationalPatron');
+    Route::get('add-national-patron-advisor', [NationalPatronController::class, 'addNationalPatron'])->name('addNationalPatron');
     Route::post('add-national-patron', [NationalPatronController::class, 'addNationalPatronPost'])->name('addNationalPatronPost');
     Route::get('view-national-patron', [NationalPatronController::class, 'viewNationalPatron'])->name('viewNationalPatron');
     Route::get('national-patron/delete/{id}', [NationalPatronController::class, 'deleteNationalPatron'])->name('delete.NationalPatron');
 
-    //    National Advisor
-    Route::get('add-national-advisor', [NationalAdvisorController::class, 'addNationalAdvisor'])->name('addNationalAdvisor');
-    Route::post('post-national-advisor', [NationalAdvisorController::class, 'NationalAdvisorPost'])->name('NationalAdvisorPost');
-    Route::get('view-national-advisor', [NationalAdvisorController::class, 'viewNationalAdvisor'])->name('viewNationalAdvisor');
-    Route::get('national-advisor/delete/{id}', [NationalAdvisorController::class, 'deleteNationalAdvisor'])->name('delete.NationalAdvisor');
+    //    National Executive
+    Route::get('add-national-executive', [NationalExecutiveController::class, 'addNationalExecutive'])->name('addNationalExecutive');
+    Route::post('post-national-executive', [NationalExecutiveController::class, 'NationalExecutivePost'])->name('NationalExecutivePost');
+    Route::get('view-national-executive', [NationalExecutiveController::class, 'viewNationalExecutive'])->name('viewNationalExecutive');
+    Route::get('national-executive/delete/{id}', [NationalExecutiveController::class, 'deleteNationalExecutive'])->name('delete.NationalExecutive');
+
+    // State president 
+    Route::get('add-state-president', [StatePresidentController::class, 'addStatePresident'])->name('addStatePresident');
+    Route::post('post-state-president', [StatePresidentController::class, 'StatePresidentPost'])->name('StatePresidentPost');
+    Route::get('view-state-president', [StatePresidentController::class, 'viewStatePresident'])->name('viewStatePresident');
+    Route::get('state-president/delete/{id}', [StatePresidentController::class, 'deleteStatePresident'])->name('delete.StatePresident');
 
     // Office Staff
     Route::get('add-office-staff', [OfficestaffController::class, 'addOfficestaff'])->name('addOfficestaff');
@@ -223,7 +224,7 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     Route::get('view-govt-letters', [GovtlettersController::class, 'viewGovtLetter'])->name('viewGovtLetter');
     Route::get('govt-letters/delete/{id}', [GovtlettersController::class, 'deleteGovtLetter'])->name('delete.GovtLetter');
 
-    // Route::get('add-actn-taken-by-dept', [GovtlettersController::class,'addActionTaken'])->name('addActionTaken');
+    Route::get('add-actn-taken-by-dept', [GovtlettersController::class,'addActionTaken'])->name('addActionTaken');
     Route::post('post-actn-taken-by-dept', [GovtlettersController::class, 'postActnTknByDep'])->name('postActnTknByDep');
     Route::get('view-actn-taken-by-dep', [GovtlettersController::class, 'viewActnTknByDept'])->name('viewActnTknByDept');
     Route::get('actn-tkn-by-dept/delete/{id}', [GovtlettersController::class, 'deleteActnfile'])->name('actionfile.delete');

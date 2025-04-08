@@ -55,23 +55,23 @@
                                 </a>
                                 <div class="collapsible-body left-sub-menu">
                                     <ul>
-                                        <li><a href="{{ route('addWhosWho') }}"><i class="fa fa-pencil"></i> Add Who's
-                                                Who</a></li>
-                                        <li><a href="{{ route('viewWhosWho') }}"><i class="fa fa-eye"></i> View Who's
-                                                Who</a></li>
-
                                         <li><a href="{{ route('addNationalPatron') }}"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i>Add National Patron</a>
+                                                    aria-hidden="true"></i>Add National Patron / Advisor </a>
                                         </li>
                                         <li><a href="{{ route('viewNationalPatron') }}"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i>View
-                                                National Patron</a>
+                                                    aria-hidden="true"></i>View Patron / Advisor </a>
                                         </li>
-                                        <li><a href="{{ route('addNationalAdvisor') }}"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i>Add National Advisor</a>
+                                        <li><a href="{{ route('addNationalExecutive') }}"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i>Add National Executive</a>
                                         </li>
-                                        <li><a href="{{ route('viewNationalAdvisor') }}"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i>View National Advisor</a>
+                                        <li><a href="{{ route('viewNationalExecutive') }}"><i class="fa fa-eye"
+                                                    aria-hidden="true"></i>View National Executive</a>
+                                        </li>
+                                        <li><a href="{{ route('addStatePresident') }}"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i>Add State President</a>
+                                        </li>
+                                        <li><a href="{{ route('viewStatePresident') }}"><i class="fa fa-eye"
+                                                    aria-hidden="true"></i>View State President</a>
                                         </li>
                                         <li><a href="{{ route('addOfficestaff') }}"><i class="fa fa-pencil"
                                                     aria-hidden="true"></i>Add

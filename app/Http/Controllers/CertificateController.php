@@ -14,12 +14,12 @@ class CertificateController extends Controller
     {
         $user = JoinUs::findOrFail($id);
         $specialLevels = ['NATIONAL TEAM', 'STATE TEAM', 'DISTRICT TEAM', 'DIVISION TEAM', 'BLOCK TEAM'];
-        if ($user->level === 'ACTIVE MEMBERSHIP') {
+        if ($user->level === 'ACTIVE MEMBER') {
             $background = public_path('admin/assets/images/print/Certificate1.jpg');
             $designation = 'Active Member';
             $validity = '3 years';
             $html = "
-                <div style='text-align: justify; font-size: 15pt;'>has been approved as an <strong style='font-size:16pt'>Active Member</strong> of the National Human Rights and Crime Control Burea, Who will be working with the team for the protection and promotion of Human Rights,
+                <div style='text-align: justify; font-size: 15pt;'>has been approved as an <strong style='font-size:16pt'>Active Member</strong> of the National Human Rights and Crime Control Bureau, Who will be working with the team for the protection and promotion of Human Rights,
                     Crime Prevention activities with the support of government administration.
                 </div>
             ";
@@ -404,7 +404,7 @@ class CertificateController extends Controller
         // Retrieve User
         $user = JoinUs::findOrFail($id);
 
-        if ($user->level === 'ACTIVE MEMBERSHIP') {
+        if ($user->level === 'ACTIVE MEMBER') {
             $background = public_path('admin/assets/images/print/2.1 Active Mamber ID Card.jpg');
             $backSide = public_path('admin/assets/images/print/2.2 Active Mamber ID Card (Back).jpg');
             $validityPeriod = '3 Years';

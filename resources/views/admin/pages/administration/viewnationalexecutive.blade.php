@@ -22,12 +22,12 @@
                 <div class="inn-title">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                            <h4>List of National Advisor</h4>
+                            <h4>List of National Executive</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{route('addNationalAdvisor')}}">
+                            <a href="{{route('addNationalExecutive')}}">
                                 <div class="btn">
-                                    Add National Advisor
+                                    Add National Executive
                                 </div>
                             </a>
                         </div>
@@ -45,14 +45,14 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            @foreach($nationaladvisor as $list)
+                            @foreach($nationalexecutive as $list)
                             <tr>
                             <td>{{$no++}}</td>
-                                <td><span class="list-img"><img src="{{url('/').'/'. $list->advisor_image}}" alt=""></span>
+                                <td><span class="list-img"><img src="{{url('/').'/'. $list->image}}" alt=""></span>
                                 </td>
                                 <td>{{$list->name}}</td>
                                 <td>{{$list->designation}}</td>
-                                <td><a href="{{route('delete.NationalAdvisor', $list->id)}}" class="ad-st-view">Delete</a></td>
+                                <td><a href="{{route('delete.NationalExecutive', $list->id)}}" class="ad-st-view">Delete</a></td>
                             </tr>
                             @endforeach
                         </table>

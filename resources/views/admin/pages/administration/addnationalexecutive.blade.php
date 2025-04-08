@@ -31,17 +31,17 @@
                 <div class="inn-title">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                            <h4>Add National Advisor</h4>
+                            <h4>Add National Executive</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                           <a href="{{route('viewNationalAdvisor')}}"><div class="btn">
-                                View National Advisor
+                           <a href="{{route('viewNationalExecutive')}}"><div class="btn">
+                                View National Executive
                             </div></a> 
                         </div>
                     </div>
                 </div>
                 <div class="tab-inn">
-                    <form action="{{route('NationalAdvisorPost')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('NationalExecutivePost')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="input-field col s6">
@@ -64,10 +64,10 @@
                                 <div class="btn admin-upload-btn">
                                     <span>File</span>
                                     <!-- Add the name="noticefile" to the input type="file" -->
-                                    <input type="file" name="advisor_image">
+                                    <input type="file" name="image">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Upload National Advisor Image" accept=".jpg, .png, .jpeg|image/*">
+                                    <input class="file-path validate" type="text" placeholder="Upload National Executive Image" accept=".jpg, .png, .jpeg|image/*">
                                 </div>
                                 <p class="text-danger">(Note : Image Dimension must be 350*350)</p>
                                 

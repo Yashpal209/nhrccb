@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Web\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Administration\NationalAdvisor;
+use App\Models\Admin\Administration\NationalExecutive;
 use App\Models\Admin\Administration\NationalPatron;
 use App\Models\Admin\Administration\OfficeStaff;
 use App\Models\Admin\Notification\LatestUpdate;
@@ -99,8 +99,6 @@ class PageController extends Controller
         ]);
 
         $identifier = $request->input('identifier');
-
-        // Search by either membership number or mobile number
         $user = JoinUs::where('reg_no', $identifier)
             ->orWhere('mobile', $identifier)
             ->first();
@@ -120,49 +118,51 @@ class PageController extends Controller
 
 
     // about us 
-    
 
-public function PresidentProfile()
-{
-    $President = DB::table('presidents')
-        ->where('type', 'profile')
-        ->orderBy('created_at', 'asc')
-        ->get();
 
-    $title = "Profile";
-    return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
-}
+    public function PresidentProfile()
+    {
+        $President = DB::table('presidents')
+            ->where('type', 'profile')
+            ->orderBy('created_at', 'asc')
+            ->get();
 
-public function PresidentMessage()
-{
-    $President = DB::table('presidents')
-        ->where('type', 'message')
-        ->orderBy('created_at', 'asc')
-        ->get();
+        $title = "Profile";
+        return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
+    }
 
-    $title = "Message";
-    return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
-}
+    public function PresidentMessage()
+    {
+        $President = DB::table('presidents')
+            ->where('type', 'message')
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        $title = "Message";
+        return view('web.pages.administration.PresidentMessage', compact('President', 'title'));
+    }
 
     public function NationalPatronAdvisor()
     {
-        $nationalpatrons = NationalPatron::orderby('order_no', 'asc')->get();
-        $data = compact('nationalpatrons');
+        $nationalpatrons = NationalPatron::where('type', 'National Patron')->orderby('created_at', 'asc')->get();
+        $nationaladvisor = NationalPatron::where('type', 'National Legal Advisor')->orderby('created_at', 'asc')->get();
+        $data = compact('nationalpatrons', 'nationaladvisor');
         return view('web.pages.administration.NationalPatron')->with($data);
+    }
+    public function NationalExecutive()
+    {
+        $nationalexecutive = NationalExecutive::orderby('order_no', 'asc')->get();
+        $data = compact('nationalexecutive');
+        return view('web.pages.administration.NationalExecutive')->with($data);
     }
     public function StatePresident()
     {
-        $nationalpatrons = NationalPatron::orderby('order_no', 'asc')->get();
-        $data = compact('nationalpatrons');
-        return view('web.pages.administration.NationalPatron')->with($data);
+        $statepresident =  DB::table('state_president')->orderby('order_no', 'asc')->get();
+        $data = compact('statepresident');
+        return view('web.pages.administration.StatePresident')->with($data);
     }
 
-    public function NationalExecutive()
-    {
-        $nationaladvisor = NationalAdvisor::orderby('order_no', 'asc')->get();
-        $data = compact('nationaladvisor');
-        return view('web.pages.administration.NationalAdvisor')->with($data);
-    }
+    
     public function Officials()
     {
         $officestaff = OfficeStaff::orderby('order_no', 'asc')->get();

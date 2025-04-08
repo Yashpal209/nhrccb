@@ -174,9 +174,9 @@
                                                                 <option value="BLOCK TEAM"
                                                                     {{ old('level') == 'BLOCK TEAM' ? 'selected' : '' }}>
                                                                     BLOCK TEAM</option>
-                                                                <option value="ACTIVE MEMBERSHIP"
-                                                                    {{ old('level') == 'ACTIVE MEMBERSHIP' ? 'selected' : '' }}>
-                                                                    ACTIVE MEMBERSHIP </option>
+                                                                <option value="ACTIVE MEMBER"
+                                                                    {{ old('level') == 'ACTIVE MEMBER' ? 'selected' : '' }}>
+                                                                    ACTIVE MEMBER </option>
                                                                 <option value="VOLUNTEER"
                                                                     {{ old('level') == 'VOLUNTEER' ? 'selected' : '' }}>
                                                                     VOLUNTEER</option>
@@ -916,8 +916,8 @@
                 "BLOCK JOINT SECRETARY", "BLOCK LEGAL ADVISOR", "BLOCK MEDIA OFFICER", "BLOCK PARTON",
                 "BLOCK ADVISOR"
             ],
-            "ACTIVE MEMBERSHIP": [
-                "ACTIVE MEMBERSHIP"
+            "ACTIVE MEMBER": [
+                "ACTIVE MEMBER"
             ],
             "VOLUNTEER": [
                 "VOLUNTEER"

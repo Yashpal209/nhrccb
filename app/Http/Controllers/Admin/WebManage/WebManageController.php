@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin\WebManage;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\WebManage\President;
-use App\Models\Admin\WebManage\Whoswho;
+// use App\Models\Admin\WebManage\President;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
@@ -87,9 +86,7 @@ class WebManageController extends Controller
             if (File::exists($banner->image)) {
                 File::delete($banner->image);
             }
-
             DB::table('banners')->where('id', $id)->delete();
-
             return redirect()->route('viewBanner')->with('alert', 'Banner deleted successfully!');
         } else {
             return redirect()->back()->with('error', 'Banner not found or permission denied.');
@@ -145,42 +142,5 @@ class WebManageController extends Controller
             return redirect()->back()->with('error', 'Permission denied.');
         }
     }
-    public function addWhosWho()
-    {
-        return view('admin.pages.webmanage.whoswho');
-    }
-
-
-    public function postWhosWho(Request $request)
-    {
-        $whoswho = new Whoswho();
-        // return $request;
-        $whoswho->type = $request->input('type');
-        $whoswho->name = $request->input('name');
-        $whoswho->post = $request->input('post');
-        $whoswho->position = $request->input('position');
-
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $name = uniqid() . "." . $ext;
-            $destinationPath = 'uploads/whoswho/';
-            $file->move($destinationPath, $name);
-            $whoswho->image = $destinationPath . $name;
-            $whoswho->save();
-        }
-        $request = $whoswho->save();
-        if ($request) {
-            return redirect()->route('addWhosWho')->with('alert', 'whoswho Added successfully!');
-        } else {
-            return redirect()->back()->with('error', 'Permission denied.');
-        }
-    }
-
-    public function viewWhosWho()
-    {
-        $whoswho = Whoswho::paginate(10);
-        return view('admin.pages.webmanage.viewWhoswho', compact('whoswho'));
-    }
+    
 }
