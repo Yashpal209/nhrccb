@@ -200,5 +200,5 @@ Route::get('donation', [PageController::class, 'donation'])->name('donation');
 Route::get('privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacyPolicy');
 Route::get('term-condition', [PageController::class, 'term'])->name('term');
 
-
+        
 require base_path('routes/admin.php');
