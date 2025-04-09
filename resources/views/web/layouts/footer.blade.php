@@ -28,7 +28,8 @@
                     <p><a href="{{route('souvenier')}}">Souvenir</a></p>
                     <p><a href="{{route('journal')}}">Journal</a></p>
                     <p><a href="join_us">Join Us</a></p>
-                    <p><a href="#">Privacy Policy</a></p>
+                    <p><a href="{{route('term')}}">Term & Condition</a></p>
+                    <p><a href="{{route('privacyPolicy')}}">Privacy Policy</a></p>
                 </div>
                
             </div>

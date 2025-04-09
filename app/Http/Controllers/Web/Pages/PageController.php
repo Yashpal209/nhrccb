@@ -193,6 +193,14 @@ class PageController extends Controller
     {
         return view('web.pages.contactUs.helpline');
     }
+    public function privacyPolicy()
+    {
+        return view('web.pages.contactUs.privacy');
+    }
+    public function term()
+    {
+        return view('web.pages.contactUs.term');
+    }
     public function donation()
     {
         return view('web.pages.donation.donation');

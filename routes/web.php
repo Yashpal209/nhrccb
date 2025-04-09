@@ -184,12 +184,6 @@ Route::post('post-new-complain', [ComplainController::class, 'postNewComplainFor
 Route::get('complain-status', [ComplainController::class, 'ComplainStatus'])->name('ComplainStatus');
 Route::get('complain-dashboard', [ComplainController::class, 'ComplainDashboard'])->name('ComplainDashboard');
 
-// Contact Us
-Route::get('contact_us', [PageController::class, 'ContactUs'])->name('ContactUs');
-Route::get('hrlp-line', [PageController::class, 'HelpLine'])->name('HelpLine');
-Route::get('office_directory', [PageController::class, 'officeDirectory'])->name('officeDirectory');
-Route::get('donation', [PageController::class, 'donation'])->name('donation');
-
 // internship Services
 Route::get('internship-guideline', [InternshipController::class, 'internshipGuideline'])->name('internshipGuideline');
 Route::get('short-term', [InternshipController::class, 'shortTerm'])->name('shortTerm');
@@ -197,5 +191,14 @@ Route::get('Winter', [InternshipController::class, 'winter'])->name('winter');
 Route::get('Summer', [InternshipController::class, 'summer'])->name('summer');
 Route::get('apply-internship', [InternshipController::class, 'apply'])->name('apply');
 Route::post('applyforinternship', [InternshipController::class, 'applyinternship'])->name('applyinternship');
+
+// Contact Us
+Route::get('contact-us', [PageController::class, 'ContactUs'])->name('ContactUs');
+Route::get('hrlp-line', [PageController::class, 'HelpLine'])->name('HelpLine');
+Route::get('office-directory', [PageController::class, 'officeDirectory'])->name('officeDirectory');
+Route::get('donation', [PageController::class, 'donation'])->name('donation');
+Route::get('privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacyPolicy');
+Route::get('term-condition', [PageController::class, 'term'])->name('term');
+
 
 require base_path('routes/admin.php');
