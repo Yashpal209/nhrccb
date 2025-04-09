@@ -14,7 +14,7 @@ class CertificateController extends Controller
     {
         $user = JoinUs::findOrFail($id);
         $specialLevels = ['NATIONAL TEAM', 'STATE TEAM', 'DISTRICT TEAM', 'DIVISION TEAM', 'BLOCK TEAM'];
-        
+
         if ($user->level === 'ACTIVE MEMBER') {
             $background = public_path('admin/assets/images/print/Certificate1.jpg');
             $designation = 'Active Member';
@@ -31,9 +31,9 @@ class CertificateController extends Controller
             $state = strtoupper($user->state);
             $district = strtoupper($user->district);
             $block = strtoupper($user->block);
-        
+
             $validity = '1 year';
-        
+
             if ($user->level === 'STATE TEAM') {
                 $designationText = "$designation / $state";
             } elseif ($user->level === 'BLOCK TEAM') {
@@ -45,7 +45,7 @@ class CertificateController extends Controller
             } else {
                 $designationText = "$designation ";
             }
-        
+
             $html = "
                 <div style='text-align: justify; font-size: 15pt;'>has been approved as <strong style='font-size:16pt'>$designationText</strong> of the National Human Rights and Crime Control Bureau, Who will be working with the team for the protection and promotion of Human Rights,
                     Crime Prevention activities with the support of government administration.
@@ -54,8 +54,8 @@ class CertificateController extends Controller
         } else {
             return redirect()->back()->with('error', 'This Letter Not For This User Level.');
         }
-        
-        
+
+
         ob_end_clean();
         $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
         $pdf->SetTitle($user->name);
@@ -107,7 +107,7 @@ class CertificateController extends Controller
         $pdf->Output($filePath, 'F');
 
 
-        $user->certificate = '/uploads/certificate/' .$fileName;
+        $user->certificate = '/uploads/certificate/' . $fileName;
         $user->save();
 
         // Mail::send([], [], function ($message) use ($user, $filePath) {
@@ -140,6 +140,33 @@ class CertificateController extends Controller
         $refNo =  $user->reg_no;
         $issueDate = $user->updated_at->format('d/m/Y');
 
+        // Generate level-based designation/location string
+        if ($user->level == 'NATIONAL TEAM') {
+            $designationLine = strtoupper($user->designation);
+        } elseif ($user->level == 'STATE TEAM') {
+            $designationLine = strtoupper($user->designation) . ' / ' . strtoupper($user->state);
+        } elseif ($user->level == 'DISTRICT TEAM') {
+            $designationLine = strtoupper($user->designation) . ' / ' . strtoupper($user->district) . ' / ' . strtoupper($user->state);
+        } elseif ($user->level == 'DIVISION TEAM') {
+            $designationLine = strtoupper($user->designation) . ' / ' . strtoupper($user->division) . ' / ' . strtoupper($user->state);
+        } elseif ($user->level == 'BLOCK TEAM') {
+            $designationLine = strtoupper($user->designation) . ' / ' . strtoupper($user->block) . ' / ' . strtoupper($user->district) . ' / ' . strtoupper($user->state);
+        } else {
+            $designationLine = strtoupper($user->designation);
+        }
+
+        // HTML Content for the Body (Justified)
+        $html = '<div style="text-align: justify; font-size: 11px;">
+        <p>Appraising your dedicated efforts for social welfare and human rights,
+        National Human Rights and Crime Control Bureau appoints you as 
+        <b>' . $designationLine . '.</b></p>
+        <p>NHRCCB takes this opportunity to welcome you to the organization. We work for the protection and promotion of human  rights under the 
+        Human Rights Protection Act 1993 of the Indian Constitution and the 
+        Universal Declaration of Human Rights (UDHR) from article 1 to 30.</p>
+        <p>With heartfelt wishes from the organization, you are expected to extend your sincere services to the organization from   the date of joining  <b>(' . $issueDate . ')</b>.</p>
+        <p>All Government officials, Police Officers, and Government agencies are humbly requested to cooperate with your unique    ID No. 
+        <b>' . $user->reg_no . '</b>, valid for <b>1 year</b> from the date of joining.</p>
+         </div>';
         // Define background image
         $background = public_path('admin/assets/images/print/Letter1.jpg');
 
@@ -179,19 +206,8 @@ class CertificateController extends Controller
         $pdf->SetFont('helvetica', 'B', 12);
         $pdf->SetXY(15, 90);
         $pdf->MultiCell(190, 0, strtoupper($user->name) . ",\n", 0, 'L', false);
-        
-        // HTML Content for the Body (Justified)
-        $html = '<div style="text-align: justify; font-size: 11px;">
-            <p>Appraising your dedicated efforts for social welfare and human rights,
-            National Human Rights and Crime Control Bureau appoints you as 
-            <b>' . strtoupper($user->designation) . ' / ' . strtoupper($user->division) . ' / ' . strtoupper($user->state) . '.</b></p>
-            <p>NHRCCB takes this opportunity to welcome you to the organization. We work for the protection and promotion of human rights under the 
-            Human Rights Protection Act 1993 of the Indian Constitution and the 
-            Universal Declaration of Human Rights (UDHR) from artical 1 to 30.</p>
-            <p>With heartfelt wishes from the organization , you are expected to extend your sincere services to the organization from the date of joining  <b>(' . $issueDate . ')</b>.</p>
-            <p>All Government officials, Police Officers, and Government agencies are humbly requested to cooperate with your unique ID No. 
-            <b>' . $user->reg_no . '</b>, valid for <b>1 year</b> from the  date of joining.</p>
-        </div>';
+
+
 
         // Set Font and Add HTML Content in Justified Alignment
         $pdf->SetFont('helvetica', '', 12);
@@ -354,11 +370,17 @@ class CertificateController extends Controller
 
         if ($user->level == "NATIONAL TEAM") {
             $pdf->Cell(44, 5, ": " . strtoupper($user->designation), 0, 1, 'L');
+        } elseif ($user->level == "STATE TEAM") {
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . strtoupper($user->state), 0, 1, 'L');
+        } elseif ($user->level == "DIVISION TEAM") {
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . strtoupper($user->division), 0, 1, 'L');
+        } elseif ($user->level == "DISTRICT TEAM") {
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . strtoupper($user->district), 0, 1, 'L');
+        } elseif ($user->level == "BLOCK TEAM") {
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . strtoupper($user->block), 0, 1, 'L');
         } else {
-            $extra = ($user->level == "STATE TEAM") ? strtoupper($user->state) : strtoupper($user->division);
-            $pdf->Cell(44, 5, ": " . strtoupper($user->designation) . "/" . $extra, 0, 1, 'L');
+            $pdf->Cell(44, 5, ": " . strtoupper($user->designation), 0, 1, 'L');
         }
-
         // Issue Date
         $pdf->SetFont('helvetica', 'B', 5);
         $pdf->SetXY($textStartX, 57);
