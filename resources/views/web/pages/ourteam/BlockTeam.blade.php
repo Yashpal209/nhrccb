@@ -28,22 +28,18 @@
         <div class="container com-sp">
             <div class="row">
                 @if($blockteam->count() > 0)
-                    @foreach($blockteam as $block)
+                    @foreach($blockteam as $list)
                         <div class="col-md-6">
                             <div>
-                                <!-- BLOCK TEAM CARD -->
                                 <div class="home-top-cour">
-                                    <!-- BLOCK TEAM IMAGE -->
                                     <div class="col-md-3">
-                                        <img src="{{ $block->image }}" alt="" class="img-fluid">
+                                        <img src="{{ $list->passport_image }}" alt="" class="img-fluid">
                                     </div>
-                                    <!-- BLOCK TEAM DETAILS -->
                                     <div class="col-md-9 home-top-cour-desc">
-                                        <h3 class="pb-0">{{ $block->name }}</h3>
-                                        <p class="pb-0">{{ $block->designation }}</p>
-                                        <p class="pb-0">{{ $block->wing_name }}</p>
-                                        <p class="pb-0">{{ $block->block_name }}</p>
-                                        <p class="pb-0">{{ $block->state_name }}</p>
+                                        <h3 class="pb-0">{{ $list->name }}</h3>
+                                        <p class="pb-0">{{ $list->Level }}</p>
+                                        <p class="pb-0">{{ $list->designation }}</p>
+                                        <p class="pb-0">{{ $list->blocks }}</p>
                                     </div>
                                 </div>
                             </div>

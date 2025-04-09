@@ -45,6 +45,14 @@ class ComplainController extends Controller
     public function deleteCompApplictaion($id)
     {
         $compApp = NewComplain::find($id);
+        if ($compApp) {
+            $imagePath = $compApp->attachment;
+            if (file_exists($imagePath) && is_file($imagePath)) {
+                unlink($imagePath);
+            }
+        } else {
+            return redirect()->back()->with('error', 'Permission denied.');
+        }
         $compApp->delete();
         if ($compApp) {
             return redirect()->route('viewComplainApplictaion')->with('alert', 'Application Deleted successfully!');

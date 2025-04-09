@@ -21,7 +21,7 @@ class StatePresidentController extends Controller
             'Uttar Pradesh', 'Uttarakhand', 'West Bengal'
         ];
 
-        return view('admin.pages.administration.addStatePresident', compact('states'));
+        return view('admin.pages.administration.addstatepresident', compact('states'));
     }
 
     // Store data in DB

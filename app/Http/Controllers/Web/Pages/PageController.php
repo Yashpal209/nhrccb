@@ -153,6 +153,7 @@ class PageController extends Controller
     {
         $nationalexecutive = NationalExecutive::orderby('order_no', 'asc')->get();
         $data = compact('nationalexecutive');
+        // return $nationalexecutive;
         return view('web.pages.administration.NationalExecutive')->with($data);
     }
     public function StatePresident()

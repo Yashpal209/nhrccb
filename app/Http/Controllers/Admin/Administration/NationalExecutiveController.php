@@ -46,7 +46,7 @@ class NationalExecutiveController extends Controller
     {
         $nationalexecutive = NationalExecutive::orderBy('order_no', 'asc')->get();
         $data = compact('nationalexecutive');
-        return view('admin.pages.administration.viewNationalExecutive')->with($data)->with('no', '1');
+        return view('admin.pages.administration.viewnationalexecutive')->with($data)->with('no', '1');
     }
 
 

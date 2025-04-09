@@ -28,21 +28,18 @@
         <div class="container com-sp">
             <div class="row">
                 @if($nationalteam->count() > 0)
-                    @foreach($nationalteam as $member)
+                    @foreach($nationalteam as $list)
                         <div class="col-md-6">
                             <div>
-                                <!-- TEAM MEMBER CARD -->
                                 <div class="home-top-cour">
                                     <div class="row justify-content-center">
-                                        <!-- MEMBER IMAGE -->
                                         <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                            <img src="{{$member->image}}" alt="" class="img-fluid">
+                                            <img src="{{$list->passport_image}}" alt="" class="img-fluid">
                                         </div>
-                                        <!-- MEMBER DETAILS -->
                                         <div class="col-md-9 home-top-cour-desc">
-                                            <h3>{{$member->name}}</h3>
-                                            <h4>{{$member->designation}}</h4>
-                                            <h4>{{$member->wing_name}}</h4>
+                                            <h3>{{$list->name}}</h3>
+                                            <h4>{{$list->level}}</h4>
+                                            <h4>{{$list->designation}}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -56,7 +53,6 @@
                 @endif
             </div>
 
-            <!-- PAGINATION -->
             <div class="d-flex justify-content-center mt-4">
                 {{ $nationalteam->links() }}
             </div>

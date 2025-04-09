@@ -31,16 +31,12 @@
                     @foreach($team as $item)
                         <div class="col-md-6">
                             <div>
-                                <!-- item TEAM CARD -->
                                 <div class="home-top-cour">
-                                    <!-- item TEAM IMAGE -->
                                     <div class="col-md-3">
                                         <img src="{{ $item->passport_image }}" alt="" class="img-fluid">
                                     </div>
-                                    <!-- item TEAM DETAILS -->
                                     <div class="col-md-9 home-top-cour-desc">
                                         <h3 class="pb-0">{{ $item->name }}</h3>
-                                        <p class="pb-0">{{ $item->designation }}</p>
                                         <p class="pb-0">{{ $item->district }}</p>
                                         <p class="pb-0">{{ $item->division }}</p>
                                         <p class="pb-0">{{ $item->state }}</p>

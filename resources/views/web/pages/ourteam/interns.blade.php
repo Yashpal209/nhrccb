@@ -24,7 +24,7 @@
                                 <div class="home-top-cour">
                                     <!-- INTERN IMAGE -->
                                     <div class="col-md-3">
-                                        <img src="{{ $intern->image }}" alt="" class="img-fluid">
+                                        <img src="{{ $intern->passport_image }}" alt="" class="img-fluid">
                                     </div>
                                     <!-- INTERN DETAILS -->
                                     <div class="col-md-9 home-top-cour-desc">

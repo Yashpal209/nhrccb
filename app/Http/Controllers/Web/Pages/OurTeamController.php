@@ -16,41 +16,32 @@ use Illuminate\Http\Request;
 
 class OurTeamController extends Controller
 {
-    public function ZoneTeam()
+    public function BlockTeam()
     {
-        $zoneteam = ZoneTeam::orderby('created_at', 'desc')->paginate(10);
-        return view('web.pages.ourteam.ZoneTeam', compact('zoneteam'))->with('no', 1);
+        $blockteam = JoinUs::where('level', 'BLOCK TEAM')->orderby('created_at', 'desc')->paginate(10);
+        return view('web.pages.ourteam.BlockTeam', compact('blockteam'))->with('no', 1);
     }
 
+    public function DivisionTeam()
+    {
+        $divisionteam = JoinUs::where('level', 'DIVISION TEAM')->orderby('created_at', 'desc')->paginate(10); // Added pagination
+        return view('web.pages.ourteam.DivisionTeam', compact('divisionteam'))->with('no', 1);
+    }
+    public function DistrictTeam()
+    {
+        $districtteam = JoinUs::where('level', 'DISTRICT TEAM')->orderby('created_at', 'desc')->paginate(10); // Added pagination
+        // return $districtteam;
+        return view('web.pages.ourteam.DistrictTeam', compact('districtteam'))->with('no', 1);
+    }
     public function StateTeam()
     {
-        $stateteam = StateTeam::orderby('created_at', 'desc')->paginate(10); // Added pagination
+        $stateteam = JoinUs::where('level', 'STATE TEAM')->orderby('created_at', 'desc')->paginate(10); // Added pagination
         return view('web.pages.ourteam.StateTeam', compact('stateteam'))->with('no', 1);
     }
     public function NationalTeam()
     {
-        $nationalteam = NationalTeam::orderby('created_at', 'desc')->paginate(10); // Added pagination
+        $nationalteam = JoinUs::where('level', 'NATIONAL TEAM')->orderby('created_at', 'desc')->paginate(10); // Added pagination
         return view('web.pages.ourteam.NationalTeam', compact('nationalteam'))->with('no', 1);
-    }
-
-    // public function DivisionTeam()
-    // {
-    //     $divisionteam = DivisionTeam::orderby('created_at', 'desc')->paginate(10); // Added pagination
-    //     return view('web.pages.ourteam.DivisionTeam', compact('divisionteam'))->with('no', 1);
-    // }
-    public function DivisionTeam()
-    {
-        $divisionteam = DivisionTeam::orderBy('created_at', 'desc')->paginate(10);
-        $joinUs = JoinUs::where('level', 'DIVISION TEAM')->get();
-
-        return view('web.pages.ourteam.DivisionTeam', compact('divisionteam', 'joinUs'))->with('no', 1);
-    }
-
-
-    public function DistrictTeam()
-    {
-        $districtteam = DistrictTeam::orderby('created_at', 'desc')->paginate(10); // Added pagination
-        return view('web.pages.ourteam.DistrictTeam', compact('districtteam'))->with('no', 1);
     }
 
     public function interns()
@@ -61,19 +52,40 @@ class OurTeamController extends Controller
 
     public function volunteer()
     {
-        $volunteers = Volunteer::orderby('created_at', 'desc')->paginate(10);
+        $volunteers = JoinUs::where('level', 'VOLUNTEER')->orderby('created_at', 'desc')->paginate(10);
         return view('web.pages.ourteam.Volunteer', compact('volunteers'))->with('no', 1);
-    }
-
-    public function BlockTeam()
-    {
-        $blockteam = BlockTeam::orderby('created_at', 'desc')->paginate(10);
-        return view('web.pages.ourteam.BlockTeam', compact('blockteam'))->with('no', 1);
     }
     public function activemember()
     {
-        $team = Joinus::where('level', 'DIVISION TEAM')->orderby('created_at', 'desc')->paginate(10);
+        $team = JoinUs::where('level', 'ACTIVE MEMBER')->orderby('created_at', 'desc')->paginate(10);
         // dd($team);
         return view('web.pages.ourteam.activemember', compact('team'))->with('no', 1);
     }
+    // public function ZoneTeam()
+    // {
+    //     $zoneteam = ZoneTeam::orderby('level', 'desc')->paginate(10);
+    //     return view('web.pages.ourteam.ZoneTeam', compact('zoneteam'))->with('no', 1);
+    // }
+
+   
+   
+
+   
+    // public function DivisionTeam()
+    // {
+    //     $divisionteam = DivisionTeam::orderBy('created_at', 'desc')->paginate(10);
+    //     $joinUs = JoinUs::where('level', 'DIVISION TEAM')->get();
+
+    //     return view('web.pages.ourteam.DivisionTeam', compact('divisionteam', 'joinUs'))->with('no', 1);
+    // }
+
+
+    
+
+    
+
+   
+
+   
+    
 }

@@ -35,7 +35,7 @@
                                         <div class="row justify-content-center">
                                             <!-- MEMBER IMAGE -->
                                             <div class="col-md-3 d-flex align-items-center justify-content-center">
-                                                <img src="{{ $items->image }}" alt="" class="img-fluid">
+                                                <img src="{{ $items->passport_image }}" alt="" class="img-fluid">
                                             </div>
                                             <!-- MEMBER DETAILS -->
                                             <div class="col-md-9 home-top-cour-desc">

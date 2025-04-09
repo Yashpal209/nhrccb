@@ -43,7 +43,7 @@
                                         <select name="id" required>
                                             <option disabled selected>--Select--</option>
                                             @foreach ($complainData as $list)
-                                                <option value="{{ $list->id }}">{{ $list->name }}-{{ $list->complain_type }}</option>
+                                                <option value="{{ $list->id }}">{{ $list->complain_no }}-{{ $list->complain_type }}</option>
                                             @endforeach
                                         </select>
                                     </div>

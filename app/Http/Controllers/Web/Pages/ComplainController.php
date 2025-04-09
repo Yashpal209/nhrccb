@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web\Pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\Web\Pages\NewComplain;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class ComplainController extends Controller
@@ -40,6 +41,10 @@ class ComplainController extends Controller
 
         // Store the form data
         $complaint = new NewComplain();
+        $latestId = NewComplain::max('id') ?? 0;
+        $nextNumber = str_pad($latestId + 1, 2, '0', STR_PAD_LEFT); 
+        $complaint->complain_no = 'COMP/' . strtolower(preg_replace('/\s+/', '', $request->mobile)) . '/' . $nextNumber;
+        // return $complaint->complain_no;
         $complaint->name = $request->name;
         $complaint->email = $request->email;
         $complaint->gender = $request->gender;
@@ -59,22 +64,38 @@ class ComplainController extends Controller
             $complaint->attachment = $uploadPath;
         }
 
-        // Save form data to the database
+        // Mail::send([], [], function ($message) use ($complaint) {
+        //     $message->to($complaint->email)
+        //         ->subject('Welcome to the NHRCCB Teams')
+        //         ->html('<p>Dear ' . $complaint->name . ',</p><p> Your Complain No is : ' .  $complaint->complain_no . ' </p><p>Designation as a ' . $complaint->complain_type . ' </p><p>Thank You For Complaint in the NHRCCB Teams.</p><p>Best regards,<br>NHRCCB</p>');
+        // });
         $complaint->save();
-        // dd($validatedData);
 
-        return redirect()->route('thankYou')->with('alert', 'Complaint submitted successfully.');
+        return back()->with('success', 'Complaint submitted successfully. Please check your email for Complain no.');
     }
 
     public function ComplainStatus()
     {
-        $complain = NewComplain::orderby('id', 'desc')->paginate(10);
-        return view('web.pages.complain.complainStatus', compact('complain'));
+        return view('web.pages.complain.complainStatus',);
     }
 
+    public function verify(Request $request)
+    {
+        $request->validate([
+            'identifier' => 'required',
+        ]);
 
+        $identifier = $request->input('identifier');
+        $complain = NewComplain::where('complain_no', $identifier)->first();
+        if ($complain) {
+            return back()->with('success', 'Complain Found')->with('complain', $complain);
+        } else {
+            return back()->with('error', 'Complain  not found');
+        }
+    }
     public function ComplainDashboard()
     {
-        return view('web.pages.complain.complainDashboard');
+        $complain = NewComplain::where('status', 0)->orderBy('created_at', 'desc')->get();
+        return view('web.pages.complain.complainDashboard')->with('complain');
     }
 }

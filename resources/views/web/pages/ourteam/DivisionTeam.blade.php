@@ -39,7 +39,7 @@
     <div class="head-2">
         <div class="container">
             <div class="head-2-inn">
-                <h1 class="fs-1">Division Team & Join Us</h1>
+                <h1 class="fs-1">Division Team</h1>
             </div>
         </div>
     </div>
@@ -50,51 +50,29 @@
     <div class="container-fluid">
         <div class="container com-sp">
             <div class="row">
-                @if($divisionteam->count() > 0 || $joinUs->count() > 0)
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Level</th>
-                                <th>Designation</th>
-                                <th>City</th>
-                                <th>State</th>
-                                <th>Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php $no = 1; @endphp
-                            @foreach($divisionteam as $member)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td><img src="{{ asset($member->image) }}" alt=""></td>
-                                    <td>{{ $member->name }}</td>
-                                    <td>{{ $member->designation }}</td>
-                                    <td>{{ $member->city_name }}</td>
-                                    <td>{{ $member->state_name }}</td>
-                                    <td>Division Team</td>
-                                </tr>
-                            @endforeach
-
-                            @foreach($joinUs as $member)
-                                <tr>
-                                    <td>{{ $no++ }}</td>
-                                    <td><img src="{{ asset($member->passport_image) }}" alt=""></td>
-                                    <td>{{ $member->name }}</td>
-                                    <td>{{ $member->level}}</td>
-                                    <td>{{ $member->designation }}</td>
-                                    <td>{{ $member->district }}</td>
-                                    <td>{{ $member->state }}</td>
-                                    <td>Join Us</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                @if($divisionteam->count() > 0)
+                    @foreach($divisionteam as $list)
+                        <div class="col-md-6">
+                            <div>
+                                <div class="home-top-cour">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                            <img src="{{$list->passport_image }}" alt="" class="img-fluid">
+                                        </div>
+                                        <div class="col-md-9 home-top-cour-desc">
+                                            <h3 class="pb-0">{{ $list->name }}</h3>
+                                            <p class="pb-0">{{ $list->level }}</p>
+                                            <p class="pb-0">{{ $list->designation }}</p>
+                                            <p class="pb-0">{{ $list->division }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 @else
                     <div class="col-md-12 text-center">
-                        <h3>No Data Found</h3>
+                        <h3>No Team found</h3>
                     </div>
                 @endif
             </div>

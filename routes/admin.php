@@ -86,7 +86,7 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     Route::post('/updateBannerPost', [WebManageController::class, 'updateBannerPost'])->name('updateBannerPost');
     Route::get('viewBanner', [WebManageController::class, 'viewBanner'])->name('viewBanner');
     Route::get('banner/delete/{id}', [WebManageController::class, 'deleteBanner'])->name('banner.delete');
-    
+
     // about us 
     // president mesage profile 
     Route::get('AddPresident', [WebManageController::class, 'president'])->name('president');
@@ -94,26 +94,23 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     Route::get('viewPresident', [WebManageController::class, 'viewPresident'])->name('viewPresident');
     Route::get('president/delete/{id}', [WebManageController::class, 'deletepresident'])->name('president.delete');
 
-
     // Joining Application
-    Route::get('/Promo-code', [JoiningController::class, 'viewPromocode'])->name('viewPromocode');
-    Route::post('/promo-codes', [JoiningController::class, 'addPromocode'])->name('addPromocode');
-    Route::delete('/promo-codes/{id}', [JoiningController::class, 'destroy'])->name('promo-codes.destroy');
-
-    
-
     Route::get('/joining-application', [JoiningController::class, 'viewJoinApplication'])->name('viewJoinApplication');
     Route::get('/application', [JoiningController::class, 'Application'])->name('Application');
     Route::post('/change-status-application', [JoiningController::class, 'ChangeStatusApplication'])->name('ChangeStatusApplication');
     Route::get('/joining-application/delete/{id}', [JoiningController::class, 'deleteJoinApplication'])->name('delete.JoinApplication');
 
+    // promo code 
+    Route::get('/Promo-code', [JoiningController::class, 'viewPromocode'])->name('viewPromocode');
+    Route::post('/promo-codes', [JoiningController::class, 'addPromocode'])->name('addPromocode');
+    Route::delete('/promo-codes/{id}', [JoiningController::class, 'destroy'])->name('promo-codes.destroy');
 
     // generate certificate  
     Route::get('/generate-certificate/{id}', [CertificateController::class, 'generateCertificate'])->name('generate.certificate');
     Route::get('/generate-letter/{id}', [CertificateController::class, 'generateletter'])->name('generate.letter');
     Route::get('/generate-idcard/{id}', [CertificateController::class, 'generateidcard'])->name('generate.idcard');
     Route::get('/generate-officerIdcard/{id}', [CertificateController::class, 'officerIdcard'])->name('generate.officerIdcard');
-    
+
 
     // Complain Application
     Route::get('/complain-list', [ComplainController::class, 'viewComplainApplictaion'])->name('viewComplainApplictaion');
@@ -224,7 +221,7 @@ Route::prefix('admin')->middleware('admin.auth')->group(function () {
     Route::get('view-govt-letters', [GovtlettersController::class, 'viewGovtLetter'])->name('viewGovtLetter');
     Route::get('govt-letters/delete/{id}', [GovtlettersController::class, 'deleteGovtLetter'])->name('delete.GovtLetter');
 
-    Route::get('add-actn-taken-by-dept', [GovtlettersController::class,'addActionTaken'])->name('addActionTaken');
+    Route::get('add-actn-taken-by-dept', [GovtlettersController::class, 'addActionTaken'])->name('addActionTaken');
     Route::post('post-actn-taken-by-dept', [GovtlettersController::class, 'postActnTknByDep'])->name('postActnTknByDep');
     Route::get('view-actn-taken-by-dep', [GovtlettersController::class, 'viewActnTknByDept'])->name('viewActnTknByDept');
     Route::get('actn-tkn-by-dept/delete/{id}', [GovtlettersController::class, 'deleteActnfile'])->name('actionfile.delete');

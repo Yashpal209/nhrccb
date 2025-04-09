@@ -1,95 +1,84 @@
 @extends('web.layouts.app')
 @section('main-content')
-<style>
-    .home-top-cour {
-        background-color: #e0e4f3;
-        padding: 15px;
-        border-radius: 10px;
-    }
-    .home-top-cour img {
-        border: 2px solid #1232a5;
-        border-radius: 10px;
-        max-width: 100px;
-        max-height: 100px;
-    }
-    .status-pending {
-        color: rgb(221, 173, 14);
-        font-weight: bold;
-    }
-    .status-working {
-        color: rgb(23, 140, 148);
-        font-weight: bold;
-    }
-    .status-resolved {
-        color: green;
-        font-weight: bold;
-    }
-    .status-rejected {
-        color: red;
-        font-weight: bold;
-    }
-</style>
 
-<section>
-    <div class="head-2">
-        <div class="container">
-            <div class="head-2-inn">
-                <h1 class="fs-1">Complaint Status</h1>
+    <section>
+        <div class="head-2">
+            <div class="container">
+                <div class="head-2-inn">
+                    <h1 class="fs-1">Complaint Status</h1>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section>
-    <div class="container-fluid">
-        <div class="container com-sp">
-            <div class="row justify-content-center">
-                @if($complain->count() > 0)
-                    @foreach($complain as $item)
-                        <div class="col-md-6 mb-3">
-                            <div class="home-top-cour">
-                                <div class="row align-items-center">
-                                    <!-- IMAGE -->
-                                    <div class="col-md-3 text-center">
-                                        <img src="{{$item->attachment}}" alt="Complaint Image" class="img-fluid">
+    <section class="ed-res-bg">
+
+        <div class="container-fluid">
+            <div class="container com-sp">
+                <div class="row justify-content-center">
+                    <div class="ho-st-login col-md-4  shadow" style="border:1px solid #102366; border-radius:10px">
+                        <div class="col s12">
+                            <form action="{{ route('complaintStatus') }}" method="POST" class="col s12">
+                                @csrf
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" name="identifier" class="validate" value="COMP/" required>
+                                        {{-- <label>Complaint no</label> --}}
                                     </div>
-                                    <!-- CONTENT -->
-                                    <div class="col-md-9 home-top-cour-desc">
-                                        <h4 class="pb-0">{{$item->complain_details}}</h4>
-                                        <p class="mb-1"><strong>Type:</strong> {{$item->complain_type}}</p>
-                                        <p class="mb-1">
-                                            <strong>Status:</strong>
-                                            @if($item->status == '1')
-                                                <span class="status-pending">Pending</span>
-                                            @elseif($item->status == '2')
-                                                <span class="status-working">Working</span>
-                                            @elseif($item->status == '3')
-                                                <span class="status-resolved">Resolved</span>
-                                            @elseif($item->status == '0')
-                                                <span class="status-rejected">Rejected</span>
-                                            @endif
-                                        </p>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="submit" value="Check Status" class="waves-effect waves-light light-btn">
                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-5">
+                    @if (session('success'))
+                        <div class="alert alert-success text-center">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    @if (session('complain'))
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="alert alert-info">
+                                    <h5>Conplain Details:</h5>
+                                    <img class="materialboxed"
+                                        src="{{ url('/') . '/' . session('complain')->attachment }}"
+                                        style="width: 150px; height: 150px; border-radius: 50%; display: block; margin: 0 auto;"
+                                        alt="complain Image">
+                                    <p><strong>Name: </strong> {{ session('complain')->name }}</p>
+                                    <p><strong>Membership No: </strong> {{ session('complain')->complain_no }}</p>
+                                    <p><strong>Mobile:</strong> {{ session('complain')->mobile }}</p>
+                                    <p><strong>status:</strong>
+                                        @if (session('complain')->status == '1')
+                                            <span class="label label-warning">Pending</span>
+                                        @elseif(session('complain')->status == '2')
+                                            <span class="label label-info">Working</span><br>
+                                        @elseif(session('complain')->status == '3')
+                                            <span class="label label-success">Resolved</span><br>
+                                            <b> Resion:</b>  {{ session('complain')->resion }}
+                                        @elseif(session('complain')->status == '0')
+                                            <span class="label label-danger">Rejected</span><br>
+                                           <b> Resion:</b> {{ session('complain')->resion }}
+                                        @endif
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                @else
-                    <!-- NO DATA MESSAGE -->
-                    <div class="col-12 text-center mt-4">
-                        <h3>No Data Available</h3>
-                    </div>
-                @endif
-            </div>
-
-            <!-- PAGINATION LINKS -->
-            @if($complain->count() > 0)
-                <div class="d-flex justify-content-center mt-4">
-                    {{ $complain->links() }}
+                    @endif
                 </div>
-            @endif
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 @endsection

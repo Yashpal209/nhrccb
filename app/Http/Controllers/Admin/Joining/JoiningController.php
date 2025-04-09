@@ -47,7 +47,7 @@ class JoiningController extends Controller
             'DISTRICT TEAM' => 'NHRCCB/DT/',
             'DIVISION TEAM' => 'NHRCCB/VT/',
             'BLOCK TEAM' => 'NHRCCB/BT/',
-            'ACTIVE MEMBERSHIP' => 'NHRCCB/AM/',
+            'ACTIVE MEMBER' => 'NHRCCB/AM/',
             'VOLUNTEER' => 'NHRCCB/VL/',
             'DEFAULT' => 'NHRCCB/OT/',
         ];
@@ -66,7 +66,7 @@ class JoiningController extends Controller
         } else {
             // Default start numbers
             $start_numbers = [
-                'ACTIVE MEMBERSHIP' => 6000,
+                'ACTIVE MEMBER' => 6000,
                 'VOLUNTEER' => 15000,
             ];
             $default_start = 5200;

@@ -81,7 +81,7 @@
                                                         <a href="{{ url('/') . '/' . $list->attachment }}"
                                                             class="label label-success text-white" target="_blank">View</a>
                                                     @else
-                                                        <span class="badge bg-warning text-dark">No Attachment</span>
+                                                        <span class="label label-danger">No Attachment</span>
                                                     @endif
                                                 </td>
                                                 <td class="text-center">

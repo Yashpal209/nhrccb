@@ -29,81 +29,79 @@
                     </ul>
                 </div>
             </li>
-            <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                    <a href="javascript:void(0)" class="collapsible-header">
-                        <i class="fa fa-book"></i> About Us
-                    </a>
-                    <div class="collapsible-body">
-                        <ul class="collapsible" data-collapsible="accordion">
-                            <li>
-                                <a href="javascript:void(0)" class="collapsible-header">
-                                    <i class="fa fa-image"></i> National President
-                                </a>
-                                <div class="collapsible-body left-sub-menu">
-                                    <ul>
-                                        <li><a href="{{ route('president') }}"><i class="fa fa-pencil"></i> Add
-                                                Profile/Message</a></li>
-                                        <li><a href="{{ route('viewPresident') }}"><i class="fa fa-eye"></i> View
-                                                Profile/Message</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="collapsible-header">
-                                    <i class="fa fa-image"></i> Who's Who
-                                </a>
-                                <div class="collapsible-body left-sub-menu">
-                                    <ul>
-                                        <li><a href="{{ route('addNationalPatron') }}"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i>Add National Patron / Advisor </a>
-                                        </li>
-                                        <li><a href="{{ route('viewNationalPatron') }}"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i>View Patron / Advisor </a>
-                                        </li>
-                                        <li><a href="{{ route('addNationalExecutive') }}"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i>Add National Executive</a>
-                                        </li>
-                                        <li><a href="{{ route('viewNationalExecutive') }}"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i>View National Executive</a>
-                                        </li>
-                                        <li><a href="{{ route('addStatePresident') }}"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i>Add State President</a>
-                                        </li>
-                                        <li><a href="{{ route('viewStatePresident') }}"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i>View State President</a>
-                                        </li>
-                                        <li><a href="{{ route('addOfficestaff') }}"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i>Add
-                                                Office Staff</a>
-                                        </li>
-                                        <li><a href="{{ route('viewOfficestaff') }}"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i>View
-                                                Office Staff</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
 
+            <li>
+                <a href="javascript:void(0)" class="collapsible-header">
+                    <i class="fa fa-book"></i> About Us
+                </a>
+                <div class="collapsible-body">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <a href="javascript:void(0)" class="collapsible-header">
+                                <i class="fa fa-image"></i> National President
+                            </a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('president') }}"><i class="fa fa-pencil"></i> Add
+                                            Profile/Message</a></li>
+                                    <li><a href="{{ route('viewPresident') }}"><i class="fa fa-eye"></i> View
+                                            Profile/Message</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="collapsible-header">
+                                <i class="fa fa-user" ></i> Who's Who
+                            </a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('addNationalPatron') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add National Patron / Advisor </a>
+                                    </li>
+                                    <li><a href="{{ route('viewNationalPatron') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Patron / Advisor </a>
+                                    </li>
+                                    <li><a href="{{ route('addNationalExecutive') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add National Executive</a>
+                                    </li>
+                                    <li><a href="{{ route('viewNationalExecutive') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View National Executive</a>
+                                    </li>
+                                    <li><a href="{{ route('addStatePresident') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add State President</a>
+                                    </li>
+                                    <li><a href="{{ route('viewStatePresident') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View State President</a>
+                                    </li>
+                                    <li><a href="{{ route('addOfficestaff') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add
+                                            Office Staff</a>
+                                    </li>
+                                    <li><a href="{{ route('viewOfficestaff') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View
+                                            Office Staff</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
 
-
-
-            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                        aria-hidden="true"></i>Joining</a>
-                <div class="collapsible-body left-sub-menu">
+            <li>
+                <a href="javascript:void(0)" class="collapsible-header">
+                    <i class="fa fa-book"></i> Joining
+                </a>
+                <div class="collapsible-body">
                     <ul class="collapsible" data-collapsible="accordion">
                         <li>
                             <a href="{{ route('viewPromocode') }}"><i class="fa fa-eye" aria-hidden="true"></i>Promo
                                 Code</a>
                         </li>
-                    </ul>
-                    <ul class="collapsible" data-collapsible="accordion">
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Joining Application</a>
+                        <li>
+                            <a href="javascript:void(0)" class="collapsible-header">
+                                <i class="fa fa-image"></i> Joining Application
+                            </a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
                                     <li><a href="{{ route('viewJoinApplication') }}"><i class="fa fa-eye"

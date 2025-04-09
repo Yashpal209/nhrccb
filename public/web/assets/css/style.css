@@ -1240,7 +1240,7 @@ label {
     overflow: hidden;
     background: #ffffff;
     padding: 15px 0px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -1259,7 +1259,7 @@ label {
     transition: all 0.5s ease;
 }
 .home-top-cour img {
-    width: 100%;
+    width: 95%;
 }
 .home-top-cour-desc {
 }

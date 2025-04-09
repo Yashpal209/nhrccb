@@ -31,6 +31,16 @@
         <div class="container-fluid py-3">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="row justify-content-between">
+                        <div class="col-md-6">
+                              <h4 class="text-danger"><b>Note:</b> <small>Please fill the form carefully. Once submitted, you will not be able to edit the details.</small></h4>
+                          </div>
+                         <div class="col-md-6 text-right">
+                            <a href="{{route('ComplainStatus')}}"><div class="btn btn-danger">
+                                Check Application Status
+                             </div></a> 
+                         </div>
+                     </div>
                     <div class="n-form-com admiss-form">
                         <div class="col s12">
                             <div class="card py-3">
@@ -39,7 +49,7 @@
                                         @csrf
                                         <div class="row justify-content-center border-bottom mb-3 mb-sm-0 px-4 px-sm-0">
                                             <div class="text-center mb-3">
-                                                <h2 class="my-4 my-sm-0 fs-1 fs-sm-4"> Complain Detail</h2>
+                                                <h2 class="my-4 my-sm-0 fs-1 fs-sm-4"> Complain Details</h2>
                                             </div>
 
 
