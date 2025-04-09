@@ -61,8 +61,7 @@
                                     <h4>Home</h4>
                                 </a>
                             </a>
-
-                            <h4><a>About us</a></h4>
+                            <h4>About us</h4>
                             <ul>
                                 <li><a href="{{ route('who_we_are') }}">Organisation</a></li>
                                 <li><a href="{{ route('what_we_do') }}">Mission/Vision</a></li>
@@ -72,6 +71,10 @@
                                 <li><a href="{{ route('PresidentProfile') }}">National President Profile</a></li>
                                 <li><a href="{{ route('PresidentMessage') }}">National President Message</a></li>
                                 <li><a href="{{ route('whos_who') }}">Who's Who</a></li>
+                                <li><a href="{{ route('NationalPatronAdvisor') }}"> National Patron / Advisor </a></li>
+                                <li><a href="{{ route('NationalExecutive') }}">National Executive</a></li>
+                                <li><a href="{{ route('StatePresident') }}">State President</a></li>
+                                <li><a href="{{ route('Officials') }}">Officials</a></li>
                             </ul>
                             <h4>Our Works</h4>
                             <ul>
@@ -89,29 +92,63 @@
                                 <li><a href="{{ route('PressRights') }}">Press Rights</a></li>
                                 <li><a href="{{ route('CrimeControlAct') }}">Crime Control Act</a></li>
                             </ul>
-
                             <h4>Publication</h4>
                             <ul>
-                                <li><a href="{{ route('monthly_report') }}">Monthly Report</a></li>
                                 <li><a href="{{ route('annual_report') }}">Annual Report</a></li>
-                                <li><a href="{{ route('souvenier') }}">Souvenier</a></li>
-                                <li><a href="{{ route('propectus') }}">Prospectus</a></li>
-                                <li><a href="{{ route('journal') }}">Journal</a></li>
+                                <li><a href="{{ route('monthly_report') }}">Monthly Report</a></li>
                                 <li><a href="{{ route('official_notification') }}">Official/Notification</a></li>
-                                <li><a href="{{ route('rule_book') }}">Rulebook</a></li>
+                                <li><a href="#">Acts Related Human Rights</a></li>
                                 <li><a href="{{ route('convo_report') }}">Convocation Report</a></li>
+                                <li><a href="{{ route('propectus') }}">Prospectus</a></li>
+                                <li><a href="{{ route('souvenier') }}">Souvenier</a></li>
+                                <li><a href="{{ route('journal') }}">Journal</a></li>
+                                <li><a href="{{ route('rule_book') }}">Rulebook</a></li>
+                                <li><a href="{{ route('book') }}">Books</a></li>
                             </ul>
                             <h4>Media</h4>
                             <ul>
                                 <li><a href="{{ route('acknowledgement') }}">Acknowledgement</a></li>
                                 <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a></li>
-                                <li><a href="{{ route('Photos') }}">Event Gallery</a></li>
+                                <li><a href="{{ route('OfficerInteraction') }}">Officer Intercation</a></li>
+                                <li><a href="{{ route('ActionTakRepo') }}">Action Take Report</a></li>
+                                <li><a href="#">Action Take Letter</a></li>
+                                <li><a href="#">Articles</a></li>
                                 <li><a href="{{ route('PrintMedia') }}">Print Media</a></li>
                                 <li><a href="{{ route('WebMedia') }}">Web Media</a></li>
+                                <li><a href="{{ route('Photos') }}">Event Gallery</a></li>
                                 <li><a href="{{ route('VideoGallery') }}">Video Gallery</a></li>
                                 <li><a href="{{ route('PressRelease') }}">Press Release</a></li>
                             </ul>
-                            <h4>Event</h4>
+                            <h4>Activities</h4>
+                            <ul>
+                                <li><a href="{{ route('Awards') }}">Awards</a></li>
+                                <li><a href="{{ route('Seminar') }}">Seminar</a></li>
+                                <li><a href="{{ route('workshop') }}">Workshop</a></li>
+                                <li><a href="{{ route('EducationalAwareness') }}">Social Works</a></li>
+                                <li><a href="{{ route('standWithNation') }}">Stand withNation</a></li>
+                                <li><a href="{{ route('SocialWork') }}">Social Work</a></li>
+                                <li><a href="#">Health Camps</a></li>
+                                <li><a href="#">Blood Donation Camps</a></li>
+                                <li><a href="#">Special Days Camps</a></li>
+                                <li><a href="{{ route('RuralAwareness') }}">RuralAwareness</a></li>
+                                <li><a href="{{ route('Covid19') }}">Covid-19</a></li>
+                            </ul>
+                            <h4>Awardee</h4>
+                            <ul>
+                                <li><a href="{{ route('nelsonmandelahumanrights') }}">Nelson Mandela Human Rights Award</a></li>
+                                <li><a href="{{ route('mghra') }}">Mahatma Gandhi Human Rights Award</a></li>
+                                <li><a href="{{ route('braa') }}">Bhim Rao Ambedkar Award</a></li>
+                                <li><a href="{{ route('nirpd') }}">NHRCCB India Pride Award</a></li>
+                                <li><a href="{{ route('nhra') }}">NHRCCB Human Rights Award</a></li>
+                                <li><a href="{{ route('nla') }}">NHRCCB Leadership Award</a></li>
+                                <li><a href="{{ route('nsa') }}">NHRCCB Special Award</a></li>
+                                <li><a href="{{ route('shra') }}">State Human Rights Award</a></li>
+                                <li><a href="{{ route('sla') }}">State Leadership Award</a></li>
+                                <li><a href="{{ route('ssa') }}">State Special Award</a></li>
+                                <li><a href="{{ route('community_level') }}">Competition Level</a></li>
+                                <li><a href="{{ route('district_level') }}">District Level</a></li>
+                            </ul>
+                            {{-- <h4>Event</h4>
                             <ul>
                                 <li><a href="{{ route('international_event') }}">International</a></li>
                                 <li><a href="{{ route('national_event') }}">National</a></li>
@@ -120,31 +157,78 @@
                                 <li><a href="{{ route('award_ceremony') }}">Award Ceremony</a></li>
                                 <li><a href="{{ route('special_event') }}">Special Event</a></li>
                                 <li><a href="{{ route('awareness_programme') }}">Awareness Programme</a></li>
-                            </ul>
+                            </ul> --}}
                             <h4>Our Cell/Unit</h4>
                             <ul>
-                                <li><a href="{{ route('LegalCell') }}">Legal Cell</a></li>
-                                <li><a href="{{ route('EducationalCell') }}">Educational Cell</a></li>
-                                <li><a href="{{ route('DoctorCell') }}">Doctor Cell</a></li>
-                                <li><a href="{{ route('ChildRightsProCell') }}">Child Rights Protection Cell</a></li>
                                 <li><a href="{{ route('RtiCell') }}">RTI Cell</a></li>
+                                <li><a href="{{ route('LegalCell') }}">Legal Cell</a></li>
+                                <li><a href="{{ route('DoctorCell') }}">Doctor Cell</a></li>
                                 <li><a href="{{ route('MediaCell') }}">Media Cell</a></li>
-                                <li><a href="{{ route('TRProCell') }}">Tribal Rights Protection Cell</a></li>
+                                <li><a href="{{ route('EducationalCell') }}">Educational Cell</a></li>
                                 <li><a href="{{ route('CrimeControlUnit') }}">Crime Control Cell</a></li>
                                 <li><a href="{{ route('AntiCorruptionCell') }}">Anti Corruption Cell</a></li>
+                                <li><a href="{{ route('ChildRightsProCell') }}">Child Rights Protection Cell</a></li>
+                                <li><a href="{{ route('TRProCell') }}">Tribal Rights Protection Cell</a></li>
                                 <li><a href="{{ route('AntiHumanTrfCell') }}">Anti Human Trafficking Cell</a></li>
                             </ul>
                             <h4>Team</h4>
                             <ul>
-                                <li><a href="{{ route('NationalTeam') }}">National Team</a></li>
-                                <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li>
-                                <li><a href="{{ route('StateTeam') }}">State Team</a></li>
+                                {{-- <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li> --}}
+                                <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
                                 <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
                                 <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
-                                <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                <li><a href="#">Active Member</a></li>
-                                <li><a href="{{ route('volunteer') }}">Volunteer</a></li>
+                                <li><a href="{{ route('StateTeam') }}">State Team</a></li>
+                                <li><a href="{{ route('NationalTeam') }}">National Team</a></li>
                                 <li><a href="{{ route('interns') }}">Interns</a></li>
+                                <li><a href="{{ route('volunteer') }}">Volunteer</a></li>
+                                <li><a href="{{route('activemember')}}">Active Member</a></li>
+                            </ul>
+                            <h4>Training & Research</h4>
+                            <ul>
+                                <li><a href="{{ route('internshipGuideline') }}">Internship Guideline</a></li>
+                                <li><a href="{{ route('shortTerm') }}">Short Term Internship</a></li>
+                                <li><a href="{{ route('winter') }}">Winter Internship</a></li>
+                                <li><a href="{{ route('summer') }}">Summer Internship</a></li>
+                                <li><a href="{{ route('apply') }}">Apply for Internship</a></li>
+                                <li><a href="#">Course Guideline</a></li>
+                                <li><a href="#">Offered Courses </a></li>
+                                <li><a href="#"> Course Admission </a></li>
+                                <li><a href="#">Alumni </a></li>
+                                <li><a href="#">Workshop Guideline </a></li>
+                                <li><a href="#">Workshop Conduct </a></li>
+                                <li><a href="#">Essay Competition </a></li>
+                                <li><a href="#">Debate Competition </a></li>
+                                <li><a href="#">Speech Competition </a></li>
+                                <li><a href="#">Our Competition Winners </a></li>
+                                <li><a href="#">Educational Visit</a></li>
+                                <li><a href="#">Research Studies/Reports</a></li>
+                            </ul>
+                            <h4>Registration</h4>
+                            <ul>
+                                <li><a href="#">International Programme</a></li>
+                                <li><a href="#">National Programme</a></li>
+                                <li><a href="#">State Programme</a></li>
+                                <li><a href="#">Competition Registration</a></li>
+                                <li><a href="#">Kit Registration</a></li>
+                            </ul>
+                            <h2><a href="{{ route('JoinUs') }}">Join Us</a></h2>
+                            <h4>Complaint</h4>
+                            <ul>
+                                <li><a href="{{ route('newComplain') }}">New Complain</a></li>
+                                <li><a href="{{ route('ComplainStatus') }}">Complain Status</a></li>
+                                <li><a href="{{ route('ComplainDashboard') }}">Complain Dashboard</a></li>
+                            </ul>
+                            <h4>Contact us</h4>
+                            <ul>
+                                <li><a href="{{ route('ContactUs') }}">Office Address</a></li>
+                                <li><a href="{{route('officeDirectory')}}">Officers Directory</a></li>
+                                <li><a href="{{route('HelpLine')}}">Help Line</a></li>
+                                <li><a href="#">Download</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="{{ route('JoinUs') }}" class="fw-bold text-danger" style="font-size: 20px">Join Us</a></li>
+                                <li><a href="{{ route('verification') }}">Verification</a></li>
+                                <li><a href="{{ route('donation') }}">Donation</a></li>
                             </ul>
                         </div>
                     </div>
@@ -165,9 +249,11 @@
                                 <li><a href="#"></a></li>
                                 <li><a href="tel:9102224365">Phone: +91 91022 24365</a></li>
                                 <li>
-                                    <marquee behavior="scroll" direction="left" scrollamount="5" >
-                                        <a href="tel:9111730311"style="line-height:0px;border:none">HELPLINE NO : +91 91117 30311</a> |
-                                        <a href="tel:9111730311"style="line-height:0px;border:none">CONTECT FOR MEMBERSHIP</a>
+                                    <marquee behavior="scroll" direction="left" scrollamount="5">
+                                        <a href="tel:9111730311"style="line-height:0px;border:none">HELPLINE NO : +91
+                                            91117 30311</a> |
+                                        <a href="tel:9111730311"style="line-height:0px;border:none">CONTECT FOR
+                                            MEMBERSHIP</a>
                                     </marquee>
                                 </li>
                             </ul>
@@ -271,7 +357,8 @@
                                                         </li>
                                                         <li><a href="{{ route('rules_regulations') }}">Act/Rules</a>
                                                         </li>
-                                                        <li><a href="{{ route('govt_recognition') }}">Recognitions</a>
+                                                        <li><a
+                                                                href="{{ route('govt_recognition') }}">Recognitions</a>
                                                         </li>
                                                         <li><a href="{{ route('collaboration') }}">Collaboration</a>
                                                         </li>
@@ -284,8 +371,11 @@
                                                                 <a type="button" class="dropdown-toggle "
                                                                     data-toggle="dropdown">National President</a>
                                                                 <div class="dropdown-menu ">
-                                                                    <a class="dropdown-item "href="{{ route('PresidentProfile') }}"> Profile</a>
-                                                                    <a class="dropdown-item "href="{{ route('PresidentMessage') }}">Message</a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('PresidentProfile') }}">
+                                                                        Profile</a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('PresidentMessage') }}">Message</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -294,10 +384,17 @@
                                                                 <a type="button" class="dropdown-toggle "
                                                                     data-toggle="dropdown">Who's Who</a>
                                                                 <div class="dropdown-menu ">
-                                                                    <a class="dropdown-item "href="{{route('NationalPatronAdvisor')}}"> National Patron / Advisor </a>
-                                                                    <a class="dropdown-item "href="{{route('NationalExecutive')}}">National Executive</a>
-                                                                    <a class="dropdown-item "href="{{route('StatePresident')}}">State President</a>
-                                                                    <a class="dropdown-item "href="{{route('Officials')}}">Officials</a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('NationalPatronAdvisor') }}">
+                                                                        National Patron / Advisor </a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('NationalExecutive') }}">National
+                                                                        Executive</a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('StatePresident') }}">State
+                                                                        President</a>
+                                                                    <a
+                                                                        class="dropdown-item "href="{{ route('Officials') }}">Officials</a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -317,23 +414,35 @@
 
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a href="{{ route('HumanRights') }}">Human Rights</a></li>
-                                                        <li><a href="{{ route('WomenRights') }}">Women Rights</a></li>
-                                                        <li><a href="{{ route('ChildRights') }}">Child Rights</a></li>
-                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer Rights</a></li>
-                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a></li>
-                                                        <li><a href="{{ route('DisabilityRights') }}">Disability Rights</a></li>
-                                                        <li><a href="{{ route('RightToEducation') }}">Right to Education</a></li>
+                                                        <li><a href="{{ route('HumanRights') }}">Human Rights</a>
+                                                        </li>
+                                                        <li><a href="{{ route('WomenRights') }}">Women Rights</a>
+                                                        </li>
+                                                        <li><a href="{{ route('ChildRights') }}">Child Rights</a>
+                                                        </li>
+                                                        <li><a href="{{ route('ConsumerRights') }}">Consumer
+                                                                Rights</a></li>
+                                                        <li><a href="{{ route('RTI') }}">Rights to Information</a>
+                                                        </li>
+                                                        <li><a href="{{ route('DisabilityRights') }}">Disability
+                                                                Rights</a></li>
+                                                        <li><a href="{{ route('RightToEducation') }}">Right to
+                                                                Education</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
                                                     <ul>
-                                                        <li><a href="{{ route('AdvocateRights') }}">Advocate Rights</a></li>
+                                                        <li><a href="{{ route('AdvocateRights') }}">Advocate
+                                                                Rights</a></li>
                                                         <li><a href="{{ route('LGBTRights') }}">LGBT Rights</a></li>
-                                                        <li><a href="{{ route('DoctorRights') }}">Doctor Rights</a></li>
-                                                        <li><a href="{{ route('TribalRights') }}">Tribal Rights</a></li>
-                                                        <li><a href="{{ route('PressRights') }}">Press Rights</a></li>
-                                                        <li><a href="{{ route('CrimeControlAct') }}">Crime Control Act</a></li>
+                                                        <li><a href="{{ route('DoctorRights') }}">Doctor Rights</a>
+                                                        </li>
+                                                        <li><a href="{{ route('TribalRights') }}">Tribal Rights</a>
+                                                        </li>
+                                                        <li><a href="{{ route('PressRights') }}">Press Rights</a>
+                                                        </li>
+                                                        <li><a href="{{ route('CrimeControlAct') }}">Crime Control
+                                                                Act</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -348,11 +457,16 @@
                                             <div class="m-menu-inn">
                                                 <div class="mm1-com mm1-s1">
                                                     <ul>
-                                                        <li><a href="{{ route('annual_report') }}">Annual Report</a></li>
-                                                        <li><a href="{{ route('monthly_report') }}">Monthly Report</a></li>
-                                                        <li><a href="{{ route('official_notification') }}">Official/Notification</a></li>
+                                                        <li><a href="{{ route('annual_report') }}">Annual Report</a>
+                                                        </li>
+                                                        <li><a href="{{ route('monthly_report') }}">Monthly
+                                                                Report</a></li>
+                                                        <li><a
+                                                                href="{{ route('official_notification') }}">Official/Notification</a>
+                                                        </li>
                                                         <li><a href="">Acts Related Human Rights</a></li>
-                                                        <li><a href="{{ route('convo_report') }}">Convocation Report</a></li>
+                                                        <li><a href="{{ route('convo_report') }}">Convocation
+                                                                Report</a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="mm1-com mm1-s3">
@@ -378,7 +492,8 @@
                                                         <li><a
                                                                 href="{{ route('acknowledgement') }}">Acknowledgement</a>
                                                         </li>
-                                                        <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a></li>
+                                                        <li><a href="{{ route('GovtLetter') }}">Govt. Letters</a>
+                                                        </li>
                                                         <li><a href="{{ route('OfficerInteraction') }}">Officer
                                                                 Intercation</a></li>
                                                         <li><a href="{{ route('ActionTakRepo') }}">Action Take
@@ -456,9 +571,15 @@
                                                                 <a type="button" class="dropdown-toggle"
                                                                     data-toggle="dropdown">National Level</a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item"href="{{ route('mghra') }}">Mahatma Gandhi Human Rights Award</a>
-                                                                    <a class="dropdown-item" href="{{ route('braa') }}">Bhim Rao Ambedkar Award</a>
-                                                                    <a class="dropdown-item" href="{{ route('nirpd') }}">NHRCCB India Pride Award</a>
+                                                                    <a
+                                                                        class="dropdown-item"href="{{ route('mghra') }}">Mahatma
+                                                                        Gandhi Human Rights Award</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('braa') }}">Bhim Rao Ambedkar
+                                                                        Award</a>
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ route('nirpd') }}">NHRCCB India
+                                                                        Pride Award</a>
                                                                     <a class="dropdown-item"
                                                                         href="{{ route('nhra') }}">Nhrccb
                                                                         Human Rights Award</a>
@@ -706,8 +827,9 @@
                                                     <ul>
                                                         <li><a href="{{ route('ContactUs') }}">Office Address</a>
                                                         </li>
-                                                        <li><a href="{{route('officeDirectory')}}">Officers Directory</a></li>
-                                                        <li><a href="{{route('HelpLine')}}">Help Line</a></li>
+                                                        <li><a href="{{ route('officeDirectory') }}">Officers
+                                                                Directory</a></li>
+                                                        <li><a href="{{ route('HelpLine') }}">Help Line</a></li>
                                                         <li><a href="#">Download</a></li>
                                                     </ul>
                                                 </div>
