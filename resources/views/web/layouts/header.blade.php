@@ -707,7 +707,7 @@
                                                         <li><a href="{{ route('ContactUs') }}">Office Address</a>
                                                         </li>
                                                         <li><a href="{{route('officeDirectory')}}">Officers Directory</a></li>
-                                                        <li><a href="#">Help Line</a></li>
+                                                        <li><a href="{{route('HelpLine')}}">Help Line</a></li>
                                                         <li><a href="#">Download</a></li>
                                                     </ul>
                                                 </div>

@@ -189,6 +189,10 @@ class PageController extends Controller
     {
         return view('web.pages.contactUs.directory');
     }
+    public function HelpLine()
+    {
+        return view('web.pages.contactUs.helpline');
+    }
     public function donation()
     {
         return view('web.pages.donation.donation');
