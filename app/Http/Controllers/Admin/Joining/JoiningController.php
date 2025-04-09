@@ -81,12 +81,12 @@ class JoiningController extends Controller
 
         $joinApp->save();
 
-        Mail::send([], [], function ($message) use ($joinApp, $reg_no) {
-            $message->to($joinApp->email)
-                ->subject('Welcome to the NHRCCB Teams')
+        // Mail::send([], [], function ($message) use ($joinApp, $reg_no) {
+        //     $message->to($joinApp->email)
+        //         ->subject('Welcome to the NHRCCB Teams')
 
-                ->html('<p>Dear ' . $joinApp->name . ',</p><p> Your Registration No is : ' . $reg_no . ' </p><p>Designation as a ' . $joinApp->designation . ' </p><p> Attached is Welcome to the NHRCCB Teams.</p><p>Best regards,<br>Your Organization</p>');
-        });
+        //         ->html('<p>Dear ' . $joinApp->name . ',</p><p> Your Registration No is : ' . $reg_no . ' </p><p>Designation as a ' . $joinApp->designation . ' </p><p> Attached is Welcome to the NHRCCB Teams.</p><p>Best regards,<br>Your Organization</p>');
+        // });
 
         return redirect()->back()->with('alert', 'Application status updated successfully!');
     }
