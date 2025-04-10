@@ -43,7 +43,7 @@ class RulebookController extends Controller
         $rulebook = Rulebook::orderby('created_at', 'desc')->get();
         $data = compact('rulebook');
         // dd($rulebook);
-        return view('admin.pages.publication.rulebook.viewRulebook')->with($data)->with('no', '1');
+        return view('admin.pages.publication.rulebook.viewRuleBook')->with($data)->with('no', '1');
     }
 
     public function deleteRulebook($id)

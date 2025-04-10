@@ -63,11 +63,18 @@
     <div class="container">
         <div class="row">
             <div class="copy-right">
-                <p>Copyrights © 2024 ALL RIGHTS RESERVED BY NATIONAL HUMAN RIGHTS AND CRIME CONTROL BUREAU</p>
+                <p>
+                    Copyrights © <b id="year"></b> 
+                    ALL RIGHTS RESERVED BY NATIONAL HUMAN RIGHTS AND CRIME CONTROL BUREAU | 
+                    Design by <a class="text-white" href="https://www.jharkhanditservices.com/">Jharkhand IT Services Software Pvt. Ltd.</a>
+                </p>
             </div>
         </div>
     </div>
 </section>
+
+
+
 
 <!--SECTION LOGIN, REGISTER AND FORGOT PASSWORD-->
 <section>
@@ -248,7 +255,10 @@
 <script src="{{asset('public/web/assets/js/custom.js')}}"></script>
 <script src="{{asset('public/web/assets/js/particle.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+<script>
+    // Dynamically set the current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 @yield('page-js')
 
 </body>
