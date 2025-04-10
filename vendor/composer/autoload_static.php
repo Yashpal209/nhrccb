@@ -669,6 +669,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\Admin\\Administration\\NationalExecutive' => __DIR__ . '/../..' . '/app/Models/Admin/Administration/NationalExecutive.php',
         'App\\Models\\Admin\\Administration\\NationalPatron' => __DIR__ . '/../..' . '/app/Models/Admin/Administration/NationalPatron.php',
         'App\\Models\\Admin\\Administration\\OfficeStaff' => __DIR__ . '/../..' . '/app/Models/Admin/Administration/OfficeStaff.php',
+        'App\\Models\\Admin\\Administration\\StatePresident' => __DIR__ . '/../..' . '/app/Models/Admin/Administration/StatePresident.php',
         'App\\Models\\Admin\\CellUnit\\AntHumanTrf' => __DIR__ . '/../..' . '/app/Models/Admin/CellUnit/AntHumanTrf.php',
         'App\\Models\\Admin\\CellUnit\\AntiCorruption' => __DIR__ . '/../..' . '/app/Models/Admin/CellUnit/AntiCorruption.php',
         'App\\Models\\Admin\\CellUnit\\ChildRightCell' => __DIR__ . '/../..' . '/app/Models/Admin/CellUnit/ChildRightCell.php',

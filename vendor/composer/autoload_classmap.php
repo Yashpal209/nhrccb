@@ -105,6 +105,7 @@ return array(
     'App\\Models\\Admin\\Administration\\NationalExecutive' => $baseDir . '/app/Models/Admin/Administration/NationalExecutive.php',
     'App\\Models\\Admin\\Administration\\NationalPatron' => $baseDir . '/app/Models/Admin/Administration/NationalPatron.php',
     'App\\Models\\Admin\\Administration\\OfficeStaff' => $baseDir . '/app/Models/Admin/Administration/OfficeStaff.php',
+    'App\\Models\\Admin\\Administration\\StatePresident' => $baseDir . '/app/Models/Admin/Administration/StatePresident.php',
     'App\\Models\\Admin\\CellUnit\\AntHumanTrf' => $baseDir . '/app/Models/Admin/CellUnit/AntHumanTrf.php',
     'App\\Models\\Admin\\CellUnit\\AntiCorruption' => $baseDir . '/app/Models/Admin/CellUnit/AntiCorruption.php',
     'App\\Models\\Admin\\CellUnit\\ChildRightCell' => $baseDir . '/app/Models/Admin/CellUnit/ChildRightCell.php',
