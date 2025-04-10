@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-
 <head>
     <title>NHRCCB Admin</title>
     <!-- META TAGS -->
@@ -29,19 +26,14 @@
 </head>
 
 <body style=" background-color: #e0e4f3;">
-
- <!-- UPCOMING EVENTS -->
  <section >
         <div class="container com-sp pad-bot-0">
             <div class="row justify-content-center">
 
                 <div class="col-md-4">
-                    <!--<div class="ho-ex-title">
-							<h4>Upcoming Event</h4>
-						</div>-->
                     <div class="ho-ev-latest ho-ev-latest-bg-3">
                         <div class="ho-lat-ev">
-                            <h4> Login (NHRCCB)</h4>
+                            <h4> Login Admin(NHRCCB)</h4>
                         </div>
                     </div>
                     <div class="ho-st-login">
