@@ -126,6 +126,7 @@ Route::get('/training-research', [PageController::class, 'trainingResearch'])->n
 Route::get('verification', [PageController::class, 'verification'])->name('verification');
 
 Route::post('/verify', [PageController::class, 'verify'])->name('verify');
+Route::post('/verifymember', [PageController::class, 'verifymember'])->name('verifymember');
 Route::post('/complaintstatus', [ComplainController::class, 'verify'])->name('complaintStatus');
 
 // Issue

@@ -16,6 +16,7 @@ use App\Models\Admin\publication;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\State;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -96,12 +97,18 @@ class PageController extends Controller
         // return $request;
         $request->validate([
             'identifier' => 'required',
+            'level' => 'required',
         ]);
 
         $identifier = $request->input('identifier');
-        $user = JoinUs::where('reg_no', $identifier)
-            ->orWhere('mobile', $identifier)
+        $level = $request->input('level');
+        $user = JoinUs::where(function ($query) use ($identifier) {
+            $query->where('reg_no', $identifier)
+                ->orWhere('mobile', $identifier);
+        })
+            ->where('level', $level)
             ->first();
+
         // return $user;
         if ($user) {
             return back()->with('success', 'User found')->with('user', $user);
@@ -109,6 +116,38 @@ class PageController extends Controller
             return back()->with('error', 'User not found');
         }
     }
+    public function verifymember(Request $request)
+    {
+        $request->validate([
+            'identifier' => 'required',
+            'level' => 'required',
+        ]);
+
+        $identifier = $request->input('identifier');
+        $level = $request->input('level');
+        // return $level;
+        $userQuery = JoinUs::where(function ($query) use ($identifier) {
+            $query->where('reg_no', $identifier)
+                ->orWhere('mobile', $identifier);
+        });
+
+        // TEAM-type level logic
+        if (Str::endsWith($level, 'TEAM')) {
+            $userQuery->where('level', 'LIKE', '%TEAM');
+        } else {
+            return back()->with('error', 'This Member not found');
+        }
+
+        // Fetch user
+        $user = $userQuery->first();
+
+        if ($user) {
+            return back()->with('success', 'User found')->with('user', $user);
+        } else {
+            return back()->with('error', 'This Member not found');
+        }
+    }
+
 
     public function publication()
     {
@@ -163,7 +202,7 @@ class PageController extends Controller
         return view('web.pages.administration.StatePresident')->with($data);
     }
 
-    
+
     public function Officials()
     {
         $officestaff = OfficeStaff::orderby('order_no', 'asc')->get();

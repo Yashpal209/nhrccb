@@ -44,6 +44,7 @@
                                                 <label>(NHRCCB/0000) or (Mobile No.)</label>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="level" value="ACTIVE MEMBER" class="validate"  required>
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input type="submit" value="Verify" class="waves-effect waves-light light-btn">
@@ -64,7 +65,7 @@
                             </div>
                             <div class="ho-st-login">
                                 <div class="col s12">
-                                    <form action="{{ route('verify') }}" method="POST" class="col s12">
+                                    <form action="{{ route('verifymember') }}" method="POST" class="col s12">
                                         @csrf
                                         <div class="row">
                                             <div class="input-field col s12">
@@ -72,6 +73,7 @@
                                                 <label>(NHRCCB/0000) or (Mobile No.)</label>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="level" value="TEAM" class="validate"  required>
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input type="submit" value="Verify" class="waves-effect waves-light light-btn">
@@ -97,6 +99,7 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input type="text" name="identifier" class="validate" required>
+                                                <input type="hidden" name="level" value="VOLUNTEER" class="validate"  required>
                                                 <label>(NHRCCB/0000) or (Mobile No.)</label>
                                             </div>
                                         </div>
