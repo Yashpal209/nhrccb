@@ -33,7 +33,7 @@
                 <div class="col-md-4">
                     <div class="ho-ev-latest ho-ev-latest-bg-3">
                         <div class="ho-lat-ev">
-                            <h4> Login Admin(NHRCCB)</h4>
+                            <h4> Login Admin (NHRCCB)</h4>
                         </div>
                     </div>
                     <div class="ho-st-login">
