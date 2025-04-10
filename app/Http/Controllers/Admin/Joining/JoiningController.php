@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Web\Pages\JoinUs;
 use App\Models\PromoCode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 
 class JoiningController extends Controller
@@ -98,6 +99,19 @@ class JoiningController extends Controller
     {
         $joinApp = JoinUs::find($id);
         if ($joinApp) {
+            $imageFields = [
+                'passport_image',
+                'adhar_front_img',
+                'adhar_back_img',
+                'pan_card_img',
+                'other_doc_img'
+            ];
+            foreach ($imageFields as $field) {
+                $imagePath = $joinApp->$field;
+                if (!empty($imagePath) && File::exists($imagePath)) {
+                    File::delete($imagePath);
+                }
+            }
             $joinApp->delete();
             return redirect()->route('viewJoinApplication')->with('alert', 'Application deleted successfully!');
         }

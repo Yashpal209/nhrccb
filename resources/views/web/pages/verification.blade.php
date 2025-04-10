@@ -99,10 +99,10 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input type="text" name="identifier" class="validate" required>
-                                                <input type="hidden" name="level" value="VOLUNTEER" class="validate"  required>
                                                 <label>(NHRCCB/0000) or (Mobile No.)</label>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="level" value="VOLUNTEER" class="validate"  required>
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <input type="submit" value="Verify" class="waves-effect waves-light light-btn">
