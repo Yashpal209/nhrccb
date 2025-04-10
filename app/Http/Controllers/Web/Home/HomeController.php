@@ -26,7 +26,7 @@ class HomeController extends Controller
         $title ='Home';
         $notifications = Notification::orderBy('date', 'desc')->get();
         // $latestUpdate = LatestUpdate::orderBy('date', 'desc')->get();
-        $ElectronicMedia = ElectronicMedia::orderBy('date', 'desc')->get();
+        $ElectronicMedia = ElectronicMedia::orderBy('created_at', 'desc')->get();
         $Banner = Banner::orderBy('created_at', 'desc')->get();
         $acknowledgement = Acknowledgement::orderBy('created_at', 'desc')->limit(6)->get();
         $govtLetter = GovtLetter::orderBy('created_at', 'desc')->limit(6)->get();

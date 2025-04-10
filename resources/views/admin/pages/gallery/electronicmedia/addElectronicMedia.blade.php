@@ -46,11 +46,11 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <input type="text" name="title" class="validate" required>
-                                <label class="">Title</label>
+                                <label class="">Heading/Title</label>
                             </div>
                             <div class="input-field col s6">
-                                <input type="date" name="date" class="validate" required>
-                               
+                                <input type="text" name="contant" class="validate" required>
+                                <label class="">News/Contant</label>
                             </div>
 
                         </div>
@@ -59,13 +59,12 @@
                             <div class="file-field input-field col s12">
                                 <div class="btn admin-upload-btn">
                                     <span>File</span>
-                                    <!-- Add the name="noticefile" to the input type="file" -->
                                     <input type="file" name="elec_med_img">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Upload Press Release Image" accept="image/png, image/jpeg, image/jpg, image/webp">
                                 </div>
-                                <!-- <p class="text-danger">(Note : Image Dimension must be 150*150)</p> -->
+                                 <p class="text-danger">(Note : Image Dimension must be 350*350)</p> 
                                 
                             </div>
                         </div>

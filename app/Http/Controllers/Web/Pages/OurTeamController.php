@@ -51,7 +51,7 @@ class OurTeamController extends Controller
 
     public function interns()
     {
-        $interns = Intern::orderby('created_at', 'desc')->where('payment', 'success')->where('status', 2)->orderby('created_at', 'desc')->paginate(10);
+        $interns = Intern::orderby('created_at', 'desc')->paginate(10);
         return view('web.pages.ourteam.interns', compact('interns'))->with('no', 1);
     }
 

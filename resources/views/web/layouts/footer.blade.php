@@ -8,15 +8,12 @@
                 <p align="justify">The National Human Rights and Crime Control Bureau (NHRCCB) is functioning with a commitment to the noble cause of human rights protection and promotion, justice, education, love, peace, harmony for all, friendship, and national and international integration through the exchange of ideas and ethos around the nation.</p>
                 <h4>SOCIAL MEDIA</h4>
                 <ul>
-                    <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                    <li><a href="https://www.youtube.com/channel/UCJvCufQ4ARy84rZAQC2N0Kw"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                    <li><a href="https://t.me/nhrccb"><i class="fab fa-telegram text-white"></i></a></li>
+                    <li><a href="https://twitter.com/nhrccb"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.facebook.com/nhrccb"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/nhrccbindia"><i class="fab fa-instagram "></i></a></li>
+                    {{-- <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a> --}}
                     </li>
                 </ul>
             </div>
@@ -198,7 +195,7 @@
                     </li>
                     <li><a href="#"><i class="fab fa-google"></i> Google+</a>
                     </li>
-                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <li><a href="https://twitter.com/nhrccb"><i class="fab fa-twitter"></i> Twitter</a>
                     </li>
                 </ul>
             </div>
@@ -231,13 +228,13 @@
 <section>
     <div class="icon-float">
         <ul>
-            <li><a href="#" class="yt1"><i class="fab fa-youtube " aria-hidden="true"></i></a></li>
-            <li><a href="#" class="fb1"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#" class="tw1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCJvCufQ4ARy84rZAQC2N0Kw" class="yt1"><i class="fab fa-youtube " aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/nhrccb" class="fb1"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/nhrccb" class="tw1"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
             {{-- <li><a href="#" class="li1"><i class="fab fa-linkedin" aria-hidden="true"></i></a> </li> --}}
-            <li><a href="#" class="wa1"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li>
-            <li><a href="#" class="in1"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="#" class="sh1"><i class="fa-solid fa-envelope"></i></a></li>
+            {{-- <li><a href="#" class="wa1"><i class="fab fa-whatsapp" aria-hidden="true"></i></a></li> --}}
+            <li><a href="https://www.instagram.com/nhrccbindia" class="in1"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="mailto:nhrccb@gmail.com" class="sh1"><i class="fa-solid fa-envelope"></i></a></li>
         </ul>
     </div>
 </section>

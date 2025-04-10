@@ -6201,3 +6201,15 @@ official section */
     align-items: center; 
     justify-content: center;
 }
+
+.blink {
+    animation: blinker 1s linear infinite;
+    font-weight: bold;
+    
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }

@@ -175,8 +175,8 @@
                             <ul>
                                 {{-- <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li> --}}
                                 <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
                                 <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
+                                <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
                                 <li><a href="{{ route('StateTeam') }}">State Team</a></li>
                                 <li><a href="{{ route('NationalTeam') }}">National Team</a></li>
                                 <li><a href="{{ route('interns') }}">Interns</a></li>
@@ -252,10 +252,12 @@
                                     <marquee behavior="scroll" direction="left" scrollamount="5">
                                         <a href="tel:9111730311"style="line-height:0px;border:none">HELPLINE NO : +91
                                             91117 30311</a> |
-                                        <a href="tel:9111730311"style="line-height:0px;border:none">CONTECT FOR
+                                        <a href="tel:9111730311"style="line-height:0px;border:none">CONTACT FOR
                                             MEMBERSHIP</a>
                                     </marquee>
                                 </li>
+                                <li><a href="#"></a></li>
+                                <li><a href="https://nhrccb.org.in/" class="blink">OLD WEBSITE</a></li>
                             </ul>
                         </div>
                         <div class="ed-com-t1-social">
@@ -277,6 +279,7 @@
                                 </li>
                                 <li><a href="#!" data-toggle="modal" data-target="#modal2">Sign Up</a>
                                 </li> --}}
+                                
                                 <li><a href="admin">Admin Login</a></li>
                             </ul>
                         </div>
@@ -669,10 +672,8 @@
                                                     <ul>
                                                         {{-- <li><a href="{{ route('ZoneTeam') }}">Zone Team</a></li> --}}
                                                         <li><a href="{{ route('BlockTeam') }}">Block Team</a></li>
-                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a>
-                                                        </li>
-                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a>
-                                                        </li>
+                                                        <li><a href="{{ route('DistrictTeam') }}">District Team</a></li>
+                                                        <li><a href="{{ route('DivisionTeam') }}">Division Team</a></li>
                                                         <li><a href="{{ route('StateTeam') }}">State Team</a></li>
                                                         <li><a href="{{ route('NationalTeam') }}">National Team</a>
                                                         </li>

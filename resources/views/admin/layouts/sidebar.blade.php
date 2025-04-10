@@ -32,6 +32,74 @@
 
             <li>
                 <a href="javascript:void(0)" class="collapsible-header">
+                    <i class="fa fa-book"></i> Notification
+                </a>
+                <div class="collapsible-body">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                                    aria-hidden="true"></i>Press Release</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('addElectronicMedia') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Press Release</a>
+                                    </li>
+                                    <li><a href="{{ route('viewElectronicMedia') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Press Release</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="collapsible-header">
+                                <i class="fa fa-image"></i> Whats New
+                            </a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('addWhatsNew') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Whats New</a>
+                                    </li>
+                                    <li><a href="{{ route('viewWhatsNew') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Whats New</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="collapsible-header">
+                                <i class="fa fa-user"></i> Official Notification
+                            </a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('officialNotification') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Official Notification</a>
+                                    </li>
+                                    <li><a href="{{ route('officialNotificationview') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Official Notification</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                                    aria-hidden="true"></i>Latest Update</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('addLatestUpdate') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Latest Update</a>
+                                    </li>
+                                    <li><a href="{{ route('viewLatestUpdate') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Latest Update</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a href="javascript:void(0)" class="collapsible-header">
                     <i class="fa fa-book"></i> About Us
                 </a>
                 <div class="collapsible-body">
@@ -51,7 +119,7 @@
                         </li>
                         <li>
                             <a href="javascript:void(0)" class="collapsible-header">
-                                <i class="fa fa-user" ></i> Who's Who
+                                <i class="fa fa-user"></i> Who's Who
                             </a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
@@ -116,8 +184,10 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book" aria-hidden="true"></i>New
-                    Complain</a>
+
+            <li>
+                <a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                        aria-hidden="true"></i>New Complain</a>
                 <div class="collapsible-body left-sub-menu">
                     <ul class="collapsible" data-collapsible="accordion">
                         <li><a href="{{ route('viewComplainApplictaion') }}" class="collapsible-header"><i
@@ -129,73 +199,25 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                        aria-hidden="true"></i>Notification</a>
-                <div class="collapsible-body left-sub-menu">
-                    <ul class="collapsible" data-collapsible="accordion">
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Official Notification</a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-                                    <li><a href="{{ route('officialNotification') }}"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i>Add Official Notification</a>
-                                    </li>
-                                    <li><a href="{{ route('officialNotificationview') }}"><i class="fa fa-eye"
-                                                aria-hidden="true"></i>View Official Notification</a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Whats New</a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-                                    <li><a href="{{ route('addWhatsNew') }}"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i>Add Whats New</a>
-                                    </li>
-                                    <li><a href="{{ route('viewWhatsNew') }}"><i class="fa fa-eye"
-                                                aria-hidden="true"></i>View Whats New</a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Latest Update</a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-                                    <li><a href="{{ route('addLatestUpdate') }}"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i>Add Latest Update</a>
-                                    </li>
-                                    <li><a href="{{ route('viewLatestUpdate') }}"><i class="fa fa-eye"
-                                                aria-hidden="true"></i>View Latest Update</a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li>
-
-
-                    </ul>
-                </div>
-            </li>
-
-            <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user"
-                        aria-hidden="true"></i>
-                    Administration</a>
-                <div class="collapsible-body left-sub-menu">
-                    <ul>
-
-
-                    </ul>
-                </div>
-            </li>
 
             <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
                         aria-hidden="true"></i>Publication</a>
                 <div class="collapsible-body left-sub-menu">
                     <ul class="collapsible" data-collapsible="accordion">
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                                    aria-hidden="true"></i>Annual Report</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('addAnnualReport') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Annual Report</a>
+                                    </li>
+                                    <li><a href="{{ route('viewAnnualReport') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Annual Report</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
                                     aria-hidden="true"></i>Monthly Report</a>
                             <div class="collapsible-body left-sub-menu">
@@ -210,17 +232,44 @@
                                 </ul>
                             </div>
                         </li>
+
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Annual Report</a>
+                                    aria-hidden="true"></i>Acts Related Human Right</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="{{ route('addAnnualReport') }}"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i>Add Annual Report</a>
+                                    <li><a href="#"><i class="fa fa-pencil" aria-hidden="true"></i>Add Acts
+                                            Related Human Right</a>
                                     </li>
-                                    <li><a href="{{ route('viewAnnualReport') }}"><i class="fa fa-eye"
-                                                aria-hidden="true"></i>View Annual Report</a>
+                                    <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>View Acts
+                                            Related Human Right</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                                    aria-hidden="true"></i>Convocation Report</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('addConvocation') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Convocation</a>
+                                    </li>
+                                    <li><a href="{{ route('viewConvocation') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Convocation</a>
                                     </li>
 
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                                    aria-hidden="true"></i>Prospectus</a>
+                            <div class="collapsible-body left-sub-menu">
+                                <ul>
+                                    <li><a href="{{ route('addProspectus') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Propectus</a>
+                                    </li>
+                                    <li><a href="{{ route('viewProspectus') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Prospectus</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -238,20 +287,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Prospectus</a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-                                    <li><a href="{{ route('addProspectus') }}"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i>Add Propectus</a>
-                                    </li>
-                                    <li><a href="{{ route('viewProspectus') }}"><i class="fa fa-eye"
-                                                aria-hidden="true"></i>View Prospectus</a>
-                                    </li>
 
-                                </ul>
-                            </div>
-                        </li>
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
                                     aria-hidden="true"></i>Journal</a>
                             <div class="collapsible-body left-sub-menu">
@@ -281,22 +317,24 @@
                             </div>
                         </li>
                         <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Convocation Report</a>
+                                    aria-hidden="true"></i>Books</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
-                                    <li><a href="{{ route('addConvocation') }}"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i>Add Convocation</a>
+                                    <li><a href="{{ route('addRulebook') }}"><i class="fa fa-pencil"
+                                                aria-hidden="true"></i>Add Books</a>
                                     </li>
-                                    <li><a href="{{ route('viewConvocation') }}"><i class="fa fa-eye"
-                                                aria-hidden="true"></i>View Convocation</a>
+                                    <li><a href="{{ route('viewRulebook') }}"><i class="fa fa-eye"
+                                                aria-hidden="true"></i>View Books</a>
                                     </li>
 
                                 </ul>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </li>
+
             <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image"
                         aria-hidden="true"></i>Media</a>
                 <div class="collapsible-body left-sub-menu">
@@ -413,20 +451,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
-                                    aria-hidden="true"></i>Press Release</a>
-                            <div class="collapsible-body left-sub-menu">
-                                <ul>
-                                    <li><a href="{{ route('addElectronicMedia') }}"><i class="fa fa-pencil"
-                                                aria-hidden="true"></i>Add Press Release</a>
-                                    </li>
-                                    <li><a href="{{ route('viewElectronicMedia') }}"><i class="fa fa-eye"
-                                                aria-hidden="true"></i>View Press Release</a>
-                                    </li>
 
-                                </ul>
-                            </div>
-                        </li>
                         <!-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book" aria-hidden="true"></i>Officer Interaction</a>
                             <div class="collapsible-body left-sub-menu">
                                 <ul>
@@ -477,6 +502,7 @@
                     </ul>
                 </div>
             </li>
+
             <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image"
                         aria-hidden="true"></i>Activities</a>
                 <div class="collapsible-body left-sub-menu">
@@ -590,6 +616,7 @@
                     </ul>
                 </div>
             </li>
+
             <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
                         aria-hidden="true"></i> Awardee</a>
                 <div class="collapsible-body left-sub-menu">
@@ -731,6 +758,7 @@
                     </ul>
                 </div>
             </li>
+
             <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-image"
                         aria-hidden="true"></i>Our Cell/Unit</a>
                 <div class="collapsible-body left-sub-menu">
@@ -869,6 +897,7 @@
                     </ul>
                 </div>
             </li>
+
         </ul>
     </div>
 </div>

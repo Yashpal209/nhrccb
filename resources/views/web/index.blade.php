@@ -77,7 +77,7 @@
                             <p class="d-inline m-0 mx-3">
                                 <i class="fas fa-bell text-danger"></i>
                                 <a href="{{ $list->elec_med_img }}" target="_blank" class="text-white text-decoration-none">
-                                    {{ $list->title }} ({{ $list->date }})
+                                    {{ $list->title }} ({{ $list->created_at }})
                                 </a>
                             </p>
                         @endforeach

@@ -15,7 +15,7 @@ class ComplainController extends Controller
     }
     public function ComplainApplictaionStatus()
     {
-        $complainData = NewComplain::orderBy('created_at', 'desc')->paginate(10);
+        $complainData = NewComplain::where('status','1|2|3')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.pages.complain.ComplainStatus', compact('complainData'));
     }
     public function changeStatus(Request $request)

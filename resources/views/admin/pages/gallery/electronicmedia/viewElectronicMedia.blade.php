@@ -44,9 +44,9 @@
                             <thead>
                                 <tr>
                                     <th>Sl. No.</th>
-                                    <th>Id</th>
-                                    <th>Press  Rrelease Image</th>
+                                    <th>Press Rrelease Image</th>
                                     <th>Title</th>
+                                    <th>Contant</th>
                                     <th> Posted Date</th>
                                     <th>Action</th>
                                 </tr>
@@ -54,11 +54,11 @@
                             @foreach($elecmedia as $list)
                             <tr>
                                 <td>{{$no++}}</td>
-                            <td>{{$list->id}}</td>
                                 <td><span class="letter-img"><img src="{{url('/').'/'. $list->elec_med_img}}" alt=""></span>
                                 </td>
                                 <td>{{$list->title}}</td>
-                                <td>{{$list->date}}</td>
+                                <td>{{$list->contant}}</td>
+                                <td>{{$list->created_at}}</td>
                                 <td><a href="{{route('delete.Elecmedia',$list->id)}}" class="ad-st-view">Delete</a></td>
                             </tr>
                             @endforeach
