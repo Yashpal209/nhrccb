@@ -110,15 +110,15 @@ class CertificateController extends Controller
         $user->certificate = '/uploads/certificate/' . $fileName;
         $user->save();
 
-        // Mail::send([], [], function ($message) use ($user, $filePath) {
-        //     $message->to($user->email)
-        //         ->subject('Your Membership Certificate')
-        //         ->attach($filePath, [
-        //             'as' => 'Membership_Certificate.pdf',
-        //             'mime' => 'application/pdf',
-        //         ])
-        //         ->html('<p>Dear ' . $user->name . ',</p><p>Attached is your membership certificate.</p><p>Best regards,<br>Your Organization</p>');
-        // });
+        Mail::send([], [], function ($message) use ($user, $filePath) {
+            $message->to($user->email)
+                ->subject('Your Membership Certificate')
+                ->attach($filePath, [
+                    'as' => 'Membership_Certificate.pdf',
+                    'mime' => 'application/pdf',
+                ])
+                ->html('<p>Dear ' . $user->name . ',</p><p>Attached is your membership certificate.</p><p>Best regards,<br>Your Organization</p>');
+        });
 
         // return response()->json(['message' => 'Certificate generated and sent successfully!', 'file' => asset('storage/' . $fileName)]);
         // return response($pdf->Output('Certificate.pdf', 'I'))
