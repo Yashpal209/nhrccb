@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class WhatsNew extends Model
 {
     use HasFactory;
-    protected $table = 'whatsNew';
+    protected $table = 'whatsnew';
 }
