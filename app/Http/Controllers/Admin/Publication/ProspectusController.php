@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Publication;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Publication\Prospectus;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class ProspectusController extends Controller
@@ -38,15 +39,20 @@ class ProspectusController extends Controller
 
     public function viewProspectus()
     {
-        $prospectus =  Prospectus::orderby('created_at', 'desc')->get();
-        $data = compact('prospectus');
-        return view('admin.pages.publication.prospectus.viewProspectus')->with($data)->with('no', '1');
+        $prospectus = Prospectus::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.pages.publication.prospectus.viewProspectus', compact('prospectus'))->with('no', ($prospectus->currentPage() - 1) * $prospectus->perPage() + 1);
     }
+
 
     public function deleteProspectus($id)
     {
-        $prospectus = Prospectus::find($id)->delete();
+        $prospectus = Prospectus::find($id);
         if ($prospectus) {
+            $imagePath = $prospectus->prospectus;
+            if (!empty($imagePath) && File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+            $prospectus->delete();
             return redirect()->route('viewProspectus')->with('alert', 'Data deleted Successfully');
         } else {
             return redirect()->back()->with('error', 'Permission denied');

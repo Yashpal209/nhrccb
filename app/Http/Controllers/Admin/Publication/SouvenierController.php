@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Publication;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Publication\Souvenier;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class SouvenierController extends Controller
@@ -45,13 +46,20 @@ class SouvenierController extends Controller
        return view('admin.pages.publication.souvenier.viewSouvenier')->with($data)->with('no', '1');
     }
  
-    public function deleteSouvenier($id){
-       $souvenier =  Souvenier::find($id)->delete();
-       if($souvenier){
-          return redirect()->route('viewSouvenier')->with('alert', 'Data deleted Successfully');
-       }else {
-          return redirect() - back()->with('error', 'Permission denied');
-       }
- 
+    public function deleteSouvenier($id)
+{
+    $souvenier = Souvenier::find($id);
+
+    if ($souvenier) {
+        $imagePath = $souvenier->souvenier; // update field name if different
+        if (!empty($imagePath) && File::exists($imagePath)) {
+            File::delete($imagePath);
+        }
+        $souvenier->delete();
+        return redirect()->route('viewSouvenier')->with('alert', 'Data deleted Successfully');
+    } else {
+        return redirect()->back()->with('error', 'Permission denied');
     }
+}
+
 }

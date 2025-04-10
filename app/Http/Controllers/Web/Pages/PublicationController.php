@@ -18,7 +18,7 @@ class PublicationController extends Controller
 {
      public function monthly_report()
      {
-          $monthlyReports = MonthlyReport::paginate(10);
+          $monthlyReports = MonthlyReport::orderBy('date', 'desc')->paginate(12); 
           return view('web.pages.publication.monthly_report', compact('monthlyReports'));
      }
      public function annual_report()

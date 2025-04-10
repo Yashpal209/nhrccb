@@ -52,7 +52,7 @@
                                     <td>{{$convocation->date}}</td>
                                     <td>{{$convocation->convocation}}</td>                                  
                                     <td>
-                                       <a href="{{url($convocation->convocation)}}"><span class="label label-success">View</span></a> 
+                                       <a href="{{url($convocation->convocation)}}" target="_blank"><span class="label label-success">View file</span></a> 
                                     </td>
                                     <td><a href="{{route('delete.Convocation', $convocation->id)}}" class="ad-st-view">Delete</a></td>
                                    

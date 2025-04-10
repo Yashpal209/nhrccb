@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Publication;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Publication\Convocation;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class ConvocationController extends Controller
@@ -45,8 +46,13 @@ class ConvocationController extends Controller
 
     public function deleteConvocation($id)
     {
-        $convocation = Convocation::find($id)->delete();
+        $convocation = Convocation::find($id);
         if ($convocation) {
+            $imagePath = $convocation->convocation;
+            if (!empty($imagePath) && File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+            $convocation->delete();
             return redirect()->route('viewConvocation')->with('alert', 'Data Deleted Successfully');
         } else {
             return redirect()->back()->with('error', 'Permission denied');

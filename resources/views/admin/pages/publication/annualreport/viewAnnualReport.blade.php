@@ -22,12 +22,12 @@
                 <div class="inn-title">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                            <h4> Annual Report List</h4>
+                            <h4>Annual Report List</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                           <a href="{{route('addAnnualReport')}}"><div class="btn">
-                                Add New Annual Report
-                            </div></a> 
+                            <a href="{{ route('addAnnualReport') }}">
+                                <div class="btn">Add New Annual Report</div>
+                            </a> 
                         </div>
                     </div>
                 </div>
@@ -45,21 +45,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($annualreport as $annualreport)
+                                @forelse($annualreport as $report)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$annualreport->title}}</td>
-                                    <td>{{$annualreport->date}}</td>
-                                    <td>{{$annualreport->report}}</td>                                  
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $report->title }}</td>
+                                    <td>{{ $report->date }}</td>
+                                    <td>{{ $report->report }}</td>                                  
                                     <td>
-                                       <a href="{{url($annualreport->report)}}"><span class="label label-success">View</span></a> 
+                                        <a href="{{ url($report->report) }}" target="_blank">
+                                            <span class="label label-success">View</span>
+                                        </a> 
                                     </td>
-                                    <td><a href="{{route('AnnualReport.delete', $annualreport->id)}}" class="ad-st-view">Delete</a></td>
-                                   
+                                    <td>
+                                        <a href="{{ route('AnnualReport.delete', $report->id) }}" class="ad-st-view">Delete</a>
+                                    </td>
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    <td colspan="6" class="text-center">No Annual Reports found.</td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
+
+                        <!-- Pagination Links -->
+                        <div class="d-flex justify-content-center mt-3">
+                            {{ $annualreport->links() }}
+                        </div>
+
                     </div>
                 </div>
             </div>

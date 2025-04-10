@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Publication;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Publication\Rulebook;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class RulebookController extends Controller
@@ -47,8 +48,13 @@ class RulebookController extends Controller
 
     public function deleteRulebook($id)
     {
-        $rulebook =  Rulebook::find($id)->delete();
+        $rulebook = Rulebook::find($id);
         if ($rulebook) {
+            $imagePath = $rulebook->rulebook; // change this if your column name is different
+            if (!empty($imagePath) && File::exists($imagePath)) {
+                File::delete($imagePath);
+            }
+            $rulebook->delete();
             return redirect()->route('viewRulebook')->with('alert', 'Data deleted Successfully');
         } else {
             return redirect()->back()->with('error', 'Permission denied');

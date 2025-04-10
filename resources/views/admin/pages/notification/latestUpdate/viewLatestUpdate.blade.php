@@ -53,7 +53,7 @@
                                     <td>{{$notification->file}}</td>
                         
                                     <td>
-                                       <a href="{{ url('/'.$notification->file) }}"><span class="label label-success">View</span></a> 
+                                       <a href="{{ url('/'.$notification->file) }}" target="_blank"><span class="label label-success">View</span></a> 
                                     </td>
                                     <td><a href="{{route('delete.LatestUpdate',$notification->id)}}" class="ad-st-view">Delete</a></td>
                                 </tr>

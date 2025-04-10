@@ -52,7 +52,7 @@
                                     <td>{{$souvenier->date}}</td>
                                     <td>{{($souvenier->souvenier)}}</td>                                  
                                     <td>
-                                       <a href="{{url($souvenier->souvenier)}}"><span class="label label-success">View</span></a> 
+                                       <a href="{{url($souvenier->souvenier)}}" target="_blank"><span class="label label-success">View</span></a> 
                                     </td>
                                     <td><a href="{{route('Souvenier.delete', $souvenier->id)}}" class="ad-st-view">Delete</a></td>
                                    

@@ -25,9 +25,9 @@
                             <h4> Prospectus List</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                           <a href="{{route('addProspectus')}}"><div class="btn">
-                                Add Prospectus
-                            </div></a> 
+                           <a href="{{ route('addProspectus') }}">
+                                <div class="btn">Add Prospectus</div>
+                           </a> 
                         </div>
                     </div>
                 </div>
@@ -45,21 +45,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($prospectus as $prospectus)
+                                @forelse($prospectus as $index => $item)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$prospectus->title}}</td>
-                                    <td>{{$prospectus->date}}</td>
-                                    <td>{{($prospectus->prospectus)}}</td>                                  
+                                    <td>{{ $prospectus->firstItem() + $index }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->date }}</td>
+                                    <td>{{ $item->prospectus }}</td>                                  
                                     <td>
-                                       <a href="{{url($prospectus->prospectus)}}"><span class="label label-success">View</span></a> 
+                                       <a href="{{ url($item->prospectus) }}"><span class="label label-success">View</span></a> 
                                     </td>
-                                    <td><a href="{{route('Prospectus.delete', $prospectus->id)}}" class="ad-st-view">Delete</a></td>
-                                   
+                                    <td><a href="{{ route('Prospectus.delete', $item->id) }}" class="ad-st-view">Delete</a></td>
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    <td colspan="6" class="text-center">No prospectus found.</td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
+
+                        <!-- Pagination -->
+                        <div class="mt-3 d-flex justify-content-center">
+                            {!! $prospectus->links() !!}
+                        </div>
+
                     </div>
                 </div>
             </div>

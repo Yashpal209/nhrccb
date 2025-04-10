@@ -14,7 +14,7 @@
 </div>
 @endif
 
-<!--== User Details ==-->
+<!--== Journal List ==-->
 <div class="sb2-2-3">
     <div class="row">
         <div class="col-md-12">
@@ -22,12 +22,12 @@
                 <div class="inn-title">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                            <h4> Journal List</h4>
+                            <h4>Journal List</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                           <a href="{{route('addJournal')}}"><div class="btn">
-                                Add New Journal
-                            </div></a> 
+                            <a href="{{ route('addJournal') }}">
+                                <div class="btn">Add New Journal</div>
+                            </a> 
                         </div>
                     </div>
                 </div>
@@ -45,21 +45,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($journal as $journal)
+                                @forelse($journal as $item)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$journal->title}}</td>
-                                    <td>{{$journal->date}}</td>
-                                    <td>{{$journal->journal}}</td>                                  
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>{{ $item->date }}</td>
+                                    <td>{{ $item->journal }}</td>                                  
                                     <td>
-                                       <a href="{{url($journal->journal)}}"><span class="label label-success">View</span></a> 
+                                        <a href="{{ url($item->journal) }}" target="_blank">
+                                            <span class="label label-success">View</span>
+                                        </a> 
                                     </td>
-                                    <td><a href="{{route('Journal.delete', $journal->id)}}" class="ad-st-view">Delete</a></td>
-                                   
+                                    <td>
+                                        <a href="{{ route('Journal.delete', $item->id) }}" class="ad-st-view">Delete</a>
+                                    </td>
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                    <td colspan="6" class="text-center">No Journals found.</td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
+
+                        <!-- Pagination Links -->
+                        <div class="d-flex justify-content-center mt-3">
+                            {{ $journal->links() }}
+                        </div>
+
                     </div>
                 </div>
             </div>

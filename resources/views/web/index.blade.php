@@ -71,8 +71,8 @@
         {{-- marquee  --}}
         <div class="container-fluid p-2 bg-dark text-white ">
             <div class="row justify-content-center align-items-center w-100">
-                <div class="col-md-9 col-12">
-                    <marquee id="notificationMarquee" behavior="scroll" direction="left" scrollamount="5" class="d-block">
+                <div class="col-md-10 col-12">
+                    <marquee id="notificationMarquee" behavior="scroll" direction="left" scrollamount="5" class="d-block" onmouseover="this.stop();" onmouseout="this.start();">
                         @foreach ($ElectronicMedia as $list)
                             <p class="d-inline m-0 mx-3">
                                 <i class="fas fa-bell text-danger"></i>
@@ -83,9 +83,9 @@
                         @endforeach
                     </marquee>
                 </div>
-                <div class="col-md-3 col-12 text-center ">
-                    <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').stop()">⏸
-                        Stop</button>
+                <div class="col-md-2 col-12 text-center ">
+                    {{-- <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').stop()">⏸
+                        Stop</button> --}}
                     <button class="btn btn-light btn-sm" onclick="document.getElementById('notificationMarquee').start()">▶
                         Start</button>
                     <button class="btn btn-light btn-sm" onclick="window.location.href='{{ route('ElecMedia') }}'">
@@ -132,7 +132,7 @@
                             <h4>Latest Update</h4>
                             <div class="card">
                                 <div class="card-body">
-                                    <marquee behavior="scroll" direction="up" scrollamount="3" height="250">
+                                    <marquee behavior="scroll" direction="up" scrollamount="3" height="250" onmouseover="this.stop();" onmouseout="this.start();">
                                         <div class="ho-event">
                                             <ul>
                                                 @foreach ($notifications as $notification)
@@ -140,7 +140,7 @@
                                                         <div class="ho-ev-date py-2"><span>{{ $notification->date }}</span>
                                                         </div>
                                                         <div class="ho-ev-link">
-                                                            <a class="ho-ev-link" href="{{ $notification->noticefile }}">
+                                                            <a class="ho-ev-link" target="_blank" href="{{ $notification->noticefile }}">
                                                                 <p class="ho-ev-link">{{ $notification->title }}</p>
                                                             </a>
                                                         </div>

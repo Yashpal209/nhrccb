@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Publication;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Publication\Journal;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class JournalController extends Controller
@@ -38,18 +39,23 @@ class JournalController extends Controller
 
     public function viewJournal()
     {
-        $journal =  Journal::orderby('created_at', 'desc')->get();
-        $data = compact('journal');
-        return view('admin.pages.publication.journal.viewJournal')->with($data)->with('no', '1');
+        $journal = Journal::orderBy('created_at', 'desc')->paginate(10); // 10 items per page
+        return view('admin.pages.publication.journal.viewJournal', compact('journal'))
+            ->with('no', ($journal->currentPage() - 1) * $journal->perPage() + 1);
     }
 
     public function deleteJournal($id)
-    {
-        $journal = Journal::find($id)->delete();
-        if ($journal) {
-            return redirect()->route('viewJournal')->with('alert', 'Data deleted Successfully');
-        } else {
-            return redirect()->back()->with('error', 'Permission denied');
+{
+    $journal = Journal::find($id);
+    if ($journal) {
+        $imagePath = $journal->journal; 
+        if (!empty($imagePath) && File::exists($imagePath)) {
+            File::delete($imagePath);
         }
+        $journal->delete();
+        return redirect()->route('viewJournal')->with('alert', 'Data deleted Successfully');
+    } else {
+        return redirect()->back()->with('error', 'Permission denied');
     }
+}
 }

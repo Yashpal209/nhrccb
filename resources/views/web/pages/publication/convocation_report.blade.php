@@ -1,5 +1,6 @@
 @extends('web.layouts.app')
 @section('main-content')
+
     <section>
         <div class="head-2">
             <div class="container">
@@ -9,48 +10,50 @@
             </div>
         </div>
     </section>
-    <!--SECTION START-->
 
     <section>
-        <div class="container py-4">
+        <div class="ed-res-bg">
             @if ($Convocation->count() > 0)
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="cor about-sp">
-                            <div class="ed-about-tit">
-                                <div class="ho-event pg-eve-main">
-                                    <ul>
-                                        @foreach ($Convocation as $report)
-                                            <li class="py-2">
-                                                <div class="ho-ev-date pg-eve-date py-3">
-                                                    <span>{{ $report->date }}</span>
-                                                </div>
-                                                <div class="ho-ev-link pg-eve-desc">
-                                                    <p>{{ $report->title }}</p>
-                                                </div>
-                                                <div class="pg-eve-reg mt-1">
-                                                    {{-- <img src="{{ $report->convocation }}" style="width: 100px" alt="repost-image"> --}}
-                                                    <a href="{{ $report->convocation }}" target="_blank">Download</a>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+            <div class="container">
+                    @foreach ($Convocation as $index => $report)
+                        <div class="row w-100 text-center py-3">
+                            @if($index % 2 == 0)
+                                <!-- PDF/Icon Left, Text Right -->
+                                <div class="col-md-6 d-flex justify-content-center align-items-center ">
+                                    <embed src="{{ $report->convocation }}" type="application/pdf" width="100%" height="500px" style="border-radius: 10px">
 
-                                    <!-- Pagination Links -->
-                                    <div class="d-flex justify-content-center mt-4">
-                                        {{ $Convocation->links() }}
-                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                                    <h5>{{ \Carbon\Carbon::parse($report->date)->format('F Y') }}</h5>
+                                    <p>{{ $report->title }}</p>
+                                    <a href="{{ $report->convocation }}" class="btn btn-sm btn-danger" target="_blank">See Full Size</a>
+                                </div>
+                            @else
+                                <!-- Text Left, PDF/Icon Right -->
+                                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                                    <h5>{{ \Carbon\Carbon::parse($report->date)->format('F Y') }}</h5>
+                                    <p>{{ $report->title }}</p>
+                                    <a href="{{ $report->convocation }}" class="btn btn-sm btn-danger" target="_blank">See Full Size</a>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-center align-items-center ">
+                                    <embed src="{{ $report->convocation }}" type="application/pdf" width="100%" height="500px" style="border-radius: 10px">
+                                </div>
+                            @endif
                         </div>
+                    @endforeach
+                </div>
+                    <!-- Pagination -->
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $Convocation->links() }}
                     </div>
-                </div>
-            @else
-                <div class="text-center">
-                    <h3> NO Data ON Convocation Report</h3>
-                </div>
-            @endif
+                @else
+                    <div class="text-center w-100">
+                        <h3>No Data On Monthly Report</h3>
+                    </div>
+                @endif
+            
         </div>
     </section>
+    
 
 @endsection

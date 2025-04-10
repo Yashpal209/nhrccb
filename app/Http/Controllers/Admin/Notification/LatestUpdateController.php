@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Notification;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Notification\LatestUpdate;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class LatestUpdateController extends Controller
@@ -48,12 +49,17 @@ class LatestUpdateController extends Controller
         return view('admin.pages.notification.latestUpdate.viewLatestUpdate')->with($data)->with('no', '1');
     }
 
+
     public function deleteLatestUpdate($id)
     {
         $notifications = LatestUpdate::find($id);
-        $notifications->delete();
         if ($notifications) {
-            return redirect()->route('viewLatestUpdate')->with('alert', 'Latest Update Deleted successfully!');
+            $filePath = $notifications->file; 
+            if (!empty($filePath) && File::exists($filePath)) {
+                File::delete($filePath);
+            }
+            $notifications->delete();
+            return redirect()->route('viewLatestUpdate')->with('alert', 'Latest Update deleted successfully!');
         } else {
             return redirect()->back()->with('error', 'Permission denied.');
         }

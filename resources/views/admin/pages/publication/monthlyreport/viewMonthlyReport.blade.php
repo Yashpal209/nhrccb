@@ -25,14 +25,15 @@
                             <h4> Monthly Report List</h4>
                         </div>
                         <div class="col-md-6 text-right">
-                           <a href="{{route('addMonthlyReport')}}"><div class="btn">
-                                Add New Monthly Report
-                            </div></a> 
+                            <a href="{{ route('addMonthlyReport') }}">
+                                <div class="btn">Add New Monthly Report</div>
+                            </a> 
                         </div>
                     </div>
                 </div>
                 <div class="tab-inn">
                     <div class="table-responsive table-desi">
+                        @if($monthlyreport->count() > 0)
                         <table class="table table-hover">
                             <thead>
                                 <tr>
@@ -45,25 +46,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($monthlyreport as $monthlyreport)
+                                @foreach($monthlyreport as $report)
                                 <tr>
-                                    <td>{{$no++}}</td>
-                                    <td>{{$monthlyreport->title}}</td>
-                                    <td>{{$monthlyreport->date}}</td>
-                                    <td>{{$monthlyreport->report}}</td>                                  
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $report->title }}</td>
+                                    <td>{{ $report->date }}</td>
+                                    <td>{{ $report->report }}</td>                                  
                                     <td>
-                                       <a href="{{url($monthlyreport->report)}}"><span class="label label-success">View</span></a> 
+                                        <a href="{{ url($report->report) }}" target="_blank">
+                                            <span class="label label-success">View</span>
+                                        </a> 
                                     </td>
-                                    <td><a href="{{route('MonthlyReport.delete', $monthlyreport->id)}}" class="ad-st-view">Delete</a></td>
-                                   
+                                    <td>
+                                        <a href="{{ route('MonthlyReport.delete', $report->id) }}" class="ad-st-view">Delete</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+
+                        <!-- Pagination Links -->
+                        <div class="mt-4">
+                            {{ $monthlyreport->links() }}
+                        </div>
+
+                        @else
+                        <div class="text-center p-4">
+                            <h5>No Monthly Reports Found</h5>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

@@ -11,43 +11,56 @@
     </section>
 
     <!--SECTION START-->
+   
     <section>
-        <div class="ed-res-bg">
-            <div class="container ">
+        <div class="ed-res-bg py-3">
+            <div class="container">
                 <div class="row">
                     @if ($elecmedia->count() > 0)
-                        @foreach ($elecmedia as $media)
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <img src="{{ url('/') . '/' . $media->elec_med_img }}" width="100%">
+                        @foreach ($elecmedia as $index => $media)
+                            <div class="row w-100 text-center py-3">
+                                @if($index % 2 == 0)
+                                    <!-- Image Left, Text Right -->
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img class="img-fluid" style="width:70%;border-radius: 10px;" src="{{ url('/') . '/' . $media->elec_med_img }}" alt="">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6  text-center  ">
-                                <div class="card" style="height:97%;background: #dfe2e9;">
-                                    <div class="card-body  align-content-center">
-                                        <h4><u>{{ $media->title }}</u></h4>
-                                        <p class="mt-2">{{ $media->contant }}</hp>
+                                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                                        <h2><u>{{ $media->title }}</u></h2>
+                                        <p>{{ $media->contant }}</p>
+                                        @if(!empty($media->link))
+                                            <a href="{{ $media->link }}" class="btn btn-sm btn-info">Read more</a>
+                                        @endif
                                     </div>
-                                </div>
-
+                                @else
+                                    <!-- Text Left, Image Right -->
+                                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+                                        <h2><u>{{ $media->title }}</u></h2>
+                                        <p>{{ $media->contant }}</p>
+                                        @if(!empty($media->link))
+                                            <a href="{{ $media->link }}" class="btn btn-sm btn-info">Read more</a>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img class="img-fluid" style="width:70%;border-radius: 10px;" src="{{ url('/') . '/' . $media->elec_med_img }}" alt="">
+                                    </div>
+                                @endif
                             </div>
                         @endforeach
-                        <!-- Pagination Links -->
-                        <div class="pagination text-center">
+    
+                        <!-- Pagination -->
+                        <div class="pagination text-center w-100">
                             {{ $elecmedia->links() }}
                         </div>
                     @else
-                        <div class="text-center">
+                        <div class="text-center w-100">
                             <h4>No Data Available</h4>
                         </div>
                     @endif
-
                 </div>
             </div>
         </div>
     </section>
+    
     <!--SECTION END-->
 
 @endsection

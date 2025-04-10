@@ -30,7 +30,7 @@ class HomeController extends Controller
         $Banner = Banner::orderBy('created_at', 'desc')->get();
         $acknowledgement = Acknowledgement::orderBy('created_at', 'desc')->limit(6)->get();
         $govtLetter = GovtLetter::orderBy('created_at', 'desc')->limit(6)->get();
-        $monthlyReport = MonthlyReport::orderBy('created_at', 'desc')->limit(3)->get();
+        $monthlyReport = MonthlyReport::orderBy('date', 'desc')->limit(3)->get();
         $PrintMedia = PrintMedia::orderBy('created_at', 'desc')->limit(6)->get();
         $VideoGallery = VideoGallery::orderBy('created_at', 'desc')->limit(1)->get();
         // return $GovtLetter;
