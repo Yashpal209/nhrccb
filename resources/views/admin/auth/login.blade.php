@@ -42,14 +42,13 @@
                     <div class="ho-ev-latest ho-ev-latest-bg-3">
                         <div class="ho-lat-ev">
                             <h4> Login (NHRCCB)</h4>
-                           
                         </div>
                     </div>
                     <div class="ho-st-login">
                         
                       
                         <div id="hom_log" class="col s12">
-                            <form action="{{ route('login') }}" method="post"  class="col s12">
+                            <form action="{{ route('login') }}" method="POST"  class="col s12">
                                 @csrf
                                 <div class="row">
                                     <div class="input-field col s12">
