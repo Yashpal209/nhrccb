@@ -32,7 +32,7 @@ class JoinUsController extends Controller
             'name' => 'required|string|max:255',
             'fathersName' => 'required|string|max:255',
             'gender' => 'required|string|max:50',
-            'dob' => 'required|date|date_format:d/m/Y',
+            'dob' => 'required|string',
             'blood_group' => 'required|string|max:11',
             'address' => 'required|string|max:500',
             'mobile' => 'required|digits:10',
