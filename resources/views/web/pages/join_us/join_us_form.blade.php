@@ -25,26 +25,26 @@
     <div class="container-fluid p-0">
         <div class="container">
             @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
-        @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
 
-        @if ($errors->any())
-            <div class="alert alert-warning">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+            @if ($errors->any())
+                <div class="alert alert-warning">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
 
         <section class="c-all h-quote">
@@ -147,7 +147,7 @@
 
 
                                                 </div>
-                                                
+
 
 
                                                 <!-- Select Level -->
@@ -280,9 +280,9 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Date of Birth:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" name="dob" id="dob" placeholder="DD/MM/YYYY"
-                                                                value="{{ old('dob') }}" class="form-control"
-                                                                required>
+                                                            <input type="text" name="dob" id="dob"
+                                                                placeholder="DD/MM/YYYY" value="{{ old('dob') }}"
+                                                                class="form-control" required>
                                                             @error('dob')
                                                                 <span class="text-danger">
                                                                     {{ $message }}
@@ -580,7 +580,8 @@
                                                 <!-- Address -->
                                                 <div class="col-md-4 col-sm-12 col-xs-12">
                                                     <div class="form-group">
-                                                        <label class="control-label col-sm-12">Address: <small>(Add pin code also)</small></label>
+                                                        <label class="control-label col-sm-12">Address: <small>(Add pin
+                                                                code also)</small></label>
                                                         <div class="col-sm-12">
                                                             <textarea type="text" rows="2" name="address" id="address" class="form-control"
                                                                 placeholder="Enter Address" value="{{ old('address') }}" oninput="this.value = this.value.toUpperCase()"
@@ -597,7 +598,10 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-sm-12">Promo Code:</label>
                                                         <div class="col-sm-12">
-                                                            <input type="text" class="form-control" name="promo_code" id="promo_code" value="{{ old('promo_code') }}" placeholder="Enter Promo Code"  oninput="this.value = this.value.toUpperCase()">
+                                                            <input type="text" class="form-control" name="promo_code"
+                                                                id="promo_code" value="{{ old('promo_code') }}"
+                                                                placeholder="Enter Promo Code"
+                                                                oninput="this.value = this.value.toUpperCase()">
                                                             @error('promo_code')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
@@ -606,8 +610,8 @@
                                                 </div>
                                             </div>
 
-                                            
-                                            
+
+
                                             <div class="row justify-content-center form_image ">
                                                 <div class="text-center mb-3">
                                                     <h2 class="my-2">Document Section</h2>
@@ -770,7 +774,8 @@
                 url: '{{ route('state.data') }}',
                 type: 'GET',
                 success: function(data) {
-                    data.forEach(function(state) {
+                    let stateData = JSON.parse(data);
+                    stateData.forEach(function(state) {
                         $("#state").append(
                             '<option value="' + state.name + '">' + state.name + '</option>'
                         );
@@ -793,11 +798,12 @@
                     state: stateName
                 },
                 success: function(data) {
+                    let divisionData = JSON.parse(data);
                     $("#division").empty();
                     $("#division").append(
                         '<option value="">--Select Division--</option>');
 
-                    data.forEach(function(division) {
+                    divisionData.forEach(function(division) {
                         $("#division").append(
                             '<option value="' + division.name + '">' + division.name + '</option>'
                         );
@@ -817,11 +823,12 @@
                     division: divisionName
                 },
                 success: function(data) {
+                    let districtData = JSON.parse(data);
                     $("#district").empty();
                     $("#district").append(
                         '<option value="">--Select District--</option>');
 
-                    data.forEach(function(district) {
+                    districtData.forEach(function(district) {
                         $("#district").append(
                             '<option value="' + district.name + '">' + district.name + '</option>'
                         );
